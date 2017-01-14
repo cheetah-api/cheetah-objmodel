@@ -1,0 +1,30 @@
+// @file
+// @brief Specifies the API version number
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package access_point;
+
+// @addtogroup APVersion
+// @ingroup System
+// @{
+// Version Major.Minor.Subversion define the API's version.
+
+// Access Point API version.
+// This is used in the Global init message exchange to handshake client/server
+// Version numbers.
+enum APVersion {
+    option allow_alias = true;
+    AP_VERSION_UNUSED = 0;
+    AP_MAJOR_VERSION = 0;
+    AP_MINOR_VERSION = 0;
+    AP_SUB_VERSION = 1;
+}
+
+// @}

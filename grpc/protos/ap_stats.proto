@@ -1,0 +1,390 @@
+// @file
+// @brief Statistics RPC proto file.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2017 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package access_point;
+
+import "ap_common_types.proto";
+
+// @defgroup APStatistics
+// @ingroup System
+// Access Point Statistics.
+// @{
+service APStatistics {
+    //@addtogroup APStatistics
+    //@{
+    // Various RPC calls to get statistics for system, wlan, radio, etc
+    ///;
+
+    // Get system level statistics
+    rpc APSystemStatsGet(APStatsGetMsg) returns (APSystemStatsMsgRsp);
+
+    // Get memory statistics
+    rpc APMemoryStatsGet(APStatsGetMsg) returns (APMemoryStatsMsgRsp);
+
+    // Get DNS servers
+    rpc APDNSStatsGet(APStatsGetMsg) returns (APDNSServersMsgRsp);
+
+    // Get routes
+    rpc APRoutesStatsGet(APStatsGetMsg) returns (APRoutesMsgRsp);
+
+    // Get radio statistics
+    rpc APRadioStatsGet(APStatsGetMsg) returns (APRadioStatsMsgRsp);
+
+    // Get WLAN statistics
+    rpc APWLANStatsGet(APStatsGetMsg) returns (APWLANStatsMsgRsp);
+
+    // Get Client statistics
+    rpc APClientStatsGet(APStatsGetMsg) returns (APClientStatsMsgRsp);
+
+    // Get Interface statistics
+    rpc APInterfaceStatsGet(APStatsGetMsg) returns (APInterfaceStatsMsgRsp);
+
+    //@}
+}
+
+// Request message for statistics
+message APStatsGetMsg {
+}
+
+// System Statistics
+message APSystemStatsMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // AP MAC Address: "5c-5b-35-0e-02-1c"
+    string ID = 2;
+
+    // Uptime since Linux boot, in seconds
+    uint32 Uptime = 3;
+
+    // When these statistics were gathered
+    // Absolute time: "2016-07-15T16:18:39.335026717Z"
+    string When = 4;
+}
+
+// Data from /proc/meminfo
+message MemInfo {
+
+    // Total RAM available to Linux in KB
+    uint32 Total_kB = 1;
+
+    // Free + Buffers + Cached in KB (approximate)
+    uint32 Available_kB = 2;
+}
+
+// Data from /proc/slabinfo
+message SlabInfo {
+
+    // Slab's name
+    string Name = 1;
+
+    // Slab's active_objs
+    int32 ActiveObjs = 2;
+
+    // Slab's num_objs
+    int32 NumObjs = 3;
+
+    // Slab's objsize
+    int32 ObjSize = 4;
+}
+
+// Memory Statistics
+message APMemoryStatsMsgRsp {
+ 
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Data from /proc/meminfo
+    MemInfo ProcMemInfo = 2;
+
+    // Top entry from /proc/slabinfo
+    SlabInfo TopProcSlabInfo = 3;
+}
+
+// Entries from /etc/resolv.conf
+message APDNSServersMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Server's IP address
+    repeated string IP = 2;
+}
+
+// IPv4 route entry
+message IPv4Route {
+    // In the case of the default gateway the Destination is 0.0.0.0/0
+    string Destination = 1;
+
+    // In the case of local subnets the Gateway is empty
+    string Gateway = 2;
+
+    // Mask
+    string Mask = 3;
+}
+
+// Network routes
+message APRoutesMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    repeated IPv4Route IPv4Routes = 2;
+}
+
+// Multicast Counter entry
+message MulticastCounter {
+    // Both multicast & broadcast
+    uint32 TxMcastPkts = 1;
+
+    // Both multicast & broadcast
+    uint64 TxMcastBytes = 2;
+}
+
+// WLAN header
+message WLAN {
+
+    // id of wlan the client is associated with
+    // (unambiguous; for computers)
+    string ID = 1;
+
+    // SSID of wlan the client is associated with
+    // (ambiguous; for humans)
+    string SSID = 2;
+}
+
+// WLAN statistics
+message APWLANStatsMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // wlan info
+    WLAN Wlan = 2;
+
+    // index into the RadioStats array of the radio this WLAN is using
+    uint32 RadioIndex = 3;
+
+    // BSSID of this WLAN on that radio
+    string BSSID = 4;
+
+    // name of net_device ("wl0.1")
+    string Dev = 5;
+
+    // number of associated clients on this WLAN on this radio
+    int32 NumClients = 6;
+
+    // Counters
+    MulticastCounter Counter = 7;
+}
+
+// Radio utilization
+message RadioUtilization {
+    // channel utilization for any reason (wifi or non-wifi)
+    // expressed as a percentage between 0 - 1.0
+    float All = 1;
+
+    // channel utilization for transmit by this radio
+    // (implicitly InBSS). 0 - 1.0
+    float Tx = 2;
+
+    // channel utilization for receive by this radio of packets
+    // destined for this radio. 0 - 1.0
+    float RxInBSS = 3;
+
+    // channel utilization or receive by this radio of packets
+    // destined for other radios. 0 - 1.0
+    float RxOtherBSS = 4;
+
+    // channel utilization for wifi packets of unknown type
+    // (none of the 3 preceding). 0 - 1.0
+    float UnknownWifi = 5;
+
+    // channel utilization for non-wifi data. 0 - 1.0
+    float NonWifi = 6;
+}
+
+// Radio counters
+message RadioCounters {
+    // total bytes, including TxMcastBytes
+    uint64 TxBytes = 1;
+
+    // total packets, including TxMcastPkts
+    uint32 TxPkts = 2;
+
+    // management frames
+    uint32 TxMgmt = 3;
+
+    // total tx errors
+    uint32 TxErrors = 4;
+
+    // total bytes, including RxMcastBytes
+    uint64 RxBytes = 5;
+
+    // total packets, including RxMcastPkts
+    uint32 RxPkts = 6;
+
+    // management frames
+    uint32 RxMgmt = 7;
+
+    // total tx errors
+    uint32 RxErrors = 8;
+}
+
+// Radio entry
+message RadioEntry {
+
+    // device name ("apr0")
+    string Dev = 1;
+
+    // the radio band - "2.4" or "5"
+    string Band = 2;
+
+    // Wifi channel number
+    uint32 Channel = 3;
+
+    // 0 usually, secondary Wifi channel number in 2.4Ghz
+    // or 80+80 second channel block
+    uint32 SecondaryChannel = 4;
+
+    // 20Mhz, 40Mhz, ...
+    uint32 Bandwidth = 5;
+
+    // measured by the radio in dBmW
+    uint32 NoiseFloor = 6;
+
+    // maximum Transmit power dBmW
+    uint32 MaxTxPower = 7;
+
+    // Radio utilization
+    RadioUtilization Utilization = 8;
+
+    // Radio counters
+    RadioCounters Counter = 9;
+}
+
+// AP Radio Statistics
+message APRadioStatsMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Radio entries
+    repeated RadioEntry Radios = 2;
+}
+
+// Client entry
+message APClientEntry {
+    // These first 3 fields form a triplet which uniquely determines
+    // this APClientEntry on this AP
+
+    // The client's MAC address
+    string MAC = 2;
+
+    // index into the RadioStats array of the radio the client is
+    // associated with
+    uint32 RadioIndex = 3;
+
+    // wifi band (2.4, 5) the client is associated on
+    string Band = 4;
+
+    // BSSID with which the client is associated
+    string BSSID = 5;
+
+    // WLAN information
+    WLAN Wlan = 6;
+
+    // note this is in seconds, while the inactive time is in millisec
+    uint32 ConnectedTimeSec = 7;
+
+    // time since the last transmission from the client
+    uint32 InactiveTimeMilliSec = 8;
+
+    // of last data transmission from the client
+    // (averaged from PerAntennaRSSI)
+    int32 RSSI = 9;
+
+    // raw RSSIs
+    repeated int32 AntennaRSSI = 10;
+
+    // averaged over some number of transmissions,
+    // an average of APClientEntry.RSSI
+    int32 AvgRSSI = 11;
+
+    // rate used by last successfull (acked) tx
+    int32 TxBitRate = 12;
+
+    // bytes sent directly to the WC
+    // (including the results of mc->uc conversions)
+    uint64 TxUnicastBytes = 13;
+
+    // pkts sent directly to the WC
+    // (including the results of mc->uc conversions)
+    uint32 TxUnicastPkts = 14;
+
+    // total bytes, including RxMcastBytes
+    uint64 RxBytes = 15;
+
+    // total packets, including RxMcastPkts
+    uint32 RxPkts = 16;
+}
+
+// AP Client statistics
+message APClientStatsMsgRsp {
+
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Client entries
+    repeated APClientEntry Clients = 2;
+}
+
+// Interface entry
+message APInterfaceEntry {
+    // name of interface (eth0)
+    string Name = 1;
+
+    // whether the PHY has link
+    bool Link = 2;
+
+    // full duplex
+    bool FullDuplex = 3;
+
+    // link speed in units of Mbps (10, 100, 1000, 2500)
+    uint32  Speed = 4;
+
+    // RX bytes
+    uint64  RxBytes = 5;
+
+    // RX pkts
+    uint32  RxPkts = 6;
+
+    // RX pkts discarded by forwarding rules, rate limits, ACLs, etc...
+    uint32  RxDiscards = 7;
+
+    // TX bytes
+    uint64  TxBytes = 8;
+
+    // TX packets
+    uint32  TxPkts = 9;
+}
+
+// AP Interface statistics
+message APInterfaceStatsMsgRsp {
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Interface entries
+    repeated APInterfaceEntry Interfaces = 2;
+}
+
+// @}
