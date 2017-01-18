@@ -39,6 +39,36 @@ def print_memory_stats(response):
         return False
     return True
 
+# Print DNS Stats
+def print_dns_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_dns_stats(response)
+    else:
+        print "DNS stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Print Route Stats
+def print_route_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_route_stats(response)
+    else:
+        print "Route stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Print Interface Stats
+def print_interface_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_interface_stats(response)
+    else:
+        print "Interface stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
 # Print Received Globals
 def print_globals(response):
     if (response.ErrStatus.Status ==
@@ -174,6 +204,25 @@ class TestSuite_001_Statistics(ClientTestCase):
         response = ClientTestCase.client.memory_stats_get()
         err = print_memory_stats(response)
         self.assertTrue(err)
+
+    def test_003_get_dns_stats(self):
+        # Get DNS stats
+        response = ClientTestCase.client.dns_stats_get()
+        err = print_dns_stats(response)
+        self.assertTrue(err)
+
+    def test_004_get_route_stats(self):
+        # Get Route stats
+        response = ClientTestCase.client.routes_stats_get()
+        err = print_route_stats(response)
+        self.assertTrue(err)
+
+    def test_005_get_interface_stats(self):
+        # Get Interface stats
+        response = ClientTestCase.client.interface_stats_get()
+        err = print_interface_stats(response)
+        self.assertTrue(err)
+
 
 if __name__ == '__main__':
     unittest.main()

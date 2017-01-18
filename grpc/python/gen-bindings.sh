@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2016 by Cisco Systems, Inc.
+# Copyright (c) 2017 by Cisco Systems, Inc.
 # All rights reserved.
 #
 printf "Generating Python bindings..."

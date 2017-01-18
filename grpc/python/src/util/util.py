@@ -54,6 +54,48 @@ def print_memory_stats(response):
     print "Number of objects : %d" %(response.TopProcSlabInfo.NumObjs)
     print
 
+# Print DNS Stats
+def print_dns_stats(response):
+    print "----DNS statistics----"
+    for ip in response.IP:
+        print "DNS Server     : %s" %(ip)
+    print
+
+# Print Route Stats
+def print_route_stats(response):
+    print "----Route statistics----"
+    for route in response.IPv4Routes:
+        print "Destination : %s" %(route.Destination)
+        print "Gateway     : %s" %(route.Gateway)
+        print "Mask        : %s" %(route.Genmask)
+        print "Flags       : %s" %(route.Flags)
+        print "Metric      : %d" %(route.Metric)
+        print "Ref         : %d" %(route.Ref)
+        print "Use         : %d" %(route.Use)
+        print "Interface   : %s" %(route.Iface)
+        print
+
+# Print Interface Stats
+def print_interface_stats(resp):
+    print "----Interface statistics----"
+    for interface in resp.Interfaces:
+        print "Name        : %s" %(interface.Name)
+        print "Link        : %s" %(interface.Link)
+        print "Full Duplex : %s" %(interface.FullDuplex)
+        print "Speed       : %d" %(interface.Speed)
+        print "RxBytes     : %d" %(interface.RxBytes)
+        print "RxPkts      : %d" %(interface.RxPkts)
+        print "RxDiscards  : %d" %(interface.RxDiscards)
+        print "TxBytes     : %d" %(interface.TxBytes)
+        print "TxPkts      : %d" %(interface.TxPkts)
+        print
+
+
+#
+#============================================
+# main
+#============================================
+#
 if __name__ == '__main__':
     server_ip, server_port = get_server_ip_port()
     print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)

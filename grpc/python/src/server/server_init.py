@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2017 by Cisco Systems, Inc.
 # All rights reserved.
 #
 
@@ -9,6 +9,7 @@ import sys
 import threading
 import grpc
 import time
+import subprocess
 
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -42,7 +43,7 @@ PROC_RADIO_INFO = '/proc/aptrace/sysinfo/radios'
 PROC_WIRED_INFO = '/proc/aptrace/sysinfo/wired'
 CLIENT_IP_TABLE = '/click/client_ip_table/list'
 
-# 
+#
 # Access Point Global functions
 #
 class APGlobal ():
@@ -53,7 +54,7 @@ class APGlobal ():
 
     init_resp=ap_global_pb2.APGlobalNotif()
     init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_VERSION
-    init_resp.ErrStatus.Status=0
+    init_resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
     for i in range(100):
         yield(init_resp)
@@ -65,14 +66,14 @@ class APGlobal ():
     print "Received GlobalsGet response"
 
     get_resp=ap_global_pb2.APGlobalsGetMsgRsp()
-    get_resp.ErrStatus.Status=0
+    get_resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
     get_resp.MaxRadioNameLength=16
     get_resp.MaxSsidNameLength=16
 
     return (get_resp)
 
 
-# 
+#
 # Access Point Statistics
 #
 def get_meminfo(meminfo):
@@ -121,8 +122,31 @@ def get_slabinfo(slabinfo):
         print str(e)
 
 
+def get_wired_info(resp):
+    try:
+        f = open(PROC_WIRED_INFO, 'r')
+        for line in f:
+            if ("Link status") in line and ("up") in line:
+                resp.Link = "true"
+            if ("duplex") in line and ("full") in line:
+                resp.FullDuplex = "true"
+            if ("speed") in line:
+                resp.Speed = line.split(":")[1].strip()
+        f.close()
+
+    except Exception as e:
+        print str(e)
+
+#
+#==============================================
+# APStatistics service implementation
+#==============================================
+#
 class APStatistics ():
 
+#
+# APSystemsStatsGet
+#
   def APSystemStatsGet(self, request, context):
     print "Received system stats get request"
 
@@ -150,15 +174,18 @@ class APStatistics ():
         resp.Uptime = 10000
 
     resp.When = str(datetime.now())
-    resp.ErrStatus.Status=0
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
     return (resp)
 
+#
+# APMemoryStatsGet
+#
   def APMemoryStatsGet(self, request, context):
     print "Received memory stats get request"
 
     resp=ap_stats_pb2.APMemoryStatsMsgRsp()
-    resp.ErrStatus.Status=0
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
     # MemInfo
     get_meminfo(resp.ProcMemInfo)
@@ -168,24 +195,126 @@ class APStatistics ():
 
     return (resp)
 
+#
+# APDNSStatsGet
+#
   def APDNSStatsGet(self, request, context):
-    pass
+    print "Received DNS stats get request"
 
+    resp=ap_stats_pb2.APDNSServersMsgRsp()
+
+    try:
+        f = open(ETC_RESOLV_CONF, 'r')
+        for line in f:
+            if line.startswith('nameserver'):
+                resp.IP.append(line.split()[1])
+        f.close()
+        resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+
+    except Exception as e:
+        resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
+
+    return (resp)
+
+#
+# APRoutesStatsGet
+#
   def APRoutesStatsGet(self, request, context):
-    pass
+    print "Received Route stats get request"
 
+    resp=ap_stats_pb2.APRoutesMsgRsp()
+
+    table = subprocess.Popen('route', shell=True,
+                             stdout=subprocess.PIPE).stdout.read()
+    lines = table.split('\n')
+    for line in lines:
+        if line.strip() == '':
+            continue
+        if line.startswith('Kernel'):
+            continue
+        if line.startswith('Destination'):
+            keys = line.split()
+            continue
+        values = line.split()
+
+        ipv4_route=resp.IPv4Routes.add()
+        ipv4_route.Destination = values[keys.index('Destination')]
+        ipv4_route.Gateway = values[keys.index('Gateway')]
+        ipv4_route.Genmask = values[keys.index('Genmask')]
+        ipv4_route.Flags = values[keys.index('Flags')]
+        ipv4_route.Metric = int(values[keys.index('Metric')])
+        ipv4_route.Ref = int(values[keys.index('Ref')])
+        ipv4_route.Use = int(values[keys.index('Use')])
+        ipv4_route.Iface = values[keys.index('Iface')]
+
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+
+    return (resp)
+
+
+#
+# APRadioStatsGet
+#
   def APRadioStatsGet(self, request, context):
     pass
 
+#
+# APWLANStatsGet
+#
   def APWLANStatsGet(self, request, context):
     pass
 
+#
+# APClientStatsGet
+#
   def APClientStatsGet(self, request, context):
     pass
 
-  def APInterfaceStatsGet(self, request, context):
-    pass
 
+#
+# APInterfaceStatsGet
+#
+  def APInterfaceStatsGet(self, request, context):
+    print "Received Interface stats get request"
+
+    resp = ap_stats_pb2.APInterfaceStatsMsgRsp()
+
+    interface=resp.Interfaces.add()
+    ifname = "ens33"
+    module = subprocess.Popen('ifconfig ' + ifname, shell=True,
+                              stdout=subprocess.PIPE).stdout.read()
+
+    if module.strip() != '':
+        interface.Name = module.split()[0]
+
+        get_wired_info(interface)
+
+        head, sep, tail = module.partition("RX bytes:")
+        interface.RxBytes = int(tail.split()[0])
+
+        head, sep, tail = module.partition("RX packets:")
+        interface.RxPkts = int(tail.split()[0])
+
+        interface.RxDiscards = int(tail.split("dropped:")[1].split()[0])
+
+        head, sep, tail = module.partition("TX bytes:")
+        interface.TxBytes = int(tail.split()[0])
+
+        head, sep, tail = module.partition("TX packets:")
+        interface.TxPkts = int(tail.split()[0])
+
+    return (resp)
+
+    
+
+## End class 
+
+#
+#==============================================
+# main
+#==============================================
+#
 if __name__ == '__main__':
   from util import util
   server_ip, server_port = util.get_server_ip_port()

@@ -36,6 +36,18 @@ class AbstractClient(object):
     def memory_stats_get(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def dns_stats_get(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def routes_stats_get(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def interface_stats_get(self, *args, **kwargs):
+        pass
+
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 20
 
@@ -83,5 +95,26 @@ class GrpcClient(AbstractClient):
         """Memory Stats Get"""
         serializer = serializers.get_stats_serializer()
         response = self._stubs[1].APMemoryStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def dns_stats_get(self):
+        """DNS Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APDNSStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def routes_stats_get(self):
+        """Route Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APRoutesStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def interface_stats_get(self):
+        """Interface Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APInterfaceStatsGet(serializer,
             self.TIMEOUT_SECONDS)
         return response

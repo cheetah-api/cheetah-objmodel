@@ -128,8 +128,23 @@ message IPv4Route {
     // In the case of local subnets the Gateway is empty
     string Gateway = 2;
 
-    // Mask
-    string Mask = 3;
+    // The netmask for the destinate network
+    string Genmask = 3;
+
+    // Flags
+    string Flags = 4;
+
+    // The distance to the target
+    uint32 Metric = 5;
+
+    // Number of references to this route
+    uint32 Ref = 6;
+
+    // Count of lookups for the route
+    uint32 Use = 7;
+
+    // Interface to which packets for this route will be sent
+    string Iface = 8;
 }
 
 // Network routes
