@@ -5,7 +5,6 @@
 
 # Standard python libs
 import os
-import ipaddress
 
 #
 # Get the GRPC Server IP address and port number
