@@ -80,10 +80,10 @@ proto files they were generated from (example: ap_global_init.py).
 
 In order to follow this quick tutorial, it is best to open the files in `grpc/python/src/tutorial/`
 
-    | Script | Description |
-    | ------ | ----------- |
-    | quickstart.py  | The full tutorial example |
-    | client_init.py | Used to setup the client-server connection |
+|Script | Description|
+|:----: | :---------:|
+|quickstart.py  | The full tutorial example|
+|client_init.py | Used to setup the client-server connection|
 
 As shown in quickstart.py, the first thing to do is to setup the GRPC channel:
 
