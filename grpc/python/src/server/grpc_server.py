@@ -316,8 +316,8 @@ class APStatistics ():
 #==============================================
 #
 if __name__ == '__main__':
-  from util import util
-  server_ip, server_port = util.get_server_ip_port()
+  import server_util
+  server_ip, server_port = server_util.get_server_ip_port()
 
   print "Starting GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
 
