@@ -281,7 +281,7 @@ class APStatistics ():
     resp = ap_stats_pb2.APInterfaceStatsMsgRsp()
 
     interface=resp.Interfaces.add()
-    ifname = "ens33"
+    ifname = "wired0"
     module = subprocess.Popen('ifconfig ' + ifname, shell=True,
                               stdout=subprocess.PIPE).stdout.read()
 
@@ -308,7 +308,7 @@ class APStatistics ():
 
     
 
-## End class 
+## End class
 
 #
 #==============================================
