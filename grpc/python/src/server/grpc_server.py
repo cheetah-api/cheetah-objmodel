@@ -9,7 +9,7 @@ import sys
 import threading
 import grpc
 import time
-import subprocess
+import subprocess, re
 
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -137,6 +137,20 @@ def get_wired_info(resp):
     except Exception as e:
         print str(e)
 
+def get_interface_stats(interface, module):
+    head, sep, tail = module.partition("RX bytes:")
+    interface.RxBytes = int(tail.split()[0])
+
+    head, sep, tail = module.partition("RX packets:")
+    interface.RxPkts = int(tail.split()[0])
+
+    interface.RxDiscards = int(tail.split("dropped:")[1].split()[0])
+
+    head, sep, tail = module.partition("TX bytes:")
+    interface.TxBytes = int(tail.split()[0])
+
+    head, sep, tail = module.partition("TX packets:")
+
 #
 #==============================================
 # APStatistics service implementation
@@ -257,19 +271,87 @@ class APStatistics ():
 # APRadioStatsGet
 #
   def APRadioStatsGet(self, request, context):
-    pass
+    print "Received Radio stats get request"
+
+    import server_util
+
+    resp = ap_stats_pb2.APRadioStatsMsgRsp()
+    record_count = 0
+
+    #try:
+        #f = open(PROC_RADIO_INFO, 'r')
+        #for line in f:
+            ## skip empty lines
+            #if line.strip() == '':
+                #continue
+#
+        #f.close()
+    #except Exception as e:
+        #print str(e)
+
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+    return (resp)
+
+
 
 #
 # APWLANStatsGet
 #
   def APWLANStatsGet(self, request, context):
-    pass
+    print "Received WLAN stats get request"
+
+    import server_util
+
+    resp = ap_stats_pb2.APWLANStatsMsgRsp()
+
+    for i in range(0, MAX_RADIO):
+        handler = "wcp/RadDrv" + str(i) + ".vaps"
+        wcp_data = server_util.get_wcp_data(handler)
+        if wcp_data is None:
+            continue
+        mylist = re.split("\n", wcp_data)
+        for line in mylist[1:]:
+            if (line == ''):
+                continue
+
+            values = line.split()
+
+            wlan_entry = resp.WLANEntries.add()
+            wlan.WLAN.ID = socket.gethostname()
+            wlan.WLAN.SSID = values[3]
+            wlan.RadioIndex = values[0]
+            wlan.BSSID = values[2]
+            wlan.Dev = "apr" + str(i) + "v" + str(values[1])
+            wlan.NumClients = server_util.get_client_count_per_ssid(wlan.Dev)
+            server_util.get_mcast_pkts(i, wlan.Dev, wlan.MulticastCounter)
+
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+
+    return (resp)
+
 
 #
 # APClientStatsGet
 #
   def APClientStatsGet(self, request, context):
-    pass
+    print "Received Client stats get request"
+
+    resp=ap_stats_pb2.APClientStatsMsgRsp()
+
+    #try:
+        #f = open(PROC_CLIENT_INFO, 'r')
+        #for line in f:
+            #if line.startswith('client num:'):
+                #resp.Clients.append(line.split()[1])
+        #f.close()
+        #resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+
+    #except Exception as e:
+        #resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        #print str(e)
+
+    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+    return (resp)
 
 
 #
@@ -284,29 +366,14 @@ class APStatistics ():
     ifname = "wired0"
     module = subprocess.Popen('ifconfig ' + ifname, shell=True,
                               stdout=subprocess.PIPE).stdout.read()
-
     if module.strip() != '':
         interface.Name = module.split()[0]
 
         get_wired_info(interface)
+        get_interface_stats(interface, module)
 
-        head, sep, tail = module.partition("RX bytes:")
-        interface.RxBytes = int(tail.split()[0])
-
-        head, sep, tail = module.partition("RX packets:")
-        interface.RxPkts = int(tail.split()[0])
-
-        interface.RxDiscards = int(tail.split("dropped:")[1].split()[0])
-
-        head, sep, tail = module.partition("TX bytes:")
-        interface.TxBytes = int(tail.split()[0])
-
-        head, sep, tail = module.partition("TX packets:")
-        interface.TxPkts = int(tail.split()[0])
 
     return (resp)
-
-    
 
 ## End class
 

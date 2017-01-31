@@ -4,7 +4,6 @@
 #
 
 # Standard python libs
-import ipaddress
 import os
 import sys
 
@@ -28,7 +27,7 @@ if __name__ == '__main__':
     from util import util
     server_ip, server_port = util.get_server_ip_port()
 
-    print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
+    print "Using GRPC Server: IP(%s) Port(%s)" %(server_ip, server_port)
 
     # Create the channel for gRPC.
     channel = implementations.insecure_channel(server_ip, server_port)

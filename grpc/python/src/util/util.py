@@ -89,6 +89,31 @@ def print_interface_stats(resp):
         print "TxPkts      : %d" %(interface.TxPkts)
         print
 
+# Print WLAN Stats
+def print_wlan_stats(resp):
+    print "----WLAN statistics----"
+    for wlan in resp.WLANEntries:
+        print "WLAN ID        : %s" %(wlan.WLAN.ID)
+        print "-----------------------"
+        print " SSID          : %s" %(wlan.WLAN.SSID)
+        print " Dev           : %s" %(wlan.Dev)
+        print " BSSID         : %s" %(wlan.BSSID)
+        print " RadioIndex    : %s" %(wlan.RadioIndex)
+        print " Num Clients   : %d" %(wlan.NumClients)
+
+# Print Client Stats
+def print_client_stats(resp):
+    print "----Client statistics----"
+    for client in resp.Clients:
+        print "MAC             : %s" %(client.MAC)
+
+# Print Radio Stats
+def print_radio_stats(resp):
+    print "----Radio statistics----"
+    for radio in resp.Radios:
+        print "Device             : %s" %(radio.Dev)
+        print "Band               : %s" %(radio.Band)
+        print "Channel            : %d" %(radio.Channel)
 
 #
 #============================================
@@ -97,5 +122,5 @@ def print_interface_stats(resp):
 #
 if __name__ == '__main__':
     server_ip, server_port = get_server_ip_port()
-    print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
+    print "Using GRPC Server: IP(%s) Port(%s)" %(server_ip, server_port)
     

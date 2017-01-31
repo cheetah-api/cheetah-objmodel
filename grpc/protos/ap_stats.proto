@@ -177,29 +177,36 @@ message WLAN {
     string SSID = 2;
 }
 
+// WLAN Entry
+message WLANEntry {
+
+    // wlan info
+    WLAN Wlan = 1;
+
+    // index into the RadioStats array of the radio this WLAN is using
+    uint32 RadioIndex = 2;
+
+    // BSSID of this WLAN on that radio
+    string BSSID = 3;
+
+    // name of net_device ("apr0v0")
+    string Dev = 4;
+
+    // number of associated clients on this WLAN on this radio
+    int32 NumClients = 5;
+
+    // Counters
+    MulticastCounter Counter = 6;
+}
+
 // WLAN statistics
 message APWLANStatsMsgRsp {
 
     // Corresponding error code
     APErrorStatus ErrStatus = 1;
 
-    // wlan info
-    WLAN Wlan = 2;
-
-    // index into the RadioStats array of the radio this WLAN is using
-    uint32 RadioIndex = 3;
-
-    // BSSID of this WLAN on that radio
-    string BSSID = 4;
-
-    // name of net_device ("wl0.1")
-    string Dev = 5;
-
-    // number of associated clients on this WLAN on this radio
-    int32 NumClients = 6;
-
-    // Counters
-    MulticastCounter Counter = 7;
+    // WLAN Entries
+    repeated WLANEntry WLANEntries = 2;
 }
 
 // Radio utilization

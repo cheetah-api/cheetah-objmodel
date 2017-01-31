@@ -3,7 +3,6 @@
 # All rights reserved.
 #
 import abc
-import ipaddress
 
 import serializers
 from genpy import ap_common_types_pb2
@@ -46,6 +45,18 @@ class AbstractClient(object):
 
     @abc.abstractmethod
     def interface_stats_get(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def wlan_stats_get(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def client_stats_get(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def radio_stats_get(self, *args, **kwargs):
         pass
 
 class GrpcClient(AbstractClient):
@@ -116,5 +127,27 @@ class GrpcClient(AbstractClient):
         """Interface Stats Get"""
         serializer = serializers.get_stats_serializer()
         response = self._stubs[1].APInterfaceStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def client_stats_get(self):
+        """Client Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APClientStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+
+    def radio_stats_get(self):
+        """Radio Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APRadioStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def wlan_stats_get(self):
+        """WLAN Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APWLANStatsGet(serializer,
             self.TIMEOUT_SECONDS)
         return response

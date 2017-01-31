@@ -5,10 +5,9 @@
 import json
 import os
 import sys
-import unittest
-import ipaddress
 import threading
 import time
+import unittest
 
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -66,6 +65,36 @@ def print_interface_stats(response):
         util.print_interface_stats(response)
     else:
         print "Interface stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Print Client Stats
+def print_client_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_client_stats(response)
+    else:
+        print "Client stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Print Radio Stats
+def print_radio_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_radio_stats(response)
+    else:
+        print "Radio stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Print WLAN Stats
+def print_wlan_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_wlan_stats(response)
+    else:
+        print "WLAN stats response error 0x%x" %(response.ErrStatus.Status)
         return False
     return True
 
@@ -221,6 +250,24 @@ class TestSuite_001_Statistics(ClientTestCase):
         # Get Interface stats
         response = ClientTestCase.client.interface_stats_get()
         err = print_interface_stats(response)
+        self.assertTrue(err)
+
+    def test_006_get_wlan_stats(self):
+        # Get WLAN stats
+        response = ClientTestCase.client.wlan_stats_get()
+        err = print_wlan_stats(response)
+        self.assertTrue(err)
+
+    def test_007_get_client_stats(self):
+        # Get Client stats
+        response = ClientTestCase.client.client_stats_get()
+        err = print_client_stats(response)
+        self.assertTrue(err)
+
+    def test_008_get_radio_stats(self):
+        # Get Radio stats
+        response = ClientTestCase.client.radio_stats_get()
+        err = print_radio_stats(response)
         self.assertTrue(err)
 
 

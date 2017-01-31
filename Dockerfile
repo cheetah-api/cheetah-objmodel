@@ -9,7 +9,6 @@ RUN opkg install python-pip
 RUN pip install protobuf
 RUN pip install grpcio
 
-RUN git clone ssh://dkourkou@cheetah-build:29418/cheetah-objmodel
 COPY cheetah-objmodel/grpc/ /opt/grpc/
 
 CMD python /opt/grpc/python/src/tutorial/quickstart.py
