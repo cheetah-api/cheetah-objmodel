@@ -95,11 +95,14 @@ def print_wlan_stats(resp):
     for wlan in resp.WLANEntries:
         print "WLAN ID        : %s" %(wlan.WLAN.ID)
         print "-----------------------"
-        print " SSID          : %s" %(wlan.WLAN.SSID)
-        print " Dev           : %s" %(wlan.Dev)
-        print " BSSID         : %s" %(wlan.BSSID)
-        print " RadioIndex    : %s" %(wlan.RadioIndex)
-        print " Num Clients   : %d" %(wlan.NumClients)
+        print " SSID           : %s" %(wlan.WLAN.SSID)
+        print " Dev            : %s" %(wlan.Dev)
+        print " BSSID          : %s" %(wlan.BSSID)
+        print " RadioIndex     : %s" %(wlan.RadioIndex)
+        print " Num Clients    : %d" %(wlan.NumClients)
+        print " Mcast TX Pkts  : %d" %(wlan.Counter.TxMcastPkts)
+        print " Mcast TX Bytes : %d" %(wlan.Counter.TxMcastBytes)
+        print
 
 # Print Client Stats
 def print_client_stats(resp):

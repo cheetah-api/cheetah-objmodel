@@ -6,36 +6,34 @@
 # Standard python libs
 import os
 import socket
+import subprocess
+import re
+
+CLIENT_IP_TABLE = '/click/client_ip_table/list'
 
 # Name of interface on the access point
-WIRED_INTERFACE='lo'
+WIRED_INTERFACE='wired0'
 
-# 
+#
 # GRPC IP address of interface
 #
 def get_ip_address(ifname):
     try:
         f = os.popen('ifconfig ' +  ifname  + ' | ' +
                      'grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
+        return f.read()
     except Exception as e:
         print str(e)
+        return None
 
-# 
+#
 # Get the GRPC Server IP address and port number
 #
 def get_server_ip_port():
 
     # Set GRPC Server's IP in the environment
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        s.connect(("8.8.8.8", 80))
-        ip_addr = s.getsockname()[0]
-    except Exception as e:
-        print str(e)
-        ip_addr = get_ip_address('lo')
-	
-        
-    os.environ['SERVER_IP'] = ip_addr
+    os.environ['SERVER_IP'] = get_ip_address(WIRED_INTERFACE)
+    os.environ['SERVER_PORT'] = '57777'
 
     return (os.environ['SERVER_IP'],
             int(os.environ['SERVER_PORT']))
@@ -46,13 +44,10 @@ def get_server_ip_port():
 def get_wcp_data(handler):
     command = "wcp_read " + handler
 
-    try:
-        output_proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-        output = output_proc.stdout.read()
-    except Exception:
-        return None
+    output_proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    output = output_proc.stdout.read()
+    return (output)
 
-    return output
 
 def get_client_count_per_ssid(ssid):
     count = 0
@@ -78,6 +73,6 @@ def get_mcast_pkts(i, ssid, mcast_counters):
            continue
        values = line.split()
        if (ssid == values[0]):
-           mcast_counters.TxMcastPkts = values[3]
-           mcast_counters.TxMcastBytes = values[5]
+           mcast_counters.TxMcastPkts = int(values[3])
+           mcast_counters.TxMcastBytes = int(values[5])
            return mcast_counters

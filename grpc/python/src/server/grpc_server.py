@@ -6,6 +6,7 @@
 # Standard python libs
 import os
 import sys
+import socket
 import threading
 import grpc
 import time
@@ -316,14 +317,14 @@ class APStatistics ():
 
             values = line.split()
 
-            wlan_entry = resp.WLANEntries.add()
-            wlan.WLAN.ID = socket.gethostname()
-            wlan.WLAN.SSID = values[3]
-            wlan.RadioIndex = values[0]
+            wlan = resp.WLANEntries.add()
+            wlan.Wlan.ID = socket.gethostname()
+            wlan.Wlan.SSID = values[3]
+            wlan.RadioIndex = int(values[0])
             wlan.BSSID = values[2]
             wlan.Dev = "apr" + str(i) + "v" + str(values[1])
             wlan.NumClients = server_util.get_client_count_per_ssid(wlan.Dev)
-            server_util.get_mcast_pkts(i, wlan.Dev, wlan.MulticastCounter)
+            server_util.get_mcast_pkts(i, wlan.Dev, wlan.Counter)
 
     resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
@@ -405,4 +406,3 @@ if __name__ == '__main__':
       time.sleep(_ONE_DAY_IN_SECONDS)
   except KeyboardInterrupt:
     server.stop(0)
-
