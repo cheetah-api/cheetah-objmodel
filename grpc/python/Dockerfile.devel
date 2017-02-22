@@ -8,8 +8,3 @@ RUN opkg install iox-toolchain
 RUN opkg install python-pip
 RUN pip install protobuf
 RUN pip install grpcio
-
-COPY cheetah-objmodel/grpc/ /opt/grpc/
-
-CMD python /opt/grpc/python/src/tutorial/quickstart.py
-
