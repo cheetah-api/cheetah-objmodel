@@ -231,12 +231,6 @@ message RadioUtilization {
     float NonWifi = 5;
 }
 
-// Antenna RSSI
-message AntennaRSSI {
-    // per antenna RSSI value
-    repeated int32 val = 1;
-}
-
 // Radio counters
 message RadioCounters {
     // total bytes, including TxMcastBytes
@@ -293,7 +287,7 @@ message RadioEntry {
     uint32 Bandwidth = 5;
 
     // measured by the radio in dBmW
-    uint32 NoiseFloor = 6;
+    int32 NoiseFloor = 6;
 
     // maximum Transmit power dBmW
     uint32 MaxTxPower = 7;
@@ -302,7 +296,7 @@ message RadioEntry {
     RadioUtilization Utilization = 8;
 
     // Per Antenna RSSI
-    AntennaRSSI RSSI = 9;
+    repeated int32 AntennaRSSI = 9;
 
     // Radio counters
     RadioCounters Counter = 10;
@@ -336,9 +330,6 @@ message APClientEntry {
     // wifi band (2.4, 5) the client is associated on
     string Band = 4;
 
-    // BSSID with which the client is associated
-    string BSSID = 5;
-
     // WLAN information
     WLAN Wlan = 6;
 
@@ -352,12 +343,11 @@ message APClientEntry {
     // (averaged from PerAntennaRSSI)
     int32 RSSI = 9;
 
-    // raw RSSIs
-    repeated int32 AntennaRSSI = 10;
+    // Noise Floor
+    int32 NF = 10;
 
-    // averaged over some number of transmissions,
-    // an average of APClientEntry.RSSI
-    int32 AvgRSSI = 11;
+    // raw RSSIs
+    repeated int32 AntennaRSSI = 11;
 
     // rate used by last successfull (acked) tx
     int32 TxBitRate = 12;

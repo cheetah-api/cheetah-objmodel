@@ -93,9 +93,9 @@ def print_interface_stats(resp):
 def print_wlan_stats(resp):
     print "----WLAN statistics----"
     for wlan in resp.WLANEntries:
-        print "WLAN ID        : %s" %(wlan.WLAN.ID)
+        print "ESSID           : %s" %(wlan.Wlan.ID)
         print "-----------------------"
-        print " SSID           : %s" %(wlan.WLAN.SSID)
+        print " SSID           : %s" %(wlan.Wlan.SSID)
         print " Dev            : %s" %(wlan.Dev)
         print " BSSID          : %s" %(wlan.BSSID)
         print " RadioIndex     : %s" %(wlan.RadioIndex)
@@ -108,7 +108,23 @@ def print_wlan_stats(resp):
 def print_client_stats(resp):
     print "----Client statistics----"
     for client in resp.Clients:
-        print "MAC             : %s" %(client.MAC)
+        print "MAC                    : %s" %(client.MAC)
+        print "RadioIndex             : %d" %(client.RadioIndex)
+        print "Band                   : %s" %(client.Band)
+        print "ESSID                  : %s" %(client.Wlan.ID)
+        print "SSID                   : %s" %(client.Wlan.SSID)
+        print "ConnectedTimeSec       : %d" %(client.ConnectedTimeSec)
+        print "InactiveTimeMilliSec   : %d" %(client.InactiveTimeMilliSec)
+        print "RSSI                   : %d" %(client.RSSI)
+        print "NF                     : %d" %(client.NF)
+        print "PerAntennaRSSI         : "
+        for rssi in client.AntennaRSSI:
+            print "\tRSSI            : %d" %(rssi)
+        print "TxBitRate              : %d" %(client.TxBitRate)
+        print "TxUnicastBytes         : %d" %(client.TxUnicastBytes)
+        print "TxUnicastPkts          : %d" %(client.TxUnicastPkts)
+        print "RxBytes                : %d" %(client.RxBytes)
+        print "RxPkts                 : %d" %(client.RxPkts)
 
 # Print Radio Stats
 def print_radio_stats(resp):
@@ -117,6 +133,31 @@ def print_radio_stats(resp):
         print "Device             : %s" %(radio.Dev)
         print "Band               : %s" %(radio.Band)
         print "Channel            : %d" %(radio.Channel)
+        print "Secondary Channel  : %d" %(radio.SecondaryChannel)
+        print "Bandwidth          : %d" %(radio.Bandwidth)
+        print "NoiseFloor         : %d" %(radio.NoiseFloor)
+        print "MaxTxPower         : %d" %(radio.MaxTxPower)
+        print "Utilization        : "
+        print "\tAll              : %f" %(radio.Utilization.All)
+        print "\tTx               : %f" %(radio.Utilization.Tx)
+        print "\tRxInBSS          : %f" %(radio.Utilization.RxInBSS)
+        print "\tRxOtherBSS       : %f" %(radio.Utilization.RxOtherBSS)
+        print "\tNonWifi          : %f" %(radio.Utilization.NonWifi)
+        print "PerAntennaRSSI     : "
+        for rssi in radio.AntennaRSSI:
+            print "\tRSSI        : %d" %(rssi)
+        print "Counters           : "
+        print "\tTxBytes              : %d" %(radio.Counter.TxBytes)
+        print "\tTxPkts               : %d" %(radio.Counter.TxPkts)
+        print "\tTxMgmt               : %d" %(radio.Counter.TxMgmt)
+        print "\tTxErrors             : %d" %(radio.Counter.TxErrors)
+        print "\tRxBytes              : %d" %(radio.Counter.RxBytes)
+        print "\tRxPkts               : %d" %(radio.Counter.RxPkts)
+        print "\tRxMgmt               : %d" %(radio.Counter.RxMgmt)
+        print "\tRxErrors             : %d" %(radio.Counter.RxErrors)
+        print "DFS State          : "
+        print "\tCacState              : %d" %(radio.DFS.CacState)
+        print "\tRadarDetected         : %d" %(radio.DFS.RadarDetected)
 
 #
 #============================================

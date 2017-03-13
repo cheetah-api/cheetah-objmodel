@@ -32,6 +32,8 @@ from grpc.beta import implementations
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
+ext_table = ["none", "above", "auto", "below"]
+
 # Global data
 MAX_RADIO = 2
 PROC_MEMINFO = '/proc/meminfo'
@@ -128,11 +130,11 @@ def get_wired_info(resp):
         f = open(PROC_WIRED_INFO, 'r')
         for line in f:
             if ("Link status") in line and ("up") in line:
-                resp.Link = "true"
+                resp.Link = True
             if ("duplex") in line and ("full") in line:
-                resp.FullDuplex = "true"
+                resp.FullDuplex = True
             if ("speed") in line:
-                resp.Speed = line.split(":")[1].strip()
+                resp.Speed = 0 #line.split(":")[1].strip()
         f.close()
 
     except Exception as e:
@@ -151,6 +153,26 @@ def get_interface_stats(interface, module):
     interface.TxBytes = int(tail.split()[0])
 
     head, sep, tail = module.partition("TX packets:")
+
+def get_client_stats(client_info, fields):
+    client_info.MAC = fields['MAC']
+    client_info.RadioIndex = int(fields['RadioIndex'])
+    client_info.Band = fields['Band']
+    client_info.Wlan.ID = fields['SSID']
+    client_info.Wlan.SSID = fields['BSSID']
+    client_info.ConnectedTimeSec = int(fields['ConnectedTimeSec'])
+    client_info.InactiveTimeMilliSec = int(fields['InactiveTimeMilliSec'])
+    client_info.RSSI = int(fields['RSSI'])       # change to int
+    client_info.NF = int(fields['NF'])       # change to int
+    strval = fields['PerAntennaRSSI']
+    rlist = strval[1:-1].split(',')
+    for val in rlist:
+        client_info.AntennaRSSI.append(int(val.strip()))
+    client_info.TxBitRate = int(fields['TxBitRate'])
+    client_info.TxUnicastBytes = int(fields['TxUnicastBytes'])
+    client_info.TxUnicastPkts = int(fields['TxUnicastPkts'])
+    client_info.RxBytes = int(fields['RxBytes'])
+    client_info.RxPkts = int(fields['RxPkts'])
 
 #
 #==============================================
@@ -279,16 +301,95 @@ class APStatistics ():
     resp = ap_stats_pb2.APRadioStatsMsgRsp()
     record_count = 0
 
-    #try:
-        #f = open(PROC_RADIO_INFO, 'r')
-        #for line in f:
-            ## skip empty lines
-            #if line.strip() == '':
-                #continue
-#
-        #f.close()
-    #except Exception as e:
-        #print str(e)
+    try:
+        f = open(PROC_RADIO_INFO, 'r')
+        for line in f:
+            # skip empty lines
+            if line.strip() == '':
+                continue
+
+            # skip first line of each record
+            if line.startswith('radio num'):
+                if record_count > 0:
+                    radioDFS = radio_info.DFS
+                    radioDFS.CacState  = int(dfs['CacState'])
+                    radioDFS.RadarDetected  = (dfs['RadarDetected'] == 'TRUE')
+                radio_info = resp.Radios.add()
+                record_count += 1
+                util_flag = False
+                counter_flag = False
+                dfs_flag = False
+                continue
+
+            # skips descriptions lines before the first record
+            if record_count == 0:
+                continue
+
+            values = line.split(':', 1)
+            for i in range(len(values)):
+                values[i] = values[i].strip()
+
+            if values[0] == "Dev":
+                radio_info.Dev = values[1]
+            elif values[0] == "Band":
+                radio_info.Band = values[1]
+            elif values[0] == "Channel":
+                radio_info.Channel = int(values[1])
+            elif values[0] == "SecondaryChannel":
+                radio_info.SecondaryChannel = ext_table.index(values[1])
+            elif values[0] == "Bandwidth":
+                radio_info.Bandwidth = int(values[1])
+            elif values[0] == "NoiseFloor":
+                radio_info.NoiseFloor = int(values[1])
+            elif values[0] == "MaxTxPower":
+                radio_info.MaxTxPower = int(values[1])
+            elif values[0] == "Utilization":
+                util = {}
+                util_flag = True
+            elif values[0] == "PerAntennaRSSI":
+                util_flag = False
+                radioUtil = radio_info.Utilization
+                radioUtil.All = float(util['All'])
+                radioUtil.Tx = float(util['Tx'])
+                radioUtil.RxInBSS = float(util['RxInBSS'])
+                radioUtil.RxOtherBSS = float(util['RxOtherBSS'])
+                radioUtil.NonWifi = float(util['NonWifi'])
+                rlist = values[1][1:-1].split(',')
+                for val in rlist:
+                    radio_info.AntennaRSSI.append(int(val.strip()))
+            elif values[0] == "Counter":
+                counter = {}
+                counter_flag = True
+            elif values[0] == "DFS":
+                dfs = {}
+                dfs_flag = True
+                counter_flag = False
+                radioCounter = radio_info.Counter
+                radioCounter.TxBytes  = int(counter['TxBytes'])
+                radioCounter.TxPkts   = int(counter['TxPkts'])
+                radioCounter.TxMgmt   = int(counter['TxMgmt'])
+                radioCounter.TxErrors = int(counter['TxErrors'])
+                radioCounter.RxBytes  = int(counter['RxBytes'])
+                radioCounter.RxPkts   = int(counter['RxPkts'])
+                radioCounter.RxMgmt   = int(counter['RxMgmt'])
+                radioCounter.RxErrors = int(counter['RxErrors'])
+            elif util_flag == True:
+                util[values[0]] = values[1]
+            elif counter_flag == True:
+                counter[values[0]] = values[1]
+            elif dfs_flag == True:
+                dfs[values[0]] = values[1]
+
+        # update the last record
+        if record_count > 0:
+            radioDFS = radio_info.DFS
+            radioDFS.CacState  = int(dfs['CacState'])
+            radioDFS.RadarDetected  = (dfs['RadarDetected'] == 'TRUE')
+
+        f.close()
+    except Exception as e:
+        resp.ErrStatus.Status = ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
 
     resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
     return (resp)
@@ -337,19 +438,46 @@ class APStatistics ():
   def APClientStatsGet(self, request, context):
     print "Received Client stats get request"
 
+    import server_util
+
     resp=ap_stats_pb2.APClientStatsMsgRsp()
+    record_count = 0
+    fields = {}
 
-    #try:
-        #f = open(PROC_CLIENT_INFO, 'r')
-        #for line in f:
-            #if line.startswith('client num:'):
-                #resp.Clients.append(line.split()[1])
-        #f.close()
-        #resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+    try:
+        f = open(PROC_CLIENT_INFO, 'r')
+        for line in f:
+            # skip first line of each record
+            if line.startswith('client num:'):
+                # Fill last record with values
+                if record_count > 0:
+                    get_client_stats(client_info, fields)
+                client_info = resp.Clients.add()
+                record_count += 1
+                fields = {}
+                continue
 
-    #except Exception as e:
-        #resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
-        #print str(e)
+            # skip empty lines
+            if line.strip() == '':
+                continue
+
+            if record_count == 0:
+                continue
+
+            values = line.split(':', 1)
+            for i in range(len(values)):
+                values[i] = values[i].strip()
+
+            fields[values[0]] = values[1]
+
+        f.close()
+
+        if len(fields) != 0:
+            get_client_stats(client_info, fields)
+
+    except Exception as e:
+        resp.ErrStatus.Status = ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
 
     resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
     return (resp)
