@@ -60,9 +60,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RadioUtilization_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RadioUtilization_reflection_ = NULL;
+const ::google::protobuf::Descriptor* AntennaRSSI_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  AntennaRSSI_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RadioCounters_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RadioCounters_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DfsState_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DfsState_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RadioEntry_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RadioEntry_reflection_ = NULL;
@@ -286,12 +292,11 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       sizeof(APWLANStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APWLANStatsMsgRsp, _internal_metadata_));
   RadioUtilization_descriptor_ = file->message_type(12);
-  static const int RadioUtilization_offsets_[6] = {
+  static const int RadioUtilization_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, all_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, tx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, rxinbss_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, rxotherbss_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, unknownwifi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, nonwifi_),
   };
   RadioUtilization_reflection_ =
@@ -304,7 +309,21 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(RadioUtilization),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, _internal_metadata_));
-  RadioCounters_descriptor_ = file->message_type(13);
+  AntennaRSSI_descriptor_ = file->message_type(13);
+  static const int AntennaRSSI_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AntennaRSSI, val_),
+  };
+  AntennaRSSI_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      AntennaRSSI_descriptor_,
+      AntennaRSSI::internal_default_instance(),
+      AntennaRSSI_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(AntennaRSSI),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AntennaRSSI, _internal_metadata_));
+  RadioCounters_descriptor_ = file->message_type(14);
   static const int RadioCounters_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, txbytes_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, txpkts_),
@@ -325,8 +344,23 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(RadioCounters),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, _internal_metadata_));
-  RadioEntry_descriptor_ = file->message_type(14);
-  static const int RadioEntry_offsets_[9] = {
+  DfsState_descriptor_ = file->message_type(15);
+  static const int DfsState_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, cacstate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, radardetected_),
+  };
+  DfsState_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      DfsState_descriptor_,
+      DfsState::internal_default_instance(),
+      DfsState_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(DfsState),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, _internal_metadata_));
+  RadioEntry_descriptor_ = file->message_type(16);
+  static const int RadioEntry_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, dev_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, band_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, channel_),
@@ -335,7 +369,9 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, noisefloor_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, maxtxpower_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, utilization_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, rssi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, counter_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, dfs_),
   };
   RadioEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -347,7 +383,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(RadioEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, _internal_metadata_));
-  APRadioStatsMsgRsp_descriptor_ = file->message_type(15);
+  APRadioStatsMsgRsp_descriptor_ = file->message_type(17);
   static const int APRadioStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, radios_),
@@ -362,7 +398,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APRadioStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, _internal_metadata_));
-  APClientEntry_descriptor_ = file->message_type(16);
+  APClientEntry_descriptor_ = file->message_type(18);
   static const int APClientEntry_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, mac_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, radioindex_),
@@ -390,7 +426,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APClientEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, _internal_metadata_));
-  APClientStatsMsgRsp_descriptor_ = file->message_type(17);
+  APClientStatsMsgRsp_descriptor_ = file->message_type(19);
   static const int APClientStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, clients_),
@@ -405,7 +441,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APClientStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, _internal_metadata_));
-  APInterfaceEntry_descriptor_ = file->message_type(18);
+  APInterfaceEntry_descriptor_ = file->message_type(20);
   static const int APInterfaceEntry_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, link_),
@@ -427,7 +463,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APInterfaceEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, _internal_metadata_));
-  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(19);
+  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(21);
   static const int APInterfaceStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, interfaces_),
@@ -482,7 +518,11 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RadioUtilization_descriptor_, RadioUtilization::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      AntennaRSSI_descriptor_, AntennaRSSI::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RadioCounters_descriptor_, RadioCounters::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      DfsState_descriptor_, DfsState::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RadioEntry_descriptor_, RadioEntry::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -526,8 +566,12 @@ void protobuf_ShutdownFile_ap_5fstats_2eproto() {
   delete APWLANStatsMsgRsp_reflection_;
   RadioUtilization_default_instance_.Shutdown();
   delete RadioUtilization_reflection_;
+  AntennaRSSI_default_instance_.Shutdown();
+  delete AntennaRSSI_reflection_;
   RadioCounters_default_instance_.Shutdown();
   delete RadioCounters_reflection_;
+  DfsState_default_instance_.Shutdown();
+  delete DfsState_reflection_;
   RadioEntry_default_instance_.Shutdown();
   delete RadioEntry_reflection_;
   APRadioStatsMsgRsp_default_instance_.Shutdown();
@@ -565,7 +609,9 @@ void protobuf_InitDefaults_ap_5fstats_2eproto_impl() {
   WLANEntry_default_instance_.DefaultConstruct();
   APWLANStatsMsgRsp_default_instance_.DefaultConstruct();
   RadioUtilization_default_instance_.DefaultConstruct();
+  AntennaRSSI_default_instance_.DefaultConstruct();
   RadioCounters_default_instance_.DefaultConstruct();
+  DfsState_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   RadioEntry_default_instance_.DefaultConstruct();
   APRadioStatsMsgRsp_default_instance_.DefaultConstruct();
@@ -588,7 +634,9 @@ void protobuf_InitDefaults_ap_5fstats_2eproto_impl() {
   WLANEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
   APWLANStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
   RadioUtilization_default_instance_.get_mutable()->InitAsDefaultInstance();
+  AntennaRSSI_default_instance_.get_mutable()->InitAsDefaultInstance();
   RadioCounters_default_instance_.get_mutable()->InitAsDefaultInstance();
+  DfsState_default_instance_.get_mutable()->InitAsDefaultInstance();
   RadioEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
   APRadioStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
   APClientEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -636,58 +684,62 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "\001(\0132\036.access_point.MulticastCounter\"q\n\021A"
     "PWLANStatsMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033.ac"
     "cess_point.APErrorStatus\022,\n\013WLANEntries\030"
-    "\002 \003(\0132\027.access_point.WLANEntry\"v\n\020RadioU"
+    "\002 \003(\0132\027.access_point.WLANEntry\"a\n\020RadioU"
     "tilization\022\013\n\003All\030\001 \001(\002\022\n\n\002Tx\030\002 \001(\002\022\017\n\007R"
-    "xInBSS\030\003 \001(\002\022\022\n\nRxOtherBSS\030\004 \001(\002\022\023\n\013Unkn"
-    "ownWifi\030\005 \001(\002\022\017\n\007NonWifi\030\006 \001(\002\"\225\001\n\rRadio"
-    "Counters\022\017\n\007TxBytes\030\001 \001(\004\022\016\n\006TxPkts\030\002 \001("
-    "\r\022\016\n\006TxMgmt\030\003 \001(\r\022\020\n\010TxErrors\030\004 \001(\r\022\017\n\007R"
-    "xBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\016\n\006RxMgmt\030\007"
-    " \001(\r\022\020\n\010RxErrors\030\010 \001(\r\"\360\001\n\nRadioEntry\022\013\n"
-    "\003Dev\030\001 \001(\t\022\014\n\004Band\030\002 \001(\t\022\017\n\007Channel\030\003 \001("
-    "\r\022\030\n\020SecondaryChannel\030\004 \001(\r\022\021\n\tBandwidth"
-    "\030\005 \001(\r\022\022\n\nNoiseFloor\030\006 \001(\r\022\022\n\nMaxTxPower"
-    "\030\007 \001(\r\0223\n\013Utilization\030\010 \001(\0132\036.access_poi"
-    "nt.RadioUtilization\022,\n\007Counter\030\t \001(\0132\033.a"
-    "ccess_point.RadioCounters\"n\n\022APRadioStat"
-    "sMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033.access_poin"
-    "t.APErrorStatus\022(\n\006Radios\030\002 \003(\0132\030.access"
-    "_point.RadioEntry\"\276\002\n\rAPClientEntry\022\013\n\003M"
-    "AC\030\002 \001(\t\022\022\n\nRadioIndex\030\003 \001(\r\022\014\n\004Band\030\004 \001"
-    "(\t\022\r\n\005BSSID\030\005 \001(\t\022 \n\004Wlan\030\006 \001(\0132\022.access"
-    "_point.WLAN\022\030\n\020ConnectedTimeSec\030\007 \001(\r\022\034\n"
-    "\024InactiveTimeMilliSec\030\010 \001(\r\022\014\n\004RSSI\030\t \001("
-    "\005\022\023\n\013AntennaRSSI\030\n \003(\005\022\017\n\007AvgRSSI\030\013 \001(\005\022"
-    "\021\n\tTxBitRate\030\014 \001(\005\022\026\n\016TxUnicastBytes\030\r \001"
-    "(\004\022\025\n\rTxUnicastPkts\030\016 \001(\r\022\017\n\007RxBytes\030\017 \001"
-    "(\004\022\016\n\006RxPkts\030\020 \001(\r\"s\n\023APClientStatsMsgRs"
-    "p\022.\n\tErrStatus\030\001 \001(\0132\033.access_point.APEr"
-    "rorStatus\022,\n\007Clients\030\002 \003(\0132\033.access_poin"
-    "t.APClientEntry\"\247\001\n\020APInterfaceEntry\022\014\n\004"
-    "Name\030\001 \001(\t\022\014\n\004Link\030\002 \001(\010\022\022\n\nFullDuplex\030\003"
-    " \001(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006"
-    "RxPkts\030\006 \001(\r\022\022\n\nRxDiscards\030\007 \001(\r\022\017\n\007TxBy"
-    "tes\030\010 \001(\004\022\016\n\006TxPkts\030\t \001(\r\"|\n\026APInterface"
-    "StatsMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033.access_"
-    "point.APErrorStatus\0222\n\nInterfaces\030\002 \003(\0132"
-    "\036.access_point.APInterfaceEntry2\245\005\n\014APSt"
-    "atistics\022R\n\020APSystemStatsGet\022\033.access_po"
-    "int.APStatsGetMsg\032!.access_point.APSyste"
-    "mStatsMsgRsp\022R\n\020APMemoryStatsGet\022\033.acces"
-    "s_point.APStatsGetMsg\032!.access_point.APM"
-    "emoryStatsMsgRsp\022N\n\rAPDNSStatsGet\022\033.acce"
-    "ss_point.APStatsGetMsg\032 .access_point.AP"
-    "DNSServersMsgRsp\022M\n\020APRoutesStatsGet\022\033.a"
-    "ccess_point.APStatsGetMsg\032\034.access_point"
-    ".APRoutesMsgRsp\022P\n\017APRadioStatsGet\022\033.acc"
-    "ess_point.APStatsGetMsg\032 .access_point.A"
-    "PRadioStatsMsgRsp\022N\n\016APWLANStatsGet\022\033.ac"
-    "cess_point.APStatsGetMsg\032\037.access_point."
-    "APWLANStatsMsgRsp\022R\n\020APClientStatsGet\022\033."
-    "access_point.APStatsGetMsg\032!.access_poin"
-    "t.APClientStatsMsgRsp\022X\n\023APInterfaceStat"
-    "sGet\022\033.access_point.APStatsGetMsg\032$.acce"
-    "ss_point.APInterfaceStatsMsgRspb\006proto3", 3239);
+    "xInBSS\030\003 \001(\002\022\022\n\nRxOtherBSS\030\004 \001(\002\022\017\n\007NonW"
+    "ifi\030\005 \001(\002\"\032\n\013AntennaRSSI\022\013\n\003val\030\001 \003(\005\"\225\001"
+    "\n\rRadioCounters\022\017\n\007TxBytes\030\001 \001(\004\022\016\n\006TxPk"
+    "ts\030\002 \001(\r\022\016\n\006TxMgmt\030\003 \001(\r\022\020\n\010TxErrors\030\004 \001"
+    "(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\016\n\006R"
+    "xMgmt\030\007 \001(\r\022\020\n\010RxErrors\030\010 \001(\r\"3\n\010DfsStat"
+    "e\022\020\n\010CacState\030\001 \001(\r\022\025\n\rRadarDetected\030\002 \001"
+    "(\010\"\276\002\n\nRadioEntry\022\013\n\003Dev\030\001 \001(\t\022\014\n\004Band\030\002"
+    " \001(\t\022\017\n\007Channel\030\003 \001(\r\022\030\n\020SecondaryChanne"
+    "l\030\004 \001(\r\022\021\n\tBandwidth\030\005 \001(\r\022\022\n\nNoiseFloor"
+    "\030\006 \001(\r\022\022\n\nMaxTxPower\030\007 \001(\r\0223\n\013Utilizatio"
+    "n\030\010 \001(\0132\036.access_point.RadioUtilization\022"
+    "\'\n\004RSSI\030\t \001(\0132\031.access_point.AntennaRSSI"
+    "\022,\n\007Counter\030\n \001(\0132\033.access_point.RadioCo"
+    "unters\022#\n\003DFS\030\013 \001(\0132\026.access_point.DfsSt"
+    "ate\"n\n\022APRadioStatsMsgRsp\022.\n\tErrStatus\030\001"
+    " \001(\0132\033.access_point.APErrorStatus\022(\n\006Rad"
+    "ios\030\002 \003(\0132\030.access_point.RadioEntry\"\276\002\n\r"
+    "APClientEntry\022\013\n\003MAC\030\002 \001(\t\022\022\n\nRadioIndex"
+    "\030\003 \001(\r\022\014\n\004Band\030\004 \001(\t\022\r\n\005BSSID\030\005 \001(\t\022 \n\004W"
+    "lan\030\006 \001(\0132\022.access_point.WLAN\022\030\n\020Connect"
+    "edTimeSec\030\007 \001(\r\022\034\n\024InactiveTimeMilliSec\030"
+    "\010 \001(\r\022\014\n\004RSSI\030\t \001(\005\022\023\n\013AntennaRSSI\030\n \003(\005"
+    "\022\017\n\007AvgRSSI\030\013 \001(\005\022\021\n\tTxBitRate\030\014 \001(\005\022\026\n\016"
+    "TxUnicastBytes\030\r \001(\004\022\025\n\rTxUnicastPkts\030\016 "
+    "\001(\r\022\017\n\007RxBytes\030\017 \001(\004\022\016\n\006RxPkts\030\020 \001(\r\"s\n\023"
+    "APClientStatsMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033"
+    ".access_point.APErrorStatus\022,\n\007Clients\030\002"
+    " \003(\0132\033.access_point.APClientEntry\"\247\001\n\020AP"
+    "InterfaceEntry\022\014\n\004Name\030\001 \001(\t\022\014\n\004Link\030\002 \001"
+    "(\010\022\022\n\nFullDuplex\030\003 \001(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n"
+    "\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\022\n\nRxDisc"
+    "ards\030\007 \001(\r\022\017\n\007TxBytes\030\010 \001(\004\022\016\n\006TxPkts\030\t "
+    "\001(\r\"|\n\026APInterfaceStatsMsgRsp\022.\n\tErrStat"
+    "us\030\001 \001(\0132\033.access_point.APErrorStatus\0222\n"
+    "\nInterfaces\030\002 \003(\0132\036.access_point.APInter"
+    "faceEntry2\245\005\n\014APStatistics\022R\n\020APSystemSt"
+    "atsGet\022\033.access_point.APStatsGetMsg\032!.ac"
+    "cess_point.APSystemStatsMsgRsp\022R\n\020APMemo"
+    "ryStatsGet\022\033.access_point.APStatsGetMsg\032"
+    "!.access_point.APMemoryStatsMsgRsp\022N\n\rAP"
+    "DNSStatsGet\022\033.access_point.APStatsGetMsg"
+    "\032 .access_point.APDNSServersMsgRsp\022M\n\020AP"
+    "RoutesStatsGet\022\033.access_point.APStatsGet"
+    "Msg\032\034.access_point.APRoutesMsgRsp\022P\n\017APR"
+    "adioStatsGet\022\033.access_point.APStatsGetMs"
+    "g\032 .access_point.APRadioStatsMsgRsp\022N\n\016A"
+    "PWLANStatsGet\022\033.access_point.APStatsGetM"
+    "sg\032\037.access_point.APWLANStatsMsgRsp\022R\n\020A"
+    "PClientStatsGet\022\033.access_point.APStatsGe"
+    "tMsg\032!.access_point.APClientStatsMsgRsp\022"
+    "X\n\023APInterfaceStatsGet\022\033.access_point.AP"
+    "StatsGetMsg\032$.access_point.APInterfaceSt"
+    "atsMsgRspb\006proto3", 3377);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_stats.proto", &protobuf_RegisterTypes);
   ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -5982,7 +6034,6 @@ const int RadioUtilization::kAllFieldNumber;
 const int RadioUtilization::kTxFieldNumber;
 const int RadioUtilization::kRxInBSSFieldNumber;
 const int RadioUtilization::kRxOtherBSSFieldNumber;
-const int RadioUtilization::kUnknownWifiFieldNumber;
 const int RadioUtilization::kNonWifiFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6133,28 +6184,13 @@ bool RadioUtilization::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(45)) goto parse_UnknownWifi;
+        if (input->ExpectTag(45)) goto parse_NonWifi;
         break;
       }
 
-      // optional float UnknownWifi = 5;
+      // optional float NonWifi = 5;
       case 5: {
         if (tag == 45) {
-         parse_UnknownWifi:
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &unknownwifi_)));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(53)) goto parse_NonWifi;
-        break;
-      }
-
-      // optional float NonWifi = 6;
-      case 6: {
-        if (tag == 53) {
          parse_NonWifi:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -6211,14 +6247,9 @@ void RadioUtilization::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->rxotherbss(), output);
   }
 
-  // optional float UnknownWifi = 5;
-  if (this->unknownwifi() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->unknownwifi(), output);
-  }
-
-  // optional float NonWifi = 6;
+  // optional float NonWifi = 5;
   if (this->nonwifi() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->nonwifi(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->nonwifi(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:access_point.RadioUtilization)
@@ -6248,14 +6279,9 @@ void RadioUtilization::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->rxotherbss(), target);
   }
 
-  // optional float UnknownWifi = 5;
-  if (this->unknownwifi() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->unknownwifi(), target);
-  }
-
-  // optional float NonWifi = 6;
+  // optional float NonWifi = 5;
   if (this->nonwifi() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->nonwifi(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->nonwifi(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:access_point.RadioUtilization)
@@ -6286,12 +6312,7 @@ size_t RadioUtilization::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  // optional float UnknownWifi = 5;
-  if (this->unknownwifi() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional float NonWifi = 6;
+  // optional float NonWifi = 5;
   if (this->nonwifi() != 0) {
     total_size += 1 + 4;
   }
@@ -6341,9 +6362,6 @@ void RadioUtilization::UnsafeMergeFrom(const RadioUtilization& from) {
   if (from.rxotherbss() != 0) {
     set_rxotherbss(from.rxotherbss());
   }
-  if (from.unknownwifi() != 0) {
-    set_unknownwifi(from.unknownwifi());
-  }
   if (from.nonwifi() != 0) {
     set_nonwifi(from.nonwifi());
   }
@@ -6377,7 +6395,6 @@ void RadioUtilization::InternalSwap(RadioUtilization* other) {
   std::swap(tx_, other->tx_);
   std::swap(rxinbss_, other->rxinbss_);
   std::swap(rxotherbss_, other->rxotherbss_);
-  std::swap(unknownwifi_, other->unknownwifi_);
   std::swap(nonwifi_, other->nonwifi_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6450,21 +6467,7 @@ void RadioUtilization::set_rxotherbss(float value) {
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxOtherBSS)
 }
 
-// optional float UnknownWifi = 5;
-void RadioUtilization::clear_unknownwifi() {
-  unknownwifi_ = 0;
-}
-float RadioUtilization::unknownwifi() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.UnknownWifi)
-  return unknownwifi_;
-}
-void RadioUtilization::set_unknownwifi(float value) {
-  
-  unknownwifi_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.UnknownWifi)
-}
-
-// optional float NonWifi = 6;
+// optional float NonWifi = 5;
 void RadioUtilization::clear_nonwifi() {
   nonwifi_ = 0;
 }
@@ -6480,6 +6483,292 @@ void RadioUtilization::set_nonwifi(float value) {
 
 inline const RadioUtilization* RadioUtilization::internal_default_instance() {
   return &RadioUtilization_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AntennaRSSI::kValFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AntennaRSSI::AntennaRSSI()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:access_point.AntennaRSSI)
+}
+
+void AntennaRSSI::InitAsDefaultInstance() {
+}
+
+AntennaRSSI::AntennaRSSI(const AntennaRSSI& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:access_point.AntennaRSSI)
+}
+
+void AntennaRSSI::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+AntennaRSSI::~AntennaRSSI() {
+  // @@protoc_insertion_point(destructor:access_point.AntennaRSSI)
+  SharedDtor();
+}
+
+void AntennaRSSI::SharedDtor() {
+}
+
+void AntennaRSSI::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* AntennaRSSI::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AntennaRSSI_descriptor_;
+}
+
+const AntennaRSSI& AntennaRSSI::default_instance() {
+  protobuf_InitDefaults_ap_5fstats_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<AntennaRSSI> AntennaRSSI_default_instance_;
+
+AntennaRSSI* AntennaRSSI::New(::google::protobuf::Arena* arena) const {
+  AntennaRSSI* n = new AntennaRSSI;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void AntennaRSSI::Clear() {
+// @@protoc_insertion_point(message_clear_start:access_point.AntennaRSSI)
+  val_.Clear();
+}
+
+bool AntennaRSSI::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:access_point.AntennaRSSI)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated int32 val = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_val())));
+        } else if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10, input, this->mutable_val())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:access_point.AntennaRSSI)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:access_point.AntennaRSSI)
+  return false;
+#undef DO_
+}
+
+void AntennaRSSI::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:access_point.AntennaRSSI)
+  // repeated int32 val = 1;
+  if (this->val_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_val_cached_byte_size_);
+  }
+  for (int i = 0; i < this->val_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->val(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:access_point.AntennaRSSI)
+}
+
+::google::protobuf::uint8* AntennaRSSI::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:access_point.AntennaRSSI)
+  // repeated int32 val = 1;
+  if (this->val_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _val_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->val_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->val(i), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:access_point.AntennaRSSI)
+  return target;
+}
+
+size_t AntennaRSSI::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:access_point.AntennaRSSI)
+  size_t total_size = 0;
+
+  // repeated int32 val = 1;
+  {
+    size_t data_size = 0;
+    unsigned int count = this->val_size();
+    for (unsigned int i = 0; i < count; i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->val(i));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _val_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void AntennaRSSI::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:access_point.AntennaRSSI)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const AntennaRSSI* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AntennaRSSI>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.AntennaRSSI)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.AntennaRSSI)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void AntennaRSSI::MergeFrom(const AntennaRSSI& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:access_point.AntennaRSSI)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void AntennaRSSI::UnsafeMergeFrom(const AntennaRSSI& from) {
+  GOOGLE_DCHECK(&from != this);
+  val_.UnsafeMergeFrom(from.val_);
+}
+
+void AntennaRSSI::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:access_point.AntennaRSSI)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AntennaRSSI::CopyFrom(const AntennaRSSI& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:access_point.AntennaRSSI)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool AntennaRSSI::IsInitialized() const {
+
+  return true;
+}
+
+void AntennaRSSI::Swap(AntennaRSSI* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AntennaRSSI::InternalSwap(AntennaRSSI* other) {
+  val_.UnsafeArenaSwap(&other->val_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata AntennaRSSI::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = AntennaRSSI_descriptor_;
+  metadata.reflection = AntennaRSSI_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// AntennaRSSI
+
+// repeated int32 val = 1;
+int AntennaRSSI::val_size() const {
+  return val_.size();
+}
+void AntennaRSSI::clear_val() {
+  val_.Clear();
+}
+::google::protobuf::int32 AntennaRSSI::val(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.AntennaRSSI.val)
+  return val_.Get(index);
+}
+void AntennaRSSI::set_val(int index, ::google::protobuf::int32 value) {
+  val_.Set(index, value);
+  // @@protoc_insertion_point(field_set:access_point.AntennaRSSI.val)
+}
+void AntennaRSSI::add_val(::google::protobuf::int32 value) {
+  val_.Add(value);
+  // @@protoc_insertion_point(field_add:access_point.AntennaRSSI.val)
+}
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+AntennaRSSI::val() const {
+  // @@protoc_insertion_point(field_list:access_point.AntennaRSSI.val)
+  return val_;
+}
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+AntennaRSSI::mutable_val() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.AntennaRSSI.val)
+  return &val_;
+}
+
+inline const AntennaRSSI* AntennaRSSI::internal_default_instance() {
+  return &AntennaRSSI_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
@@ -7108,6 +7397,320 @@ inline const RadioCounters* RadioCounters::internal_default_instance() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DfsState::kCacStateFieldNumber;
+const int DfsState::kRadarDetectedFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DfsState::DfsState()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:access_point.DfsState)
+}
+
+void DfsState::InitAsDefaultInstance() {
+}
+
+DfsState::DfsState(const DfsState& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:access_point.DfsState)
+}
+
+void DfsState::SharedCtor() {
+  ::memset(&cacstate_, 0, reinterpret_cast<char*>(&radardetected_) -
+    reinterpret_cast<char*>(&cacstate_) + sizeof(radardetected_));
+  _cached_size_ = 0;
+}
+
+DfsState::~DfsState() {
+  // @@protoc_insertion_point(destructor:access_point.DfsState)
+  SharedDtor();
+}
+
+void DfsState::SharedDtor() {
+}
+
+void DfsState::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DfsState::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DfsState_descriptor_;
+}
+
+const DfsState& DfsState::default_instance() {
+  protobuf_InitDefaults_ap_5fstats_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<DfsState> DfsState_default_instance_;
+
+DfsState* DfsState::New(::google::protobuf::Arena* arena) const {
+  DfsState* n = new DfsState;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void DfsState::Clear() {
+// @@protoc_insertion_point(message_clear_start:access_point.DfsState)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(DfsState, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<DfsState*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(cacstate_, radardetected_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool DfsState::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:access_point.DfsState)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 CacState = 1;
+      case 1: {
+        if (tag == 8) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cacstate_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_RadarDetected;
+        break;
+      }
+
+      // optional bool RadarDetected = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_RadarDetected:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &radardetected_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:access_point.DfsState)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:access_point.DfsState)
+  return false;
+#undef DO_
+}
+
+void DfsState::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:access_point.DfsState)
+  // optional uint32 CacState = 1;
+  if (this->cacstate() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->cacstate(), output);
+  }
+
+  // optional bool RadarDetected = 2;
+  if (this->radardetected() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->radardetected(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:access_point.DfsState)
+}
+
+::google::protobuf::uint8* DfsState::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:access_point.DfsState)
+  // optional uint32 CacState = 1;
+  if (this->cacstate() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->cacstate(), target);
+  }
+
+  // optional bool RadarDetected = 2;
+  if (this->radardetected() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->radardetected(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:access_point.DfsState)
+  return target;
+}
+
+size_t DfsState::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:access_point.DfsState)
+  size_t total_size = 0;
+
+  // optional uint32 CacState = 1;
+  if (this->cacstate() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->cacstate());
+  }
+
+  // optional bool RadarDetected = 2;
+  if (this->radardetected() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DfsState::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:access_point.DfsState)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const DfsState* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DfsState>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.DfsState)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.DfsState)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void DfsState::MergeFrom(const DfsState& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:access_point.DfsState)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void DfsState::UnsafeMergeFrom(const DfsState& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.cacstate() != 0) {
+    set_cacstate(from.cacstate());
+  }
+  if (from.radardetected() != 0) {
+    set_radardetected(from.radardetected());
+  }
+}
+
+void DfsState::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:access_point.DfsState)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DfsState::CopyFrom(const DfsState& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:access_point.DfsState)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool DfsState::IsInitialized() const {
+
+  return true;
+}
+
+void DfsState::Swap(DfsState* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DfsState::InternalSwap(DfsState* other) {
+  std::swap(cacstate_, other->cacstate_);
+  std::swap(radardetected_, other->radardetected_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata DfsState::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DfsState_descriptor_;
+  metadata.reflection = DfsState_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// DfsState
+
+// optional uint32 CacState = 1;
+void DfsState::clear_cacstate() {
+  cacstate_ = 0u;
+}
+::google::protobuf::uint32 DfsState::cacstate() const {
+  // @@protoc_insertion_point(field_get:access_point.DfsState.CacState)
+  return cacstate_;
+}
+void DfsState::set_cacstate(::google::protobuf::uint32 value) {
+  
+  cacstate_ = value;
+  // @@protoc_insertion_point(field_set:access_point.DfsState.CacState)
+}
+
+// optional bool RadarDetected = 2;
+void DfsState::clear_radardetected() {
+  radardetected_ = false;
+}
+bool DfsState::radardetected() const {
+  // @@protoc_insertion_point(field_get:access_point.DfsState.RadarDetected)
+  return radardetected_;
+}
+void DfsState::set_radardetected(bool value) {
+  
+  radardetected_ = value;
+  // @@protoc_insertion_point(field_set:access_point.DfsState.RadarDetected)
+}
+
+inline const DfsState* DfsState::internal_default_instance() {
+  return &DfsState_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int RadioEntry::kDevFieldNumber;
 const int RadioEntry::kBandFieldNumber;
 const int RadioEntry::kChannelFieldNumber;
@@ -7116,7 +7719,9 @@ const int RadioEntry::kBandwidthFieldNumber;
 const int RadioEntry::kNoiseFloorFieldNumber;
 const int RadioEntry::kMaxTxPowerFieldNumber;
 const int RadioEntry::kUtilizationFieldNumber;
+const int RadioEntry::kRSSIFieldNumber;
 const int RadioEntry::kCounterFieldNumber;
+const int RadioEntry::kDFSFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RadioEntry::RadioEntry()
@@ -7129,8 +7734,12 @@ RadioEntry::RadioEntry()
 void RadioEntry::InitAsDefaultInstance() {
   utilization_ = const_cast< ::access_point::RadioUtilization*>(
       ::access_point::RadioUtilization::internal_default_instance());
+  rssi_ = const_cast< ::access_point::AntennaRSSI*>(
+      ::access_point::AntennaRSSI::internal_default_instance());
   counter_ = const_cast< ::access_point::RadioCounters*>(
       ::access_point::RadioCounters::internal_default_instance());
+  dfs_ = const_cast< ::access_point::DfsState*>(
+      ::access_point::DfsState::internal_default_instance());
 }
 
 RadioEntry::RadioEntry(const RadioEntry& from)
@@ -7145,7 +7754,9 @@ void RadioEntry::SharedCtor() {
   dev_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   utilization_ = NULL;
+  rssi_ = NULL;
   counter_ = NULL;
+  dfs_ = NULL;
   ::memset(&channel_, 0, reinterpret_cast<char*>(&maxtxpower_) -
     reinterpret_cast<char*>(&channel_) + sizeof(maxtxpower_));
   _cached_size_ = 0;
@@ -7161,7 +7772,9 @@ void RadioEntry::SharedDtor() {
   band_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != &RadioEntry_default_instance_.get()) {
     delete utilization_;
+    delete rssi_;
     delete counter_;
+    delete dfs_;
   }
 }
 
@@ -7213,8 +7826,12 @@ void RadioEntry::Clear() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && utilization_ != NULL) delete utilization_;
   utilization_ = NULL;
+  if (GetArenaNoVirtual() == NULL && rssi_ != NULL) delete rssi_;
+  rssi_ = NULL;
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
   counter_ = NULL;
+  if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
+  dfs_ = NULL;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -7348,16 +7965,42 @@ bool RadioEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_Counter;
+        if (input->ExpectTag(74)) goto parse_RSSI;
         break;
       }
 
-      // optional .access_point.RadioCounters Counter = 9;
+      // optional .access_point.AntennaRSSI RSSI = 9;
       case 9: {
         if (tag == 74) {
+         parse_RSSI:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rssi()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(82)) goto parse_Counter;
+        break;
+      }
+
+      // optional .access_point.RadioCounters Counter = 10;
+      case 10: {
+        if (tag == 82) {
          parse_Counter:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_counter()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(90)) goto parse_DFS;
+        break;
+      }
+
+      // optional .access_point.DfsState DFS = 11;
+      case 11: {
+        if (tag == 90) {
+         parse_DFS:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_dfs()));
         } else {
           goto handle_unusual;
         }
@@ -7440,10 +8083,22 @@ void RadioEntry::SerializeWithCachedSizes(
       8, *this->utilization_, output);
   }
 
-  // optional .access_point.RadioCounters Counter = 9;
+  // optional .access_point.AntennaRSSI RSSI = 9;
+  if (this->has_rssi()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, *this->rssi_, output);
+  }
+
+  // optional .access_point.RadioCounters Counter = 10;
   if (this->has_counter()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, *this->counter_, output);
+      10, *this->counter_, output);
+  }
+
+  // optional .access_point.DfsState DFS = 11;
+  if (this->has_dfs()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, *this->dfs_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:access_point.RadioEntry)
@@ -7507,11 +8162,25 @@ void RadioEntry::SerializeWithCachedSizes(
         8, *this->utilization_, false, target);
   }
 
-  // optional .access_point.RadioCounters Counter = 9;
+  // optional .access_point.AntennaRSSI RSSI = 9;
+  if (this->has_rssi()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        9, *this->rssi_, false, target);
+  }
+
+  // optional .access_point.RadioCounters Counter = 10;
   if (this->has_counter()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        9, *this->counter_, false, target);
+        10, *this->counter_, false, target);
+  }
+
+  // optional .access_point.DfsState DFS = 11;
+  if (this->has_dfs()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        11, *this->dfs_, false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:access_point.RadioEntry)
@@ -7578,11 +8247,25 @@ size_t RadioEntry::ByteSizeLong() const {
         *this->utilization_);
   }
 
-  // optional .access_point.RadioCounters Counter = 9;
+  // optional .access_point.AntennaRSSI RSSI = 9;
+  if (this->has_rssi()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->rssi_);
+  }
+
+  // optional .access_point.RadioCounters Counter = 10;
   if (this->has_counter()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->counter_);
+  }
+
+  // optional .access_point.DfsState DFS = 11;
+  if (this->has_dfs()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->dfs_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7644,8 +8327,14 @@ void RadioEntry::UnsafeMergeFrom(const RadioEntry& from) {
   if (from.has_utilization()) {
     mutable_utilization()->::access_point::RadioUtilization::MergeFrom(from.utilization());
   }
+  if (from.has_rssi()) {
+    mutable_rssi()->::access_point::AntennaRSSI::MergeFrom(from.rssi());
+  }
   if (from.has_counter()) {
     mutable_counter()->::access_point::RadioCounters::MergeFrom(from.counter());
+  }
+  if (from.has_dfs()) {
+    mutable_dfs()->::access_point::DfsState::MergeFrom(from.dfs());
   }
 }
 
@@ -7681,7 +8370,9 @@ void RadioEntry::InternalSwap(RadioEntry* other) {
   std::swap(noisefloor_, other->noisefloor_);
   std::swap(maxtxpower_, other->maxtxpower_);
   std::swap(utilization_, other->utilization_);
+  std::swap(rssi_, other->rssi_);
   std::swap(counter_, other->counter_);
+  std::swap(dfs_, other->dfs_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -7894,7 +8585,46 @@ void RadioEntry::set_allocated_utilization(::access_point::RadioUtilization* uti
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Utilization)
 }
 
-// optional .access_point.RadioCounters Counter = 9;
+// optional .access_point.AntennaRSSI RSSI = 9;
+bool RadioEntry::has_rssi() const {
+  return this != internal_default_instance() && rssi_ != NULL;
+}
+void RadioEntry::clear_rssi() {
+  if (GetArenaNoVirtual() == NULL && rssi_ != NULL) delete rssi_;
+  rssi_ = NULL;
+}
+const ::access_point::AntennaRSSI& RadioEntry::rssi() const {
+  // @@protoc_insertion_point(field_get:access_point.RadioEntry.RSSI)
+  return rssi_ != NULL ? *rssi_
+                         : *::access_point::AntennaRSSI::internal_default_instance();
+}
+::access_point::AntennaRSSI* RadioEntry::mutable_rssi() {
+  
+  if (rssi_ == NULL) {
+    rssi_ = new ::access_point::AntennaRSSI;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.RSSI)
+  return rssi_;
+}
+::access_point::AntennaRSSI* RadioEntry::release_rssi() {
+  // @@protoc_insertion_point(field_release:access_point.RadioEntry.RSSI)
+  
+  ::access_point::AntennaRSSI* temp = rssi_;
+  rssi_ = NULL;
+  return temp;
+}
+void RadioEntry::set_allocated_rssi(::access_point::AntennaRSSI* rssi) {
+  delete rssi_;
+  rssi_ = rssi;
+  if (rssi) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.RSSI)
+}
+
+// optional .access_point.RadioCounters Counter = 10;
 bool RadioEntry::has_counter() const {
   return this != internal_default_instance() && counter_ != NULL;
 }
@@ -7931,6 +8661,45 @@ void RadioEntry::set_allocated_counter(::access_point::RadioCounters* counter) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Counter)
+}
+
+// optional .access_point.DfsState DFS = 11;
+bool RadioEntry::has_dfs() const {
+  return this != internal_default_instance() && dfs_ != NULL;
+}
+void RadioEntry::clear_dfs() {
+  if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
+  dfs_ = NULL;
+}
+const ::access_point::DfsState& RadioEntry::dfs() const {
+  // @@protoc_insertion_point(field_get:access_point.RadioEntry.DFS)
+  return dfs_ != NULL ? *dfs_
+                         : *::access_point::DfsState::internal_default_instance();
+}
+::access_point::DfsState* RadioEntry::mutable_dfs() {
+  
+  if (dfs_ == NULL) {
+    dfs_ = new ::access_point::DfsState;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.DFS)
+  return dfs_;
+}
+::access_point::DfsState* RadioEntry::release_dfs() {
+  // @@protoc_insertion_point(field_release:access_point.RadioEntry.DFS)
+  
+  ::access_point::DfsState* temp = dfs_;
+  dfs_ = NULL;
+  return temp;
+}
+void RadioEntry::set_allocated_dfs(::access_point::DfsState* dfs) {
+  delete dfs_;
+  dfs_ = dfs;
+  if (dfs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.DFS)
 }
 
 inline const RadioEntry* RadioEntry::internal_default_instance() {

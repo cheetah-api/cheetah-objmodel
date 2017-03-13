@@ -227,12 +227,14 @@ message RadioUtilization {
     // destined for other radios. 0 - 1.0
     float RxOtherBSS = 4;
 
-    // channel utilization for wifi packets of unknown type
-    // (none of the 3 preceding). 0 - 1.0
-    float UnknownWifi = 5;
-
     // channel utilization for non-wifi data. 0 - 1.0
-    float NonWifi = 6;
+    float NonWifi = 5;
+}
+
+// Antenna RSSI
+message AntennaRSSI {
+    // per antenna RSSI value
+    repeated int32 val = 1;
 }
 
 // Radio counters
@@ -260,6 +262,15 @@ message RadioCounters {
 
     // total tx errors
     uint32 RxErrors = 8;
+}
+
+// DFS State
+message DfsState {
+    // Radio CAC state
+    uint32 CacState = 1;
+
+    // true if the radar was detected, false otherwise
+    bool RadarDetected = 2;
 }
 
 // Radio entry
@@ -290,8 +301,14 @@ message RadioEntry {
     // Radio utilization
     RadioUtilization Utilization = 8;
 
+    // Per Antenna RSSI
+    AntennaRSSI RSSI = 9;
+
     // Radio counters
-    RadioCounters Counter = 9;
+    RadioCounters Counter = 10;
+
+    // Per Antenna RSSI
+    DfsState DFS = 11;
 }
 
 // AP Radio Statistics

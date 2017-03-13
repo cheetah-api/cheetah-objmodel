@@ -49,6 +49,8 @@ class APRoutesMsgRsp;
 class APStatsGetMsg;
 class APSystemStatsMsgRsp;
 class APWLANStatsMsgRsp;
+class AntennaRSSI;
+class DfsState;
 class IPv4Route;
 class MemInfo;
 class MulticastCounter;
@@ -1464,15 +1466,9 @@ class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertio
   float rxotherbss() const;
   void set_rxotherbss(float value);
 
-  // optional float UnknownWifi = 5;
-  void clear_unknownwifi();
-  static const int kUnknownWifiFieldNumber = 5;
-  float unknownwifi() const;
-  void set_unknownwifi(float value);
-
-  // optional float NonWifi = 6;
+  // optional float NonWifi = 5;
   void clear_nonwifi();
-  static const int kNonWifiFieldNumber = 6;
+  static const int kNonWifiFieldNumber = 5;
   float nonwifi() const;
   void set_nonwifi(float value);
 
@@ -1484,7 +1480,6 @@ class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertio
   float tx_;
   float rxinbss_;
   float rxotherbss_;
-  float unknownwifi_;
   float nonwifi_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
@@ -1495,6 +1490,99 @@ class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertio
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<RadioUtilization> RadioUtilization_default_instance_;
+
+// -------------------------------------------------------------------
+
+class AntennaRSSI : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.AntennaRSSI) */ {
+ public:
+  AntennaRSSI();
+  virtual ~AntennaRSSI();
+
+  AntennaRSSI(const AntennaRSSI& from);
+
+  inline AntennaRSSI& operator=(const AntennaRSSI& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AntennaRSSI& default_instance();
+
+  static const AntennaRSSI* internal_default_instance();
+
+  void Swap(AntennaRSSI* other);
+
+  // implements Message ----------------------------------------------
+
+  inline AntennaRSSI* New() const { return New(NULL); }
+
+  AntennaRSSI* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AntennaRSSI& from);
+  void MergeFrom(const AntennaRSSI& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(AntennaRSSI* other);
+  void UnsafeMergeFrom(const AntennaRSSI& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 val = 1;
+  int val_size() const;
+  void clear_val();
+  static const int kValFieldNumber = 1;
+  ::google::protobuf::int32 val(int index) const;
+  void set_val(int index, ::google::protobuf::int32 value);
+  void add_val(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      val() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_val();
+
+  // @@protoc_insertion_point(class_scope:access_point.AntennaRSSI)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > val_;
+  mutable int _val_cached_byte_size_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<AntennaRSSI> AntennaRSSI_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -1633,6 +1721,99 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<RadioCounters> RadioC
 
 // -------------------------------------------------------------------
 
+class DfsState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.DfsState) */ {
+ public:
+  DfsState();
+  virtual ~DfsState();
+
+  DfsState(const DfsState& from);
+
+  inline DfsState& operator=(const DfsState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DfsState& default_instance();
+
+  static const DfsState* internal_default_instance();
+
+  void Swap(DfsState* other);
+
+  // implements Message ----------------------------------------------
+
+  inline DfsState* New() const { return New(NULL); }
+
+  DfsState* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DfsState& from);
+  void MergeFrom(const DfsState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(DfsState* other);
+  void UnsafeMergeFrom(const DfsState& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 CacState = 1;
+  void clear_cacstate();
+  static const int kCacStateFieldNumber = 1;
+  ::google::protobuf::uint32 cacstate() const;
+  void set_cacstate(::google::protobuf::uint32 value);
+
+  // optional bool RadarDetected = 2;
+  void clear_radardetected();
+  static const int kRadarDetectedFieldNumber = 2;
+  bool radardetected() const;
+  void set_radardetected(bool value);
+
+  // @@protoc_insertion_point(class_scope:access_point.DfsState)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 cacstate_;
+  bool radardetected_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<DfsState> DfsState_default_instance_;
+
+// -------------------------------------------------------------------
+
 class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.RadioEntry) */ {
  public:
   RadioEntry();
@@ -1757,14 +1938,32 @@ class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::access_point::RadioUtilization* release_utilization();
   void set_allocated_utilization(::access_point::RadioUtilization* utilization);
 
-  // optional .access_point.RadioCounters Counter = 9;
+  // optional .access_point.AntennaRSSI RSSI = 9;
+  bool has_rssi() const;
+  void clear_rssi();
+  static const int kRSSIFieldNumber = 9;
+  const ::access_point::AntennaRSSI& rssi() const;
+  ::access_point::AntennaRSSI* mutable_rssi();
+  ::access_point::AntennaRSSI* release_rssi();
+  void set_allocated_rssi(::access_point::AntennaRSSI* rssi);
+
+  // optional .access_point.RadioCounters Counter = 10;
   bool has_counter() const;
   void clear_counter();
-  static const int kCounterFieldNumber = 9;
+  static const int kCounterFieldNumber = 10;
   const ::access_point::RadioCounters& counter() const;
   ::access_point::RadioCounters* mutable_counter();
   ::access_point::RadioCounters* release_counter();
   void set_allocated_counter(::access_point::RadioCounters* counter);
+
+  // optional .access_point.DfsState DFS = 11;
+  bool has_dfs() const;
+  void clear_dfs();
+  static const int kDFSFieldNumber = 11;
+  const ::access_point::DfsState& dfs() const;
+  ::access_point::DfsState* mutable_dfs();
+  ::access_point::DfsState* release_dfs();
+  void set_allocated_dfs(::access_point::DfsState* dfs);
 
   // @@protoc_insertion_point(class_scope:access_point.RadioEntry)
  private:
@@ -1773,7 +1972,9 @@ class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::ArenaStringPtr dev_;
   ::google::protobuf::internal::ArenaStringPtr band_;
   ::access_point::RadioUtilization* utilization_;
+  ::access_point::AntennaRSSI* rssi_;
   ::access_point::RadioCounters* counter_;
+  ::access_point::DfsState* dfs_;
   ::google::protobuf::uint32 channel_;
   ::google::protobuf::uint32 secondarychannel_;
   ::google::protobuf::uint32 bandwidth_;
@@ -3775,21 +3976,7 @@ inline void RadioUtilization::set_rxotherbss(float value) {
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxOtherBSS)
 }
 
-// optional float UnknownWifi = 5;
-inline void RadioUtilization::clear_unknownwifi() {
-  unknownwifi_ = 0;
-}
-inline float RadioUtilization::unknownwifi() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.UnknownWifi)
-  return unknownwifi_;
-}
-inline void RadioUtilization::set_unknownwifi(float value) {
-  
-  unknownwifi_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.UnknownWifi)
-}
-
-// optional float NonWifi = 6;
+// optional float NonWifi = 5;
 inline void RadioUtilization::clear_nonwifi() {
   nonwifi_ = 0;
 }
@@ -3805,6 +3992,43 @@ inline void RadioUtilization::set_nonwifi(float value) {
 
 inline const RadioUtilization* RadioUtilization::internal_default_instance() {
   return &RadioUtilization_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// AntennaRSSI
+
+// repeated int32 val = 1;
+inline int AntennaRSSI::val_size() const {
+  return val_.size();
+}
+inline void AntennaRSSI::clear_val() {
+  val_.Clear();
+}
+inline ::google::protobuf::int32 AntennaRSSI::val(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.AntennaRSSI.val)
+  return val_.Get(index);
+}
+inline void AntennaRSSI::set_val(int index, ::google::protobuf::int32 value) {
+  val_.Set(index, value);
+  // @@protoc_insertion_point(field_set:access_point.AntennaRSSI.val)
+}
+inline void AntennaRSSI::add_val(::google::protobuf::int32 value) {
+  val_.Add(value);
+  // @@protoc_insertion_point(field_add:access_point.AntennaRSSI.val)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+AntennaRSSI::val() const {
+  // @@protoc_insertion_point(field_list:access_point.AntennaRSSI.val)
+  return val_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+AntennaRSSI::mutable_val() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.AntennaRSSI.val)
+  return &val_;
+}
+
+inline const AntennaRSSI* AntennaRSSI::internal_default_instance() {
+  return &AntennaRSSI_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -3924,6 +4148,41 @@ inline void RadioCounters::set_rxerrors(::google::protobuf::uint32 value) {
 
 inline const RadioCounters* RadioCounters::internal_default_instance() {
   return &RadioCounters_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// DfsState
+
+// optional uint32 CacState = 1;
+inline void DfsState::clear_cacstate() {
+  cacstate_ = 0u;
+}
+inline ::google::protobuf::uint32 DfsState::cacstate() const {
+  // @@protoc_insertion_point(field_get:access_point.DfsState.CacState)
+  return cacstate_;
+}
+inline void DfsState::set_cacstate(::google::protobuf::uint32 value) {
+  
+  cacstate_ = value;
+  // @@protoc_insertion_point(field_set:access_point.DfsState.CacState)
+}
+
+// optional bool RadarDetected = 2;
+inline void DfsState::clear_radardetected() {
+  radardetected_ = false;
+}
+inline bool DfsState::radardetected() const {
+  // @@protoc_insertion_point(field_get:access_point.DfsState.RadarDetected)
+  return radardetected_;
+}
+inline void DfsState::set_radardetected(bool value) {
+  
+  radardetected_ = value;
+  // @@protoc_insertion_point(field_set:access_point.DfsState.RadarDetected)
+}
+
+inline const DfsState* DfsState::internal_default_instance() {
+  return &DfsState_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -4126,7 +4385,46 @@ inline void RadioEntry::set_allocated_utilization(::access_point::RadioUtilizati
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Utilization)
 }
 
-// optional .access_point.RadioCounters Counter = 9;
+// optional .access_point.AntennaRSSI RSSI = 9;
+inline bool RadioEntry::has_rssi() const {
+  return this != internal_default_instance() && rssi_ != NULL;
+}
+inline void RadioEntry::clear_rssi() {
+  if (GetArenaNoVirtual() == NULL && rssi_ != NULL) delete rssi_;
+  rssi_ = NULL;
+}
+inline const ::access_point::AntennaRSSI& RadioEntry::rssi() const {
+  // @@protoc_insertion_point(field_get:access_point.RadioEntry.RSSI)
+  return rssi_ != NULL ? *rssi_
+                         : *::access_point::AntennaRSSI::internal_default_instance();
+}
+inline ::access_point::AntennaRSSI* RadioEntry::mutable_rssi() {
+  
+  if (rssi_ == NULL) {
+    rssi_ = new ::access_point::AntennaRSSI;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.RSSI)
+  return rssi_;
+}
+inline ::access_point::AntennaRSSI* RadioEntry::release_rssi() {
+  // @@protoc_insertion_point(field_release:access_point.RadioEntry.RSSI)
+  
+  ::access_point::AntennaRSSI* temp = rssi_;
+  rssi_ = NULL;
+  return temp;
+}
+inline void RadioEntry::set_allocated_rssi(::access_point::AntennaRSSI* rssi) {
+  delete rssi_;
+  rssi_ = rssi;
+  if (rssi) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.RSSI)
+}
+
+// optional .access_point.RadioCounters Counter = 10;
 inline bool RadioEntry::has_counter() const {
   return this != internal_default_instance() && counter_ != NULL;
 }
@@ -4163,6 +4461,45 @@ inline void RadioEntry::set_allocated_counter(::access_point::RadioCounters* cou
     
   }
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Counter)
+}
+
+// optional .access_point.DfsState DFS = 11;
+inline bool RadioEntry::has_dfs() const {
+  return this != internal_default_instance() && dfs_ != NULL;
+}
+inline void RadioEntry::clear_dfs() {
+  if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
+  dfs_ = NULL;
+}
+inline const ::access_point::DfsState& RadioEntry::dfs() const {
+  // @@protoc_insertion_point(field_get:access_point.RadioEntry.DFS)
+  return dfs_ != NULL ? *dfs_
+                         : *::access_point::DfsState::internal_default_instance();
+}
+inline ::access_point::DfsState* RadioEntry::mutable_dfs() {
+  
+  if (dfs_ == NULL) {
+    dfs_ = new ::access_point::DfsState;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.DFS)
+  return dfs_;
+}
+inline ::access_point::DfsState* RadioEntry::release_dfs() {
+  // @@protoc_insertion_point(field_release:access_point.RadioEntry.DFS)
+  
+  ::access_point::DfsState* temp = dfs_;
+  dfs_ = NULL;
+  return temp;
+}
+inline void RadioEntry::set_allocated_dfs(::access_point::DfsState* dfs) {
+  delete dfs_;
+  dfs_ = dfs;
+  if (dfs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.DFS)
 }
 
 inline const RadioEntry* RadioEntry::internal_default_instance() {
@@ -4908,6 +5245,10 @@ inline const APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::internal_default_in
   return &APInterfaceStatsMsgRsp_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
