@@ -60,13 +60,14 @@ void protobuf_AssignDesc_ap_5fglobal_2eproto() {
   APInitMsg_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APInitMsg_descriptor_,
-      APInitMsg::internal_default_instance(),
+      APInitMsg::default_instance_,
       APInitMsg_offsets_,
       -1,
       -1,
       -1,
       sizeof(APInitMsg),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsg, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsg, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsg, _is_default_instance_));
   APInitMsgRsp_descriptor_ = file->message_type(1);
   static const int APInitMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsgRsp, majorver_),
@@ -76,13 +77,14 @@ void protobuf_AssignDesc_ap_5fglobal_2eproto() {
   APInitMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APInitMsgRsp_descriptor_,
-      APInitMsgRsp::internal_default_instance(),
+      APInitMsgRsp::default_instance_,
       APInitMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APInitMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInitMsgRsp, _is_default_instance_));
   APGlobalNotif_descriptor_ = file->message_type(2);
   static const int APGlobalNotif_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalNotif, eventtype_),
@@ -93,7 +95,7 @@ void protobuf_AssignDesc_ap_5fglobal_2eproto() {
   APGlobalNotif_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APGlobalNotif_descriptor_,
-      APGlobalNotif::internal_default_instance(),
+      APGlobalNotif::default_instance_,
       APGlobalNotif_offsets_,
       -1,
       -1,
@@ -101,20 +103,22 @@ void protobuf_AssignDesc_ap_5fglobal_2eproto() {
       APGlobalNotif_default_oneof_instance_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalNotif, _oneof_case_[0]),
       sizeof(APGlobalNotif),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalNotif, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalNotif, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalNotif, _is_default_instance_));
   APGlobalsGetMsg_descriptor_ = file->message_type(3);
   static const int APGlobalsGetMsg_offsets_[1] = {
   };
   APGlobalsGetMsg_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APGlobalsGetMsg_descriptor_,
-      APGlobalsGetMsg::internal_default_instance(),
+      APGlobalsGetMsg::default_instance_,
       APGlobalsGetMsg_offsets_,
       -1,
       -1,
       -1,
       sizeof(APGlobalsGetMsg),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsg, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsg, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsg, _is_default_instance_));
   APGlobalsGetMsgRsp_descriptor_ = file->message_type(4);
   static const int APGlobalsGetMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsgRsp, errstatus_),
@@ -124,20 +128,21 @@ void protobuf_AssignDesc_ap_5fglobal_2eproto() {
   APGlobalsGetMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APGlobalsGetMsgRsp_descriptor_,
-      APGlobalsGetMsgRsp::internal_default_instance(),
+      APGlobalsGetMsgRsp::default_instance_,
       APGlobalsGetMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APGlobalsGetMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APGlobalsGetMsgRsp, _is_default_instance_));
   APGlobalNotifType_descriptor_ = file->enum_type(0);
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
+inline void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_ap_5fglobal_2eproto);
 }
@@ -146,59 +151,41 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APInitMsg_descriptor_, APInitMsg::internal_default_instance());
+      APInitMsg_descriptor_, &APInitMsg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APInitMsgRsp_descriptor_, APInitMsgRsp::internal_default_instance());
+      APInitMsgRsp_descriptor_, &APInitMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APGlobalNotif_descriptor_, APGlobalNotif::internal_default_instance());
+      APGlobalNotif_descriptor_, &APGlobalNotif::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APGlobalsGetMsg_descriptor_, APGlobalsGetMsg::internal_default_instance());
+      APGlobalsGetMsg_descriptor_, &APGlobalsGetMsg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APGlobalsGetMsgRsp_descriptor_, APGlobalsGetMsgRsp::internal_default_instance());
+      APGlobalsGetMsgRsp_descriptor_, &APGlobalsGetMsgRsp::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ap_5fglobal_2eproto() {
-  APInitMsg_default_instance_.Shutdown();
+  delete APInitMsg::default_instance_;
   delete APInitMsg_reflection_;
-  APInitMsgRsp_default_instance_.Shutdown();
+  delete APInitMsgRsp::default_instance_;
   delete APInitMsgRsp_reflection_;
-  APGlobalNotif_default_instance_.Shutdown();
+  delete APGlobalNotif::default_instance_;
   delete APGlobalNotif_default_oneof_instance_;
   delete APGlobalNotif_reflection_;
-  APGlobalsGetMsg_default_instance_.Shutdown();
+  delete APGlobalsGetMsg::default_instance_;
   delete APGlobalsGetMsg_reflection_;
-  APGlobalsGetMsgRsp_default_instance_.Shutdown();
+  delete APGlobalsGetMsgRsp::default_instance_;
   delete APGlobalsGetMsgRsp_reflection_;
 }
 
-void protobuf_InitDefaults_ap_5fglobal_2eproto_impl() {
+void protobuf_AddDesc_ap_5fglobal_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AddDesc_ap_5fglobal_2eproto() {
+  static bool already_here = false;
+  if (already_here) return;
+  already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::access_point::protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
-  APInitMsg_default_instance_.DefaultConstruct();
-  APInitMsgRsp_default_instance_.DefaultConstruct();
-  APGlobalNotif_default_instance_.DefaultConstruct();
-  APGlobalNotif_default_oneof_instance_ = new APGlobalNotifOneofInstance();
-  APGlobalsGetMsg_default_instance_.DefaultConstruct();
-  APGlobalsGetMsgRsp_default_instance_.DefaultConstruct();
-  APInitMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APInitMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APGlobalNotif_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APGlobalsGetMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APGlobalsGetMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-}
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_ap_5fglobal_2eproto_once_);
-void protobuf_InitDefaults_ap_5fglobal_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_ap_5fglobal_2eproto_once_,
-                 &protobuf_InitDefaults_ap_5fglobal_2eproto_impl);
-}
-void protobuf_AddDesc_ap_5fglobal_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
+  ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017ap_global.proto\022\014access_point\032\025ap_comm"
     "on_types.proto\"\?\n\tAPInitMsg\022\020\n\010MajorVer\030"
@@ -224,15 +211,20 @@ void protobuf_AddDesc_ap_5fglobal_2eproto_impl() {
     "proto3", 846);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_global.proto", &protobuf_RegisterTypes);
-  ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
+  APInitMsg::default_instance_ = new APInitMsg();
+  APInitMsgRsp::default_instance_ = new APInitMsgRsp();
+  APGlobalNotif::default_instance_ = new APGlobalNotif();
+  APGlobalNotif_default_oneof_instance_ = new APGlobalNotifOneofInstance();
+  APGlobalsGetMsg::default_instance_ = new APGlobalsGetMsg();
+  APGlobalsGetMsgRsp::default_instance_ = new APGlobalsGetMsgRsp();
+  APInitMsg::default_instance_->InitAsDefaultInstance();
+  APInitMsgRsp::default_instance_->InitAsDefaultInstance();
+  APGlobalNotif::default_instance_->InitAsDefaultInstance();
+  APGlobalsGetMsg::default_instance_->InitAsDefaultInstance();
+  APGlobalsGetMsgRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fglobal_2eproto);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_ap_5fglobal_2eproto_once_);
-void protobuf_AddDesc_ap_5fglobal_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_ap_5fglobal_2eproto_once_,
-                 &protobuf_AddDesc_ap_5fglobal_2eproto_impl);
-}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_ap_5fglobal_2eproto {
   StaticDescriptorInitializer_ap_5fglobal_2eproto() {
@@ -244,7 +236,7 @@ const ::google::protobuf::EnumDescriptor* APGlobalNotifType_descriptor() {
   return APGlobalNotifType_descriptor_;
 }
 bool APGlobalNotifType_IsValid(int value) {
-  switch (value) {
+  switch(value) {
     case 0:
     case 1:
     case 2:
@@ -254,16 +246,6 @@ bool APGlobalNotifType_IsValid(int value) {
       return false;
   }
 }
-
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
-static void MergeFromFail(int line) {
-  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
-}
-
-}  // namespace
 
 
 // ===================================================================
@@ -276,26 +258,28 @@ const int APInitMsg::kSubVerFieldNumber;
 
 APInitMsg::APInitMsg()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APInitMsg)
 }
 
 void APInitMsg::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 APInitMsg::APInitMsg(const APInitMsg& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APInitMsg)
 }
 
 void APInitMsg::SharedCtor() {
-  ::memset(&majorver_, 0, reinterpret_cast<char*>(&subver_) -
-    reinterpret_cast<char*>(&majorver_) + sizeof(subver_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  majorver_ = 0u;
+  minorver_ = 0u;
+  subver_ = 0u;
 }
 
 APInitMsg::~APInitMsg() {
@@ -304,6 +288,8 @@ APInitMsg::~APInitMsg() {
 }
 
 void APInitMsg::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void APInitMsg::SetCachedSize(int size) const {
@@ -317,11 +303,11 @@ const ::google::protobuf::Descriptor* APInitMsg::descriptor() {
 }
 
 const APInitMsg& APInitMsg::default_instance() {
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fglobal_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APInitMsg> APInitMsg_default_instance_;
+APInitMsg* APInitMsg::default_instance_ = NULL;
 
 APInitMsg* APInitMsg::New(::google::protobuf::Arena* arena) const {
   APInitMsg* n = new APInitMsg;
@@ -345,7 +331,7 @@ void APInitMsg::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -369,10 +355,10 @@ bool APInitMsg::MergePartialFromCodedStream(
       // optional uint32 MajorVer = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &majorver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -384,10 +370,10 @@ bool APInitMsg::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_MinorVer:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &minorver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -399,10 +385,10 @@ bool APInitMsg::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_SubVer:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &subver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -454,7 +440,6 @@ void APInitMsg::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APInitMsg::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APInitMsg)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
@@ -475,9 +460,9 @@ void APInitMsg::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APInitMsg::ByteSizeLong() const {
+int APInitMsg::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APInitMsg)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
@@ -500,17 +485,18 @@ size_t APInitMsg::ByteSizeLong() const {
         this->subver());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APInitMsg::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APInitMsg)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APInitMsg* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APInitMsg* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APInitMsg>(
           &from);
   if (source == NULL) {
@@ -518,21 +504,15 @@ void APInitMsg::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInitMsg)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APInitMsg::MergeFrom(const APInitMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInitMsg)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APInitMsg::UnsafeMergeFrom(const APInitMsg& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.majorver() != 0) {
     set_majorver(from.majorver());
   }
@@ -555,7 +535,7 @@ void APInitMsg::CopyFrom(const APInitMsg& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInitMsg)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APInitMsg::IsInitialized() const {
@@ -590,11 +570,11 @@ void APInitMsg::InternalSwap(APInitMsg* other) {
 void APInitMsg::clear_majorver() {
   majorver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsg::majorver() const {
+ ::google::protobuf::uint32 APInitMsg::majorver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsg.MajorVer)
   return majorver_;
 }
-void APInitMsg::set_majorver(::google::protobuf::uint32 value) {
+ void APInitMsg::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsg.MajorVer)
@@ -604,11 +584,11 @@ void APInitMsg::set_majorver(::google::protobuf::uint32 value) {
 void APInitMsg::clear_minorver() {
   minorver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsg::minorver() const {
+ ::google::protobuf::uint32 APInitMsg::minorver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsg.MinorVer)
   return minorver_;
 }
-void APInitMsg::set_minorver(::google::protobuf::uint32 value) {
+ void APInitMsg::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsg.MinorVer)
@@ -618,19 +598,16 @@ void APInitMsg::set_minorver(::google::protobuf::uint32 value) {
 void APInitMsg::clear_subver() {
   subver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsg::subver() const {
+ ::google::protobuf::uint32 APInitMsg::subver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsg.SubVer)
   return subver_;
 }
-void APInitMsg::set_subver(::google::protobuf::uint32 value) {
+ void APInitMsg::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsg.SubVer)
 }
 
-inline const APInitMsg* APInitMsg::internal_default_instance() {
-  return &APInitMsg_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -643,26 +620,28 @@ const int APInitMsgRsp::kSubVerFieldNumber;
 
 APInitMsgRsp::APInitMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APInitMsgRsp)
 }
 
 void APInitMsgRsp::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 APInitMsgRsp::APInitMsgRsp(const APInitMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APInitMsgRsp)
 }
 
 void APInitMsgRsp::SharedCtor() {
-  ::memset(&majorver_, 0, reinterpret_cast<char*>(&subver_) -
-    reinterpret_cast<char*>(&majorver_) + sizeof(subver_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  majorver_ = 0u;
+  minorver_ = 0u;
+  subver_ = 0u;
 }
 
 APInitMsgRsp::~APInitMsgRsp() {
@@ -671,6 +650,8 @@ APInitMsgRsp::~APInitMsgRsp() {
 }
 
 void APInitMsgRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void APInitMsgRsp::SetCachedSize(int size) const {
@@ -684,11 +665,11 @@ const ::google::protobuf::Descriptor* APInitMsgRsp::descriptor() {
 }
 
 const APInitMsgRsp& APInitMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fglobal_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APInitMsgRsp> APInitMsgRsp_default_instance_;
+APInitMsgRsp* APInitMsgRsp::default_instance_ = NULL;
 
 APInitMsgRsp* APInitMsgRsp::New(::google::protobuf::Arena* arena) const {
   APInitMsgRsp* n = new APInitMsgRsp;
@@ -712,7 +693,7 @@ void APInitMsgRsp::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -736,10 +717,10 @@ bool APInitMsgRsp::MergePartialFromCodedStream(
       // optional uint32 MajorVer = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &majorver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -751,10 +732,10 @@ bool APInitMsgRsp::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_MinorVer:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &minorver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -766,10 +747,10 @@ bool APInitMsgRsp::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_SubVer:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &subver_)));
+
         } else {
           goto handle_unusual;
         }
@@ -821,7 +802,6 @@ void APInitMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APInitMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APInitMsgRsp)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
@@ -842,9 +822,9 @@ void APInitMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APInitMsgRsp::ByteSizeLong() const {
+int APInitMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APInitMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
@@ -867,17 +847,18 @@ size_t APInitMsgRsp::ByteSizeLong() const {
         this->subver());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APInitMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APInitMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APInitMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APInitMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APInitMsgRsp>(
           &from);
   if (source == NULL) {
@@ -885,21 +866,15 @@ void APInitMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInitMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APInitMsgRsp::MergeFrom(const APInitMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInitMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APInitMsgRsp::UnsafeMergeFrom(const APInitMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.majorver() != 0) {
     set_majorver(from.majorver());
   }
@@ -922,7 +897,7 @@ void APInitMsgRsp::CopyFrom(const APInitMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInitMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APInitMsgRsp::IsInitialized() const {
@@ -957,11 +932,11 @@ void APInitMsgRsp::InternalSwap(APInitMsgRsp* other) {
 void APInitMsgRsp::clear_majorver() {
   majorver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsgRsp::majorver() const {
+ ::google::protobuf::uint32 APInitMsgRsp::majorver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MajorVer)
   return majorver_;
 }
-void APInitMsgRsp::set_majorver(::google::protobuf::uint32 value) {
+ void APInitMsgRsp::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MajorVer)
@@ -971,11 +946,11 @@ void APInitMsgRsp::set_majorver(::google::protobuf::uint32 value) {
 void APInitMsgRsp::clear_minorver() {
   minorver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsgRsp::minorver() const {
+ ::google::protobuf::uint32 APInitMsgRsp::minorver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MinorVer)
   return minorver_;
 }
-void APInitMsgRsp::set_minorver(::google::protobuf::uint32 value) {
+ void APInitMsgRsp::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MinorVer)
@@ -985,19 +960,16 @@ void APInitMsgRsp::set_minorver(::google::protobuf::uint32 value) {
 void APInitMsgRsp::clear_subver() {
   subver_ = 0u;
 }
-::google::protobuf::uint32 APInitMsgRsp::subver() const {
+ ::google::protobuf::uint32 APInitMsgRsp::subver() const {
   // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.SubVer)
   return subver_;
 }
-void APInitMsgRsp::set_subver(::google::protobuf::uint32 value) {
+ void APInitMsgRsp::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.SubVer)
 }
 
-inline const APInitMsgRsp* APInitMsgRsp::internal_default_instance() {
-  return &APInitMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1010,31 +982,30 @@ const int APGlobalNotif::kInitRspMsgFieldNumber;
 
 APGlobalNotif::APGlobalNotif()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APGlobalNotif)
 }
 
 void APGlobalNotif::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
-  APGlobalNotif_default_oneof_instance_->initrspmsg_ = const_cast< ::access_point::APInitMsgRsp*>(
-      ::access_point::APInitMsgRsp::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
+  APGlobalNotif_default_oneof_instance_->initrspmsg_ = const_cast< ::access_point::APInitMsgRsp*>(&::access_point::APInitMsgRsp::default_instance());
 }
 
 APGlobalNotif::APGlobalNotif(const APGlobalNotif& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APGlobalNotif)
 }
 
 void APGlobalNotif::SharedCtor() {
-  errstatus_ = NULL;
-  eventtype_ = 0;
-  clear_has_Event();
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  eventtype_ = 0;
+  errstatus_ = NULL;
+  clear_has_Event();
 }
 
 APGlobalNotif::~APGlobalNotif() {
@@ -1046,7 +1017,7 @@ void APGlobalNotif::SharedDtor() {
   if (has_Event()) {
     clear_Event();
   }
-  if (this != &APGlobalNotif_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -1062,11 +1033,11 @@ const ::google::protobuf::Descriptor* APGlobalNotif::descriptor() {
 }
 
 const APGlobalNotif& APGlobalNotif::default_instance() {
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fglobal_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APGlobalNotif> APGlobalNotif_default_instance_;
+APGlobalNotif* APGlobalNotif::default_instance_ = NULL;
 
 APGlobalNotif* APGlobalNotif::New(::google::protobuf::Arena* arena) const {
   APGlobalNotif* n = new APGlobalNotif;
@@ -1078,7 +1049,7 @@ APGlobalNotif* APGlobalNotif::New(::google::protobuf::Arena* arena) const {
 
 void APGlobalNotif::clear_Event() {
 // @@protoc_insertion_point(one_of_clear_start:access_point.APGlobalNotif)
-  switch (Event_case()) {
+  switch(Event_case()) {
     case kInitRspMsg: {
       delete Event_.initrspmsg_;
       break;
@@ -1197,7 +1168,6 @@ void APGlobalNotif::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APGlobalNotif::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalNotif)
   // optional .access_point.APGlobalNotifType EventType = 1;
   if (this->eventtype() != 0) {
@@ -1223,9 +1193,9 @@ void APGlobalNotif::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APGlobalNotif::ByteSizeLong() const {
+int APGlobalNotif::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalNotif)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APGlobalNotifType EventType = 1;
   if (this->eventtype() != 0) {
@@ -1252,17 +1222,18 @@ size_t APGlobalNotif::ByteSizeLong() const {
       break;
     }
   }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APGlobalNotif::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalNotif)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APGlobalNotif* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APGlobalNotif* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalNotif>(
           &from);
   if (source == NULL) {
@@ -1270,21 +1241,15 @@ void APGlobalNotif::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalNotif)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APGlobalNotif::MergeFrom(const APGlobalNotif& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalNotif)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APGlobalNotif::UnsafeMergeFrom(const APGlobalNotif& from) {
-  GOOGLE_DCHECK(&from != this);
   switch (from.Event_case()) {
     case kInitRspMsg: {
       mutable_initrspmsg()->::access_point::APInitMsgRsp::MergeFrom(from.initrspmsg());
@@ -1313,7 +1278,7 @@ void APGlobalNotif::CopyFrom(const APGlobalNotif& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalNotif)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APGlobalNotif::IsInitialized() const {
@@ -1349,11 +1314,11 @@ void APGlobalNotif::InternalSwap(APGlobalNotif* other) {
 void APGlobalNotif::clear_eventtype() {
   eventtype_ = 0;
 }
-::access_point::APGlobalNotifType APGlobalNotif::eventtype() const {
+ ::access_point::APGlobalNotifType APGlobalNotif::eventtype() const {
   // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.EventType)
   return static_cast< ::access_point::APGlobalNotifType >(eventtype_);
 }
-void APGlobalNotif::set_eventtype(::access_point::APGlobalNotifType value) {
+ void APGlobalNotif::set_eventtype(::access_point::APGlobalNotifType value) {
   
   eventtype_ = value;
   // @@protoc_insertion_point(field_set:access_point.APGlobalNotif.EventType)
@@ -1361,7 +1326,7 @@ void APGlobalNotif::set_eventtype(::access_point::APGlobalNotifType value) {
 
 // optional .access_point.APErrorStatus ErrStatus = 2;
 bool APGlobalNotif::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APGlobalNotif::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -1369,8 +1334,7 @@ void APGlobalNotif::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APGlobalNotif::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APGlobalNotif::mutable_errstatus() {
   
@@ -1455,9 +1419,6 @@ void APGlobalNotif::clear_has_Event() {
 APGlobalNotif::EventCase APGlobalNotif::Event_case() const {
   return APGlobalNotif::EventCase(_oneof_case_[0]);
 }
-inline const APGlobalNotif* APGlobalNotif::internal_default_instance() {
-  return &APGlobalNotif_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1467,23 +1428,24 @@ inline const APGlobalNotif* APGlobalNotif::internal_default_instance() {
 
 APGlobalsGetMsg::APGlobalsGetMsg()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APGlobalsGetMsg)
 }
 
 void APGlobalsGetMsg::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 APGlobalsGetMsg::APGlobalsGetMsg(const APGlobalsGetMsg& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APGlobalsGetMsg)
 }
 
 void APGlobalsGetMsg::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
@@ -1493,6 +1455,8 @@ APGlobalsGetMsg::~APGlobalsGetMsg() {
 }
 
 void APGlobalsGetMsg::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void APGlobalsGetMsg::SetCachedSize(int size) const {
@@ -1506,11 +1470,11 @@ const ::google::protobuf::Descriptor* APGlobalsGetMsg::descriptor() {
 }
 
 const APGlobalsGetMsg& APGlobalsGetMsg::default_instance() {
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fglobal_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APGlobalsGetMsg> APGlobalsGetMsg_default_instance_;
+APGlobalsGetMsg* APGlobalsGetMsg::default_instance_ = NULL;
 
 APGlobalsGetMsg* APGlobalsGetMsg::New(::google::protobuf::Arena* arena) const {
   APGlobalsGetMsg* n = new APGlobalsGetMsg;
@@ -1558,27 +1522,27 @@ void APGlobalsGetMsg::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APGlobalsGetMsg::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalsGetMsg)
   // @@protoc_insertion_point(serialize_to_array_end:access_point.APGlobalsGetMsg)
   return target;
 }
 
-size_t APGlobalsGetMsg::ByteSizeLong() const {
+int APGlobalsGetMsg::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalsGetMsg)
-  size_t total_size = 0;
+  int total_size = 0;
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APGlobalsGetMsg::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalsGetMsg)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APGlobalsGetMsg* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APGlobalsGetMsg* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalsGetMsg>(
           &from);
   if (source == NULL) {
@@ -1586,21 +1550,15 @@ void APGlobalsGetMsg::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalsGetMsg)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APGlobalsGetMsg::MergeFrom(const APGlobalsGetMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalsGetMsg)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APGlobalsGetMsg::UnsafeMergeFrom(const APGlobalsGetMsg& from) {
-  GOOGLE_DCHECK(&from != this);
 }
 
 void APGlobalsGetMsg::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1614,7 +1572,7 @@ void APGlobalsGetMsg::CopyFrom(const APGlobalsGetMsg& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalsGetMsg)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APGlobalsGetMsg::IsInitialized() const {
@@ -1642,9 +1600,6 @@ void APGlobalsGetMsg::InternalSwap(APGlobalsGetMsg* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // APGlobalsGetMsg
 
-inline const APGlobalsGetMsg* APGlobalsGetMsg::internal_default_instance() {
-  return &APGlobalsGetMsg_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1657,29 +1612,29 @@ const int APGlobalsGetMsgRsp::kMaxSsidNameLengthFieldNumber;
 
 APGlobalsGetMsgRsp::APGlobalsGetMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APGlobalsGetMsgRsp)
 }
 
 void APGlobalsGetMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APGlobalsGetMsgRsp::APGlobalsGetMsgRsp(const APGlobalsGetMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APGlobalsGetMsgRsp)
 }
 
 void APGlobalsGetMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
-  ::memset(&maxradionamelength_, 0, reinterpret_cast<char*>(&maxssidnamelength_) -
-    reinterpret_cast<char*>(&maxradionamelength_) + sizeof(maxssidnamelength_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
+  maxradionamelength_ = 0u;
+  maxssidnamelength_ = 0u;
 }
 
 APGlobalsGetMsgRsp::~APGlobalsGetMsgRsp() {
@@ -1688,7 +1643,7 @@ APGlobalsGetMsgRsp::~APGlobalsGetMsgRsp() {
 }
 
 void APGlobalsGetMsgRsp::SharedDtor() {
-  if (this != &APGlobalsGetMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -1704,11 +1659,11 @@ const ::google::protobuf::Descriptor* APGlobalsGetMsgRsp::descriptor() {
 }
 
 const APGlobalsGetMsgRsp& APGlobalsGetMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fglobal_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fglobal_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APGlobalsGetMsgRsp> APGlobalsGetMsgRsp_default_instance_;
+APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::default_instance_ = NULL;
 
 APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::New(::google::protobuf::Arena* arena) const {
   APGlobalsGetMsgRsp* n = new APGlobalsGetMsgRsp;
@@ -1732,7 +1687,7 @@ void APGlobalsGetMsgRsp::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -1771,10 +1726,10 @@ bool APGlobalsGetMsgRsp::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_MaxRadioNameLength:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &maxradionamelength_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1786,10 +1741,10 @@ bool APGlobalsGetMsgRsp::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_MaxSsidNameLength:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &maxssidnamelength_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1842,7 +1797,6 @@ void APGlobalsGetMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APGlobalsGetMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalsGetMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -1865,9 +1819,9 @@ void APGlobalsGetMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APGlobalsGetMsgRsp::ByteSizeLong() const {
+int APGlobalsGetMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalsGetMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -1890,17 +1844,18 @@ size_t APGlobalsGetMsgRsp::ByteSizeLong() const {
         this->maxssidnamelength());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APGlobalsGetMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalsGetMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APGlobalsGetMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APGlobalsGetMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalsGetMsgRsp>(
           &from);
   if (source == NULL) {
@@ -1908,21 +1863,15 @@ void APGlobalsGetMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalsGetMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APGlobalsGetMsgRsp::MergeFrom(const APGlobalsGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalsGetMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APGlobalsGetMsgRsp::UnsafeMergeFrom(const APGlobalsGetMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
   }
@@ -1945,7 +1894,7 @@ void APGlobalsGetMsgRsp::CopyFrom(const APGlobalsGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalsGetMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APGlobalsGetMsgRsp::IsInitialized() const {
@@ -1978,7 +1927,7 @@ void APGlobalsGetMsgRsp::InternalSwap(APGlobalsGetMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APGlobalsGetMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APGlobalsGetMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -1986,8 +1935,7 @@ void APGlobalsGetMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APGlobalsGetMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APGlobalsGetMsgRsp::mutable_errstatus() {
   
@@ -2019,11 +1967,11 @@ void APGlobalsGetMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* 
 void APGlobalsGetMsgRsp::clear_maxradionamelength() {
   maxradionamelength_ = 0u;
 }
-::google::protobuf::uint32 APGlobalsGetMsgRsp::maxradionamelength() const {
+ ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxradionamelength() const {
   // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
   return maxradionamelength_;
 }
-void APGlobalsGetMsgRsp::set_maxradionamelength(::google::protobuf::uint32 value) {
+ void APGlobalsGetMsgRsp::set_maxradionamelength(::google::protobuf::uint32 value) {
   
   maxradionamelength_ = value;
   // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
@@ -2033,19 +1981,16 @@ void APGlobalsGetMsgRsp::set_maxradionamelength(::google::protobuf::uint32 value
 void APGlobalsGetMsgRsp::clear_maxssidnamelength() {
   maxssidnamelength_ = 0u;
 }
-::google::protobuf::uint32 APGlobalsGetMsgRsp::maxssidnamelength() const {
+ ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxssidnamelength() const {
   // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
   return maxssidnamelength_;
 }
-void APGlobalsGetMsgRsp::set_maxssidnamelength(::google::protobuf::uint32 value) {
+ void APGlobalsGetMsgRsp::set_maxssidnamelength(::google::protobuf::uint32 value) {
   
   maxssidnamelength_ = value;
   // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
 }
 
-inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance() {
-  return &APGlobalsGetMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)

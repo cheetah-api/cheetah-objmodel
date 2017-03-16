@@ -60,9 +60,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RadioUtilization_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RadioUtilization_reflection_ = NULL;
-const ::google::protobuf::Descriptor* AntennaRSSI_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  AntennaRSSI_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RadioCounters_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RadioCounters_reflection_ = NULL;
@@ -104,13 +101,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APStatsGetMsg_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APStatsGetMsg_descriptor_,
-      APStatsGetMsg::internal_default_instance(),
+      APStatsGetMsg::default_instance_,
       APStatsGetMsg_offsets_,
       -1,
       -1,
       -1,
       sizeof(APStatsGetMsg),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APStatsGetMsg, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APStatsGetMsg, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APStatsGetMsg, _is_default_instance_));
   APSystemStatsMsgRsp_descriptor_ = file->message_type(1);
   static const int APSystemStatsMsgRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSystemStatsMsgRsp, errstatus_),
@@ -121,13 +119,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APSystemStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APSystemStatsMsgRsp_descriptor_,
-      APSystemStatsMsgRsp::internal_default_instance(),
+      APSystemStatsMsgRsp::default_instance_,
       APSystemStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APSystemStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSystemStatsMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSystemStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSystemStatsMsgRsp, _is_default_instance_));
   MemInfo_descriptor_ = file->message_type(2);
   static const int MemInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MemInfo, total_kb_),
@@ -136,13 +135,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   MemInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       MemInfo_descriptor_,
-      MemInfo::internal_default_instance(),
+      MemInfo::default_instance_,
       MemInfo_offsets_,
       -1,
       -1,
       -1,
       sizeof(MemInfo),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MemInfo, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MemInfo, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MemInfo, _is_default_instance_));
   SlabInfo_descriptor_ = file->message_type(3);
   static const int SlabInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlabInfo, name_),
@@ -153,13 +153,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   SlabInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       SlabInfo_descriptor_,
-      SlabInfo::internal_default_instance(),
+      SlabInfo::default_instance_,
       SlabInfo_offsets_,
       -1,
       -1,
       -1,
       sizeof(SlabInfo),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlabInfo, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlabInfo, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlabInfo, _is_default_instance_));
   APMemoryStatsMsgRsp_descriptor_ = file->message_type(4);
   static const int APMemoryStatsMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APMemoryStatsMsgRsp, errstatus_),
@@ -169,13 +170,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APMemoryStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APMemoryStatsMsgRsp_descriptor_,
-      APMemoryStatsMsgRsp::internal_default_instance(),
+      APMemoryStatsMsgRsp::default_instance_,
       APMemoryStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APMemoryStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APMemoryStatsMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APMemoryStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APMemoryStatsMsgRsp, _is_default_instance_));
   APDNSServersMsgRsp_descriptor_ = file->message_type(5);
   static const int APDNSServersMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APDNSServersMsgRsp, errstatus_),
@@ -184,13 +186,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APDNSServersMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APDNSServersMsgRsp_descriptor_,
-      APDNSServersMsgRsp::internal_default_instance(),
+      APDNSServersMsgRsp::default_instance_,
       APDNSServersMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APDNSServersMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APDNSServersMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APDNSServersMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APDNSServersMsgRsp, _is_default_instance_));
   IPv4Route_descriptor_ = file->message_type(6);
   static const int IPv4Route_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IPv4Route, destination_),
@@ -205,13 +208,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   IPv4Route_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       IPv4Route_descriptor_,
-      IPv4Route::internal_default_instance(),
+      IPv4Route::default_instance_,
       IPv4Route_offsets_,
       -1,
       -1,
       -1,
       sizeof(IPv4Route),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IPv4Route, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IPv4Route, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IPv4Route, _is_default_instance_));
   APRoutesMsgRsp_descriptor_ = file->message_type(7);
   static const int APRoutesMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRoutesMsgRsp, errstatus_),
@@ -220,13 +224,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APRoutesMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APRoutesMsgRsp_descriptor_,
-      APRoutesMsgRsp::internal_default_instance(),
+      APRoutesMsgRsp::default_instance_,
       APRoutesMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APRoutesMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRoutesMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRoutesMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRoutesMsgRsp, _is_default_instance_));
   MulticastCounter_descriptor_ = file->message_type(8);
   static const int MulticastCounter_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MulticastCounter, txmcastpkts_),
@@ -235,13 +240,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   MulticastCounter_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       MulticastCounter_descriptor_,
-      MulticastCounter::internal_default_instance(),
+      MulticastCounter::default_instance_,
       MulticastCounter_offsets_,
       -1,
       -1,
       -1,
       sizeof(MulticastCounter),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MulticastCounter, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MulticastCounter, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MulticastCounter, _is_default_instance_));
   WLAN_descriptor_ = file->message_type(9);
   static const int WLAN_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLAN, id_),
@@ -250,13 +256,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   WLAN_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       WLAN_descriptor_,
-      WLAN::internal_default_instance(),
+      WLAN::default_instance_,
       WLAN_offsets_,
       -1,
       -1,
       -1,
       sizeof(WLAN),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLAN, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLAN, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLAN, _is_default_instance_));
   WLANEntry_descriptor_ = file->message_type(10);
   static const int WLANEntry_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLANEntry, wlan_),
@@ -269,13 +276,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   WLANEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       WLANEntry_descriptor_,
-      WLANEntry::internal_default_instance(),
+      WLANEntry::default_instance_,
       WLANEntry_offsets_,
       -1,
       -1,
       -1,
       sizeof(WLANEntry),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLANEntry, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLANEntry, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WLANEntry, _is_default_instance_));
   APWLANStatsMsgRsp_descriptor_ = file->message_type(11);
   static const int APWLANStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APWLANStatsMsgRsp, errstatus_),
@@ -284,13 +292,14 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APWLANStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APWLANStatsMsgRsp_descriptor_,
-      APWLANStatsMsgRsp::internal_default_instance(),
+      APWLANStatsMsgRsp::default_instance_,
       APWLANStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APWLANStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APWLANStatsMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APWLANStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APWLANStatsMsgRsp, _is_default_instance_));
   RadioUtilization_descriptor_ = file->message_type(12);
   static const int RadioUtilization_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, all_),
@@ -302,28 +311,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   RadioUtilization_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       RadioUtilization_descriptor_,
-      RadioUtilization::internal_default_instance(),
+      RadioUtilization::default_instance_,
       RadioUtilization_offsets_,
       -1,
       -1,
       -1,
       sizeof(RadioUtilization),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, _internal_metadata_));
-  AntennaRSSI_descriptor_ = file->message_type(13);
-  static const int AntennaRSSI_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AntennaRSSI, val_),
-  };
-  AntennaRSSI_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      AntennaRSSI_descriptor_,
-      AntennaRSSI::internal_default_instance(),
-      AntennaRSSI_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(AntennaRSSI),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AntennaRSSI, _internal_metadata_));
-  RadioCounters_descriptor_ = file->message_type(14);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioUtilization, _is_default_instance_));
+  RadioCounters_descriptor_ = file->message_type(13);
   static const int RadioCounters_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, txbytes_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, txpkts_),
@@ -337,14 +333,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   RadioCounters_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       RadioCounters_descriptor_,
-      RadioCounters::internal_default_instance(),
+      RadioCounters::default_instance_,
       RadioCounters_offsets_,
       -1,
       -1,
       -1,
       sizeof(RadioCounters),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, _internal_metadata_));
-  DfsState_descriptor_ = file->message_type(15);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioCounters, _is_default_instance_));
+  DfsState_descriptor_ = file->message_type(14);
   static const int DfsState_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, cacstate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, radardetected_),
@@ -352,14 +349,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   DfsState_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       DfsState_descriptor_,
-      DfsState::internal_default_instance(),
+      DfsState::default_instance_,
       DfsState_offsets_,
       -1,
       -1,
       -1,
       sizeof(DfsState),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, _internal_metadata_));
-  RadioEntry_descriptor_ = file->message_type(16);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DfsState, _is_default_instance_));
+  RadioEntry_descriptor_ = file->message_type(15);
   static const int RadioEntry_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, dev_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, band_),
@@ -369,21 +367,22 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, noisefloor_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, maxtxpower_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, utilization_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, rssi_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, antennarssi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, counter_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, dfs_),
   };
   RadioEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       RadioEntry_descriptor_,
-      RadioEntry::internal_default_instance(),
+      RadioEntry::default_instance_,
       RadioEntry_offsets_,
       -1,
       -1,
       -1,
       sizeof(RadioEntry),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, _internal_metadata_));
-  APRadioStatsMsgRsp_descriptor_ = file->message_type(17);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadioEntry, _is_default_instance_));
+  APRadioStatsMsgRsp_descriptor_ = file->message_type(16);
   static const int APRadioStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, radios_),
@@ -391,25 +390,25 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APRadioStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APRadioStatsMsgRsp_descriptor_,
-      APRadioStatsMsgRsp::internal_default_instance(),
+      APRadioStatsMsgRsp::default_instance_,
       APRadioStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APRadioStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, _internal_metadata_));
-  APClientEntry_descriptor_ = file->message_type(18);
-  static const int APClientEntry_offsets_[15] = {
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, _is_default_instance_));
+  APClientEntry_descriptor_ = file->message_type(17);
+  static const int APClientEntry_offsets_[14] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, mac_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, radioindex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, band_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, bssid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, wlan_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, connectedtimesec_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, inactivetimemillisec_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rssi_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, nf_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, antennarssi_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, avgrssi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txbitrate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txunicastbytes_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txunicastpkts_),
@@ -419,14 +418,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APClientEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APClientEntry_descriptor_,
-      APClientEntry::internal_default_instance(),
+      APClientEntry::default_instance_,
       APClientEntry_offsets_,
       -1,
       -1,
       -1,
       sizeof(APClientEntry),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, _internal_metadata_));
-  APClientStatsMsgRsp_descriptor_ = file->message_type(19);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, _is_default_instance_));
+  APClientStatsMsgRsp_descriptor_ = file->message_type(18);
   static const int APClientStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, clients_),
@@ -434,14 +434,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APClientStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APClientStatsMsgRsp_descriptor_,
-      APClientStatsMsgRsp::internal_default_instance(),
+      APClientStatsMsgRsp::default_instance_,
       APClientStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APClientStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, _internal_metadata_));
-  APInterfaceEntry_descriptor_ = file->message_type(20);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, _is_default_instance_));
+  APInterfaceEntry_descriptor_ = file->message_type(19);
   static const int APInterfaceEntry_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, link_),
@@ -456,14 +457,15 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APInterfaceEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APInterfaceEntry_descriptor_,
-      APInterfaceEntry::internal_default_instance(),
+      APInterfaceEntry::default_instance_,
       APInterfaceEntry_offsets_,
       -1,
       -1,
       -1,
       sizeof(APInterfaceEntry),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, _internal_metadata_));
-  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(21);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, _is_default_instance_));
+  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(20);
   static const int APInterfaceStatsMsgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, interfaces_),
@@ -471,19 +473,20 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
   APInterfaceStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APInterfaceStatsMsgRsp_descriptor_,
-      APInterfaceStatsMsgRsp::internal_default_instance(),
+      APInterfaceStatsMsgRsp::default_instance_,
       APInterfaceStatsMsgRsp_offsets_,
       -1,
       -1,
       -1,
       sizeof(APInterfaceStatsMsgRsp),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, _is_default_instance_));
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
+inline void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_ap_5fstats_2eproto);
 }
@@ -492,168 +495,104 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APStatsGetMsg_descriptor_, APStatsGetMsg::internal_default_instance());
+      APStatsGetMsg_descriptor_, &APStatsGetMsg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APSystemStatsMsgRsp_descriptor_, APSystemStatsMsgRsp::internal_default_instance());
+      APSystemStatsMsgRsp_descriptor_, &APSystemStatsMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MemInfo_descriptor_, MemInfo::internal_default_instance());
+      MemInfo_descriptor_, &MemInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SlabInfo_descriptor_, SlabInfo::internal_default_instance());
+      SlabInfo_descriptor_, &SlabInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APMemoryStatsMsgRsp_descriptor_, APMemoryStatsMsgRsp::internal_default_instance());
+      APMemoryStatsMsgRsp_descriptor_, &APMemoryStatsMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APDNSServersMsgRsp_descriptor_, APDNSServersMsgRsp::internal_default_instance());
+      APDNSServersMsgRsp_descriptor_, &APDNSServersMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      IPv4Route_descriptor_, IPv4Route::internal_default_instance());
+      IPv4Route_descriptor_, &IPv4Route::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APRoutesMsgRsp_descriptor_, APRoutesMsgRsp::internal_default_instance());
+      APRoutesMsgRsp_descriptor_, &APRoutesMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MulticastCounter_descriptor_, MulticastCounter::internal_default_instance());
+      MulticastCounter_descriptor_, &MulticastCounter::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      WLAN_descriptor_, WLAN::internal_default_instance());
+      WLAN_descriptor_, &WLAN::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      WLANEntry_descriptor_, WLANEntry::internal_default_instance());
+      WLANEntry_descriptor_, &WLANEntry::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APWLANStatsMsgRsp_descriptor_, APWLANStatsMsgRsp::internal_default_instance());
+      APWLANStatsMsgRsp_descriptor_, &APWLANStatsMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      RadioUtilization_descriptor_, RadioUtilization::internal_default_instance());
+      RadioUtilization_descriptor_, &RadioUtilization::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      AntennaRSSI_descriptor_, AntennaRSSI::internal_default_instance());
+      RadioCounters_descriptor_, &RadioCounters::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      RadioCounters_descriptor_, RadioCounters::internal_default_instance());
+      DfsState_descriptor_, &DfsState::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      DfsState_descriptor_, DfsState::internal_default_instance());
+      RadioEntry_descriptor_, &RadioEntry::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      RadioEntry_descriptor_, RadioEntry::internal_default_instance());
+      APRadioStatsMsgRsp_descriptor_, &APRadioStatsMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APRadioStatsMsgRsp_descriptor_, APRadioStatsMsgRsp::internal_default_instance());
+      APClientEntry_descriptor_, &APClientEntry::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APClientEntry_descriptor_, APClientEntry::internal_default_instance());
+      APClientStatsMsgRsp_descriptor_, &APClientStatsMsgRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APClientStatsMsgRsp_descriptor_, APClientStatsMsgRsp::internal_default_instance());
+      APInterfaceEntry_descriptor_, &APInterfaceEntry::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APInterfaceEntry_descriptor_, APInterfaceEntry::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APInterfaceStatsMsgRsp_descriptor_, APInterfaceStatsMsgRsp::internal_default_instance());
+      APInterfaceStatsMsgRsp_descriptor_, &APInterfaceStatsMsgRsp::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ap_5fstats_2eproto() {
-  APStatsGetMsg_default_instance_.Shutdown();
+  delete APStatsGetMsg::default_instance_;
   delete APStatsGetMsg_reflection_;
-  APSystemStatsMsgRsp_default_instance_.Shutdown();
+  delete APSystemStatsMsgRsp::default_instance_;
   delete APSystemStatsMsgRsp_reflection_;
-  MemInfo_default_instance_.Shutdown();
+  delete MemInfo::default_instance_;
   delete MemInfo_reflection_;
-  SlabInfo_default_instance_.Shutdown();
+  delete SlabInfo::default_instance_;
   delete SlabInfo_reflection_;
-  APMemoryStatsMsgRsp_default_instance_.Shutdown();
+  delete APMemoryStatsMsgRsp::default_instance_;
   delete APMemoryStatsMsgRsp_reflection_;
-  APDNSServersMsgRsp_default_instance_.Shutdown();
+  delete APDNSServersMsgRsp::default_instance_;
   delete APDNSServersMsgRsp_reflection_;
-  IPv4Route_default_instance_.Shutdown();
+  delete IPv4Route::default_instance_;
   delete IPv4Route_reflection_;
-  APRoutesMsgRsp_default_instance_.Shutdown();
+  delete APRoutesMsgRsp::default_instance_;
   delete APRoutesMsgRsp_reflection_;
-  MulticastCounter_default_instance_.Shutdown();
+  delete MulticastCounter::default_instance_;
   delete MulticastCounter_reflection_;
-  WLAN_default_instance_.Shutdown();
+  delete WLAN::default_instance_;
   delete WLAN_reflection_;
-  WLANEntry_default_instance_.Shutdown();
+  delete WLANEntry::default_instance_;
   delete WLANEntry_reflection_;
-  APWLANStatsMsgRsp_default_instance_.Shutdown();
+  delete APWLANStatsMsgRsp::default_instance_;
   delete APWLANStatsMsgRsp_reflection_;
-  RadioUtilization_default_instance_.Shutdown();
+  delete RadioUtilization::default_instance_;
   delete RadioUtilization_reflection_;
-  AntennaRSSI_default_instance_.Shutdown();
-  delete AntennaRSSI_reflection_;
-  RadioCounters_default_instance_.Shutdown();
+  delete RadioCounters::default_instance_;
   delete RadioCounters_reflection_;
-  DfsState_default_instance_.Shutdown();
+  delete DfsState::default_instance_;
   delete DfsState_reflection_;
-  RadioEntry_default_instance_.Shutdown();
+  delete RadioEntry::default_instance_;
   delete RadioEntry_reflection_;
-  APRadioStatsMsgRsp_default_instance_.Shutdown();
+  delete APRadioStatsMsgRsp::default_instance_;
   delete APRadioStatsMsgRsp_reflection_;
-  APClientEntry_default_instance_.Shutdown();
+  delete APClientEntry::default_instance_;
   delete APClientEntry_reflection_;
-  APClientStatsMsgRsp_default_instance_.Shutdown();
+  delete APClientStatsMsgRsp::default_instance_;
   delete APClientStatsMsgRsp_reflection_;
-  APInterfaceEntry_default_instance_.Shutdown();
+  delete APInterfaceEntry::default_instance_;
   delete APInterfaceEntry_reflection_;
-  APInterfaceStatsMsgRsp_default_instance_.Shutdown();
+  delete APInterfaceStatsMsgRsp::default_instance_;
   delete APInterfaceStatsMsgRsp_reflection_;
 }
 
-void protobuf_InitDefaults_ap_5fstats_2eproto_impl() {
+void protobuf_AddDesc_ap_5fstats_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AddDesc_ap_5fstats_2eproto() {
+  static bool already_here = false;
+  if (already_here) return;
+  already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::access_point::protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
-  APStatsGetMsg_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  APSystemStatsMsgRsp_default_instance_.DefaultConstruct();
-  MemInfo_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  SlabInfo_default_instance_.DefaultConstruct();
-  APMemoryStatsMsgRsp_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  APDNSServersMsgRsp_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  IPv4Route_default_instance_.DefaultConstruct();
-  APRoutesMsgRsp_default_instance_.DefaultConstruct();
-  MulticastCounter_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  WLAN_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  WLANEntry_default_instance_.DefaultConstruct();
-  APWLANStatsMsgRsp_default_instance_.DefaultConstruct();
-  RadioUtilization_default_instance_.DefaultConstruct();
-  AntennaRSSI_default_instance_.DefaultConstruct();
-  RadioCounters_default_instance_.DefaultConstruct();
-  DfsState_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  RadioEntry_default_instance_.DefaultConstruct();
-  APRadioStatsMsgRsp_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  APClientEntry_default_instance_.DefaultConstruct();
-  APClientStatsMsgRsp_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  APInterfaceEntry_default_instance_.DefaultConstruct();
-  APInterfaceStatsMsgRsp_default_instance_.DefaultConstruct();
-  APStatsGetMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APSystemStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  MemInfo_default_instance_.get_mutable()->InitAsDefaultInstance();
-  SlabInfo_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APMemoryStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APDNSServersMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  IPv4Route_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APRoutesMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  MulticastCounter_default_instance_.get_mutable()->InitAsDefaultInstance();
-  WLAN_default_instance_.get_mutable()->InitAsDefaultInstance();
-  WLANEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APWLANStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  RadioUtilization_default_instance_.get_mutable()->InitAsDefaultInstance();
-  AntennaRSSI_default_instance_.get_mutable()->InitAsDefaultInstance();
-  RadioCounters_default_instance_.get_mutable()->InitAsDefaultInstance();
-  DfsState_default_instance_.get_mutable()->InitAsDefaultInstance();
-  RadioEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APRadioStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APClientEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APClientStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APInterfaceEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APInterfaceStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
-}
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_ap_5fstats_2eproto_once_);
-void protobuf_InitDefaults_ap_5fstats_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_ap_5fstats_2eproto_once_,
-                 &protobuf_InitDefaults_ap_5fstats_2eproto_impl);
-}
-void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  protobuf_InitDefaults_ap_5fstats_2eproto();
+  ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016ap_stats.proto\022\014access_point\032\025ap_commo"
     "n_types.proto\"\017\n\rAPStatsGetMsg\"o\n\023APSyst"
@@ -687,86 +626,110 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "\002 \003(\0132\027.access_point.WLANEntry\"a\n\020RadioU"
     "tilization\022\013\n\003All\030\001 \001(\002\022\n\n\002Tx\030\002 \001(\002\022\017\n\007R"
     "xInBSS\030\003 \001(\002\022\022\n\nRxOtherBSS\030\004 \001(\002\022\017\n\007NonW"
-    "ifi\030\005 \001(\002\"\032\n\013AntennaRSSI\022\013\n\003val\030\001 \003(\005\"\225\001"
-    "\n\rRadioCounters\022\017\n\007TxBytes\030\001 \001(\004\022\016\n\006TxPk"
-    "ts\030\002 \001(\r\022\016\n\006TxMgmt\030\003 \001(\r\022\020\n\010TxErrors\030\004 \001"
-    "(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\016\n\006R"
-    "xMgmt\030\007 \001(\r\022\020\n\010RxErrors\030\010 \001(\r\"3\n\010DfsStat"
-    "e\022\020\n\010CacState\030\001 \001(\r\022\025\n\rRadarDetected\030\002 \001"
-    "(\010\"\276\002\n\nRadioEntry\022\013\n\003Dev\030\001 \001(\t\022\014\n\004Band\030\002"
-    " \001(\t\022\017\n\007Channel\030\003 \001(\r\022\030\n\020SecondaryChanne"
-    "l\030\004 \001(\r\022\021\n\tBandwidth\030\005 \001(\r\022\022\n\nNoiseFloor"
-    "\030\006 \001(\r\022\022\n\nMaxTxPower\030\007 \001(\r\0223\n\013Utilizatio"
-    "n\030\010 \001(\0132\036.access_point.RadioUtilization\022"
-    "\'\n\004RSSI\030\t \001(\0132\031.access_point.AntennaRSSI"
-    "\022,\n\007Counter\030\n \001(\0132\033.access_point.RadioCo"
-    "unters\022#\n\003DFS\030\013 \001(\0132\026.access_point.DfsSt"
-    "ate\"n\n\022APRadioStatsMsgRsp\022.\n\tErrStatus\030\001"
-    " \001(\0132\033.access_point.APErrorStatus\022(\n\006Rad"
-    "ios\030\002 \003(\0132\030.access_point.RadioEntry\"\276\002\n\r"
-    "APClientEntry\022\013\n\003MAC\030\002 \001(\t\022\022\n\nRadioIndex"
-    "\030\003 \001(\r\022\014\n\004Band\030\004 \001(\t\022\r\n\005BSSID\030\005 \001(\t\022 \n\004W"
-    "lan\030\006 \001(\0132\022.access_point.WLAN\022\030\n\020Connect"
-    "edTimeSec\030\007 \001(\r\022\034\n\024InactiveTimeMilliSec\030"
-    "\010 \001(\r\022\014\n\004RSSI\030\t \001(\005\022\023\n\013AntennaRSSI\030\n \003(\005"
-    "\022\017\n\007AvgRSSI\030\013 \001(\005\022\021\n\tTxBitRate\030\014 \001(\005\022\026\n\016"
-    "TxUnicastBytes\030\r \001(\004\022\025\n\rTxUnicastPkts\030\016 "
-    "\001(\r\022\017\n\007RxBytes\030\017 \001(\004\022\016\n\006RxPkts\030\020 \001(\r\"s\n\023"
-    "APClientStatsMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033"
-    ".access_point.APErrorStatus\022,\n\007Clients\030\002"
-    " \003(\0132\033.access_point.APClientEntry\"\247\001\n\020AP"
-    "InterfaceEntry\022\014\n\004Name\030\001 \001(\t\022\014\n\004Link\030\002 \001"
-    "(\010\022\022\n\nFullDuplex\030\003 \001(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n"
-    "\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\022\n\nRxDisc"
-    "ards\030\007 \001(\r\022\017\n\007TxBytes\030\010 \001(\004\022\016\n\006TxPkts\030\t "
-    "\001(\r\"|\n\026APInterfaceStatsMsgRsp\022.\n\tErrStat"
-    "us\030\001 \001(\0132\033.access_point.APErrorStatus\0222\n"
-    "\nInterfaces\030\002 \003(\0132\036.access_point.APInter"
-    "faceEntry2\245\005\n\014APStatistics\022R\n\020APSystemSt"
-    "atsGet\022\033.access_point.APStatsGetMsg\032!.ac"
-    "cess_point.APSystemStatsMsgRsp\022R\n\020APMemo"
-    "ryStatsGet\022\033.access_point.APStatsGetMsg\032"
-    "!.access_point.APMemoryStatsMsgRsp\022N\n\rAP"
-    "DNSStatsGet\022\033.access_point.APStatsGetMsg"
-    "\032 .access_point.APDNSServersMsgRsp\022M\n\020AP"
-    "RoutesStatsGet\022\033.access_point.APStatsGet"
-    "Msg\032\034.access_point.APRoutesMsgRsp\022P\n\017APR"
-    "adioStatsGet\022\033.access_point.APStatsGetMs"
-    "g\032 .access_point.APRadioStatsMsgRsp\022N\n\016A"
-    "PWLANStatsGet\022\033.access_point.APStatsGetM"
-    "sg\032\037.access_point.APWLANStatsMsgRsp\022R\n\020A"
-    "PClientStatsGet\022\033.access_point.APStatsGe"
-    "tMsg\032!.access_point.APClientStatsMsgRsp\022"
-    "X\n\023APInterfaceStatsGet\022\033.access_point.AP"
-    "StatsGetMsg\032$.access_point.APInterfaceSt"
-    "atsMsgRspb\006proto3", 3377);
+    "ifi\030\005 \001(\002\"\225\001\n\rRadioCounters\022\017\n\007TxBytes\030\001"
+    " \001(\004\022\016\n\006TxPkts\030\002 \001(\r\022\016\n\006TxMgmt\030\003 \001(\r\022\020\n\010"
+    "TxErrors\030\004 \001(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006RxPkt"
+    "s\030\006 \001(\r\022\016\n\006RxMgmt\030\007 \001(\r\022\020\n\010RxErrors\030\010 \001("
+    "\r\"3\n\010DfsState\022\020\n\010CacState\030\001 \001(\r\022\025\n\rRadar"
+    "Detected\030\002 \001(\010\"\252\002\n\nRadioEntry\022\013\n\003Dev\030\001 \001"
+    "(\t\022\014\n\004Band\030\002 \001(\t\022\017\n\007Channel\030\003 \001(\r\022\030\n\020Sec"
+    "ondaryChannel\030\004 \001(\r\022\021\n\tBandwidth\030\005 \001(\r\022\022"
+    "\n\nNoiseFloor\030\006 \001(\005\022\022\n\nMaxTxPower\030\007 \001(\r\0223"
+    "\n\013Utilization\030\010 \001(\0132\036.access_point.Radio"
+    "Utilization\022\023\n\013AntennaRSSI\030\t \003(\005\022,\n\007Coun"
+    "ter\030\n \001(\0132\033.access_point.RadioCounters\022#"
+    "\n\003DFS\030\013 \001(\0132\026.access_point.DfsState\"n\n\022A"
+    "PRadioStatsMsgRsp\022.\n\tErrStatus\030\001 \001(\0132\033.a"
+    "ccess_point.APErrorStatus\022(\n\006Radios\030\002 \003("
+    "\0132\030.access_point.RadioEntry\"\252\002\n\rAPClient"
+    "Entry\022\013\n\003MAC\030\002 \001(\t\022\022\n\nRadioIndex\030\003 \001(\r\022\014"
+    "\n\004Band\030\004 \001(\t\022 \n\004Wlan\030\006 \001(\0132\022.access_poin"
+    "t.WLAN\022\030\n\020ConnectedTimeSec\030\007 \001(\r\022\034\n\024Inac"
+    "tiveTimeMilliSec\030\010 \001(\r\022\014\n\004RSSI\030\t \001(\005\022\n\n\002"
+    "NF\030\n \001(\005\022\023\n\013AntennaRSSI\030\013 \003(\005\022\021\n\tTxBitRa"
+    "te\030\014 \001(\005\022\026\n\016TxUnicastBytes\030\r \001(\004\022\025\n\rTxUn"
+    "icastPkts\030\016 \001(\r\022\017\n\007RxBytes\030\017 \001(\004\022\016\n\006RxPk"
+    "ts\030\020 \001(\r\"s\n\023APClientStatsMsgRsp\022.\n\tErrSt"
+    "atus\030\001 \001(\0132\033.access_point.APErrorStatus\022"
+    ",\n\007Clients\030\002 \003(\0132\033.access_point.APClient"
+    "Entry\"\247\001\n\020APInterfaceEntry\022\014\n\004Name\030\001 \001(\t"
+    "\022\014\n\004Link\030\002 \001(\010\022\022\n\nFullDuplex\030\003 \001(\010\022\r\n\005Sp"
+    "eed\030\004 \001(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001"
+    "(\r\022\022\n\nRxDiscards\030\007 \001(\r\022\017\n\007TxBytes\030\010 \001(\004\022"
+    "\016\n\006TxPkts\030\t \001(\r\"|\n\026APInterfaceStatsMsgRs"
+    "p\022.\n\tErrStatus\030\001 \001(\0132\033.access_point.APEr"
+    "rorStatus\0222\n\nInterfaces\030\002 \003(\0132\036.access_p"
+    "oint.APInterfaceEntry2\245\005\n\014APStatistics\022R"
+    "\n\020APSystemStatsGet\022\033.access_point.APStat"
+    "sGetMsg\032!.access_point.APSystemStatsMsgR"
+    "sp\022R\n\020APMemoryStatsGet\022\033.access_point.AP"
+    "StatsGetMsg\032!.access_point.APMemoryStats"
+    "MsgRsp\022N\n\rAPDNSStatsGet\022\033.access_point.A"
+    "PStatsGetMsg\032 .access_point.APDNSServers"
+    "MsgRsp\022M\n\020APRoutesStatsGet\022\033.access_poin"
+    "t.APStatsGetMsg\032\034.access_point.APRoutesM"
+    "sgRsp\022P\n\017APRadioStatsGet\022\033.access_point."
+    "APStatsGetMsg\032 .access_point.APRadioStat"
+    "sMsgRsp\022N\n\016APWLANStatsGet\022\033.access_point"
+    ".APStatsGetMsg\032\037.access_point.APWLANStat"
+    "sMsgRsp\022R\n\020APClientStatsGet\022\033.access_poi"
+    "nt.APStatsGetMsg\032!.access_point.APClient"
+    "StatsMsgRsp\022X\n\023APInterfaceStatsGet\022\033.acc"
+    "ess_point.APStatsGetMsg\032$.access_point.A"
+    "PInterfaceStatsMsgRspb\006proto3", 3309);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_stats.proto", &protobuf_RegisterTypes);
-  ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
+  APStatsGetMsg::default_instance_ = new APStatsGetMsg();
+  APSystemStatsMsgRsp::default_instance_ = new APSystemStatsMsgRsp();
+  MemInfo::default_instance_ = new MemInfo();
+  SlabInfo::default_instance_ = new SlabInfo();
+  APMemoryStatsMsgRsp::default_instance_ = new APMemoryStatsMsgRsp();
+  APDNSServersMsgRsp::default_instance_ = new APDNSServersMsgRsp();
+  IPv4Route::default_instance_ = new IPv4Route();
+  APRoutesMsgRsp::default_instance_ = new APRoutesMsgRsp();
+  MulticastCounter::default_instance_ = new MulticastCounter();
+  WLAN::default_instance_ = new WLAN();
+  WLANEntry::default_instance_ = new WLANEntry();
+  APWLANStatsMsgRsp::default_instance_ = new APWLANStatsMsgRsp();
+  RadioUtilization::default_instance_ = new RadioUtilization();
+  RadioCounters::default_instance_ = new RadioCounters();
+  DfsState::default_instance_ = new DfsState();
+  RadioEntry::default_instance_ = new RadioEntry();
+  APRadioStatsMsgRsp::default_instance_ = new APRadioStatsMsgRsp();
+  APClientEntry::default_instance_ = new APClientEntry();
+  APClientStatsMsgRsp::default_instance_ = new APClientStatsMsgRsp();
+  APInterfaceEntry::default_instance_ = new APInterfaceEntry();
+  APInterfaceStatsMsgRsp::default_instance_ = new APInterfaceStatsMsgRsp();
+  APStatsGetMsg::default_instance_->InitAsDefaultInstance();
+  APSystemStatsMsgRsp::default_instance_->InitAsDefaultInstance();
+  MemInfo::default_instance_->InitAsDefaultInstance();
+  SlabInfo::default_instance_->InitAsDefaultInstance();
+  APMemoryStatsMsgRsp::default_instance_->InitAsDefaultInstance();
+  APDNSServersMsgRsp::default_instance_->InitAsDefaultInstance();
+  IPv4Route::default_instance_->InitAsDefaultInstance();
+  APRoutesMsgRsp::default_instance_->InitAsDefaultInstance();
+  MulticastCounter::default_instance_->InitAsDefaultInstance();
+  WLAN::default_instance_->InitAsDefaultInstance();
+  WLANEntry::default_instance_->InitAsDefaultInstance();
+  APWLANStatsMsgRsp::default_instance_->InitAsDefaultInstance();
+  RadioUtilization::default_instance_->InitAsDefaultInstance();
+  RadioCounters::default_instance_->InitAsDefaultInstance();
+  DfsState::default_instance_->InitAsDefaultInstance();
+  RadioEntry::default_instance_->InitAsDefaultInstance();
+  APRadioStatsMsgRsp::default_instance_->InitAsDefaultInstance();
+  APClientEntry::default_instance_->InitAsDefaultInstance();
+  APClientStatsMsgRsp::default_instance_->InitAsDefaultInstance();
+  APInterfaceEntry::default_instance_->InitAsDefaultInstance();
+  APInterfaceStatsMsgRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fstats_2eproto);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_ap_5fstats_2eproto_once_);
-void protobuf_AddDesc_ap_5fstats_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_ap_5fstats_2eproto_once_,
-                 &protobuf_AddDesc_ap_5fstats_2eproto_impl);
-}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_ap_5fstats_2eproto {
   StaticDescriptorInitializer_ap_5fstats_2eproto() {
     protobuf_AddDesc_ap_5fstats_2eproto();
   }
 } static_descriptor_initializer_ap_5fstats_2eproto_;
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
-static void MergeFromFail(int line) {
-  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
-}
-
-}  // namespace
-
 
 // ===================================================================
 
@@ -775,23 +738,24 @@ static void MergeFromFail(int line) {
 
 APStatsGetMsg::APStatsGetMsg()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APStatsGetMsg)
 }
 
 void APStatsGetMsg::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 APStatsGetMsg::APStatsGetMsg(const APStatsGetMsg& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APStatsGetMsg)
 }
 
 void APStatsGetMsg::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
@@ -801,6 +765,8 @@ APStatsGetMsg::~APStatsGetMsg() {
 }
 
 void APStatsGetMsg::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void APStatsGetMsg::SetCachedSize(int size) const {
@@ -814,11 +780,11 @@ const ::google::protobuf::Descriptor* APStatsGetMsg::descriptor() {
 }
 
 const APStatsGetMsg& APStatsGetMsg::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APStatsGetMsg> APStatsGetMsg_default_instance_;
+APStatsGetMsg* APStatsGetMsg::default_instance_ = NULL;
 
 APStatsGetMsg* APStatsGetMsg::New(::google::protobuf::Arena* arena) const {
   APStatsGetMsg* n = new APStatsGetMsg;
@@ -866,27 +832,27 @@ void APStatsGetMsg::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APStatsGetMsg::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APStatsGetMsg)
   // @@protoc_insertion_point(serialize_to_array_end:access_point.APStatsGetMsg)
   return target;
 }
 
-size_t APStatsGetMsg::ByteSizeLong() const {
+int APStatsGetMsg::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APStatsGetMsg)
-  size_t total_size = 0;
+  int total_size = 0;
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APStatsGetMsg::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APStatsGetMsg)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APStatsGetMsg* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APStatsGetMsg* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APStatsGetMsg>(
           &from);
   if (source == NULL) {
@@ -894,21 +860,15 @@ void APStatsGetMsg::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APStatsGetMsg)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APStatsGetMsg::MergeFrom(const APStatsGetMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APStatsGetMsg)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APStatsGetMsg::UnsafeMergeFrom(const APStatsGetMsg& from) {
-  GOOGLE_DCHECK(&from != this);
 }
 
 void APStatsGetMsg::CopyFrom(const ::google::protobuf::Message& from) {
@@ -922,7 +882,7 @@ void APStatsGetMsg::CopyFrom(const APStatsGetMsg& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APStatsGetMsg)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APStatsGetMsg::IsInitialized() const {
@@ -950,9 +910,6 @@ void APStatsGetMsg::InternalSwap(APStatsGetMsg* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // APStatsGetMsg
 
-inline const APStatsGetMsg* APStatsGetMsg::internal_default_instance() {
-  return &APStatsGetMsg_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -966,30 +923,31 @@ const int APSystemStatsMsgRsp::kWhenFieldNumber;
 
 APSystemStatsMsgRsp::APSystemStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APSystemStatsMsgRsp)
 }
 
 void APSystemStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APSystemStatsMsgRsp::APSystemStatsMsgRsp(const APSystemStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APSystemStatsMsgRsp)
 }
 
 void APSystemStatsMsgRsp::SharedCtor() {
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  when_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  errstatus_ = NULL;
-  uptime_ = 0u;
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  errstatus_ = NULL;
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  uptime_ = 0u;
+  when_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 APSystemStatsMsgRsp::~APSystemStatsMsgRsp() {
@@ -1000,7 +958,7 @@ APSystemStatsMsgRsp::~APSystemStatsMsgRsp() {
 void APSystemStatsMsgRsp::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   when_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != &APSystemStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -1016,11 +974,11 @@ const ::google::protobuf::Descriptor* APSystemStatsMsgRsp::descriptor() {
 }
 
 const APSystemStatsMsgRsp& APSystemStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APSystemStatsMsgRsp> APSystemStatsMsgRsp_default_instance_;
+APSystemStatsMsgRsp* APSystemStatsMsgRsp::default_instance_ = NULL;
 
 APSystemStatsMsgRsp* APSystemStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APSystemStatsMsgRsp* n = new APSystemStatsMsgRsp;
@@ -1082,10 +1040,10 @@ bool APSystemStatsMsgRsp::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_Uptime:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &uptime_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1170,7 +1128,6 @@ void APSystemStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APSystemStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APSystemStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -1210,9 +1167,9 @@ void APSystemStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APSystemStatsMsgRsp::ByteSizeLong() const {
+int APSystemStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APSystemStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -1242,17 +1199,18 @@ size_t APSystemStatsMsgRsp::ByteSizeLong() const {
         this->when());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APSystemStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APSystemStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APSystemStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APSystemStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APSystemStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -1260,21 +1218,15 @@ void APSystemStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APSystemStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APSystemStatsMsgRsp::MergeFrom(const APSystemStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APSystemStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APSystemStatsMsgRsp::UnsafeMergeFrom(const APSystemStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
   }
@@ -1302,7 +1254,7 @@ void APSystemStatsMsgRsp::CopyFrom(const APSystemStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APSystemStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APSystemStatsMsgRsp::IsInitialized() const {
@@ -1336,7 +1288,7 @@ void APSystemStatsMsgRsp::InternalSwap(APSystemStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APSystemStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APSystemStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -1344,8 +1296,7 @@ void APSystemStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APSystemStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APSystemStatsMsgRsp::mutable_errstatus() {
   
@@ -1377,37 +1328,37 @@ void APSystemStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus*
 void APSystemStatsMsgRsp::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& APSystemStatsMsgRsp::id() const {
+ const ::std::string& APSystemStatsMsgRsp::id() const {
   // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.ID)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APSystemStatsMsgRsp::set_id(const ::std::string& value) {
+ void APSystemStatsMsgRsp::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.ID)
 }
-void APSystemStatsMsgRsp::set_id(const char* value) {
+ void APSystemStatsMsgRsp::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.ID)
 }
-void APSystemStatsMsgRsp::set_id(const char* value, size_t size) {
+ void APSystemStatsMsgRsp::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.ID)
 }
-::std::string* APSystemStatsMsgRsp::mutable_id() {
+ ::std::string* APSystemStatsMsgRsp::mutable_id() {
   
   // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.ID)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* APSystemStatsMsgRsp::release_id() {
+ ::std::string* APSystemStatsMsgRsp::release_id() {
   // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.ID)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APSystemStatsMsgRsp::set_allocated_id(::std::string* id) {
+ void APSystemStatsMsgRsp::set_allocated_id(::std::string* id) {
   if (id != NULL) {
     
   } else {
@@ -1421,11 +1372,11 @@ void APSystemStatsMsgRsp::set_allocated_id(::std::string* id) {
 void APSystemStatsMsgRsp::clear_uptime() {
   uptime_ = 0u;
 }
-::google::protobuf::uint32 APSystemStatsMsgRsp::uptime() const {
+ ::google::protobuf::uint32 APSystemStatsMsgRsp::uptime() const {
   // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.Uptime)
   return uptime_;
 }
-void APSystemStatsMsgRsp::set_uptime(::google::protobuf::uint32 value) {
+ void APSystemStatsMsgRsp::set_uptime(::google::protobuf::uint32 value) {
   
   uptime_ = value;
   // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.Uptime)
@@ -1435,37 +1386,37 @@ void APSystemStatsMsgRsp::set_uptime(::google::protobuf::uint32 value) {
 void APSystemStatsMsgRsp::clear_when() {
   when_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& APSystemStatsMsgRsp::when() const {
+ const ::std::string& APSystemStatsMsgRsp::when() const {
   // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.When)
   return when_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APSystemStatsMsgRsp::set_when(const ::std::string& value) {
+ void APSystemStatsMsgRsp::set_when(const ::std::string& value) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.When)
 }
-void APSystemStatsMsgRsp::set_when(const char* value) {
+ void APSystemStatsMsgRsp::set_when(const char* value) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.When)
 }
-void APSystemStatsMsgRsp::set_when(const char* value, size_t size) {
+ void APSystemStatsMsgRsp::set_when(const char* value, size_t size) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.When)
 }
-::std::string* APSystemStatsMsgRsp::mutable_when() {
+ ::std::string* APSystemStatsMsgRsp::mutable_when() {
   
   // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.When)
   return when_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* APSystemStatsMsgRsp::release_when() {
+ ::std::string* APSystemStatsMsgRsp::release_when() {
   // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.When)
   
   return when_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APSystemStatsMsgRsp::set_allocated_when(::std::string* when) {
+ void APSystemStatsMsgRsp::set_allocated_when(::std::string* when) {
   if (when != NULL) {
     
   } else {
@@ -1475,9 +1426,6 @@ void APSystemStatsMsgRsp::set_allocated_when(::std::string* when) {
   // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.When)
 }
 
-inline const APSystemStatsMsgRsp* APSystemStatsMsgRsp::internal_default_instance() {
-  return &APSystemStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1489,26 +1437,27 @@ const int MemInfo::kAvailableKBFieldNumber;
 
 MemInfo::MemInfo()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.MemInfo)
 }
 
 void MemInfo::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 MemInfo::MemInfo(const MemInfo& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.MemInfo)
 }
 
 void MemInfo::SharedCtor() {
-  ::memset(&total_kb_, 0, reinterpret_cast<char*>(&available_kb_) -
-    reinterpret_cast<char*>(&total_kb_) + sizeof(available_kb_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  total_kb_ = 0u;
+  available_kb_ = 0u;
 }
 
 MemInfo::~MemInfo() {
@@ -1517,6 +1466,8 @@ MemInfo::~MemInfo() {
 }
 
 void MemInfo::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void MemInfo::SetCachedSize(int size) const {
@@ -1530,11 +1481,11 @@ const ::google::protobuf::Descriptor* MemInfo::descriptor() {
 }
 
 const MemInfo& MemInfo::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<MemInfo> MemInfo_default_instance_;
+MemInfo* MemInfo::default_instance_ = NULL;
 
 MemInfo* MemInfo::New(::google::protobuf::Arena* arena) const {
   MemInfo* n = new MemInfo;
@@ -1558,7 +1509,7 @@ void MemInfo::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -1582,10 +1533,10 @@ bool MemInfo::MergePartialFromCodedStream(
       // optional uint32 Total_kB = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &total_kb_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1597,10 +1548,10 @@ bool MemInfo::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_Available_kB:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &available_kb_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1647,7 +1598,6 @@ void MemInfo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MemInfo::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.MemInfo)
   // optional uint32 Total_kB = 1;
   if (this->total_kb() != 0) {
@@ -1663,9 +1613,9 @@ void MemInfo::SerializeWithCachedSizes(
   return target;
 }
 
-size_t MemInfo::ByteSizeLong() const {
+int MemInfo::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.MemInfo)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint32 Total_kB = 1;
   if (this->total_kb() != 0) {
@@ -1681,17 +1631,18 @@ size_t MemInfo::ByteSizeLong() const {
         this->available_kb());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void MemInfo::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.MemInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MemInfo* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const MemInfo* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const MemInfo>(
           &from);
   if (source == NULL) {
@@ -1699,21 +1650,15 @@ void MemInfo::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.MemInfo)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void MemInfo::MergeFrom(const MemInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.MemInfo)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void MemInfo::UnsafeMergeFrom(const MemInfo& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.total_kb() != 0) {
     set_total_kb(from.total_kb());
   }
@@ -1733,7 +1678,7 @@ void MemInfo::CopyFrom(const MemInfo& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.MemInfo)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool MemInfo::IsInitialized() const {
@@ -1767,11 +1712,11 @@ void MemInfo::InternalSwap(MemInfo* other) {
 void MemInfo::clear_total_kb() {
   total_kb_ = 0u;
 }
-::google::protobuf::uint32 MemInfo::total_kb() const {
+ ::google::protobuf::uint32 MemInfo::total_kb() const {
   // @@protoc_insertion_point(field_get:access_point.MemInfo.Total_kB)
   return total_kb_;
 }
-void MemInfo::set_total_kb(::google::protobuf::uint32 value) {
+ void MemInfo::set_total_kb(::google::protobuf::uint32 value) {
   
   total_kb_ = value;
   // @@protoc_insertion_point(field_set:access_point.MemInfo.Total_kB)
@@ -1781,19 +1726,16 @@ void MemInfo::set_total_kb(::google::protobuf::uint32 value) {
 void MemInfo::clear_available_kb() {
   available_kb_ = 0u;
 }
-::google::protobuf::uint32 MemInfo::available_kb() const {
+ ::google::protobuf::uint32 MemInfo::available_kb() const {
   // @@protoc_insertion_point(field_get:access_point.MemInfo.Available_kB)
   return available_kb_;
 }
-void MemInfo::set_available_kb(::google::protobuf::uint32 value) {
+ void MemInfo::set_available_kb(::google::protobuf::uint32 value) {
   
   available_kb_ = value;
   // @@protoc_insertion_point(field_set:access_point.MemInfo.Available_kB)
 }
 
-inline const MemInfo* MemInfo::internal_default_instance() {
-  return &MemInfo_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1807,27 +1749,30 @@ const int SlabInfo::kObjSizeFieldNumber;
 
 SlabInfo::SlabInfo()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.SlabInfo)
 }
 
 void SlabInfo::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 SlabInfo::SlabInfo(const SlabInfo& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.SlabInfo)
 }
 
 void SlabInfo::SharedCtor() {
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&activeobjs_, 0, reinterpret_cast<char*>(&objsize_) -
-    reinterpret_cast<char*>(&activeobjs_) + sizeof(objsize_));
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  activeobjs_ = 0;
+  numobjs_ = 0;
+  objsize_ = 0;
 }
 
 SlabInfo::~SlabInfo() {
@@ -1837,6 +1782,8 @@ SlabInfo::~SlabInfo() {
 
 void SlabInfo::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void SlabInfo::SetCachedSize(int size) const {
@@ -1850,11 +1797,11 @@ const ::google::protobuf::Descriptor* SlabInfo::descriptor() {
 }
 
 const SlabInfo& SlabInfo::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<SlabInfo> SlabInfo_default_instance_;
+SlabInfo* SlabInfo::default_instance_ = NULL;
 
 SlabInfo* SlabInfo::New(::google::protobuf::Arena* arena) const {
   SlabInfo* n = new SlabInfo;
@@ -1878,7 +1825,7 @@ void SlabInfo::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -1920,10 +1867,10 @@ bool SlabInfo::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_ActiveObjs:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &activeobjs_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1935,10 +1882,10 @@ bool SlabInfo::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_NumObjs:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &numobjs_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1950,10 +1897,10 @@ bool SlabInfo::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_ObjSize:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &objsize_)));
+
         } else {
           goto handle_unusual;
         }
@@ -2015,7 +1962,6 @@ void SlabInfo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SlabInfo::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.SlabInfo)
   // optional string Name = 1;
   if (this->name().size() > 0) {
@@ -2047,9 +1993,9 @@ void SlabInfo::SerializeWithCachedSizes(
   return target;
 }
 
-size_t SlabInfo::ByteSizeLong() const {
+int SlabInfo::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.SlabInfo)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string Name = 1;
   if (this->name().size() > 0) {
@@ -2079,17 +2025,18 @@ size_t SlabInfo::ByteSizeLong() const {
         this->objsize());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void SlabInfo::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.SlabInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const SlabInfo* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const SlabInfo* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const SlabInfo>(
           &from);
   if (source == NULL) {
@@ -2097,21 +2044,15 @@ void SlabInfo::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.SlabInfo)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void SlabInfo::MergeFrom(const SlabInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.SlabInfo)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void SlabInfo::UnsafeMergeFrom(const SlabInfo& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -2138,7 +2079,7 @@ void SlabInfo::CopyFrom(const SlabInfo& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.SlabInfo)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool SlabInfo::IsInitialized() const {
@@ -2174,37 +2115,37 @@ void SlabInfo::InternalSwap(SlabInfo* other) {
 void SlabInfo::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& SlabInfo::name() const {
+ const ::std::string& SlabInfo::name() const {
   // @@protoc_insertion_point(field_get:access_point.SlabInfo.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void SlabInfo::set_name(const ::std::string& value) {
+ void SlabInfo::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.SlabInfo.Name)
 }
-void SlabInfo::set_name(const char* value) {
+ void SlabInfo::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.SlabInfo.Name)
 }
-void SlabInfo::set_name(const char* value, size_t size) {
+ void SlabInfo::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.SlabInfo.Name)
 }
-::std::string* SlabInfo::mutable_name() {
+ ::std::string* SlabInfo::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:access_point.SlabInfo.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* SlabInfo::release_name() {
+ ::std::string* SlabInfo::release_name() {
   // @@protoc_insertion_point(field_release:access_point.SlabInfo.Name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void SlabInfo::set_allocated_name(::std::string* name) {
+ void SlabInfo::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -2218,11 +2159,11 @@ void SlabInfo::set_allocated_name(::std::string* name) {
 void SlabInfo::clear_activeobjs() {
   activeobjs_ = 0;
 }
-::google::protobuf::int32 SlabInfo::activeobjs() const {
+ ::google::protobuf::int32 SlabInfo::activeobjs() const {
   // @@protoc_insertion_point(field_get:access_point.SlabInfo.ActiveObjs)
   return activeobjs_;
 }
-void SlabInfo::set_activeobjs(::google::protobuf::int32 value) {
+ void SlabInfo::set_activeobjs(::google::protobuf::int32 value) {
   
   activeobjs_ = value;
   // @@protoc_insertion_point(field_set:access_point.SlabInfo.ActiveObjs)
@@ -2232,11 +2173,11 @@ void SlabInfo::set_activeobjs(::google::protobuf::int32 value) {
 void SlabInfo::clear_numobjs() {
   numobjs_ = 0;
 }
-::google::protobuf::int32 SlabInfo::numobjs() const {
+ ::google::protobuf::int32 SlabInfo::numobjs() const {
   // @@protoc_insertion_point(field_get:access_point.SlabInfo.NumObjs)
   return numobjs_;
 }
-void SlabInfo::set_numobjs(::google::protobuf::int32 value) {
+ void SlabInfo::set_numobjs(::google::protobuf::int32 value) {
   
   numobjs_ = value;
   // @@protoc_insertion_point(field_set:access_point.SlabInfo.NumObjs)
@@ -2246,19 +2187,16 @@ void SlabInfo::set_numobjs(::google::protobuf::int32 value) {
 void SlabInfo::clear_objsize() {
   objsize_ = 0;
 }
-::google::protobuf::int32 SlabInfo::objsize() const {
+ ::google::protobuf::int32 SlabInfo::objsize() const {
   // @@protoc_insertion_point(field_get:access_point.SlabInfo.ObjSize)
   return objsize_;
 }
-void SlabInfo::set_objsize(::google::protobuf::int32 value) {
+ void SlabInfo::set_objsize(::google::protobuf::int32 value) {
   
   objsize_ = value;
   // @@protoc_insertion_point(field_set:access_point.SlabInfo.ObjSize)
 }
 
-inline const SlabInfo* SlabInfo::internal_default_instance() {
-  return &SlabInfo_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -2271,33 +2209,31 @@ const int APMemoryStatsMsgRsp::kTopProcSlabInfoFieldNumber;
 
 APMemoryStatsMsgRsp::APMemoryStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APMemoryStatsMsgRsp)
 }
 
 void APMemoryStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
-  procmeminfo_ = const_cast< ::access_point::MemInfo*>(
-      ::access_point::MemInfo::internal_default_instance());
-  topprocslabinfo_ = const_cast< ::access_point::SlabInfo*>(
-      ::access_point::SlabInfo::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
+  procmeminfo_ = const_cast< ::access_point::MemInfo*>(&::access_point::MemInfo::default_instance());
+  topprocslabinfo_ = const_cast< ::access_point::SlabInfo*>(&::access_point::SlabInfo::default_instance());
 }
 
 APMemoryStatsMsgRsp::APMemoryStatsMsgRsp(const APMemoryStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APMemoryStatsMsgRsp)
 }
 
 void APMemoryStatsMsgRsp::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
   errstatus_ = NULL;
   procmeminfo_ = NULL;
   topprocslabinfo_ = NULL;
-  _cached_size_ = 0;
 }
 
 APMemoryStatsMsgRsp::~APMemoryStatsMsgRsp() {
@@ -2306,7 +2242,7 @@ APMemoryStatsMsgRsp::~APMemoryStatsMsgRsp() {
 }
 
 void APMemoryStatsMsgRsp::SharedDtor() {
-  if (this != &APMemoryStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
     delete procmeminfo_;
     delete topprocslabinfo_;
@@ -2324,11 +2260,11 @@ const ::google::protobuf::Descriptor* APMemoryStatsMsgRsp::descriptor() {
 }
 
 const APMemoryStatsMsgRsp& APMemoryStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APMemoryStatsMsgRsp> APMemoryStatsMsgRsp_default_instance_;
+APMemoryStatsMsgRsp* APMemoryStatsMsgRsp::default_instance_ = NULL;
 
 APMemoryStatsMsgRsp* APMemoryStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APMemoryStatsMsgRsp* n = new APMemoryStatsMsgRsp;
@@ -2443,7 +2379,6 @@ void APMemoryStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APMemoryStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APMemoryStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -2470,9 +2405,9 @@ void APMemoryStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APMemoryStatsMsgRsp::ByteSizeLong() const {
+int APMemoryStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APMemoryStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -2495,17 +2430,18 @@ size_t APMemoryStatsMsgRsp::ByteSizeLong() const {
         *this->topprocslabinfo_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APMemoryStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APMemoryStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APMemoryStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APMemoryStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APMemoryStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -2513,21 +2449,15 @@ void APMemoryStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APMemoryStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APMemoryStatsMsgRsp::MergeFrom(const APMemoryStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APMemoryStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APMemoryStatsMsgRsp::UnsafeMergeFrom(const APMemoryStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
   }
@@ -2550,7 +2480,7 @@ void APMemoryStatsMsgRsp::CopyFrom(const APMemoryStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APMemoryStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APMemoryStatsMsgRsp::IsInitialized() const {
@@ -2583,7 +2513,7 @@ void APMemoryStatsMsgRsp::InternalSwap(APMemoryStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APMemoryStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APMemoryStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -2591,8 +2521,7 @@ void APMemoryStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APMemoryStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APMemoryStatsMsgRsp::mutable_errstatus() {
   
@@ -2622,7 +2551,7 @@ void APMemoryStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus*
 
 // optional .access_point.MemInfo ProcMemInfo = 2;
 bool APMemoryStatsMsgRsp::has_procmeminfo() const {
-  return this != internal_default_instance() && procmeminfo_ != NULL;
+  return !_is_default_instance_ && procmeminfo_ != NULL;
 }
 void APMemoryStatsMsgRsp::clear_procmeminfo() {
   if (GetArenaNoVirtual() == NULL && procmeminfo_ != NULL) delete procmeminfo_;
@@ -2630,8 +2559,7 @@ void APMemoryStatsMsgRsp::clear_procmeminfo() {
 }
 const ::access_point::MemInfo& APMemoryStatsMsgRsp::procmeminfo() const {
   // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
-  return procmeminfo_ != NULL ? *procmeminfo_
-                         : *::access_point::MemInfo::internal_default_instance();
+  return procmeminfo_ != NULL ? *procmeminfo_ : *default_instance_->procmeminfo_;
 }
 ::access_point::MemInfo* APMemoryStatsMsgRsp::mutable_procmeminfo() {
   
@@ -2661,7 +2589,7 @@ void APMemoryStatsMsgRsp::set_allocated_procmeminfo(::access_point::MemInfo* pro
 
 // optional .access_point.SlabInfo TopProcSlabInfo = 3;
 bool APMemoryStatsMsgRsp::has_topprocslabinfo() const {
-  return this != internal_default_instance() && topprocslabinfo_ != NULL;
+  return !_is_default_instance_ && topprocslabinfo_ != NULL;
 }
 void APMemoryStatsMsgRsp::clear_topprocslabinfo() {
   if (GetArenaNoVirtual() == NULL && topprocslabinfo_ != NULL) delete topprocslabinfo_;
@@ -2669,8 +2597,7 @@ void APMemoryStatsMsgRsp::clear_topprocslabinfo() {
 }
 const ::access_point::SlabInfo& APMemoryStatsMsgRsp::topprocslabinfo() const {
   // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
-  return topprocslabinfo_ != NULL ? *topprocslabinfo_
-                         : *::access_point::SlabInfo::internal_default_instance();
+  return topprocslabinfo_ != NULL ? *topprocslabinfo_ : *default_instance_->topprocslabinfo_;
 }
 ::access_point::SlabInfo* APMemoryStatsMsgRsp::mutable_topprocslabinfo() {
   
@@ -2698,9 +2625,6 @@ void APMemoryStatsMsgRsp::set_allocated_topprocslabinfo(::access_point::SlabInfo
   // @@protoc_insertion_point(field_set_allocated:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
 }
 
-inline const APMemoryStatsMsgRsp* APMemoryStatsMsgRsp::internal_default_instance() {
-  return &APMemoryStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -2712,27 +2636,28 @@ const int APDNSServersMsgRsp::kIPFieldNumber;
 
 APDNSServersMsgRsp::APDNSServersMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APDNSServersMsgRsp)
 }
 
 void APDNSServersMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APDNSServersMsgRsp::APDNSServersMsgRsp(const APDNSServersMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APDNSServersMsgRsp)
 }
 
 void APDNSServersMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APDNSServersMsgRsp::~APDNSServersMsgRsp() {
@@ -2741,7 +2666,7 @@ APDNSServersMsgRsp::~APDNSServersMsgRsp() {
 }
 
 void APDNSServersMsgRsp::SharedDtor() {
-  if (this != &APDNSServersMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -2757,11 +2682,11 @@ const ::google::protobuf::Descriptor* APDNSServersMsgRsp::descriptor() {
 }
 
 const APDNSServersMsgRsp& APDNSServersMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APDNSServersMsgRsp> APDNSServersMsgRsp_default_instance_;
+APDNSServersMsgRsp* APDNSServersMsgRsp::default_instance_ = NULL;
 
 APDNSServersMsgRsp* APDNSServersMsgRsp::New(::google::protobuf::Arena* arena) const {
   APDNSServersMsgRsp* n = new APDNSServersMsgRsp;
@@ -2864,7 +2789,6 @@ void APDNSServersMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APDNSServersMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APDNSServersMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -2887,9 +2811,9 @@ void APDNSServersMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APDNSServersMsgRsp::ByteSizeLong() const {
+int APDNSServersMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APDNSServersMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -2899,24 +2823,24 @@ size_t APDNSServersMsgRsp::ByteSizeLong() const {
   }
 
   // repeated string IP = 2;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->ip_size());
+  total_size += 1 * this->ip_size();
   for (int i = 0; i < this->ip_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->ip(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APDNSServersMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APDNSServersMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APDNSServersMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APDNSServersMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APDNSServersMsgRsp>(
           &from);
   if (source == NULL) {
@@ -2924,22 +2848,16 @@ void APDNSServersMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APDNSServersMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APDNSServersMsgRsp::MergeFrom(const APDNSServersMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APDNSServersMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APDNSServersMsgRsp::UnsafeMergeFrom(const APDNSServersMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
-  ip_.UnsafeMergeFrom(from.ip_);
+  ip_.MergeFrom(from.ip_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
   }
@@ -2956,7 +2874,7 @@ void APDNSServersMsgRsp::CopyFrom(const APDNSServersMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APDNSServersMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APDNSServersMsgRsp::IsInitialized() const {
@@ -2988,7 +2906,7 @@ void APDNSServersMsgRsp::InternalSwap(APDNSServersMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APDNSServersMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APDNSServersMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -2996,8 +2914,7 @@ void APDNSServersMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APDNSServersMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APDNSServersMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APDNSServersMsgRsp::mutable_errstatus() {
   
@@ -3032,57 +2949,54 @@ int APDNSServersMsgRsp::ip_size() const {
 void APDNSServersMsgRsp::clear_ip() {
   ip_.Clear();
 }
-const ::std::string& APDNSServersMsgRsp::ip(int index) const {
+ const ::std::string& APDNSServersMsgRsp::ip(int index) const {
   // @@protoc_insertion_point(field_get:access_point.APDNSServersMsgRsp.IP)
   return ip_.Get(index);
 }
-::std::string* APDNSServersMsgRsp::mutable_ip(int index) {
+ ::std::string* APDNSServersMsgRsp::mutable_ip(int index) {
   // @@protoc_insertion_point(field_mutable:access_point.APDNSServersMsgRsp.IP)
   return ip_.Mutable(index);
 }
-void APDNSServersMsgRsp::set_ip(int index, const ::std::string& value) {
+ void APDNSServersMsgRsp::set_ip(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:access_point.APDNSServersMsgRsp.IP)
   ip_.Mutable(index)->assign(value);
 }
-void APDNSServersMsgRsp::set_ip(int index, const char* value) {
+ void APDNSServersMsgRsp::set_ip(int index, const char* value) {
   ip_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:access_point.APDNSServersMsgRsp.IP)
 }
-void APDNSServersMsgRsp::set_ip(int index, const char* value, size_t size) {
+ void APDNSServersMsgRsp::set_ip(int index, const char* value, size_t size) {
   ip_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:access_point.APDNSServersMsgRsp.IP)
 }
-::std::string* APDNSServersMsgRsp::add_ip() {
+ ::std::string* APDNSServersMsgRsp::add_ip() {
   // @@protoc_insertion_point(field_add_mutable:access_point.APDNSServersMsgRsp.IP)
   return ip_.Add();
 }
-void APDNSServersMsgRsp::add_ip(const ::std::string& value) {
+ void APDNSServersMsgRsp::add_ip(const ::std::string& value) {
   ip_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:access_point.APDNSServersMsgRsp.IP)
 }
-void APDNSServersMsgRsp::add_ip(const char* value) {
+ void APDNSServersMsgRsp::add_ip(const char* value) {
   ip_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:access_point.APDNSServersMsgRsp.IP)
 }
-void APDNSServersMsgRsp::add_ip(const char* value, size_t size) {
+ void APDNSServersMsgRsp::add_ip(const char* value, size_t size) {
   ip_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:access_point.APDNSServersMsgRsp.IP)
 }
-const ::google::protobuf::RepeatedPtrField< ::std::string>&
+ const ::google::protobuf::RepeatedPtrField< ::std::string>&
 APDNSServersMsgRsp::ip() const {
   // @@protoc_insertion_point(field_list:access_point.APDNSServersMsgRsp.IP)
   return ip_;
 }
-::google::protobuf::RepeatedPtrField< ::std::string>*
+ ::google::protobuf::RepeatedPtrField< ::std::string>*
 APDNSServersMsgRsp::mutable_ip() {
   // @@protoc_insertion_point(field_mutable_list:access_point.APDNSServersMsgRsp.IP)
   return &ip_;
 }
 
-inline const APDNSServersMsgRsp* APDNSServersMsgRsp::internal_default_instance() {
-  return &APDNSServersMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3100,31 +3014,34 @@ const int IPv4Route::kIfaceFieldNumber;
 
 IPv4Route::IPv4Route()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.IPv4Route)
 }
 
 void IPv4Route::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 IPv4Route::IPv4Route(const IPv4Route& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.IPv4Route)
 }
 
 void IPv4Route::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
   destination_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   gateway_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   genmask_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   flags_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  metric_ = 0u;
+  ref_ = 0u;
+  use_ = 0u;
   iface_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&metric_, 0, reinterpret_cast<char*>(&use_) -
-    reinterpret_cast<char*>(&metric_) + sizeof(use_));
-  _cached_size_ = 0;
 }
 
 IPv4Route::~IPv4Route() {
@@ -3138,6 +3055,8 @@ void IPv4Route::SharedDtor() {
   genmask_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   flags_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iface_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void IPv4Route::SetCachedSize(int size) const {
@@ -3151,11 +3070,11 @@ const ::google::protobuf::Descriptor* IPv4Route::descriptor() {
 }
 
 const IPv4Route& IPv4Route::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<IPv4Route> IPv4Route_default_instance_;
+IPv4Route* IPv4Route::default_instance_ = NULL;
 
 IPv4Route* IPv4Route::New(::google::protobuf::Arena* arena) const {
   IPv4Route* n = new IPv4Route;
@@ -3179,15 +3098,16 @@ void IPv4Route::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(metric_, use_);
+  ZR_(metric_, ref_);
   destination_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   gateway_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   genmask_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   flags_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  use_ = 0u;
   iface_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 
 #undef ZR_HELPER_
@@ -3276,10 +3196,10 @@ bool IPv4Route::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_Metric:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &metric_)));
+
         } else {
           goto handle_unusual;
         }
@@ -3291,10 +3211,10 @@ bool IPv4Route::MergePartialFromCodedStream(
       case 6: {
         if (tag == 48) {
          parse_Ref:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &ref_)));
+
         } else {
           goto handle_unusual;
         }
@@ -3306,10 +3226,10 @@ bool IPv4Route::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_Use:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &use_)));
+
         } else {
           goto handle_unusual;
         }
@@ -3428,7 +3348,6 @@ void IPv4Route::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* IPv4Route::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.IPv4Route)
   // optional string Destination = 1;
   if (this->destination().size() > 0) {
@@ -3504,9 +3423,9 @@ void IPv4Route::SerializeWithCachedSizes(
   return target;
 }
 
-size_t IPv4Route::ByteSizeLong() const {
+int IPv4Route::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.IPv4Route)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string Destination = 1;
   if (this->destination().size() > 0) {
@@ -3564,17 +3483,18 @@ size_t IPv4Route::ByteSizeLong() const {
         this->iface());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void IPv4Route::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.IPv4Route)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const IPv4Route* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const IPv4Route* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const IPv4Route>(
           &from);
   if (source == NULL) {
@@ -3582,21 +3502,15 @@ void IPv4Route::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.IPv4Route)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void IPv4Route::MergeFrom(const IPv4Route& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.IPv4Route)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void IPv4Route::UnsafeMergeFrom(const IPv4Route& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.destination().size() > 0) {
 
     destination_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.destination_);
@@ -3639,7 +3553,7 @@ void IPv4Route::CopyFrom(const IPv4Route& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.IPv4Route)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool IPv4Route::IsInitialized() const {
@@ -3679,37 +3593,37 @@ void IPv4Route::InternalSwap(IPv4Route* other) {
 void IPv4Route::clear_destination() {
   destination_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& IPv4Route::destination() const {
+ const ::std::string& IPv4Route::destination() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Destination)
   return destination_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_destination(const ::std::string& value) {
+ void IPv4Route::set_destination(const ::std::string& value) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Destination)
 }
-void IPv4Route::set_destination(const char* value) {
+ void IPv4Route::set_destination(const char* value) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Destination)
 }
-void IPv4Route::set_destination(const char* value, size_t size) {
+ void IPv4Route::set_destination(const char* value, size_t size) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Destination)
 }
-::std::string* IPv4Route::mutable_destination() {
+ ::std::string* IPv4Route::mutable_destination() {
   
   // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Destination)
   return destination_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* IPv4Route::release_destination() {
+ ::std::string* IPv4Route::release_destination() {
   // @@protoc_insertion_point(field_release:access_point.IPv4Route.Destination)
   
   return destination_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_allocated_destination(::std::string* destination) {
+ void IPv4Route::set_allocated_destination(::std::string* destination) {
   if (destination != NULL) {
     
   } else {
@@ -3723,37 +3637,37 @@ void IPv4Route::set_allocated_destination(::std::string* destination) {
 void IPv4Route::clear_gateway() {
   gateway_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& IPv4Route::gateway() const {
+ const ::std::string& IPv4Route::gateway() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Gateway)
   return gateway_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_gateway(const ::std::string& value) {
+ void IPv4Route::set_gateway(const ::std::string& value) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Gateway)
 }
-void IPv4Route::set_gateway(const char* value) {
+ void IPv4Route::set_gateway(const char* value) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Gateway)
 }
-void IPv4Route::set_gateway(const char* value, size_t size) {
+ void IPv4Route::set_gateway(const char* value, size_t size) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Gateway)
 }
-::std::string* IPv4Route::mutable_gateway() {
+ ::std::string* IPv4Route::mutable_gateway() {
   
   // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Gateway)
   return gateway_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* IPv4Route::release_gateway() {
+ ::std::string* IPv4Route::release_gateway() {
   // @@protoc_insertion_point(field_release:access_point.IPv4Route.Gateway)
   
   return gateway_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_allocated_gateway(::std::string* gateway) {
+ void IPv4Route::set_allocated_gateway(::std::string* gateway) {
   if (gateway != NULL) {
     
   } else {
@@ -3767,37 +3681,37 @@ void IPv4Route::set_allocated_gateway(::std::string* gateway) {
 void IPv4Route::clear_genmask() {
   genmask_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& IPv4Route::genmask() const {
+ const ::std::string& IPv4Route::genmask() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Genmask)
   return genmask_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_genmask(const ::std::string& value) {
+ void IPv4Route::set_genmask(const ::std::string& value) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Genmask)
 }
-void IPv4Route::set_genmask(const char* value) {
+ void IPv4Route::set_genmask(const char* value) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Genmask)
 }
-void IPv4Route::set_genmask(const char* value, size_t size) {
+ void IPv4Route::set_genmask(const char* value, size_t size) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Genmask)
 }
-::std::string* IPv4Route::mutable_genmask() {
+ ::std::string* IPv4Route::mutable_genmask() {
   
   // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Genmask)
   return genmask_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* IPv4Route::release_genmask() {
+ ::std::string* IPv4Route::release_genmask() {
   // @@protoc_insertion_point(field_release:access_point.IPv4Route.Genmask)
   
   return genmask_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_allocated_genmask(::std::string* genmask) {
+ void IPv4Route::set_allocated_genmask(::std::string* genmask) {
   if (genmask != NULL) {
     
   } else {
@@ -3811,37 +3725,37 @@ void IPv4Route::set_allocated_genmask(::std::string* genmask) {
 void IPv4Route::clear_flags() {
   flags_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& IPv4Route::flags() const {
+ const ::std::string& IPv4Route::flags() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Flags)
   return flags_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_flags(const ::std::string& value) {
+ void IPv4Route::set_flags(const ::std::string& value) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Flags)
 }
-void IPv4Route::set_flags(const char* value) {
+ void IPv4Route::set_flags(const char* value) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Flags)
 }
-void IPv4Route::set_flags(const char* value, size_t size) {
+ void IPv4Route::set_flags(const char* value, size_t size) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Flags)
 }
-::std::string* IPv4Route::mutable_flags() {
+ ::std::string* IPv4Route::mutable_flags() {
   
   // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Flags)
   return flags_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* IPv4Route::release_flags() {
+ ::std::string* IPv4Route::release_flags() {
   // @@protoc_insertion_point(field_release:access_point.IPv4Route.Flags)
   
   return flags_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_allocated_flags(::std::string* flags) {
+ void IPv4Route::set_allocated_flags(::std::string* flags) {
   if (flags != NULL) {
     
   } else {
@@ -3855,11 +3769,11 @@ void IPv4Route::set_allocated_flags(::std::string* flags) {
 void IPv4Route::clear_metric() {
   metric_ = 0u;
 }
-::google::protobuf::uint32 IPv4Route::metric() const {
+ ::google::protobuf::uint32 IPv4Route::metric() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Metric)
   return metric_;
 }
-void IPv4Route::set_metric(::google::protobuf::uint32 value) {
+ void IPv4Route::set_metric(::google::protobuf::uint32 value) {
   
   metric_ = value;
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Metric)
@@ -3869,11 +3783,11 @@ void IPv4Route::set_metric(::google::protobuf::uint32 value) {
 void IPv4Route::clear_ref() {
   ref_ = 0u;
 }
-::google::protobuf::uint32 IPv4Route::ref() const {
+ ::google::protobuf::uint32 IPv4Route::ref() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Ref)
   return ref_;
 }
-void IPv4Route::set_ref(::google::protobuf::uint32 value) {
+ void IPv4Route::set_ref(::google::protobuf::uint32 value) {
   
   ref_ = value;
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Ref)
@@ -3883,11 +3797,11 @@ void IPv4Route::set_ref(::google::protobuf::uint32 value) {
 void IPv4Route::clear_use() {
   use_ = 0u;
 }
-::google::protobuf::uint32 IPv4Route::use() const {
+ ::google::protobuf::uint32 IPv4Route::use() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Use)
   return use_;
 }
-void IPv4Route::set_use(::google::protobuf::uint32 value) {
+ void IPv4Route::set_use(::google::protobuf::uint32 value) {
   
   use_ = value;
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Use)
@@ -3897,37 +3811,37 @@ void IPv4Route::set_use(::google::protobuf::uint32 value) {
 void IPv4Route::clear_iface() {
   iface_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& IPv4Route::iface() const {
+ const ::std::string& IPv4Route::iface() const {
   // @@protoc_insertion_point(field_get:access_point.IPv4Route.Iface)
   return iface_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_iface(const ::std::string& value) {
+ void IPv4Route::set_iface(const ::std::string& value) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.IPv4Route.Iface)
 }
-void IPv4Route::set_iface(const char* value) {
+ void IPv4Route::set_iface(const char* value) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Iface)
 }
-void IPv4Route::set_iface(const char* value, size_t size) {
+ void IPv4Route::set_iface(const char* value, size_t size) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Iface)
 }
-::std::string* IPv4Route::mutable_iface() {
+ ::std::string* IPv4Route::mutable_iface() {
   
   // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Iface)
   return iface_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* IPv4Route::release_iface() {
+ ::std::string* IPv4Route::release_iface() {
   // @@protoc_insertion_point(field_release:access_point.IPv4Route.Iface)
   
   return iface_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void IPv4Route::set_allocated_iface(::std::string* iface) {
+ void IPv4Route::set_allocated_iface(::std::string* iface) {
   if (iface != NULL) {
     
   } else {
@@ -3937,9 +3851,6 @@ void IPv4Route::set_allocated_iface(::std::string* iface) {
   // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Iface)
 }
 
-inline const IPv4Route* IPv4Route::internal_default_instance() {
-  return &IPv4Route_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3951,27 +3862,27 @@ const int APRoutesMsgRsp::kIPv4RoutesFieldNumber;
 
 APRoutesMsgRsp::APRoutesMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APRoutesMsgRsp)
 }
 
 void APRoutesMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APRoutesMsgRsp::APRoutesMsgRsp(const APRoutesMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APRoutesMsgRsp)
 }
 
 void APRoutesMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APRoutesMsgRsp::~APRoutesMsgRsp() {
@@ -3980,7 +3891,7 @@ APRoutesMsgRsp::~APRoutesMsgRsp() {
 }
 
 void APRoutesMsgRsp::SharedDtor() {
-  if (this != &APRoutesMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -3996,11 +3907,11 @@ const ::google::protobuf::Descriptor* APRoutesMsgRsp::descriptor() {
 }
 
 const APRoutesMsgRsp& APRoutesMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APRoutesMsgRsp> APRoutesMsgRsp_default_instance_;
+APRoutesMsgRsp* APRoutesMsgRsp::default_instance_ = NULL;
 
 APRoutesMsgRsp* APRoutesMsgRsp::New(::google::protobuf::Arena* arena) const {
   APRoutesMsgRsp* n = new APRoutesMsgRsp;
@@ -4097,7 +4008,6 @@ void APRoutesMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APRoutesMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APRoutesMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -4117,9 +4027,9 @@ void APRoutesMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APRoutesMsgRsp::ByteSizeLong() const {
+int APRoutesMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APRoutesMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -4129,27 +4039,25 @@ size_t APRoutesMsgRsp::ByteSizeLong() const {
   }
 
   // repeated .access_point.IPv4Route IPv4Routes = 2;
-  {
-    unsigned int count = this->ipv4routes_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->ipv4routes(i));
-    }
+  total_size += 1 * this->ipv4routes_size();
+  for (int i = 0; i < this->ipv4routes_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->ipv4routes(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APRoutesMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APRoutesMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APRoutesMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APRoutesMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APRoutesMsgRsp>(
           &from);
   if (source == NULL) {
@@ -4157,21 +4065,15 @@ void APRoutesMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APRoutesMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APRoutesMsgRsp::MergeFrom(const APRoutesMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APRoutesMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APRoutesMsgRsp::UnsafeMergeFrom(const APRoutesMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   ipv4routes_.MergeFrom(from.ipv4routes_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
@@ -4189,7 +4091,7 @@ void APRoutesMsgRsp::CopyFrom(const APRoutesMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APRoutesMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APRoutesMsgRsp::IsInitialized() const {
@@ -4221,7 +4123,7 @@ void APRoutesMsgRsp::InternalSwap(APRoutesMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APRoutesMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APRoutesMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -4229,8 +4131,7 @@ void APRoutesMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APRoutesMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APRoutesMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APRoutesMsgRsp::mutable_errstatus() {
   
@@ -4288,9 +4189,6 @@ APRoutesMsgRsp::ipv4routes() const {
   return ipv4routes_;
 }
 
-inline const APRoutesMsgRsp* APRoutesMsgRsp::internal_default_instance() {
-  return &APRoutesMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -4302,26 +4200,27 @@ const int MulticastCounter::kTxMcastBytesFieldNumber;
 
 MulticastCounter::MulticastCounter()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.MulticastCounter)
 }
 
 void MulticastCounter::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 MulticastCounter::MulticastCounter(const MulticastCounter& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.MulticastCounter)
 }
 
 void MulticastCounter::SharedCtor() {
-  ::memset(&txmcastbytes_, 0, reinterpret_cast<char*>(&txmcastpkts_) -
-    reinterpret_cast<char*>(&txmcastbytes_) + sizeof(txmcastpkts_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  txmcastpkts_ = 0u;
+  txmcastbytes_ = GOOGLE_ULONGLONG(0);
 }
 
 MulticastCounter::~MulticastCounter() {
@@ -4330,6 +4229,8 @@ MulticastCounter::~MulticastCounter() {
 }
 
 void MulticastCounter::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void MulticastCounter::SetCachedSize(int size) const {
@@ -4343,11 +4244,11 @@ const ::google::protobuf::Descriptor* MulticastCounter::descriptor() {
 }
 
 const MulticastCounter& MulticastCounter::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<MulticastCounter> MulticastCounter_default_instance_;
+MulticastCounter* MulticastCounter::default_instance_ = NULL;
 
 MulticastCounter* MulticastCounter::New(::google::protobuf::Arena* arena) const {
   MulticastCounter* n = new MulticastCounter;
@@ -4371,7 +4272,7 @@ void MulticastCounter::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -4395,10 +4296,10 @@ bool MulticastCounter::MergePartialFromCodedStream(
       // optional uint32 TxMcastPkts = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txmcastpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -4410,10 +4311,10 @@ bool MulticastCounter::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_TxMcastBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &txmcastbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -4460,7 +4361,6 @@ void MulticastCounter::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MulticastCounter::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.MulticastCounter)
   // optional uint32 TxMcastPkts = 1;
   if (this->txmcastpkts() != 0) {
@@ -4476,9 +4376,9 @@ void MulticastCounter::SerializeWithCachedSizes(
   return target;
 }
 
-size_t MulticastCounter::ByteSizeLong() const {
+int MulticastCounter::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.MulticastCounter)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint32 TxMcastPkts = 1;
   if (this->txmcastpkts() != 0) {
@@ -4494,17 +4394,18 @@ size_t MulticastCounter::ByteSizeLong() const {
         this->txmcastbytes());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void MulticastCounter::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.MulticastCounter)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MulticastCounter* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const MulticastCounter* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const MulticastCounter>(
           &from);
   if (source == NULL) {
@@ -4512,21 +4413,15 @@ void MulticastCounter::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.MulticastCounter)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void MulticastCounter::MergeFrom(const MulticastCounter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.MulticastCounter)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void MulticastCounter::UnsafeMergeFrom(const MulticastCounter& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.txmcastpkts() != 0) {
     set_txmcastpkts(from.txmcastpkts());
   }
@@ -4546,7 +4441,7 @@ void MulticastCounter::CopyFrom(const MulticastCounter& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.MulticastCounter)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool MulticastCounter::IsInitialized() const {
@@ -4580,11 +4475,11 @@ void MulticastCounter::InternalSwap(MulticastCounter* other) {
 void MulticastCounter::clear_txmcastpkts() {
   txmcastpkts_ = 0u;
 }
-::google::protobuf::uint32 MulticastCounter::txmcastpkts() const {
+ ::google::protobuf::uint32 MulticastCounter::txmcastpkts() const {
   // @@protoc_insertion_point(field_get:access_point.MulticastCounter.TxMcastPkts)
   return txmcastpkts_;
 }
-void MulticastCounter::set_txmcastpkts(::google::protobuf::uint32 value) {
+ void MulticastCounter::set_txmcastpkts(::google::protobuf::uint32 value) {
   
   txmcastpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.MulticastCounter.TxMcastPkts)
@@ -4594,19 +4489,16 @@ void MulticastCounter::set_txmcastpkts(::google::protobuf::uint32 value) {
 void MulticastCounter::clear_txmcastbytes() {
   txmcastbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 MulticastCounter::txmcastbytes() const {
+ ::google::protobuf::uint64 MulticastCounter::txmcastbytes() const {
   // @@protoc_insertion_point(field_get:access_point.MulticastCounter.TxMcastBytes)
   return txmcastbytes_;
 }
-void MulticastCounter::set_txmcastbytes(::google::protobuf::uint64 value) {
+ void MulticastCounter::set_txmcastbytes(::google::protobuf::uint64 value) {
   
   txmcastbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.MulticastCounter.TxMcastBytes)
 }
 
-inline const MulticastCounter* MulticastCounter::internal_default_instance() {
-  return &MulticastCounter_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -4618,26 +4510,28 @@ const int WLAN::kSSIDFieldNumber;
 
 WLAN::WLAN()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.WLAN)
 }
 
 void WLAN::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 WLAN::WLAN(const WLAN& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.WLAN)
 }
 
 void WLAN::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ssid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _cached_size_ = 0;
 }
 
 WLAN::~WLAN() {
@@ -4648,6 +4542,8 @@ WLAN::~WLAN() {
 void WLAN::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ssid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void WLAN::SetCachedSize(int size) const {
@@ -4661,11 +4557,11 @@ const ::google::protobuf::Descriptor* WLAN::descriptor() {
 }
 
 const WLAN& WLAN::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<WLAN> WLAN_default_instance_;
+WLAN* WLAN::default_instance_ = NULL;
 
 WLAN* WLAN::New(::google::protobuf::Arena* arena) const {
   WLAN* n = new WLAN;
@@ -4773,7 +4669,6 @@ void WLAN::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* WLAN::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.WLAN)
   // optional string ID = 1;
   if (this->id().size() > 0) {
@@ -4801,9 +4696,9 @@ void WLAN::SerializeWithCachedSizes(
   return target;
 }
 
-size_t WLAN::ByteSizeLong() const {
+int WLAN::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.WLAN)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string ID = 1;
   if (this->id().size() > 0) {
@@ -4819,17 +4714,18 @@ size_t WLAN::ByteSizeLong() const {
         this->ssid());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void WLAN::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.WLAN)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const WLAN* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const WLAN* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const WLAN>(
           &from);
   if (source == NULL) {
@@ -4837,21 +4733,15 @@ void WLAN::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.WLAN)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void WLAN::MergeFrom(const WLAN& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.WLAN)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void WLAN::UnsafeMergeFrom(const WLAN& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.id().size() > 0) {
 
     id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
@@ -4873,7 +4763,7 @@ void WLAN::CopyFrom(const WLAN& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.WLAN)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool WLAN::IsInitialized() const {
@@ -4907,37 +4797,37 @@ void WLAN::InternalSwap(WLAN* other) {
 void WLAN::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& WLAN::id() const {
+ const ::std::string& WLAN::id() const {
   // @@protoc_insertion_point(field_get:access_point.WLAN.ID)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLAN::set_id(const ::std::string& value) {
+ void WLAN::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.WLAN.ID)
 }
-void WLAN::set_id(const char* value) {
+ void WLAN::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.WLAN.ID)
 }
-void WLAN::set_id(const char* value, size_t size) {
+ void WLAN::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.WLAN.ID)
 }
-::std::string* WLAN::mutable_id() {
+ ::std::string* WLAN::mutable_id() {
   
   // @@protoc_insertion_point(field_mutable:access_point.WLAN.ID)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* WLAN::release_id() {
+ ::std::string* WLAN::release_id() {
   // @@protoc_insertion_point(field_release:access_point.WLAN.ID)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLAN::set_allocated_id(::std::string* id) {
+ void WLAN::set_allocated_id(::std::string* id) {
   if (id != NULL) {
     
   } else {
@@ -4951,37 +4841,37 @@ void WLAN::set_allocated_id(::std::string* id) {
 void WLAN::clear_ssid() {
   ssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& WLAN::ssid() const {
+ const ::std::string& WLAN::ssid() const {
   // @@protoc_insertion_point(field_get:access_point.WLAN.SSID)
   return ssid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLAN::set_ssid(const ::std::string& value) {
+ void WLAN::set_ssid(const ::std::string& value) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.WLAN.SSID)
 }
-void WLAN::set_ssid(const char* value) {
+ void WLAN::set_ssid(const char* value) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.WLAN.SSID)
 }
-void WLAN::set_ssid(const char* value, size_t size) {
+ void WLAN::set_ssid(const char* value, size_t size) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.WLAN.SSID)
 }
-::std::string* WLAN::mutable_ssid() {
+ ::std::string* WLAN::mutable_ssid() {
   
   // @@protoc_insertion_point(field_mutable:access_point.WLAN.SSID)
   return ssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* WLAN::release_ssid() {
+ ::std::string* WLAN::release_ssid() {
   // @@protoc_insertion_point(field_release:access_point.WLAN.SSID)
   
   return ssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLAN::set_allocated_ssid(::std::string* ssid) {
+ void WLAN::set_allocated_ssid(::std::string* ssid) {
   if (ssid != NULL) {
     
   } else {
@@ -4991,9 +4881,6 @@ void WLAN::set_allocated_ssid(::std::string* ssid) {
   // @@protoc_insertion_point(field_set_allocated:access_point.WLAN.SSID)
 }
 
-inline const WLAN* WLAN::internal_default_instance() {
-  return &WLAN_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -5009,34 +4896,34 @@ const int WLANEntry::kCounterFieldNumber;
 
 WLANEntry::WLANEntry()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.WLANEntry)
 }
 
 void WLANEntry::InitAsDefaultInstance() {
-  wlan_ = const_cast< ::access_point::WLAN*>(
-      ::access_point::WLAN::internal_default_instance());
-  counter_ = const_cast< ::access_point::MulticastCounter*>(
-      ::access_point::MulticastCounter::internal_default_instance());
+  _is_default_instance_ = true;
+  wlan_ = const_cast< ::access_point::WLAN*>(&::access_point::WLAN::default_instance());
+  counter_ = const_cast< ::access_point::MulticastCounter*>(&::access_point::MulticastCounter::default_instance());
 }
 
 WLANEntry::WLANEntry(const WLANEntry& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.WLANEntry)
 }
 
 void WLANEntry::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  wlan_ = NULL;
+  radioindex_ = 0u;
   bssid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   dev_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  wlan_ = NULL;
+  numclients_ = 0;
   counter_ = NULL;
-  ::memset(&radioindex_, 0, reinterpret_cast<char*>(&numclients_) -
-    reinterpret_cast<char*>(&radioindex_) + sizeof(numclients_));
-  _cached_size_ = 0;
 }
 
 WLANEntry::~WLANEntry() {
@@ -5047,7 +4934,7 @@ WLANEntry::~WLANEntry() {
 void WLANEntry::SharedDtor() {
   bssid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   dev_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != &WLANEntry_default_instance_.get()) {
+  if (this != default_instance_) {
     delete wlan_;
     delete counter_;
   }
@@ -5064,11 +4951,11 @@ const ::google::protobuf::Descriptor* WLANEntry::descriptor() {
 }
 
 const WLANEntry& WLANEntry::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<WLANEntry> WLANEntry_default_instance_;
+WLANEntry* WLANEntry::default_instance_ = NULL;
 
 WLANEntry* WLANEntry::New(::google::protobuf::Arena* arena) const {
   WLANEntry* n = new WLANEntry;
@@ -5092,7 +4979,7 @@ void WLANEntry::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -5135,10 +5022,10 @@ bool WLANEntry::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_RadioIndex:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &radioindex_)));
+
         } else {
           goto handle_unusual;
         }
@@ -5184,10 +5071,10 @@ bool WLANEntry::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_NumClients:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &numclients_)));
+
         } else {
           goto handle_unusual;
         }
@@ -5279,7 +5166,6 @@ void WLANEntry::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* WLANEntry::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.WLANEntry)
   // optional .access_point.WLAN Wlan = 1;
   if (this->has_wlan()) {
@@ -5331,9 +5217,9 @@ void WLANEntry::SerializeWithCachedSizes(
   return target;
 }
 
-size_t WLANEntry::ByteSizeLong() const {
+int WLANEntry::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.WLANEntry)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.WLAN Wlan = 1;
   if (this->has_wlan()) {
@@ -5377,17 +5263,18 @@ size_t WLANEntry::ByteSizeLong() const {
         *this->counter_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void WLANEntry::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.WLANEntry)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const WLANEntry* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const WLANEntry* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const WLANEntry>(
           &from);
   if (source == NULL) {
@@ -5395,21 +5282,15 @@ void WLANEntry::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.WLANEntry)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void WLANEntry::MergeFrom(const WLANEntry& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.WLANEntry)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void WLANEntry::UnsafeMergeFrom(const WLANEntry& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.has_wlan()) {
     mutable_wlan()->::access_point::WLAN::MergeFrom(from.wlan());
   }
@@ -5443,7 +5324,7 @@ void WLANEntry::CopyFrom(const WLANEntry& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.WLANEntry)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool WLANEntry::IsInitialized() const {
@@ -5479,7 +5360,7 @@ void WLANEntry::InternalSwap(WLANEntry* other) {
 
 // optional .access_point.WLAN Wlan = 1;
 bool WLANEntry::has_wlan() const {
-  return this != internal_default_instance() && wlan_ != NULL;
+  return !_is_default_instance_ && wlan_ != NULL;
 }
 void WLANEntry::clear_wlan() {
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
@@ -5487,8 +5368,7 @@ void WLANEntry::clear_wlan() {
 }
 const ::access_point::WLAN& WLANEntry::wlan() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.Wlan)
-  return wlan_ != NULL ? *wlan_
-                         : *::access_point::WLAN::internal_default_instance();
+  return wlan_ != NULL ? *wlan_ : *default_instance_->wlan_;
 }
 ::access_point::WLAN* WLANEntry::mutable_wlan() {
   
@@ -5520,11 +5400,11 @@ void WLANEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
 void WLANEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
-::google::protobuf::uint32 WLANEntry::radioindex() const {
+ ::google::protobuf::uint32 WLANEntry::radioindex() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.RadioIndex)
   return radioindex_;
 }
-void WLANEntry::set_radioindex(::google::protobuf::uint32 value) {
+ void WLANEntry::set_radioindex(::google::protobuf::uint32 value) {
   
   radioindex_ = value;
   // @@protoc_insertion_point(field_set:access_point.WLANEntry.RadioIndex)
@@ -5534,37 +5414,37 @@ void WLANEntry::set_radioindex(::google::protobuf::uint32 value) {
 void WLANEntry::clear_bssid() {
   bssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& WLANEntry::bssid() const {
+ const ::std::string& WLANEntry::bssid() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.BSSID)
   return bssid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLANEntry::set_bssid(const ::std::string& value) {
+ void WLANEntry::set_bssid(const ::std::string& value) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.WLANEntry.BSSID)
 }
-void WLANEntry::set_bssid(const char* value) {
+ void WLANEntry::set_bssid(const char* value) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.WLANEntry.BSSID)
 }
-void WLANEntry::set_bssid(const char* value, size_t size) {
+ void WLANEntry::set_bssid(const char* value, size_t size) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.WLANEntry.BSSID)
 }
-::std::string* WLANEntry::mutable_bssid() {
+ ::std::string* WLANEntry::mutable_bssid() {
   
   // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.BSSID)
   return bssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* WLANEntry::release_bssid() {
+ ::std::string* WLANEntry::release_bssid() {
   // @@protoc_insertion_point(field_release:access_point.WLANEntry.BSSID)
   
   return bssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLANEntry::set_allocated_bssid(::std::string* bssid) {
+ void WLANEntry::set_allocated_bssid(::std::string* bssid) {
   if (bssid != NULL) {
     
   } else {
@@ -5578,37 +5458,37 @@ void WLANEntry::set_allocated_bssid(::std::string* bssid) {
 void WLANEntry::clear_dev() {
   dev_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& WLANEntry::dev() const {
+ const ::std::string& WLANEntry::dev() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.Dev)
   return dev_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLANEntry::set_dev(const ::std::string& value) {
+ void WLANEntry::set_dev(const ::std::string& value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.WLANEntry.Dev)
 }
-void WLANEntry::set_dev(const char* value) {
+ void WLANEntry::set_dev(const char* value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.WLANEntry.Dev)
 }
-void WLANEntry::set_dev(const char* value, size_t size) {
+ void WLANEntry::set_dev(const char* value, size_t size) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.WLANEntry.Dev)
 }
-::std::string* WLANEntry::mutable_dev() {
+ ::std::string* WLANEntry::mutable_dev() {
   
   // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.Dev)
   return dev_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* WLANEntry::release_dev() {
+ ::std::string* WLANEntry::release_dev() {
   // @@protoc_insertion_point(field_release:access_point.WLANEntry.Dev)
   
   return dev_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void WLANEntry::set_allocated_dev(::std::string* dev) {
+ void WLANEntry::set_allocated_dev(::std::string* dev) {
   if (dev != NULL) {
     
   } else {
@@ -5622,11 +5502,11 @@ void WLANEntry::set_allocated_dev(::std::string* dev) {
 void WLANEntry::clear_numclients() {
   numclients_ = 0;
 }
-::google::protobuf::int32 WLANEntry::numclients() const {
+ ::google::protobuf::int32 WLANEntry::numclients() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.NumClients)
   return numclients_;
 }
-void WLANEntry::set_numclients(::google::protobuf::int32 value) {
+ void WLANEntry::set_numclients(::google::protobuf::int32 value) {
   
   numclients_ = value;
   // @@protoc_insertion_point(field_set:access_point.WLANEntry.NumClients)
@@ -5634,7 +5514,7 @@ void WLANEntry::set_numclients(::google::protobuf::int32 value) {
 
 // optional .access_point.MulticastCounter Counter = 6;
 bool WLANEntry::has_counter() const {
-  return this != internal_default_instance() && counter_ != NULL;
+  return !_is_default_instance_ && counter_ != NULL;
 }
 void WLANEntry::clear_counter() {
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
@@ -5642,8 +5522,7 @@ void WLANEntry::clear_counter() {
 }
 const ::access_point::MulticastCounter& WLANEntry::counter() const {
   // @@protoc_insertion_point(field_get:access_point.WLANEntry.Counter)
-  return counter_ != NULL ? *counter_
-                         : *::access_point::MulticastCounter::internal_default_instance();
+  return counter_ != NULL ? *counter_ : *default_instance_->counter_;
 }
 ::access_point::MulticastCounter* WLANEntry::mutable_counter() {
   
@@ -5671,9 +5550,6 @@ void WLANEntry::set_allocated_counter(::access_point::MulticastCounter* counter)
   // @@protoc_insertion_point(field_set_allocated:access_point.WLANEntry.Counter)
 }
 
-inline const WLANEntry* WLANEntry::internal_default_instance() {
-  return &WLANEntry_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -5685,27 +5561,27 @@ const int APWLANStatsMsgRsp::kWLANEntriesFieldNumber;
 
 APWLANStatsMsgRsp::APWLANStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APWLANStatsMsgRsp)
 }
 
 void APWLANStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APWLANStatsMsgRsp::APWLANStatsMsgRsp(const APWLANStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APWLANStatsMsgRsp)
 }
 
 void APWLANStatsMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APWLANStatsMsgRsp::~APWLANStatsMsgRsp() {
@@ -5714,7 +5590,7 @@ APWLANStatsMsgRsp::~APWLANStatsMsgRsp() {
 }
 
 void APWLANStatsMsgRsp::SharedDtor() {
-  if (this != &APWLANStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -5730,11 +5606,11 @@ const ::google::protobuf::Descriptor* APWLANStatsMsgRsp::descriptor() {
 }
 
 const APWLANStatsMsgRsp& APWLANStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APWLANStatsMsgRsp> APWLANStatsMsgRsp_default_instance_;
+APWLANStatsMsgRsp* APWLANStatsMsgRsp::default_instance_ = NULL;
 
 APWLANStatsMsgRsp* APWLANStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APWLANStatsMsgRsp* n = new APWLANStatsMsgRsp;
@@ -5831,7 +5707,6 @@ void APWLANStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APWLANStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APWLANStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -5851,9 +5726,9 @@ void APWLANStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APWLANStatsMsgRsp::ByteSizeLong() const {
+int APWLANStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APWLANStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -5863,27 +5738,25 @@ size_t APWLANStatsMsgRsp::ByteSizeLong() const {
   }
 
   // repeated .access_point.WLANEntry WLANEntries = 2;
-  {
-    unsigned int count = this->wlanentries_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->wlanentries(i));
-    }
+  total_size += 1 * this->wlanentries_size();
+  for (int i = 0; i < this->wlanentries_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->wlanentries(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APWLANStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APWLANStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APWLANStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APWLANStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APWLANStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -5891,21 +5764,15 @@ void APWLANStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APWLANStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APWLANStatsMsgRsp::MergeFrom(const APWLANStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APWLANStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APWLANStatsMsgRsp::UnsafeMergeFrom(const APWLANStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   wlanentries_.MergeFrom(from.wlanentries_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
@@ -5923,7 +5790,7 @@ void APWLANStatsMsgRsp::CopyFrom(const APWLANStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APWLANStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APWLANStatsMsgRsp::IsInitialized() const {
@@ -5955,7 +5822,7 @@ void APWLANStatsMsgRsp::InternalSwap(APWLANStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APWLANStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APWLANStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -5963,8 +5830,7 @@ void APWLANStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APWLANStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APWLANStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APWLANStatsMsgRsp::mutable_errstatus() {
   
@@ -6022,9 +5888,6 @@ APWLANStatsMsgRsp::wlanentries() const {
   return wlanentries_;
 }
 
-inline const APWLANStatsMsgRsp* APWLANStatsMsgRsp::internal_default_instance() {
-  return &APWLANStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -6039,26 +5902,30 @@ const int RadioUtilization::kNonWifiFieldNumber;
 
 RadioUtilization::RadioUtilization()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.RadioUtilization)
 }
 
 void RadioUtilization::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 RadioUtilization::RadioUtilization(const RadioUtilization& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.RadioUtilization)
 }
 
 void RadioUtilization::SharedCtor() {
-  ::memset(&all_, 0, reinterpret_cast<char*>(&nonwifi_) -
-    reinterpret_cast<char*>(&all_) + sizeof(nonwifi_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  all_ = 0;
+  tx_ = 0;
+  rxinbss_ = 0;
+  rxotherbss_ = 0;
+  nonwifi_ = 0;
 }
 
 RadioUtilization::~RadioUtilization() {
@@ -6067,6 +5934,8 @@ RadioUtilization::~RadioUtilization() {
 }
 
 void RadioUtilization::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void RadioUtilization::SetCachedSize(int size) const {
@@ -6080,11 +5949,11 @@ const ::google::protobuf::Descriptor* RadioUtilization::descriptor() {
 }
 
 const RadioUtilization& RadioUtilization::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<RadioUtilization> RadioUtilization_default_instance_;
+RadioUtilization* RadioUtilization::default_instance_ = NULL;
 
 RadioUtilization* RadioUtilization::New(::google::protobuf::Arena* arena) const {
   RadioUtilization* n = new RadioUtilization;
@@ -6108,7 +5977,7 @@ void RadioUtilization::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -6132,10 +6001,10 @@ bool RadioUtilization::MergePartialFromCodedStream(
       // optional float All = 1;
       case 1: {
         if (tag == 13) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &all_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6147,10 +6016,10 @@ bool RadioUtilization::MergePartialFromCodedStream(
       case 2: {
         if (tag == 21) {
          parse_Tx:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &tx_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6162,10 +6031,10 @@ bool RadioUtilization::MergePartialFromCodedStream(
       case 3: {
         if (tag == 29) {
          parse_RxInBSS:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &rxinbss_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6177,10 +6046,10 @@ bool RadioUtilization::MergePartialFromCodedStream(
       case 4: {
         if (tag == 37) {
          parse_RxOtherBSS:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &rxotherbss_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6192,10 +6061,10 @@ bool RadioUtilization::MergePartialFromCodedStream(
       case 5: {
         if (tag == 45) {
          parse_NonWifi:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &nonwifi_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6257,7 +6126,6 @@ void RadioUtilization::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* RadioUtilization::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.RadioUtilization)
   // optional float All = 1;
   if (this->all() != 0) {
@@ -6288,9 +6156,9 @@ void RadioUtilization::SerializeWithCachedSizes(
   return target;
 }
 
-size_t RadioUtilization::ByteSizeLong() const {
+int RadioUtilization::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.RadioUtilization)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional float All = 1;
   if (this->all() != 0) {
@@ -6317,17 +6185,18 @@ size_t RadioUtilization::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void RadioUtilization::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.RadioUtilization)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const RadioUtilization* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const RadioUtilization* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const RadioUtilization>(
           &from);
   if (source == NULL) {
@@ -6335,21 +6204,15 @@ void RadioUtilization::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.RadioUtilization)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void RadioUtilization::MergeFrom(const RadioUtilization& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.RadioUtilization)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void RadioUtilization::UnsafeMergeFrom(const RadioUtilization& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.all() != 0) {
     set_all(from.all());
   }
@@ -6378,7 +6241,7 @@ void RadioUtilization::CopyFrom(const RadioUtilization& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.RadioUtilization)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool RadioUtilization::IsInitialized() const {
@@ -6415,11 +6278,11 @@ void RadioUtilization::InternalSwap(RadioUtilization* other) {
 void RadioUtilization::clear_all() {
   all_ = 0;
 }
-float RadioUtilization::all() const {
+ float RadioUtilization::all() const {
   // @@protoc_insertion_point(field_get:access_point.RadioUtilization.All)
   return all_;
 }
-void RadioUtilization::set_all(float value) {
+ void RadioUtilization::set_all(float value) {
   
   all_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.All)
@@ -6429,11 +6292,11 @@ void RadioUtilization::set_all(float value) {
 void RadioUtilization::clear_tx() {
   tx_ = 0;
 }
-float RadioUtilization::tx() const {
+ float RadioUtilization::tx() const {
   // @@protoc_insertion_point(field_get:access_point.RadioUtilization.Tx)
   return tx_;
 }
-void RadioUtilization::set_tx(float value) {
+ void RadioUtilization::set_tx(float value) {
   
   tx_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.Tx)
@@ -6443,11 +6306,11 @@ void RadioUtilization::set_tx(float value) {
 void RadioUtilization::clear_rxinbss() {
   rxinbss_ = 0;
 }
-float RadioUtilization::rxinbss() const {
+ float RadioUtilization::rxinbss() const {
   // @@protoc_insertion_point(field_get:access_point.RadioUtilization.RxInBSS)
   return rxinbss_;
 }
-void RadioUtilization::set_rxinbss(float value) {
+ void RadioUtilization::set_rxinbss(float value) {
   
   rxinbss_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxInBSS)
@@ -6457,11 +6320,11 @@ void RadioUtilization::set_rxinbss(float value) {
 void RadioUtilization::clear_rxotherbss() {
   rxotherbss_ = 0;
 }
-float RadioUtilization::rxotherbss() const {
+ float RadioUtilization::rxotherbss() const {
   // @@protoc_insertion_point(field_get:access_point.RadioUtilization.RxOtherBSS)
   return rxotherbss_;
 }
-void RadioUtilization::set_rxotherbss(float value) {
+ void RadioUtilization::set_rxotherbss(float value) {
   
   rxotherbss_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxOtherBSS)
@@ -6471,305 +6334,16 @@ void RadioUtilization::set_rxotherbss(float value) {
 void RadioUtilization::clear_nonwifi() {
   nonwifi_ = 0;
 }
-float RadioUtilization::nonwifi() const {
+ float RadioUtilization::nonwifi() const {
   // @@protoc_insertion_point(field_get:access_point.RadioUtilization.NonWifi)
   return nonwifi_;
 }
-void RadioUtilization::set_nonwifi(float value) {
+ void RadioUtilization::set_nonwifi(float value) {
   
   nonwifi_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioUtilization.NonWifi)
 }
 
-inline const RadioUtilization* RadioUtilization::internal_default_instance() {
-  return &RadioUtilization_default_instance_.get();
-}
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AntennaRSSI::kValFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-AntennaRSSI::AntennaRSSI()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.AntennaRSSI)
-}
-
-void AntennaRSSI::InitAsDefaultInstance() {
-}
-
-AntennaRSSI::AntennaRSSI(const AntennaRSSI& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.AntennaRSSI)
-}
-
-void AntennaRSSI::SharedCtor() {
-  _cached_size_ = 0;
-}
-
-AntennaRSSI::~AntennaRSSI() {
-  // @@protoc_insertion_point(destructor:access_point.AntennaRSSI)
-  SharedDtor();
-}
-
-void AntennaRSSI::SharedDtor() {
-}
-
-void AntennaRSSI::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* AntennaRSSI::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return AntennaRSSI_descriptor_;
-}
-
-const AntennaRSSI& AntennaRSSI::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
-}
-
-::google::protobuf::internal::ExplicitlyConstructed<AntennaRSSI> AntennaRSSI_default_instance_;
-
-AntennaRSSI* AntennaRSSI::New(::google::protobuf::Arena* arena) const {
-  AntennaRSSI* n = new AntennaRSSI;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void AntennaRSSI::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.AntennaRSSI)
-  val_.Clear();
-}
-
-bool AntennaRSSI::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.AntennaRSSI)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated int32 val = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_val())));
-        } else if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 10, input, this->mutable_val())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:access_point.AntennaRSSI)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:access_point.AntennaRSSI)
-  return false;
-#undef DO_
-}
-
-void AntennaRSSI::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.AntennaRSSI)
-  // repeated int32 val = 1;
-  if (this->val_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(_val_cached_byte_size_);
-  }
-  for (int i = 0; i < this->val_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->val(i), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:access_point.AntennaRSSI)
-}
-
-::google::protobuf::uint8* AntennaRSSI::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.AntennaRSSI)
-  // repeated int32 val = 1;
-  if (this->val_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      1,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _val_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->val_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->val(i), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.AntennaRSSI)
-  return target;
-}
-
-size_t AntennaRSSI::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.AntennaRSSI)
-  size_t total_size = 0;
-
-  // repeated int32 val = 1;
-  {
-    size_t data_size = 0;
-    unsigned int count = this->val_size();
-    for (unsigned int i = 0; i < count; i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->val(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _val_cached_byte_size_ = cached_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void AntennaRSSI::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.AntennaRSSI)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const AntennaRSSI* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AntennaRSSI>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.AntennaRSSI)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.AntennaRSSI)
-    UnsafeMergeFrom(*source);
-  }
-}
-
-void AntennaRSSI::MergeFrom(const AntennaRSSI& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.AntennaRSSI)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void AntennaRSSI::UnsafeMergeFrom(const AntennaRSSI& from) {
-  GOOGLE_DCHECK(&from != this);
-  val_.UnsafeMergeFrom(from.val_);
-}
-
-void AntennaRSSI::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.AntennaRSSI)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void AntennaRSSI::CopyFrom(const AntennaRSSI& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.AntennaRSSI)
-  if (&from == this) return;
-  Clear();
-  UnsafeMergeFrom(from);
-}
-
-bool AntennaRSSI::IsInitialized() const {
-
-  return true;
-}
-
-void AntennaRSSI::Swap(AntennaRSSI* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void AntennaRSSI::InternalSwap(AntennaRSSI* other) {
-  val_.UnsafeArenaSwap(&other->val_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata AntennaRSSI::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = AntennaRSSI_descriptor_;
-  metadata.reflection = AntennaRSSI_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// AntennaRSSI
-
-// repeated int32 val = 1;
-int AntennaRSSI::val_size() const {
-  return val_.size();
-}
-void AntennaRSSI::clear_val() {
-  val_.Clear();
-}
-::google::protobuf::int32 AntennaRSSI::val(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.AntennaRSSI.val)
-  return val_.Get(index);
-}
-void AntennaRSSI::set_val(int index, ::google::protobuf::int32 value) {
-  val_.Set(index, value);
-  // @@protoc_insertion_point(field_set:access_point.AntennaRSSI.val)
-}
-void AntennaRSSI::add_val(::google::protobuf::int32 value) {
-  val_.Add(value);
-  // @@protoc_insertion_point(field_add:access_point.AntennaRSSI.val)
-}
-const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-AntennaRSSI::val() const {
-  // @@protoc_insertion_point(field_list:access_point.AntennaRSSI.val)
-  return val_;
-}
-::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-AntennaRSSI::mutable_val() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.AntennaRSSI.val)
-  return &val_;
-}
-
-inline const AntennaRSSI* AntennaRSSI::internal_default_instance() {
-  return &AntennaRSSI_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -6787,26 +6361,33 @@ const int RadioCounters::kRxErrorsFieldNumber;
 
 RadioCounters::RadioCounters()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.RadioCounters)
 }
 
 void RadioCounters::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 RadioCounters::RadioCounters(const RadioCounters& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.RadioCounters)
 }
 
 void RadioCounters::SharedCtor() {
-  ::memset(&txbytes_, 0, reinterpret_cast<char*>(&rxerrors_) -
-    reinterpret_cast<char*>(&txbytes_) + sizeof(rxerrors_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  txbytes_ = GOOGLE_ULONGLONG(0);
+  txpkts_ = 0u;
+  txmgmt_ = 0u;
+  txerrors_ = 0u;
+  rxbytes_ = GOOGLE_ULONGLONG(0);
+  rxpkts_ = 0u;
+  rxmgmt_ = 0u;
+  rxerrors_ = 0u;
 }
 
 RadioCounters::~RadioCounters() {
@@ -6815,6 +6396,8 @@ RadioCounters::~RadioCounters() {
 }
 
 void RadioCounters::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void RadioCounters::SetCachedSize(int size) const {
@@ -6828,11 +6411,11 @@ const ::google::protobuf::Descriptor* RadioCounters::descriptor() {
 }
 
 const RadioCounters& RadioCounters::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<RadioCounters> RadioCounters_default_instance_;
+RadioCounters* RadioCounters::default_instance_ = NULL;
 
 RadioCounters* RadioCounters::New(::google::protobuf::Arena* arena) const {
   RadioCounters* n = new RadioCounters;
@@ -6856,7 +6439,7 @@ void RadioCounters::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -6880,10 +6463,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       // optional uint64 TxBytes = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &txbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6895,10 +6478,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_TxPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6910,10 +6493,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_TxMgmt:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txmgmt_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6925,10 +6508,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_TxErrors:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txerrors_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6940,10 +6523,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_RxBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &rxbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6955,10 +6538,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 6: {
         if (tag == 48) {
          parse_RxPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6970,10 +6553,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_RxMgmt:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxmgmt_)));
+
         } else {
           goto handle_unusual;
         }
@@ -6985,10 +6568,10 @@ bool RadioCounters::MergePartialFromCodedStream(
       case 8: {
         if (tag == 64) {
          parse_RxErrors:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxerrors_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7065,7 +6648,6 @@ void RadioCounters::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* RadioCounters::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.RadioCounters)
   // optional uint64 TxBytes = 1;
   if (this->txbytes() != 0) {
@@ -7111,9 +6693,9 @@ void RadioCounters::SerializeWithCachedSizes(
   return target;
 }
 
-size_t RadioCounters::ByteSizeLong() const {
+int RadioCounters::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.RadioCounters)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint64 TxBytes = 1;
   if (this->txbytes() != 0) {
@@ -7171,17 +6753,18 @@ size_t RadioCounters::ByteSizeLong() const {
         this->rxerrors());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void RadioCounters::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.RadioCounters)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const RadioCounters* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const RadioCounters* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const RadioCounters>(
           &from);
   if (source == NULL) {
@@ -7189,21 +6772,15 @@ void RadioCounters::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.RadioCounters)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void RadioCounters::MergeFrom(const RadioCounters& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.RadioCounters)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void RadioCounters::UnsafeMergeFrom(const RadioCounters& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.txbytes() != 0) {
     set_txbytes(from.txbytes());
   }
@@ -7241,7 +6818,7 @@ void RadioCounters::CopyFrom(const RadioCounters& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.RadioCounters)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool RadioCounters::IsInitialized() const {
@@ -7281,11 +6858,11 @@ void RadioCounters::InternalSwap(RadioCounters* other) {
 void RadioCounters::clear_txbytes() {
   txbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 RadioCounters::txbytes() const {
+ ::google::protobuf::uint64 RadioCounters::txbytes() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxBytes)
   return txbytes_;
 }
-void RadioCounters::set_txbytes(::google::protobuf::uint64 value) {
+ void RadioCounters::set_txbytes(::google::protobuf::uint64 value) {
   
   txbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxBytes)
@@ -7295,11 +6872,11 @@ void RadioCounters::set_txbytes(::google::protobuf::uint64 value) {
 void RadioCounters::clear_txpkts() {
   txpkts_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::txpkts() const {
+ ::google::protobuf::uint32 RadioCounters::txpkts() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxPkts)
   return txpkts_;
 }
-void RadioCounters::set_txpkts(::google::protobuf::uint32 value) {
+ void RadioCounters::set_txpkts(::google::protobuf::uint32 value) {
   
   txpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxPkts)
@@ -7309,11 +6886,11 @@ void RadioCounters::set_txpkts(::google::protobuf::uint32 value) {
 void RadioCounters::clear_txmgmt() {
   txmgmt_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::txmgmt() const {
+ ::google::protobuf::uint32 RadioCounters::txmgmt() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxMgmt)
   return txmgmt_;
 }
-void RadioCounters::set_txmgmt(::google::protobuf::uint32 value) {
+ void RadioCounters::set_txmgmt(::google::protobuf::uint32 value) {
   
   txmgmt_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxMgmt)
@@ -7323,11 +6900,11 @@ void RadioCounters::set_txmgmt(::google::protobuf::uint32 value) {
 void RadioCounters::clear_txerrors() {
   txerrors_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::txerrors() const {
+ ::google::protobuf::uint32 RadioCounters::txerrors() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxErrors)
   return txerrors_;
 }
-void RadioCounters::set_txerrors(::google::protobuf::uint32 value) {
+ void RadioCounters::set_txerrors(::google::protobuf::uint32 value) {
   
   txerrors_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxErrors)
@@ -7337,11 +6914,11 @@ void RadioCounters::set_txerrors(::google::protobuf::uint32 value) {
 void RadioCounters::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 RadioCounters::rxbytes() const {
+ ::google::protobuf::uint64 RadioCounters::rxbytes() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxBytes)
   return rxbytes_;
 }
-void RadioCounters::set_rxbytes(::google::protobuf::uint64 value) {
+ void RadioCounters::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxBytes)
@@ -7351,11 +6928,11 @@ void RadioCounters::set_rxbytes(::google::protobuf::uint64 value) {
 void RadioCounters::clear_rxpkts() {
   rxpkts_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::rxpkts() const {
+ ::google::protobuf::uint32 RadioCounters::rxpkts() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxPkts)
   return rxpkts_;
 }
-void RadioCounters::set_rxpkts(::google::protobuf::uint32 value) {
+ void RadioCounters::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxPkts)
@@ -7365,11 +6942,11 @@ void RadioCounters::set_rxpkts(::google::protobuf::uint32 value) {
 void RadioCounters::clear_rxmgmt() {
   rxmgmt_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::rxmgmt() const {
+ ::google::protobuf::uint32 RadioCounters::rxmgmt() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxMgmt)
   return rxmgmt_;
 }
-void RadioCounters::set_rxmgmt(::google::protobuf::uint32 value) {
+ void RadioCounters::set_rxmgmt(::google::protobuf::uint32 value) {
   
   rxmgmt_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxMgmt)
@@ -7379,19 +6956,16 @@ void RadioCounters::set_rxmgmt(::google::protobuf::uint32 value) {
 void RadioCounters::clear_rxerrors() {
   rxerrors_ = 0u;
 }
-::google::protobuf::uint32 RadioCounters::rxerrors() const {
+ ::google::protobuf::uint32 RadioCounters::rxerrors() const {
   // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxErrors)
   return rxerrors_;
 }
-void RadioCounters::set_rxerrors(::google::protobuf::uint32 value) {
+ void RadioCounters::set_rxerrors(::google::protobuf::uint32 value) {
   
   rxerrors_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxErrors)
 }
 
-inline const RadioCounters* RadioCounters::internal_default_instance() {
-  return &RadioCounters_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -7403,26 +6977,27 @@ const int DfsState::kRadarDetectedFieldNumber;
 
 DfsState::DfsState()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.DfsState)
 }
 
 void DfsState::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 DfsState::DfsState(const DfsState& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.DfsState)
 }
 
 void DfsState::SharedCtor() {
-  ::memset(&cacstate_, 0, reinterpret_cast<char*>(&radardetected_) -
-    reinterpret_cast<char*>(&cacstate_) + sizeof(radardetected_));
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  cacstate_ = 0u;
+  radardetected_ = false;
 }
 
 DfsState::~DfsState() {
@@ -7431,6 +7006,8 @@ DfsState::~DfsState() {
 }
 
 void DfsState::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void DfsState::SetCachedSize(int size) const {
@@ -7444,11 +7021,11 @@ const ::google::protobuf::Descriptor* DfsState::descriptor() {
 }
 
 const DfsState& DfsState::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<DfsState> DfsState_default_instance_;
+DfsState* DfsState::default_instance_ = NULL;
 
 DfsState* DfsState::New(::google::protobuf::Arena* arena) const {
   DfsState* n = new DfsState;
@@ -7472,7 +7049,7 @@ void DfsState::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -7496,10 +7073,10 @@ bool DfsState::MergePartialFromCodedStream(
       // optional uint32 CacState = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &cacstate_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7511,10 +7088,10 @@ bool DfsState::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_RadarDetected:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &radardetected_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7561,7 +7138,6 @@ void DfsState::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* DfsState::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.DfsState)
   // optional uint32 CacState = 1;
   if (this->cacstate() != 0) {
@@ -7577,9 +7153,9 @@ void DfsState::SerializeWithCachedSizes(
   return target;
 }
 
-size_t DfsState::ByteSizeLong() const {
+int DfsState::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.DfsState)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional uint32 CacState = 1;
   if (this->cacstate() != 0) {
@@ -7593,17 +7169,18 @@ size_t DfsState::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void DfsState::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.DfsState)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const DfsState* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const DfsState* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const DfsState>(
           &from);
   if (source == NULL) {
@@ -7611,21 +7188,15 @@ void DfsState::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.DfsState)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void DfsState::MergeFrom(const DfsState& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.DfsState)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void DfsState::UnsafeMergeFrom(const DfsState& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.cacstate() != 0) {
     set_cacstate(from.cacstate());
   }
@@ -7645,7 +7216,7 @@ void DfsState::CopyFrom(const DfsState& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.DfsState)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool DfsState::IsInitialized() const {
@@ -7679,11 +7250,11 @@ void DfsState::InternalSwap(DfsState* other) {
 void DfsState::clear_cacstate() {
   cacstate_ = 0u;
 }
-::google::protobuf::uint32 DfsState::cacstate() const {
+ ::google::protobuf::uint32 DfsState::cacstate() const {
   // @@protoc_insertion_point(field_get:access_point.DfsState.CacState)
   return cacstate_;
 }
-void DfsState::set_cacstate(::google::protobuf::uint32 value) {
+ void DfsState::set_cacstate(::google::protobuf::uint32 value) {
   
   cacstate_ = value;
   // @@protoc_insertion_point(field_set:access_point.DfsState.CacState)
@@ -7693,19 +7264,16 @@ void DfsState::set_cacstate(::google::protobuf::uint32 value) {
 void DfsState::clear_radardetected() {
   radardetected_ = false;
 }
-bool DfsState::radardetected() const {
+ bool DfsState::radardetected() const {
   // @@protoc_insertion_point(field_get:access_point.DfsState.RadarDetected)
   return radardetected_;
 }
-void DfsState::set_radardetected(bool value) {
+ void DfsState::set_radardetected(bool value) {
   
   radardetected_ = value;
   // @@protoc_insertion_point(field_set:access_point.DfsState.RadarDetected)
 }
 
-inline const DfsState* DfsState::internal_default_instance() {
-  return &DfsState_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -7719,47 +7287,46 @@ const int RadioEntry::kBandwidthFieldNumber;
 const int RadioEntry::kNoiseFloorFieldNumber;
 const int RadioEntry::kMaxTxPowerFieldNumber;
 const int RadioEntry::kUtilizationFieldNumber;
-const int RadioEntry::kRSSIFieldNumber;
+const int RadioEntry::kAntennaRSSIFieldNumber;
 const int RadioEntry::kCounterFieldNumber;
 const int RadioEntry::kDFSFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RadioEntry::RadioEntry()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.RadioEntry)
 }
 
 void RadioEntry::InitAsDefaultInstance() {
-  utilization_ = const_cast< ::access_point::RadioUtilization*>(
-      ::access_point::RadioUtilization::internal_default_instance());
-  rssi_ = const_cast< ::access_point::AntennaRSSI*>(
-      ::access_point::AntennaRSSI::internal_default_instance());
-  counter_ = const_cast< ::access_point::RadioCounters*>(
-      ::access_point::RadioCounters::internal_default_instance());
-  dfs_ = const_cast< ::access_point::DfsState*>(
-      ::access_point::DfsState::internal_default_instance());
+  _is_default_instance_ = true;
+  utilization_ = const_cast< ::access_point::RadioUtilization*>(&::access_point::RadioUtilization::default_instance());
+  counter_ = const_cast< ::access_point::RadioCounters*>(&::access_point::RadioCounters::default_instance());
+  dfs_ = const_cast< ::access_point::DfsState*>(&::access_point::DfsState::default_instance());
 }
 
 RadioEntry::RadioEntry(const RadioEntry& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.RadioEntry)
 }
 
 void RadioEntry::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
   dev_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  channel_ = 0u;
+  secondarychannel_ = 0u;
+  bandwidth_ = 0u;
+  noisefloor_ = 0;
+  maxtxpower_ = 0u;
   utilization_ = NULL;
-  rssi_ = NULL;
   counter_ = NULL;
   dfs_ = NULL;
-  ::memset(&channel_, 0, reinterpret_cast<char*>(&maxtxpower_) -
-    reinterpret_cast<char*>(&channel_) + sizeof(maxtxpower_));
-  _cached_size_ = 0;
 }
 
 RadioEntry::~RadioEntry() {
@@ -7770,9 +7337,8 @@ RadioEntry::~RadioEntry() {
 void RadioEntry::SharedDtor() {
   dev_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != &RadioEntry_default_instance_.get()) {
+  if (this != default_instance_) {
     delete utilization_;
-    delete rssi_;
     delete counter_;
     delete dfs_;
   }
@@ -7789,11 +7355,11 @@ const ::google::protobuf::Descriptor* RadioEntry::descriptor() {
 }
 
 const RadioEntry& RadioEntry::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<RadioEntry> RadioEntry_default_instance_;
+RadioEntry* RadioEntry::default_instance_ = NULL;
 
 RadioEntry* RadioEntry::New(::google::protobuf::Arena* arena) const {
   RadioEntry* n = new RadioEntry;
@@ -7817,17 +7383,16 @@ void RadioEntry::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(channel_, maxtxpower_);
+  ZR_(channel_, noisefloor_);
   dev_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  maxtxpower_ = 0u;
   if (GetArenaNoVirtual() == NULL && utilization_ != NULL) delete utilization_;
   utilization_ = NULL;
-  if (GetArenaNoVirtual() == NULL && rssi_ != NULL) delete rssi_;
-  rssi_ = NULL;
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
   counter_ = NULL;
   if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
@@ -7836,6 +7401,7 @@ void RadioEntry::Clear() {
 #undef ZR_HELPER_
 #undef ZR_
 
+  antennarssi_.Clear();
 }
 
 bool RadioEntry::MergePartialFromCodedStream(
@@ -7885,10 +7451,10 @@ bool RadioEntry::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_Channel:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &channel_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7900,10 +7466,10 @@ bool RadioEntry::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_SecondaryChannel:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &secondarychannel_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7915,10 +7481,10 @@ bool RadioEntry::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_Bandwidth:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &bandwidth_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7926,14 +7492,14 @@ bool RadioEntry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 NoiseFloor = 6;
+      // optional int32 NoiseFloor = 6;
       case 6: {
         if (tag == 48) {
          parse_NoiseFloor:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &noisefloor_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7945,10 +7511,10 @@ bool RadioEntry::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_MaxTxPower:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &maxtxpower_)));
+
         } else {
           goto handle_unusual;
         }
@@ -7965,16 +7531,21 @@ bool RadioEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_RSSI;
+        if (input->ExpectTag(74)) goto parse_AntennaRSSI;
         break;
       }
 
-      // optional .access_point.AntennaRSSI RSSI = 9;
+      // repeated int32 AntennaRSSI = 9;
       case 9: {
         if (tag == 74) {
-         parse_RSSI:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_rssi()));
+         parse_AntennaRSSI:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_antennarssi())));
+        } else if (tag == 72) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 74, input, this->mutable_antennarssi())));
         } else {
           goto handle_unusual;
         }
@@ -8067,9 +7638,9 @@ void RadioEntry::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->bandwidth(), output);
   }
 
-  // optional uint32 NoiseFloor = 6;
+  // optional int32 NoiseFloor = 6;
   if (this->noisefloor() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->noisefloor(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->noisefloor(), output);
   }
 
   // optional uint32 MaxTxPower = 7;
@@ -8083,10 +7654,14 @@ void RadioEntry::SerializeWithCachedSizes(
       8, *this->utilization_, output);
   }
 
-  // optional .access_point.AntennaRSSI RSSI = 9;
-  if (this->has_rssi()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, *this->rssi_, output);
+  // repeated int32 AntennaRSSI = 9;
+  if (this->antennarssi_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(9, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_antennarssi_cached_byte_size_);
+  }
+  for (int i = 0; i < this->antennarssi_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->antennarssi(i), output);
   }
 
   // optional .access_point.RadioCounters Counter = 10;
@@ -8106,7 +7681,6 @@ void RadioEntry::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* RadioEntry::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.RadioEntry)
   // optional string Dev = 1;
   if (this->dev().size() > 0) {
@@ -8145,9 +7719,9 @@ void RadioEntry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->bandwidth(), target);
   }
 
-  // optional uint32 NoiseFloor = 6;
+  // optional int32 NoiseFloor = 6;
   if (this->noisefloor() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->noisefloor(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->noisefloor(), target);
   }
 
   // optional uint32 MaxTxPower = 7;
@@ -8162,11 +7736,18 @@ void RadioEntry::SerializeWithCachedSizes(
         8, *this->utilization_, false, target);
   }
 
-  // optional .access_point.AntennaRSSI RSSI = 9;
-  if (this->has_rssi()) {
+  // repeated int32 AntennaRSSI = 9;
+  if (this->antennarssi_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      9,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _antennarssi_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->antennarssi_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        9, *this->rssi_, false, target);
+      WriteInt32NoTagToArray(this->antennarssi(i), target);
   }
 
   // optional .access_point.RadioCounters Counter = 10;
@@ -8187,9 +7768,9 @@ void RadioEntry::SerializeWithCachedSizes(
   return target;
 }
 
-size_t RadioEntry::ByteSizeLong() const {
+int RadioEntry::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.RadioEntry)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string Dev = 1;
   if (this->dev().size() > 0) {
@@ -8226,10 +7807,10 @@ size_t RadioEntry::ByteSizeLong() const {
         this->bandwidth());
   }
 
-  // optional uint32 NoiseFloor = 6;
+  // optional int32 NoiseFloor = 6;
   if (this->noisefloor() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->noisefloor());
   }
 
@@ -8247,13 +7828,6 @@ size_t RadioEntry::ByteSizeLong() const {
         *this->utilization_);
   }
 
-  // optional .access_point.AntennaRSSI RSSI = 9;
-  if (this->has_rssi()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->rssi_);
-  }
-
   // optional .access_point.RadioCounters Counter = 10;
   if (this->has_counter()) {
     total_size += 1 +
@@ -8268,17 +7842,35 @@ size_t RadioEntry::ByteSizeLong() const {
         *this->dfs_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  // repeated int32 AntennaRSSI = 9;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->antennarssi_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->antennarssi(i));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _antennarssi_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void RadioEntry::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.RadioEntry)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const RadioEntry* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const RadioEntry* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const RadioEntry>(
           &from);
   if (source == NULL) {
@@ -8286,21 +7878,16 @@ void RadioEntry::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.RadioEntry)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void RadioEntry::MergeFrom(const RadioEntry& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.RadioEntry)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void RadioEntry::UnsafeMergeFrom(const RadioEntry& from) {
-  GOOGLE_DCHECK(&from != this);
+  antennarssi_.MergeFrom(from.antennarssi_);
   if (from.dev().size() > 0) {
 
     dev_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dev_);
@@ -8327,9 +7914,6 @@ void RadioEntry::UnsafeMergeFrom(const RadioEntry& from) {
   if (from.has_utilization()) {
     mutable_utilization()->::access_point::RadioUtilization::MergeFrom(from.utilization());
   }
-  if (from.has_rssi()) {
-    mutable_rssi()->::access_point::AntennaRSSI::MergeFrom(from.rssi());
-  }
   if (from.has_counter()) {
     mutable_counter()->::access_point::RadioCounters::MergeFrom(from.counter());
   }
@@ -8349,7 +7933,7 @@ void RadioEntry::CopyFrom(const RadioEntry& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.RadioEntry)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool RadioEntry::IsInitialized() const {
@@ -8370,7 +7954,7 @@ void RadioEntry::InternalSwap(RadioEntry* other) {
   std::swap(noisefloor_, other->noisefloor_);
   std::swap(maxtxpower_, other->maxtxpower_);
   std::swap(utilization_, other->utilization_);
-  std::swap(rssi_, other->rssi_);
+  antennarssi_.UnsafeArenaSwap(&other->antennarssi_);
   std::swap(counter_, other->counter_);
   std::swap(dfs_, other->dfs_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -8392,37 +7976,37 @@ void RadioEntry::InternalSwap(RadioEntry* other) {
 void RadioEntry::clear_dev() {
   dev_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& RadioEntry::dev() const {
+ const ::std::string& RadioEntry::dev() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Dev)
   return dev_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void RadioEntry::set_dev(const ::std::string& value) {
+ void RadioEntry::set_dev(const ::std::string& value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.Dev)
 }
-void RadioEntry::set_dev(const char* value) {
+ void RadioEntry::set_dev(const char* value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.RadioEntry.Dev)
 }
-void RadioEntry::set_dev(const char* value, size_t size) {
+ void RadioEntry::set_dev(const char* value, size_t size) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.RadioEntry.Dev)
 }
-::std::string* RadioEntry::mutable_dev() {
+ ::std::string* RadioEntry::mutable_dev() {
   
   // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Dev)
   return dev_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* RadioEntry::release_dev() {
+ ::std::string* RadioEntry::release_dev() {
   // @@protoc_insertion_point(field_release:access_point.RadioEntry.Dev)
   
   return dev_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void RadioEntry::set_allocated_dev(::std::string* dev) {
+ void RadioEntry::set_allocated_dev(::std::string* dev) {
   if (dev != NULL) {
     
   } else {
@@ -8436,37 +8020,37 @@ void RadioEntry::set_allocated_dev(::std::string* dev) {
 void RadioEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& RadioEntry::band() const {
+ const ::std::string& RadioEntry::band() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Band)
   return band_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void RadioEntry::set_band(const ::std::string& value) {
+ void RadioEntry::set_band(const ::std::string& value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.Band)
 }
-void RadioEntry::set_band(const char* value) {
+ void RadioEntry::set_band(const char* value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.RadioEntry.Band)
 }
-void RadioEntry::set_band(const char* value, size_t size) {
+ void RadioEntry::set_band(const char* value, size_t size) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.RadioEntry.Band)
 }
-::std::string* RadioEntry::mutable_band() {
+ ::std::string* RadioEntry::mutable_band() {
   
   // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Band)
   return band_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* RadioEntry::release_band() {
+ ::std::string* RadioEntry::release_band() {
   // @@protoc_insertion_point(field_release:access_point.RadioEntry.Band)
   
   return band_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void RadioEntry::set_allocated_band(::std::string* band) {
+ void RadioEntry::set_allocated_band(::std::string* band) {
   if (band != NULL) {
     
   } else {
@@ -8480,11 +8064,11 @@ void RadioEntry::set_allocated_band(::std::string* band) {
 void RadioEntry::clear_channel() {
   channel_ = 0u;
 }
-::google::protobuf::uint32 RadioEntry::channel() const {
+ ::google::protobuf::uint32 RadioEntry::channel() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Channel)
   return channel_;
 }
-void RadioEntry::set_channel(::google::protobuf::uint32 value) {
+ void RadioEntry::set_channel(::google::protobuf::uint32 value) {
   
   channel_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.Channel)
@@ -8494,11 +8078,11 @@ void RadioEntry::set_channel(::google::protobuf::uint32 value) {
 void RadioEntry::clear_secondarychannel() {
   secondarychannel_ = 0u;
 }
-::google::protobuf::uint32 RadioEntry::secondarychannel() const {
+ ::google::protobuf::uint32 RadioEntry::secondarychannel() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.SecondaryChannel)
   return secondarychannel_;
 }
-void RadioEntry::set_secondarychannel(::google::protobuf::uint32 value) {
+ void RadioEntry::set_secondarychannel(::google::protobuf::uint32 value) {
   
   secondarychannel_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.SecondaryChannel)
@@ -8508,25 +8092,25 @@ void RadioEntry::set_secondarychannel(::google::protobuf::uint32 value) {
 void RadioEntry::clear_bandwidth() {
   bandwidth_ = 0u;
 }
-::google::protobuf::uint32 RadioEntry::bandwidth() const {
+ ::google::protobuf::uint32 RadioEntry::bandwidth() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Bandwidth)
   return bandwidth_;
 }
-void RadioEntry::set_bandwidth(::google::protobuf::uint32 value) {
+ void RadioEntry::set_bandwidth(::google::protobuf::uint32 value) {
   
   bandwidth_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.Bandwidth)
 }
 
-// optional uint32 NoiseFloor = 6;
+// optional int32 NoiseFloor = 6;
 void RadioEntry::clear_noisefloor() {
-  noisefloor_ = 0u;
+  noisefloor_ = 0;
 }
-::google::protobuf::uint32 RadioEntry::noisefloor() const {
+ ::google::protobuf::int32 RadioEntry::noisefloor() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.NoiseFloor)
   return noisefloor_;
 }
-void RadioEntry::set_noisefloor(::google::protobuf::uint32 value) {
+ void RadioEntry::set_noisefloor(::google::protobuf::int32 value) {
   
   noisefloor_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.NoiseFloor)
@@ -8536,11 +8120,11 @@ void RadioEntry::set_noisefloor(::google::protobuf::uint32 value) {
 void RadioEntry::clear_maxtxpower() {
   maxtxpower_ = 0u;
 }
-::google::protobuf::uint32 RadioEntry::maxtxpower() const {
+ ::google::protobuf::uint32 RadioEntry::maxtxpower() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.MaxTxPower)
   return maxtxpower_;
 }
-void RadioEntry::set_maxtxpower(::google::protobuf::uint32 value) {
+ void RadioEntry::set_maxtxpower(::google::protobuf::uint32 value) {
   
   maxtxpower_ = value;
   // @@protoc_insertion_point(field_set:access_point.RadioEntry.MaxTxPower)
@@ -8548,7 +8132,7 @@ void RadioEntry::set_maxtxpower(::google::protobuf::uint32 value) {
 
 // optional .access_point.RadioUtilization Utilization = 8;
 bool RadioEntry::has_utilization() const {
-  return this != internal_default_instance() && utilization_ != NULL;
+  return !_is_default_instance_ && utilization_ != NULL;
 }
 void RadioEntry::clear_utilization() {
   if (GetArenaNoVirtual() == NULL && utilization_ != NULL) delete utilization_;
@@ -8556,8 +8140,7 @@ void RadioEntry::clear_utilization() {
 }
 const ::access_point::RadioUtilization& RadioEntry::utilization() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Utilization)
-  return utilization_ != NULL ? *utilization_
-                         : *::access_point::RadioUtilization::internal_default_instance();
+  return utilization_ != NULL ? *utilization_ : *default_instance_->utilization_;
 }
 ::access_point::RadioUtilization* RadioEntry::mutable_utilization() {
   
@@ -8585,48 +8168,39 @@ void RadioEntry::set_allocated_utilization(::access_point::RadioUtilization* uti
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Utilization)
 }
 
-// optional .access_point.AntennaRSSI RSSI = 9;
-bool RadioEntry::has_rssi() const {
-  return this != internal_default_instance() && rssi_ != NULL;
+// repeated int32 AntennaRSSI = 9;
+int RadioEntry::antennarssi_size() const {
+  return antennarssi_.size();
 }
-void RadioEntry::clear_rssi() {
-  if (GetArenaNoVirtual() == NULL && rssi_ != NULL) delete rssi_;
-  rssi_ = NULL;
+void RadioEntry::clear_antennarssi() {
+  antennarssi_.Clear();
 }
-const ::access_point::AntennaRSSI& RadioEntry::rssi() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.RSSI)
-  return rssi_ != NULL ? *rssi_
-                         : *::access_point::AntennaRSSI::internal_default_instance();
+ ::google::protobuf::int32 RadioEntry::antennarssi(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.RadioEntry.AntennaRSSI)
+  return antennarssi_.Get(index);
 }
-::access_point::AntennaRSSI* RadioEntry::mutable_rssi() {
-  
-  if (rssi_ == NULL) {
-    rssi_ = new ::access_point::AntennaRSSI;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.RSSI)
-  return rssi_;
+ void RadioEntry::set_antennarssi(int index, ::google::protobuf::int32 value) {
+  antennarssi_.Set(index, value);
+  // @@protoc_insertion_point(field_set:access_point.RadioEntry.AntennaRSSI)
 }
-::access_point::AntennaRSSI* RadioEntry::release_rssi() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.RSSI)
-  
-  ::access_point::AntennaRSSI* temp = rssi_;
-  rssi_ = NULL;
-  return temp;
+ void RadioEntry::add_antennarssi(::google::protobuf::int32 value) {
+  antennarssi_.Add(value);
+  // @@protoc_insertion_point(field_add:access_point.RadioEntry.AntennaRSSI)
 }
-void RadioEntry::set_allocated_rssi(::access_point::AntennaRSSI* rssi) {
-  delete rssi_;
-  rssi_ = rssi;
-  if (rssi) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.RSSI)
+ const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+RadioEntry::antennarssi() const {
+  // @@protoc_insertion_point(field_list:access_point.RadioEntry.AntennaRSSI)
+  return antennarssi_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+RadioEntry::mutable_antennarssi() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.RadioEntry.AntennaRSSI)
+  return &antennarssi_;
 }
 
 // optional .access_point.RadioCounters Counter = 10;
 bool RadioEntry::has_counter() const {
-  return this != internal_default_instance() && counter_ != NULL;
+  return !_is_default_instance_ && counter_ != NULL;
 }
 void RadioEntry::clear_counter() {
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
@@ -8634,8 +8208,7 @@ void RadioEntry::clear_counter() {
 }
 const ::access_point::RadioCounters& RadioEntry::counter() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.Counter)
-  return counter_ != NULL ? *counter_
-                         : *::access_point::RadioCounters::internal_default_instance();
+  return counter_ != NULL ? *counter_ : *default_instance_->counter_;
 }
 ::access_point::RadioCounters* RadioEntry::mutable_counter() {
   
@@ -8665,7 +8238,7 @@ void RadioEntry::set_allocated_counter(::access_point::RadioCounters* counter) {
 
 // optional .access_point.DfsState DFS = 11;
 bool RadioEntry::has_dfs() const {
-  return this != internal_default_instance() && dfs_ != NULL;
+  return !_is_default_instance_ && dfs_ != NULL;
 }
 void RadioEntry::clear_dfs() {
   if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
@@ -8673,8 +8246,7 @@ void RadioEntry::clear_dfs() {
 }
 const ::access_point::DfsState& RadioEntry::dfs() const {
   // @@protoc_insertion_point(field_get:access_point.RadioEntry.DFS)
-  return dfs_ != NULL ? *dfs_
-                         : *::access_point::DfsState::internal_default_instance();
+  return dfs_ != NULL ? *dfs_ : *default_instance_->dfs_;
 }
 ::access_point::DfsState* RadioEntry::mutable_dfs() {
   
@@ -8702,9 +8274,6 @@ void RadioEntry::set_allocated_dfs(::access_point::DfsState* dfs) {
   // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.DFS)
 }
 
-inline const RadioEntry* RadioEntry::internal_default_instance() {
-  return &RadioEntry_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -8716,27 +8285,27 @@ const int APRadioStatsMsgRsp::kRadiosFieldNumber;
 
 APRadioStatsMsgRsp::APRadioStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APRadioStatsMsgRsp)
 }
 
 void APRadioStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APRadioStatsMsgRsp::APRadioStatsMsgRsp(const APRadioStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APRadioStatsMsgRsp)
 }
 
 void APRadioStatsMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APRadioStatsMsgRsp::~APRadioStatsMsgRsp() {
@@ -8745,7 +8314,7 @@ APRadioStatsMsgRsp::~APRadioStatsMsgRsp() {
 }
 
 void APRadioStatsMsgRsp::SharedDtor() {
-  if (this != &APRadioStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -8761,11 +8330,11 @@ const ::google::protobuf::Descriptor* APRadioStatsMsgRsp::descriptor() {
 }
 
 const APRadioStatsMsgRsp& APRadioStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APRadioStatsMsgRsp> APRadioStatsMsgRsp_default_instance_;
+APRadioStatsMsgRsp* APRadioStatsMsgRsp::default_instance_ = NULL;
 
 APRadioStatsMsgRsp* APRadioStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APRadioStatsMsgRsp* n = new APRadioStatsMsgRsp;
@@ -8862,7 +8431,6 @@ void APRadioStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APRadioStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APRadioStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -8882,9 +8450,9 @@ void APRadioStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APRadioStatsMsgRsp::ByteSizeLong() const {
+int APRadioStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APRadioStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -8894,27 +8462,25 @@ size_t APRadioStatsMsgRsp::ByteSizeLong() const {
   }
 
   // repeated .access_point.RadioEntry Radios = 2;
-  {
-    unsigned int count = this->radios_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->radios(i));
-    }
+  total_size += 1 * this->radios_size();
+  for (int i = 0; i < this->radios_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->radios(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APRadioStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APRadioStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APRadioStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APRadioStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APRadioStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -8922,21 +8488,15 @@ void APRadioStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APRadioStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APRadioStatsMsgRsp::MergeFrom(const APRadioStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APRadioStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APRadioStatsMsgRsp::UnsafeMergeFrom(const APRadioStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   radios_.MergeFrom(from.radios_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
@@ -8954,7 +8514,7 @@ void APRadioStatsMsgRsp::CopyFrom(const APRadioStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APRadioStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APRadioStatsMsgRsp::IsInitialized() const {
@@ -8986,7 +8546,7 @@ void APRadioStatsMsgRsp::InternalSwap(APRadioStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APRadioStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APRadioStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -8994,8 +8554,7 @@ void APRadioStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APRadioStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APRadioStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APRadioStatsMsgRsp::mutable_errstatus() {
   
@@ -9053,9 +8612,6 @@ APRadioStatsMsgRsp::radios() const {
   return radios_;
 }
 
-inline const APRadioStatsMsgRsp* APRadioStatsMsgRsp::internal_default_instance() {
-  return &APRadioStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -9064,13 +8620,12 @@ inline const APRadioStatsMsgRsp* APRadioStatsMsgRsp::internal_default_instance()
 const int APClientEntry::kMACFieldNumber;
 const int APClientEntry::kRadioIndexFieldNumber;
 const int APClientEntry::kBandFieldNumber;
-const int APClientEntry::kBSSIDFieldNumber;
 const int APClientEntry::kWlanFieldNumber;
 const int APClientEntry::kConnectedTimeSecFieldNumber;
 const int APClientEntry::kInactiveTimeMilliSecFieldNumber;
 const int APClientEntry::kRSSIFieldNumber;
+const int APClientEntry::kNFFieldNumber;
 const int APClientEntry::kAntennaRSSIFieldNumber;
-const int APClientEntry::kAvgRSSIFieldNumber;
 const int APClientEntry::kTxBitRateFieldNumber;
 const int APClientEntry::kTxUnicastBytesFieldNumber;
 const int APClientEntry::kTxUnicastPktsFieldNumber;
@@ -9080,32 +8635,40 @@ const int APClientEntry::kRxPktsFieldNumber;
 
 APClientEntry::APClientEntry()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APClientEntry)
 }
 
 void APClientEntry::InitAsDefaultInstance() {
-  wlan_ = const_cast< ::access_point::WLAN*>(
-      ::access_point::WLAN::internal_default_instance());
+  _is_default_instance_ = true;
+  wlan_ = const_cast< ::access_point::WLAN*>(&::access_point::WLAN::default_instance());
 }
 
 APClientEntry::APClientEntry(const APClientEntry& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APClientEntry)
 }
 
 void APClientEntry::SharedCtor() {
-  mac_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  band_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bssid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  wlan_ = NULL;
-  ::memset(&radioindex_, 0, reinterpret_cast<char*>(&rxpkts_) -
-    reinterpret_cast<char*>(&radioindex_) + sizeof(rxpkts_));
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  mac_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  radioindex_ = 0u;
+  band_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  wlan_ = NULL;
+  connectedtimesec_ = 0u;
+  inactivetimemillisec_ = 0u;
+  rssi_ = 0;
+  nf_ = 0;
+  txbitrate_ = 0;
+  txunicastbytes_ = GOOGLE_ULONGLONG(0);
+  txunicastpkts_ = 0u;
+  rxbytes_ = GOOGLE_ULONGLONG(0);
+  rxpkts_ = 0u;
 }
 
 APClientEntry::~APClientEntry() {
@@ -9116,8 +8679,7 @@ APClientEntry::~APClientEntry() {
 void APClientEntry::SharedDtor() {
   mac_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bssid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != &APClientEntry_default_instance_.get()) {
+  if (this != default_instance_) {
     delete wlan_;
   }
 }
@@ -9133,11 +8695,11 @@ const ::google::protobuf::Descriptor* APClientEntry::descriptor() {
 }
 
 const APClientEntry& APClientEntry::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APClientEntry> APClientEntry_default_instance_;
+APClientEntry* APClientEntry::default_instance_ = NULL;
 
 APClientEntry* APClientEntry::New(::google::protobuf::Arena* arena) const {
   APClientEntry* n = new APClientEntry;
@@ -9161,17 +8723,18 @@ void APClientEntry::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(radioindex_, rssi_);
+  ZR_(radioindex_, connectedtimesec_);
+  ZR_(inactivetimemillisec_, rssi_);
   mac_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
   wlan_ = NULL;
-  ZR_(avgrssi_, rxpkts_);
+  nf_ = 0;
+  ZR_(txbitrate_, rxpkts_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -9209,10 +8772,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_RadioIndex:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &radioindex_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9230,23 +8793,6 @@ bool APClientEntry::MergePartialFromCodedStream(
             this->band().data(), this->band().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "access_point.APClientEntry.Band"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(42)) goto parse_BSSID;
-        break;
-      }
-
-      // optional string BSSID = 5;
-      case 5: {
-        if (tag == 42) {
-         parse_BSSID:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_bssid()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->bssid().data(), this->bssid().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "access_point.APClientEntry.BSSID"));
         } else {
           goto handle_unusual;
         }
@@ -9271,10 +8817,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_ConnectedTimeSec:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &connectedtimesec_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9286,10 +8832,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 8: {
         if (tag == 64) {
          parse_InactiveTimeMilliSec:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &inactivetimemillisec_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9301,43 +8847,43 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 9: {
         if (tag == 72) {
          parse_RSSI:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &rssi_)));
+
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_AntennaRSSI;
+        if (input->ExpectTag(80)) goto parse_NF;
         break;
       }
 
-      // repeated int32 AntennaRSSI = 10;
+      // optional int32 NF = 10;
       case 10: {
-        if (tag == 82) {
+        if (tag == 80) {
+         parse_NF:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &nf_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(90)) goto parse_AntennaRSSI;
+        break;
+      }
+
+      // repeated int32 AntennaRSSI = 11;
+      case 11: {
+        if (tag == 90) {
          parse_AntennaRSSI:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_antennarssi())));
-        } else if (tag == 80) {
+        } else if (tag == 88) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 82, input, this->mutable_antennarssi())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(88)) goto parse_AvgRSSI;
-        break;
-      }
-
-      // optional int32 AvgRSSI = 11;
-      case 11: {
-        if (tag == 88) {
-         parse_AvgRSSI:
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &avgrssi_)));
+                 1, 90, input, this->mutable_antennarssi())));
         } else {
           goto handle_unusual;
         }
@@ -9349,10 +8895,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 12: {
         if (tag == 96) {
          parse_TxBitRate:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &txbitrate_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9364,10 +8910,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 13: {
         if (tag == 104) {
          parse_TxUnicastBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &txunicastbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9379,10 +8925,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 14: {
         if (tag == 112) {
          parse_TxUnicastPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txunicastpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9394,10 +8940,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 15: {
         if (tag == 120) {
          parse_RxBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &rxbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9409,10 +8955,10 @@ bool APClientEntry::MergePartialFromCodedStream(
       case 16: {
         if (tag == 128) {
          parse_RxPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -9469,16 +9015,6 @@ void APClientEntry::SerializeWithCachedSizes(
       4, this->band(), output);
   }
 
-  // optional string BSSID = 5;
-  if (this->bssid().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->bssid().data(), this->bssid().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APClientEntry.BSSID");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->bssid(), output);
-  }
-
   // optional .access_point.WLAN Wlan = 6;
   if (this->has_wlan()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -9500,19 +9036,19 @@ void APClientEntry::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->rssi(), output);
   }
 
-  // repeated int32 AntennaRSSI = 10;
+  // optional int32 NF = 10;
+  if (this->nf() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->nf(), output);
+  }
+
+  // repeated int32 AntennaRSSI = 11;
   if (this->antennarssi_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(10, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(11, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_antennarssi_cached_byte_size_);
   }
   for (int i = 0; i < this->antennarssi_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
       this->antennarssi(i), output);
-  }
-
-  // optional int32 AvgRSSI = 11;
-  if (this->avgrssi() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->avgrssi(), output);
   }
 
   // optional int32 TxBitRate = 12;
@@ -9545,7 +9081,6 @@ void APClientEntry::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APClientEntry::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APClientEntry)
   // optional string MAC = 2;
   if (this->mac().size() > 0) {
@@ -9574,17 +9109,6 @@ void APClientEntry::SerializeWithCachedSizes(
         4, this->band(), target);
   }
 
-  // optional string BSSID = 5;
-  if (this->bssid().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->bssid().data(), this->bssid().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APClientEntry.BSSID");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->bssid(), target);
-  }
-
   // optional .access_point.WLAN Wlan = 6;
   if (this->has_wlan()) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -9607,10 +9131,15 @@ void APClientEntry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->rssi(), target);
   }
 
-  // repeated int32 AntennaRSSI = 10;
+  // optional int32 NF = 10;
+  if (this->nf() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->nf(), target);
+  }
+
+  // repeated int32 AntennaRSSI = 11;
   if (this->antennarssi_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      10,
+      11,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -9619,11 +9148,6 @@ void APClientEntry::SerializeWithCachedSizes(
   for (int i = 0; i < this->antennarssi_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->antennarssi(i), target);
-  }
-
-  // optional int32 AvgRSSI = 11;
-  if (this->avgrssi() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->avgrssi(), target);
   }
 
   // optional int32 TxBitRate = 12;
@@ -9655,9 +9179,9 @@ void APClientEntry::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APClientEntry::ByteSizeLong() const {
+int APClientEntry::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APClientEntry)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string MAC = 2;
   if (this->mac().size() > 0) {
@@ -9678,13 +9202,6 @@ size_t APClientEntry::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->band());
-  }
-
-  // optional string BSSID = 5;
-  if (this->bssid().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->bssid());
   }
 
   // optional .access_point.WLAN Wlan = 6;
@@ -9715,11 +9232,11 @@ size_t APClientEntry::ByteSizeLong() const {
         this->rssi());
   }
 
-  // optional int32 AvgRSSI = 11;
-  if (this->avgrssi() != 0) {
+  // optional int32 NF = 10;
+  if (this->nf() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->avgrssi());
+        this->nf());
   }
 
   // optional int32 TxBitRate = 12;
@@ -9757,11 +9274,10 @@ size_t APClientEntry::ByteSizeLong() const {
         this->rxpkts());
   }
 
-  // repeated int32 AntennaRSSI = 10;
+  // repeated int32 AntennaRSSI = 11;
   {
-    size_t data_size = 0;
-    unsigned int count = this->antennarssi_size();
-    for (unsigned int i = 0; i < count; i++) {
+    int data_size = 0;
+    for (int i = 0; i < this->antennarssi_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         Int32Size(this->antennarssi(i));
     }
@@ -9769,24 +9285,24 @@ size_t APClientEntry::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _antennarssi_cached_byte_size_ = cached_size;
+    _antennarssi_cached_byte_size_ = data_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APClientEntry::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APClientEntry)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APClientEntry* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APClientEntry* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APClientEntry>(
           &from);
   if (source == NULL) {
@@ -9794,22 +9310,16 @@ void APClientEntry::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APClientEntry)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APClientEntry::MergeFrom(const APClientEntry& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APClientEntry)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
-  GOOGLE_DCHECK(&from != this);
-  antennarssi_.UnsafeMergeFrom(from.antennarssi_);
+  antennarssi_.MergeFrom(from.antennarssi_);
   if (from.mac().size() > 0) {
 
     mac_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mac_);
@@ -9820,10 +9330,6 @@ void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
   if (from.band().size() > 0) {
 
     band_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.band_);
-  }
-  if (from.bssid().size() > 0) {
-
-    bssid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bssid_);
   }
   if (from.has_wlan()) {
     mutable_wlan()->::access_point::WLAN::MergeFrom(from.wlan());
@@ -9837,8 +9343,8 @@ void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
   if (from.rssi() != 0) {
     set_rssi(from.rssi());
   }
-  if (from.avgrssi() != 0) {
-    set_avgrssi(from.avgrssi());
+  if (from.nf() != 0) {
+    set_nf(from.nf());
   }
   if (from.txbitrate() != 0) {
     set_txbitrate(from.txbitrate());
@@ -9868,7 +9374,7 @@ void APClientEntry::CopyFrom(const APClientEntry& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APClientEntry)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APClientEntry::IsInitialized() const {
@@ -9884,13 +9390,12 @@ void APClientEntry::InternalSwap(APClientEntry* other) {
   mac_.Swap(&other->mac_);
   std::swap(radioindex_, other->radioindex_);
   band_.Swap(&other->band_);
-  bssid_.Swap(&other->bssid_);
   std::swap(wlan_, other->wlan_);
   std::swap(connectedtimesec_, other->connectedtimesec_);
   std::swap(inactivetimemillisec_, other->inactivetimemillisec_);
   std::swap(rssi_, other->rssi_);
+  std::swap(nf_, other->nf_);
   antennarssi_.UnsafeArenaSwap(&other->antennarssi_);
-  std::swap(avgrssi_, other->avgrssi_);
   std::swap(txbitrate_, other->txbitrate_);
   std::swap(txunicastbytes_, other->txunicastbytes_);
   std::swap(txunicastpkts_, other->txunicastpkts_);
@@ -9915,37 +9420,37 @@ void APClientEntry::InternalSwap(APClientEntry* other) {
 void APClientEntry::clear_mac() {
   mac_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& APClientEntry::mac() const {
+ const ::std::string& APClientEntry::mac() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.MAC)
   return mac_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APClientEntry::set_mac(const ::std::string& value) {
+ void APClientEntry::set_mac(const ::std::string& value) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.MAC)
 }
-void APClientEntry::set_mac(const char* value) {
+ void APClientEntry::set_mac(const char* value) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APClientEntry.MAC)
 }
-void APClientEntry::set_mac(const char* value, size_t size) {
+ void APClientEntry::set_mac(const char* value, size_t size) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APClientEntry.MAC)
 }
-::std::string* APClientEntry::mutable_mac() {
+ ::std::string* APClientEntry::mutable_mac() {
   
   // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.MAC)
   return mac_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* APClientEntry::release_mac() {
+ ::std::string* APClientEntry::release_mac() {
   // @@protoc_insertion_point(field_release:access_point.APClientEntry.MAC)
   
   return mac_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APClientEntry::set_allocated_mac(::std::string* mac) {
+ void APClientEntry::set_allocated_mac(::std::string* mac) {
   if (mac != NULL) {
     
   } else {
@@ -9959,11 +9464,11 @@ void APClientEntry::set_allocated_mac(::std::string* mac) {
 void APClientEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::radioindex() const {
+ ::google::protobuf::uint32 APClientEntry::radioindex() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.RadioIndex)
   return radioindex_;
 }
-void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
+ void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
   
   radioindex_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.RadioIndex)
@@ -9973,37 +9478,37 @@ void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
 void APClientEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& APClientEntry::band() const {
+ const ::std::string& APClientEntry::band() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.Band)
   return band_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APClientEntry::set_band(const ::std::string& value) {
+ void APClientEntry::set_band(const ::std::string& value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.Band)
 }
-void APClientEntry::set_band(const char* value) {
+ void APClientEntry::set_band(const char* value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APClientEntry.Band)
 }
-void APClientEntry::set_band(const char* value, size_t size) {
+ void APClientEntry::set_band(const char* value, size_t size) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APClientEntry.Band)
 }
-::std::string* APClientEntry::mutable_band() {
+ ::std::string* APClientEntry::mutable_band() {
   
   // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.Band)
   return band_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* APClientEntry::release_band() {
+ ::std::string* APClientEntry::release_band() {
   // @@protoc_insertion_point(field_release:access_point.APClientEntry.Band)
   
   return band_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APClientEntry::set_allocated_band(::std::string* band) {
+ void APClientEntry::set_allocated_band(::std::string* band) {
   if (band != NULL) {
     
   } else {
@@ -10013,53 +9518,9 @@ void APClientEntry::set_allocated_band(::std::string* band) {
   // @@protoc_insertion_point(field_set_allocated:access_point.APClientEntry.Band)
 }
 
-// optional string BSSID = 5;
-void APClientEntry::clear_bssid() {
-  bssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& APClientEntry::bssid() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.BSSID)
-  return bssid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void APClientEntry::set_bssid(const ::std::string& value) {
-  
-  bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.BSSID)
-}
-void APClientEntry::set_bssid(const char* value) {
-  
-  bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APClientEntry.BSSID)
-}
-void APClientEntry::set_bssid(const char* value, size_t size) {
-  
-  bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APClientEntry.BSSID)
-}
-::std::string* APClientEntry::mutable_bssid() {
-  
-  // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.BSSID)
-  return bssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* APClientEntry::release_bssid() {
-  // @@protoc_insertion_point(field_release:access_point.APClientEntry.BSSID)
-  
-  return bssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void APClientEntry::set_allocated_bssid(::std::string* bssid) {
-  if (bssid != NULL) {
-    
-  } else {
-    
-  }
-  bssid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bssid);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APClientEntry.BSSID)
-}
-
 // optional .access_point.WLAN Wlan = 6;
 bool APClientEntry::has_wlan() const {
-  return this != internal_default_instance() && wlan_ != NULL;
+  return !_is_default_instance_ && wlan_ != NULL;
 }
 void APClientEntry::clear_wlan() {
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
@@ -10067,8 +9528,7 @@ void APClientEntry::clear_wlan() {
 }
 const ::access_point::WLAN& APClientEntry::wlan() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.Wlan)
-  return wlan_ != NULL ? *wlan_
-                         : *::access_point::WLAN::internal_default_instance();
+  return wlan_ != NULL ? *wlan_ : *default_instance_->wlan_;
 }
 ::access_point::WLAN* APClientEntry::mutable_wlan() {
   
@@ -10100,11 +9560,11 @@ void APClientEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
 void APClientEntry::clear_connectedtimesec() {
   connectedtimesec_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::connectedtimesec() const {
+ ::google::protobuf::uint32 APClientEntry::connectedtimesec() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.ConnectedTimeSec)
   return connectedtimesec_;
 }
-void APClientEntry::set_connectedtimesec(::google::protobuf::uint32 value) {
+ void APClientEntry::set_connectedtimesec(::google::protobuf::uint32 value) {
   
   connectedtimesec_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.ConnectedTimeSec)
@@ -10114,11 +9574,11 @@ void APClientEntry::set_connectedtimesec(::google::protobuf::uint32 value) {
 void APClientEntry::clear_inactivetimemillisec() {
   inactivetimemillisec_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::inactivetimemillisec() const {
+ ::google::protobuf::uint32 APClientEntry::inactivetimemillisec() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.InactiveTimeMilliSec)
   return inactivetimemillisec_;
 }
-void APClientEntry::set_inactivetimemillisec(::google::protobuf::uint32 value) {
+ void APClientEntry::set_inactivetimemillisec(::google::protobuf::uint32 value) {
   
   inactivetimemillisec_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.InactiveTimeMilliSec)
@@ -10128,69 +9588,69 @@ void APClientEntry::set_inactivetimemillisec(::google::protobuf::uint32 value) {
 void APClientEntry::clear_rssi() {
   rssi_ = 0;
 }
-::google::protobuf::int32 APClientEntry::rssi() const {
+ ::google::protobuf::int32 APClientEntry::rssi() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.RSSI)
   return rssi_;
 }
-void APClientEntry::set_rssi(::google::protobuf::int32 value) {
+ void APClientEntry::set_rssi(::google::protobuf::int32 value) {
   
   rssi_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.RSSI)
 }
 
-// repeated int32 AntennaRSSI = 10;
+// optional int32 NF = 10;
+void APClientEntry::clear_nf() {
+  nf_ = 0;
+}
+ ::google::protobuf::int32 APClientEntry::nf() const {
+  // @@protoc_insertion_point(field_get:access_point.APClientEntry.NF)
+  return nf_;
+}
+ void APClientEntry::set_nf(::google::protobuf::int32 value) {
+  
+  nf_ = value;
+  // @@protoc_insertion_point(field_set:access_point.APClientEntry.NF)
+}
+
+// repeated int32 AntennaRSSI = 11;
 int APClientEntry::antennarssi_size() const {
   return antennarssi_.size();
 }
 void APClientEntry::clear_antennarssi() {
   antennarssi_.Clear();
 }
-::google::protobuf::int32 APClientEntry::antennarssi(int index) const {
+ ::google::protobuf::int32 APClientEntry::antennarssi(int index) const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.AntennaRSSI)
   return antennarssi_.Get(index);
 }
-void APClientEntry::set_antennarssi(int index, ::google::protobuf::int32 value) {
+ void APClientEntry::set_antennarssi(int index, ::google::protobuf::int32 value) {
   antennarssi_.Set(index, value);
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.AntennaRSSI)
 }
-void APClientEntry::add_antennarssi(::google::protobuf::int32 value) {
+ void APClientEntry::add_antennarssi(::google::protobuf::int32 value) {
   antennarssi_.Add(value);
   // @@protoc_insertion_point(field_add:access_point.APClientEntry.AntennaRSSI)
 }
-const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+ const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 APClientEntry::antennarssi() const {
   // @@protoc_insertion_point(field_list:access_point.APClientEntry.AntennaRSSI)
   return antennarssi_;
 }
-::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+ ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 APClientEntry::mutable_antennarssi() {
   // @@protoc_insertion_point(field_mutable_list:access_point.APClientEntry.AntennaRSSI)
   return &antennarssi_;
-}
-
-// optional int32 AvgRSSI = 11;
-void APClientEntry::clear_avgrssi() {
-  avgrssi_ = 0;
-}
-::google::protobuf::int32 APClientEntry::avgrssi() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.AvgRSSI)
-  return avgrssi_;
-}
-void APClientEntry::set_avgrssi(::google::protobuf::int32 value) {
-  
-  avgrssi_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.AvgRSSI)
 }
 
 // optional int32 TxBitRate = 12;
 void APClientEntry::clear_txbitrate() {
   txbitrate_ = 0;
 }
-::google::protobuf::int32 APClientEntry::txbitrate() const {
+ ::google::protobuf::int32 APClientEntry::txbitrate() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxBitRate)
   return txbitrate_;
 }
-void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
+ void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
   
   txbitrate_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxBitRate)
@@ -10200,11 +9660,11 @@ void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
 void APClientEntry::clear_txunicastbytes() {
   txunicastbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 APClientEntry::txunicastbytes() const {
+ ::google::protobuf::uint64 APClientEntry::txunicastbytes() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxUnicastBytes)
   return txunicastbytes_;
 }
-void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
+ void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
   
   txunicastbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxUnicastBytes)
@@ -10214,11 +9674,11 @@ void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
 void APClientEntry::clear_txunicastpkts() {
   txunicastpkts_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::txunicastpkts() const {
+ ::google::protobuf::uint32 APClientEntry::txunicastpkts() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxUnicastPkts)
   return txunicastpkts_;
 }
-void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
+ void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
   
   txunicastpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxUnicastPkts)
@@ -10228,11 +9688,11 @@ void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
 void APClientEntry::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 APClientEntry::rxbytes() const {
+ ::google::protobuf::uint64 APClientEntry::rxbytes() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.RxBytes)
   return rxbytes_;
 }
-void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
+ void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.RxBytes)
@@ -10242,19 +9702,16 @@ void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
 void APClientEntry::clear_rxpkts() {
   rxpkts_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::rxpkts() const {
+ ::google::protobuf::uint32 APClientEntry::rxpkts() const {
   // @@protoc_insertion_point(field_get:access_point.APClientEntry.RxPkts)
   return rxpkts_;
 }
-void APClientEntry::set_rxpkts(::google::protobuf::uint32 value) {
+ void APClientEntry::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.APClientEntry.RxPkts)
 }
 
-inline const APClientEntry* APClientEntry::internal_default_instance() {
-  return &APClientEntry_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -10266,27 +9723,27 @@ const int APClientStatsMsgRsp::kClientsFieldNumber;
 
 APClientStatsMsgRsp::APClientStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APClientStatsMsgRsp)
 }
 
 void APClientStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APClientStatsMsgRsp::APClientStatsMsgRsp(const APClientStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APClientStatsMsgRsp)
 }
 
 void APClientStatsMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APClientStatsMsgRsp::~APClientStatsMsgRsp() {
@@ -10295,7 +9752,7 @@ APClientStatsMsgRsp::~APClientStatsMsgRsp() {
 }
 
 void APClientStatsMsgRsp::SharedDtor() {
-  if (this != &APClientStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -10311,11 +9768,11 @@ const ::google::protobuf::Descriptor* APClientStatsMsgRsp::descriptor() {
 }
 
 const APClientStatsMsgRsp& APClientStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APClientStatsMsgRsp> APClientStatsMsgRsp_default_instance_;
+APClientStatsMsgRsp* APClientStatsMsgRsp::default_instance_ = NULL;
 
 APClientStatsMsgRsp* APClientStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APClientStatsMsgRsp* n = new APClientStatsMsgRsp;
@@ -10412,7 +9869,6 @@ void APClientStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APClientStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APClientStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -10432,9 +9888,9 @@ void APClientStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APClientStatsMsgRsp::ByteSizeLong() const {
+int APClientStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APClientStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -10444,27 +9900,25 @@ size_t APClientStatsMsgRsp::ByteSizeLong() const {
   }
 
   // repeated .access_point.APClientEntry Clients = 2;
-  {
-    unsigned int count = this->clients_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->clients(i));
-    }
+  total_size += 1 * this->clients_size();
+  for (int i = 0; i < this->clients_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->clients(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APClientStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APClientStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APClientStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APClientStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APClientStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -10472,21 +9926,15 @@ void APClientStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APClientStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APClientStatsMsgRsp::MergeFrom(const APClientStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APClientStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APClientStatsMsgRsp::UnsafeMergeFrom(const APClientStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   clients_.MergeFrom(from.clients_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
@@ -10504,7 +9952,7 @@ void APClientStatsMsgRsp::CopyFrom(const APClientStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APClientStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APClientStatsMsgRsp::IsInitialized() const {
@@ -10536,7 +9984,7 @@ void APClientStatsMsgRsp::InternalSwap(APClientStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APClientStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APClientStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -10544,8 +9992,7 @@ void APClientStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APClientStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APClientStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APClientStatsMsgRsp::mutable_errstatus() {
   
@@ -10603,9 +10050,6 @@ APClientStatsMsgRsp::clients() const {
   return clients_;
 }
 
-inline const APClientStatsMsgRsp* APClientStatsMsgRsp::internal_default_instance() {
-  return &APClientStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -10624,27 +10068,35 @@ const int APInterfaceEntry::kTxPktsFieldNumber;
 
 APInterfaceEntry::APInterfaceEntry()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APInterfaceEntry)
 }
 
 void APInterfaceEntry::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 APInterfaceEntry::APInterfaceEntry(const APInterfaceEntry& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APInterfaceEntry)
 }
 
 void APInterfaceEntry::SharedCtor() {
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&link_, 0, reinterpret_cast<char*>(&txpkts_) -
-    reinterpret_cast<char*>(&link_) + sizeof(txpkts_));
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  link_ = false;
+  fullduplex_ = false;
+  speed_ = 0u;
+  rxbytes_ = GOOGLE_ULONGLONG(0);
+  rxpkts_ = 0u;
+  rxdiscards_ = 0u;
+  txbytes_ = GOOGLE_ULONGLONG(0);
+  txpkts_ = 0u;
 }
 
 APInterfaceEntry::~APInterfaceEntry() {
@@ -10654,6 +10106,8 @@ APInterfaceEntry::~APInterfaceEntry() {
 
 void APInterfaceEntry::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void APInterfaceEntry::SetCachedSize(int size) const {
@@ -10667,11 +10121,11 @@ const ::google::protobuf::Descriptor* APInterfaceEntry::descriptor() {
 }
 
 const APInterfaceEntry& APInterfaceEntry::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APInterfaceEntry> APInterfaceEntry_default_instance_;
+APInterfaceEntry* APInterfaceEntry::default_instance_ = NULL;
 
 APInterfaceEntry* APInterfaceEntry::New(::google::protobuf::Arena* arena) const {
   APInterfaceEntry* n = new APInterfaceEntry;
@@ -10695,7 +10149,7 @@ void APInterfaceEntry::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
+  ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -10738,10 +10192,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_Link:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &link_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10753,10 +10207,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_FullDuplex:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &fullduplex_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10768,10 +10222,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_Speed:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &speed_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10783,10 +10237,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_RxBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &rxbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10798,10 +10252,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 6: {
         if (tag == 48) {
          parse_RxPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10813,10 +10267,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_RxDiscards:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &rxdiscards_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10828,10 +10282,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 8: {
         if (tag == 64) {
          parse_TxBytes:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &txbytes_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10843,10 +10297,10 @@ bool APInterfaceEntry::MergePartialFromCodedStream(
       case 9: {
         if (tag == 72) {
          parse_TxPkts:
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txpkts_)));
+
         } else {
           goto handle_unusual;
         }
@@ -10933,7 +10387,6 @@ void APInterfaceEntry::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APInterfaceEntry::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APInterfaceEntry)
   // optional string Name = 1;
   if (this->name().size() > 0) {
@@ -10990,9 +10443,9 @@ void APInterfaceEntry::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APInterfaceEntry::ByteSizeLong() const {
+int APInterfaceEntry::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APInterfaceEntry)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional string Name = 1;
   if (this->name().size() > 0) {
@@ -11053,17 +10506,18 @@ size_t APInterfaceEntry::ByteSizeLong() const {
         this->txpkts());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APInterfaceEntry::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APInterfaceEntry)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APInterfaceEntry* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APInterfaceEntry* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APInterfaceEntry>(
           &from);
   if (source == NULL) {
@@ -11071,21 +10525,15 @@ void APInterfaceEntry::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInterfaceEntry)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APInterfaceEntry::MergeFrom(const APInterfaceEntry& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInterfaceEntry)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APInterfaceEntry::UnsafeMergeFrom(const APInterfaceEntry& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -11127,7 +10575,7 @@ void APInterfaceEntry::CopyFrom(const APInterfaceEntry& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInterfaceEntry)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APInterfaceEntry::IsInitialized() const {
@@ -11168,37 +10616,37 @@ void APInterfaceEntry::InternalSwap(APInterfaceEntry* other) {
 void APInterfaceEntry::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& APInterfaceEntry::name() const {
+ const ::std::string& APInterfaceEntry::name() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APInterfaceEntry::set_name(const ::std::string& value) {
+ void APInterfaceEntry::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Name)
 }
-void APInterfaceEntry::set_name(const char* value) {
+ void APInterfaceEntry::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APInterfaceEntry.Name)
 }
-void APInterfaceEntry::set_name(const char* value, size_t size) {
+ void APInterfaceEntry::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APInterfaceEntry.Name)
 }
-::std::string* APInterfaceEntry::mutable_name() {
+ ::std::string* APInterfaceEntry::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:access_point.APInterfaceEntry.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* APInterfaceEntry::release_name() {
+ ::std::string* APInterfaceEntry::release_name() {
   // @@protoc_insertion_point(field_release:access_point.APInterfaceEntry.Name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void APInterfaceEntry::set_allocated_name(::std::string* name) {
+ void APInterfaceEntry::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -11212,11 +10660,11 @@ void APInterfaceEntry::set_allocated_name(::std::string* name) {
 void APInterfaceEntry::clear_link() {
   link_ = false;
 }
-bool APInterfaceEntry::link() const {
+ bool APInterfaceEntry::link() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Link)
   return link_;
 }
-void APInterfaceEntry::set_link(bool value) {
+ void APInterfaceEntry::set_link(bool value) {
   
   link_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Link)
@@ -11226,11 +10674,11 @@ void APInterfaceEntry::set_link(bool value) {
 void APInterfaceEntry::clear_fullduplex() {
   fullduplex_ = false;
 }
-bool APInterfaceEntry::fullduplex() const {
+ bool APInterfaceEntry::fullduplex() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.FullDuplex)
   return fullduplex_;
 }
-void APInterfaceEntry::set_fullduplex(bool value) {
+ void APInterfaceEntry::set_fullduplex(bool value) {
   
   fullduplex_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.FullDuplex)
@@ -11240,11 +10688,11 @@ void APInterfaceEntry::set_fullduplex(bool value) {
 void APInterfaceEntry::clear_speed() {
   speed_ = 0u;
 }
-::google::protobuf::uint32 APInterfaceEntry::speed() const {
+ ::google::protobuf::uint32 APInterfaceEntry::speed() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Speed)
   return speed_;
 }
-void APInterfaceEntry::set_speed(::google::protobuf::uint32 value) {
+ void APInterfaceEntry::set_speed(::google::protobuf::uint32 value) {
   
   speed_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Speed)
@@ -11254,11 +10702,11 @@ void APInterfaceEntry::set_speed(::google::protobuf::uint32 value) {
 void APInterfaceEntry::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 APInterfaceEntry::rxbytes() const {
+ ::google::protobuf::uint64 APInterfaceEntry::rxbytes() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxBytes)
   return rxbytes_;
 }
-void APInterfaceEntry::set_rxbytes(::google::protobuf::uint64 value) {
+ void APInterfaceEntry::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxBytes)
@@ -11268,11 +10716,11 @@ void APInterfaceEntry::set_rxbytes(::google::protobuf::uint64 value) {
 void APInterfaceEntry::clear_rxpkts() {
   rxpkts_ = 0u;
 }
-::google::protobuf::uint32 APInterfaceEntry::rxpkts() const {
+ ::google::protobuf::uint32 APInterfaceEntry::rxpkts() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxPkts)
   return rxpkts_;
 }
-void APInterfaceEntry::set_rxpkts(::google::protobuf::uint32 value) {
+ void APInterfaceEntry::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxPkts)
@@ -11282,11 +10730,11 @@ void APInterfaceEntry::set_rxpkts(::google::protobuf::uint32 value) {
 void APInterfaceEntry::clear_rxdiscards() {
   rxdiscards_ = 0u;
 }
-::google::protobuf::uint32 APInterfaceEntry::rxdiscards() const {
+ ::google::protobuf::uint32 APInterfaceEntry::rxdiscards() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxDiscards)
   return rxdiscards_;
 }
-void APInterfaceEntry::set_rxdiscards(::google::protobuf::uint32 value) {
+ void APInterfaceEntry::set_rxdiscards(::google::protobuf::uint32 value) {
   
   rxdiscards_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxDiscards)
@@ -11296,11 +10744,11 @@ void APInterfaceEntry::set_rxdiscards(::google::protobuf::uint32 value) {
 void APInterfaceEntry::clear_txbytes() {
   txbytes_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 APInterfaceEntry::txbytes() const {
+ ::google::protobuf::uint64 APInterfaceEntry::txbytes() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.TxBytes)
   return txbytes_;
 }
-void APInterfaceEntry::set_txbytes(::google::protobuf::uint64 value) {
+ void APInterfaceEntry::set_txbytes(::google::protobuf::uint64 value) {
   
   txbytes_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.TxBytes)
@@ -11310,19 +10758,16 @@ void APInterfaceEntry::set_txbytes(::google::protobuf::uint64 value) {
 void APInterfaceEntry::clear_txpkts() {
   txpkts_ = 0u;
 }
-::google::protobuf::uint32 APInterfaceEntry::txpkts() const {
+ ::google::protobuf::uint32 APInterfaceEntry::txpkts() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.TxPkts)
   return txpkts_;
 }
-void APInterfaceEntry::set_txpkts(::google::protobuf::uint32 value) {
+ void APInterfaceEntry::set_txpkts(::google::protobuf::uint32 value) {
   
   txpkts_ = value;
   // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.TxPkts)
 }
 
-inline const APInterfaceEntry* APInterfaceEntry::internal_default_instance() {
-  return &APInterfaceEntry_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -11334,27 +10779,27 @@ const int APInterfaceStatsMsgRsp::kInterfacesFieldNumber;
 
 APInterfaceStatsMsgRsp::APInterfaceStatsMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APInterfaceStatsMsgRsp)
 }
 
 void APInterfaceStatsMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  _is_default_instance_ = true;
+  errstatus_ = const_cast< ::access_point::APErrorStatus*>(&::access_point::APErrorStatus::default_instance());
 }
 
 APInterfaceStatsMsgRsp::APInterfaceStatsMsgRsp(const APInterfaceStatsMsgRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APInterfaceStatsMsgRsp)
 }
 
 void APInterfaceStatsMsgRsp::SharedCtor() {
-  errstatus_ = NULL;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  errstatus_ = NULL;
 }
 
 APInterfaceStatsMsgRsp::~APInterfaceStatsMsgRsp() {
@@ -11363,7 +10808,7 @@ APInterfaceStatsMsgRsp::~APInterfaceStatsMsgRsp() {
 }
 
 void APInterfaceStatsMsgRsp::SharedDtor() {
-  if (this != &APInterfaceStatsMsgRsp_default_instance_.get()) {
+  if (this != default_instance_) {
     delete errstatus_;
   }
 }
@@ -11379,11 +10824,11 @@ const ::google::protobuf::Descriptor* APInterfaceStatsMsgRsp::descriptor() {
 }
 
 const APInterfaceStatsMsgRsp& APInterfaceStatsMsgRsp::default_instance() {
-  protobuf_InitDefaults_ap_5fstats_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fstats_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<APInterfaceStatsMsgRsp> APInterfaceStatsMsgRsp_default_instance_;
+APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::default_instance_ = NULL;
 
 APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::New(::google::protobuf::Arena* arena) const {
   APInterfaceStatsMsgRsp* n = new APInterfaceStatsMsgRsp;
@@ -11480,7 +10925,6 @@ void APInterfaceStatsMsgRsp::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APInterfaceStatsMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APInterfaceStatsMsgRsp)
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -11500,9 +10944,9 @@ void APInterfaceStatsMsgRsp::SerializeWithCachedSizes(
   return target;
 }
 
-size_t APInterfaceStatsMsgRsp::ByteSizeLong() const {
+int APInterfaceStatsMsgRsp::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APInterfaceStatsMsgRsp)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional .access_point.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
@@ -11512,27 +10956,25 @@ size_t APInterfaceStatsMsgRsp::ByteSizeLong() const {
   }
 
   // repeated .access_point.APInterfaceEntry Interfaces = 2;
-  {
-    unsigned int count = this->interfaces_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->interfaces(i));
-    }
+  total_size += 1 * this->interfaces_size();
+  for (int i = 0; i < this->interfaces_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->interfaces(i));
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APInterfaceStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APInterfaceStatsMsgRsp)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APInterfaceStatsMsgRsp* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const APInterfaceStatsMsgRsp* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const APInterfaceStatsMsgRsp>(
           &from);
   if (source == NULL) {
@@ -11540,21 +10982,15 @@ void APInterfaceStatsMsgRsp::MergeFrom(const ::google::protobuf::Message& from) 
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInterfaceStatsMsgRsp)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void APInterfaceStatsMsgRsp::MergeFrom(const APInterfaceStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInterfaceStatsMsgRsp)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void APInterfaceStatsMsgRsp::UnsafeMergeFrom(const APInterfaceStatsMsgRsp& from) {
-  GOOGLE_DCHECK(&from != this);
   interfaces_.MergeFrom(from.interfaces_);
   if (from.has_errstatus()) {
     mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
@@ -11572,7 +11008,7 @@ void APInterfaceStatsMsgRsp::CopyFrom(const APInterfaceStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInterfaceStatsMsgRsp)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool APInterfaceStatsMsgRsp::IsInitialized() const {
@@ -11604,7 +11040,7 @@ void APInterfaceStatsMsgRsp::InternalSwap(APInterfaceStatsMsgRsp* other) {
 
 // optional .access_point.APErrorStatus ErrStatus = 1;
 bool APInterfaceStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
+  return !_is_default_instance_ && errstatus_ != NULL;
 }
 void APInterfaceStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
@@ -11612,8 +11048,7 @@ void APInterfaceStatsMsgRsp::clear_errstatus() {
 }
 const ::access_point::APErrorStatus& APInterfaceStatsMsgRsp::errstatus() const {
   // @@protoc_insertion_point(field_get:access_point.APInterfaceStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+  return errstatus_ != NULL ? *errstatus_ : *default_instance_->errstatus_;
 }
 ::access_point::APErrorStatus* APInterfaceStatsMsgRsp::mutable_errstatus() {
   
@@ -11671,9 +11106,6 @@ APInterfaceStatsMsgRsp::interfaces() const {
   return interfaces_;
 }
 
-inline const APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::internal_default_instance() {
-  return &APInterfaceStatsMsgRsp_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)

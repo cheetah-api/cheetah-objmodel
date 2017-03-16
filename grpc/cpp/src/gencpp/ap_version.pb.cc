@@ -39,7 +39,7 @@ void protobuf_AssignDesc_ap_5fversion_2eproto() {
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
+inline void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_ap_5fversion_2eproto);
 }
@@ -54,20 +54,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_ap_5fversion_2eproto() {
 }
 
-void protobuf_InitDefaults_ap_5fversion_2eproto_impl() {
+void protobuf_AddDesc_ap_5fversion_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AddDesc_ap_5fversion_2eproto() {
+  static bool already_here = false;
+  if (already_here) return;
+  already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-}
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_ap_5fversion_2eproto_once_);
-void protobuf_InitDefaults_ap_5fversion_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_ap_5fversion_2eproto_once_,
-                 &protobuf_InitDefaults_ap_5fversion_2eproto_impl);
-}
-void protobuf_AddDesc_ap_5fversion_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  protobuf_InitDefaults_ap_5fversion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020ap_version.proto\022\014access_point*f\n\tAPVe"
     "rsion\022\025\n\021AP_VERSION_UNUSED\020\000\022\024\n\020AP_MAJOR"
@@ -78,11 +71,6 @@ void protobuf_AddDesc_ap_5fversion_2eproto_impl() {
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fversion_2eproto);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_ap_5fversion_2eproto_once_);
-void protobuf_AddDesc_ap_5fversion_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_ap_5fversion_2eproto_once_,
-                 &protobuf_AddDesc_ap_5fversion_2eproto_impl);
-}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_ap_5fversion_2eproto {
   StaticDescriptorInitializer_ap_5fversion_2eproto() {
@@ -94,7 +82,7 @@ const ::google::protobuf::EnumDescriptor* APVersion_descriptor() {
   return APVersion_descriptor_;
 }
 bool APVersion_IsValid(int value) {
-  switch (value) {
+  switch(value) {
     case 0:
     case 1:
       return true;
