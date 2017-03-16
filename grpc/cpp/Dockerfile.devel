@@ -1,5 +1,6 @@
-FROM dockerhub.cisco.com/iox-docker-dev-local/base-ap-arm-latest
+FROM dockerhub.cisco.com/iox-docker-dev-local/base-ap3k
 
 RUN ln -s -T -f /lib/libpthread-2.20.so /lib/libpthread.so.0
 
-RUN opkg install iox-toolchain
+RUN opkg update
+RUN opkg install iox-toolchain curl coreutils
