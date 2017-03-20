@@ -59,6 +59,10 @@ class AbstractClient(object):
     def radio_stats_get(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def generic_stats_get(self, *args, **kwargs):
+        pass
+
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 20
 
@@ -149,5 +153,12 @@ class GrpcClient(AbstractClient):
         """WLAN Stats Get"""
         serializer = serializers.get_stats_serializer()
         response = self._stubs[1].APWLANStatsGet(serializer,
+            self.TIMEOUT_SECONDS)
+        return response
+
+    def generic_stats_get(self):
+        """Generic Stats Get"""
+        serializer = serializers.get_stats_serializer()
+        response = self._stubs[1].APGenericStatsGet(serializer,
             self.TIMEOUT_SECONDS)
         return response

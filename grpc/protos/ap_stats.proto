@@ -47,6 +47,9 @@ service APStatistics {
     // Get Interface statistics
     rpc APInterfaceStatsGet(APStatsGetMsg) returns (APInterfaceStatsMsgRsp);
 
+    // Get Generic statistics
+    rpc APGenericStatsGet(APStatsGetMsg) returns (APGenericStatsMsgRsp);
+
     //@}
 }
 
@@ -414,6 +417,25 @@ message APInterfaceStatsMsgRsp {
 
     // Interface entries
     repeated APInterfaceEntry Interfaces = 2;
+}
+
+// AP Generic statistics
+message APGenericStatsMsgRsp {
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // When these statistics were gathered
+    // Absolute time: "2016-07-15T16:18:39.335026717Z"
+    string When = 2;
+
+    // Type
+    uint32 Type = 3;
+
+    // Subtype
+    uint32 SubType = 4;
+
+    // Opaque Data
+    string Data = 5;
 }
 
 // @}

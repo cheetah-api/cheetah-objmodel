@@ -159,6 +159,10 @@ def print_radio_stats(resp):
         print "\tCacState              : %d" %(radio.DFS.CacState)
         print "\tRadarDetected         : %d" %(radio.DFS.RadarDetected)
 
+# Print Generic Stats
+def print_generic_stats(resp):
+    print "----Generic statistics----"
+
 #
 #============================================
 # main

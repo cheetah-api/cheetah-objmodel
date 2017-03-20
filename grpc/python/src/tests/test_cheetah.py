@@ -98,6 +98,16 @@ def print_wlan_stats(response):
         return False
     return True
 
+# Print Generic Stats
+def print_generic_stats(response):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        util.print_generic_stats(response)
+    else:
+        print "Generic stats response error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
 # Print Received Globals
 def print_globals(response):
     if (response.ErrStatus.Status ==
@@ -268,6 +278,12 @@ class TestSuite_001_Statistics(ClientTestCase):
         # Get Radio stats
         response = ClientTestCase.client.radio_stats_get()
         err = print_radio_stats(response)
+        self.assertTrue(err)
+
+    def test_009_get_generic_stats(self):
+        # Get Generic stats
+        response = ClientTestCase.client.generic_stats_get()
+        err = print_generic_stats(response)
         self.assertTrue(err)
 
 
