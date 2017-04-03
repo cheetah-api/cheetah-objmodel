@@ -504,18 +504,6 @@ class APStatistics ():
 
     return (resp)
 
-#
-# APGenericStatsGet
-#
-  def APGenericStatsGet(self, request, context):
-    print "Received Generic stats get request"
-
-    resp = ap_stats_pb2.APGenericStatsMsgRsp()
-
-    resp.When = str(datetime.now())
-    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
-    return (resp)
-
 ## End class
 
 #
