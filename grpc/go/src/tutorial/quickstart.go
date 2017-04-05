@@ -40,5 +40,8 @@ func main() {
         return
     }
 
+    /* Issue an RPC to get the system statistics */
+    util.SystemStatsOperation(conn)
+
     /*The process will exit here*/
 }

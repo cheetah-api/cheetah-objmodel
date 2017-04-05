@@ -84,18 +84,16 @@ func setupNotifChannel(conn *grpc.ClientConn, sync_chan chan int) {
 
         switch event.EventType {
         case pb.APGlobalNotifType_AP_GLOBAL_EVENT_TYPE_VERSION:
-            //initMsgRsp := event.GetInitRspMsg()
+            initMsgRsp := event.GetInitRspMsg()
             /* Check Server event */
             if (event.ErrStatus.Status == pb.APErrorStatus_AP_SUCCESS) ||
                (event.ErrStatus.Status ==
                    pb.APErrorStatus_AP_INIT_STATE_CLEAR) ||
                (event.ErrStatus.Status ==
                    pb.APErrorStatus_AP_INIT_STATE_READY) {
-                fmt.Printf("Server Returned %s\n",
-                    event.ErrStatus.Status.String());
-                /*fmt.Printf("Server Returned 0x%x, Version: %d.%d.%d\n",
-                    event.ErrStatus.Status,
-                    initMsgRsp.MajorVer, initMsgRsp.MinorVer, initMsgRsp.SubVer) */
+                fmt.Printf("Server Returned %s, Version: %d.%d.%d\n",
+                    event.ErrStatus.Status.String(),
+                    initMsgRsp.MajorVer, initMsgRsp.MinorVer, initMsgRsp.SubVer);
                 /*signal success, continue processing events from server*/
                 sync_chan <- 1
             } else {

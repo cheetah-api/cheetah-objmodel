@@ -52,18 +52,21 @@ CLIENT_IP_TABLE = '/click/client_ip_table/list'
 class APGlobal ():
 
   def APGlobalInitNotif(self, request, context):
-     
+
     print "Received Global init notification, major ver:", request.MajorVer
 
     init_resp=ap_global_pb2.APGlobalNotif()
     init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_VERSION
     init_resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+    init_resp.InitRspMsg.MajorVer = AP_MAJOR_VERSION
+    init_resp.InitRspMsg.MinorVer = AP_MINOR_VERSION
+    init_resp.InitRspMsg.SubVer   = AP_SUB_VERSION
 
     for i in range(100):
         yield(init_resp)
-	init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT
-	time.sleep(10)
-	
+        init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+        time.sleep(10)
+
 
   def APGlobalsGet(self, request, context):
     print "Received GlobalsGet response"
