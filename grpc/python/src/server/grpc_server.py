@@ -58,9 +58,9 @@ class APGlobal ():
     init_resp=ap_global_pb2.APGlobalNotif()
     init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_VERSION
     init_resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
-    init_resp.InitRspMsg.MajorVer = AP_MAJOR_VERSION
-    init_resp.InitRspMsg.MinorVer = AP_MINOR_VERSION
-    init_resp.InitRspMsg.SubVer   = AP_SUB_VERSION
+    init_resp.InitRspMsg.MajorVer = ap_version_pb2.AP_MAJOR_VERSION
+    init_resp.InitRspMsg.MinorVer = ap_version_pb2.AP_MINOR_VERSION
+    init_resp.InitRspMsg.SubVer   = ap_version_pb2.AP_SUB_VERSION
 
     for i in range(100):
         yield(init_resp)

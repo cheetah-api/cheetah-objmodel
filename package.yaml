@@ -1,4 +1,4 @@
-descriptor-schema-version: "2.0"
+descriptor-schema-version: "2.2"
 
 info:
   name: ap-python-client
@@ -14,6 +14,7 @@ app:
   kernel-version: 3.14.33
   resources:
       profile: custom
+      platform-env: ["grpc-server"]
       cpu: 500
       memory: 96
       disk: 5
