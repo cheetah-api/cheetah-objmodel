@@ -4,6 +4,7 @@ RUN ln -s -T -f /lib/libpthread-2.20.so /lib/libpthread.so.0
 
 RUN opkg update && opkg install python
 RUN opkg install python-dev
+RUN opkg install python-misc python-pkgutil
 RUN opkg install iox-toolchain
 RUN opkg install python-pip
 RUN pip install protobuf

@@ -12,5 +12,4 @@ cd ../../../gen-docs/html/
 find *.html -type f -exec sed -i 's/struct /message /g;s/Struct /Message /g;s/Class Documentation/Message Documentation/g;s/Public Attributes/Attributes/' {} \;
 
 # This resolves an issue where proto2cpp adds itself into the index.html
-sed -i.bak -e "82,294d" index.html
-sed -i.bak -e "83,294d" *_tutorial_README.html
+sed -i.bak -e "64,276d" index.html
