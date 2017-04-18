@@ -204,17 +204,16 @@ class APStatistics ():
             if values[0].strip() == "ID":
                 resp.ID = values[1].strip()
             elif values[0].strip() == "Uptime":
-                resp.Uptime = values[1].strip()
+                resp.Uptime = int(values[1].strip())
             else:
                 continue
+        resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
         f.close()
     except Exception as e:
-        # using the exception path to test. Change to error eventually
-        resp.ID = "52:00:00:ca:fe:01"
-        resp.Uptime = 10000
+        resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
 
     resp.When = str(datetime.now())
-    resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
     return (resp)
 
