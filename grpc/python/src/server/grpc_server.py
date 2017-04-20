@@ -42,6 +42,7 @@ ETC_RESOLV_CONF = '/etc/resolv.conf'
 
 PROC_SYSTEM_INFO = '/proc/aptrace/sysinfo/system'
 PROC_CLIENT_INFO = '/proc/aptrace/sysinfo/clients'
+PROC_WLAN_INFO = '/proc/aptrace/sysinfo/wlans'
 PROC_RADIO_INFO = '/proc/aptrace/sysinfo/radios'
 PROC_WIRED_INFO = '/proc/aptrace/sysinfo/wired'
 CLIENT_IP_TABLE = '/click/client_ip_table/list'
@@ -156,6 +157,16 @@ def get_interface_stats(interface, module):
     interface.TxBytes = int(tail.split()[0])
 
     head, sep, tail = module.partition("TX packets:")
+
+def get_wlan_stats(wlan_info, fields):
+    wlan_info.Wlan.ID = fields['ID']
+    wlan_info.Wlan.SSID = fields['SSID']
+    wlan_info.RadioIndex = int(fields['RadioIndex'])
+    wlan_info.BSSID = fields['BSSID']
+    wlan_info.Dev = fields['Dev']
+    wlan_info.NumClients = int(fields['NumClients'])
+    wlan_info.Counter.TxMcastPkts = int(fields['TxMcastPkts'])
+    wlan_info.Counter.TxMcastBytes = int(fields['TxMcastBytes'])
 
 def get_client_stats(client_info, fields):
     client_info.MAC = fields['MAC']
@@ -407,30 +418,45 @@ class APStatistics ():
     import server_util
 
     resp = ap_stats_pb2.APWLANStatsMsgRsp()
+    record_count = 0
+    fields = {}
 
-    for i in range(0, MAX_RADIO):
-        handler = "wcp/RadDrv" + str(i) + ".vaps"
-        wcp_data = server_util.get_wcp_data(handler)
-        if wcp_data is None:
-            continue
-        mylist = re.split("\n", wcp_data)
-        for line in mylist[1:]:
-            if (line == ''):
+    try:
+        f = open(PROC_WLAN_INFO, 'r')
+        for line in f:
+            # skip first line of each record
+            if line.startswith('wlan num:'):
+                # Fill last record with values
+                if record_count > 0:
+                    get_wlan_stats(wlan_info, fields)
+                wlan_info = resp.WLANEntries.add()
+                record_count += 1
+                fields = {}
                 continue
 
-            values = line.split()
+            # skip empty lines
+            if line.strip() == '':
+                continue
 
-            wlan = resp.WLANEntries.add()
-            wlan.Wlan.ID = socket.gethostname()
-            wlan.Wlan.SSID = values[3]
-            wlan.RadioIndex = int(values[0])
-            wlan.BSSID = values[2]
-            wlan.Dev = "apr" + str(i) + "v" + str(values[1])
-            wlan.NumClients = server_util.get_client_count_per_ssid(wlan.Dev)
-            server_util.get_mcast_pkts(i, wlan.Dev, wlan.Counter)
+            if record_count == 0:
+                continue
+
+            values = line.split(':', 1)
+            for i in range(len(values)):
+                values[i] = values[i].strip()
+
+            fields[values[0]] = values[1]
+
+        f.close()
+
+        if len(fields) != 0:
+            get_wlan_stats(wlan_info, fields)
+
+    except Exception as e:
+        resp.ErrStatus.Status = ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
 
     resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
-
     return (resp)
 
 
