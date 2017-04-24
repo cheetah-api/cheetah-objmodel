@@ -69,6 +69,12 @@ message APSystemStatsMsgRsp {
     // When these statistics were gathered
     // Absolute time: "2016-07-15T16:18:39.335026717Z"
     string When = 4;
+
+    // AP Serial Number
+    string SerialNumber = 5;
+
+    // AP Product ID: AP2800, etc
+    string ProductId = 6;
 }
 
 // Data from /proc/meminfo

@@ -60,14 +60,13 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
   APErrorStatus_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APErrorStatus_descriptor_,
-      APErrorStatus::default_instance_,
+      APErrorStatus::internal_default_instance(),
       APErrorStatus_offsets_,
       -1,
       -1,
       -1,
       sizeof(APErrorStatus),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APErrorStatus, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APErrorStatus, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APErrorStatus, _internal_metadata_));
   APErrorStatus_APErrno_descriptor_ = APErrorStatus_descriptor_->enum_type(0);
   APRadio_descriptor_ = file->message_type(1);
   static const int APRadio_offsets_[3] = {
@@ -78,7 +77,7 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
   APRadio_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APRadio_descriptor_,
-      APRadio::default_instance_,
+      APRadio::internal_default_instance(),
       APRadio_offsets_,
       -1,
       -1,
@@ -86,8 +85,7 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
       APRadio_default_oneof_instance_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadio, _oneof_case_[0]),
       sizeof(APRadio),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadio, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadio, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadio, _internal_metadata_));
   APSsid_descriptor_ = file->message_type(2);
   static const int APSsid_offsets_[3] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(APSsid_default_oneof_instance_, name_),
@@ -97,7 +95,7 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
   APSsid_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       APSsid_descriptor_,
-      APSsid::default_instance_,
+      APSsid::internal_default_instance(),
       APSsid_offsets_,
       -1,
       -1,
@@ -105,8 +103,7 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
       APSsid_default_oneof_instance_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSsid, _oneof_case_[0]),
       sizeof(APSsid),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSsid, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSsid, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APSsid, _internal_metadata_));
   APRegOp_descriptor_ = file->enum_type(0);
   APObjectOp_descriptor_ = file->enum_type(1);
   APNotifOp_descriptor_ = file->enum_type(2);
@@ -115,7 +112,7 @@ void protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto() {
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
+void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_ap_5fcommon_5ftypes_2eproto);
 }
@@ -124,33 +121,50 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APErrorStatus_descriptor_, &APErrorStatus::default_instance());
+      APErrorStatus_descriptor_, APErrorStatus::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APRadio_descriptor_, &APRadio::default_instance());
+      APRadio_descriptor_, APRadio::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APSsid_descriptor_, &APSsid::default_instance());
+      APSsid_descriptor_, APSsid::internal_default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ap_5fcommon_5ftypes_2eproto() {
-  delete APErrorStatus::default_instance_;
+  APErrorStatus_default_instance_.Shutdown();
   delete APErrorStatus_reflection_;
-  delete APRadio::default_instance_;
+  APRadio_default_instance_.Shutdown();
   delete APRadio_default_oneof_instance_;
   delete APRadio_reflection_;
-  delete APSsid::default_instance_;
+  APSsid_default_instance_.Shutdown();
   delete APSsid_default_oneof_instance_;
   delete APSsid_reflection_;
 }
 
-void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  APErrorStatus_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  APRadio_default_instance_.DefaultConstruct();
+  APRadio_default_oneof_instance_ = new APRadioOneofInstance();
+  ::google::protobuf::internal::GetEmptyString();
+  APSsid_default_instance_.DefaultConstruct();
+  APSsid_default_oneof_instance_ = new APSsidOneofInstance();
+  APErrorStatus_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APRadio_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APSsid_default_instance_.get_mutable()->InitAsDefaultInstance();
+}
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto_once_);
+void protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto_once_,
+                 &protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto_impl);
+}
+void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\025ap_common_types.proto\022\014access_point\"\372\003"
     "\n\rAPErrorStatus\0223\n\006Status\030\001 \001(\0162#.access"
@@ -178,17 +192,14 @@ void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto() {
     "IFOP_DISABLE\020\002b\006proto3", 942);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_common_types.proto", &protobuf_RegisterTypes);
-  APErrorStatus::default_instance_ = new APErrorStatus();
-  APRadio::default_instance_ = new APRadio();
-  APRadio_default_oneof_instance_ = new APRadioOneofInstance();
-  APSsid::default_instance_ = new APSsid();
-  APSsid_default_oneof_instance_ = new APSsidOneofInstance();
-  APErrorStatus::default_instance_->InitAsDefaultInstance();
-  APRadio::default_instance_->InitAsDefaultInstance();
-  APSsid::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fcommon_5ftypes_2eproto);
 }
 
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto_once_);
+void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto_once_,
+                 &protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto_impl);
+}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_ap_5fcommon_5ftypes_2eproto {
   StaticDescriptorInitializer_ap_5fcommon_5ftypes_2eproto() {
@@ -200,7 +211,7 @@ const ::google::protobuf::EnumDescriptor* APRegOp_descriptor() {
   return APRegOp_descriptor_;
 }
 bool APRegOp_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -216,7 +227,7 @@ const ::google::protobuf::EnumDescriptor* APObjectOp_descriptor() {
   return APObjectOp_descriptor_;
 }
 bool APObjectOp_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -232,7 +243,7 @@ const ::google::protobuf::EnumDescriptor* APNotifOp_descriptor() {
   return APNotifOp_descriptor_;
 }
 bool APNotifOp_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -243,6 +254,16 @@ bool APNotifOp_IsValid(int value) {
 }
 
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
+
+
 // ===================================================================
 
 const ::google::protobuf::EnumDescriptor* APErrorStatus_APErrno_descriptor() {
@@ -250,7 +271,7 @@ const ::google::protobuf::EnumDescriptor* APErrorStatus_APErrno_descriptor() {
   return APErrorStatus_APErrno_descriptor_;
 }
 bool APErrorStatus_APErrno_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -306,26 +327,25 @@ const int APErrorStatus::kStatusFieldNumber;
 
 APErrorStatus::APErrorStatus()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APErrorStatus)
 }
 
 void APErrorStatus::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 APErrorStatus::APErrorStatus(const APErrorStatus& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APErrorStatus)
 }
 
 void APErrorStatus::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   status_ = 0;
+  _cached_size_ = 0;
 }
 
 APErrorStatus::~APErrorStatus() {
@@ -334,8 +354,6 @@ APErrorStatus::~APErrorStatus() {
 }
 
 void APErrorStatus::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void APErrorStatus::SetCachedSize(int size) const {
@@ -349,11 +367,11 @@ const ::google::protobuf::Descriptor* APErrorStatus::descriptor() {
 }
 
 const APErrorStatus& APErrorStatus::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
+  return *internal_default_instance();
 }
 
-APErrorStatus* APErrorStatus::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<APErrorStatus> APErrorStatus_default_instance_;
 
 APErrorStatus* APErrorStatus::New(::google::protobuf::Arena* arena) const {
   APErrorStatus* n = new APErrorStatus;
@@ -428,6 +446,7 @@ void APErrorStatus::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APErrorStatus::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APErrorStatus)
   // optional .access_point.APErrorStatus.APErrno Status = 1;
   if (this->status() != 0) {
@@ -439,9 +458,9 @@ void APErrorStatus::SerializeWithCachedSizes(
   return target;
 }
 
-int APErrorStatus::ByteSize() const {
+size_t APErrorStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APErrorStatus)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional .access_point.APErrorStatus.APErrno Status = 1;
   if (this->status() != 0) {
@@ -449,18 +468,17 @@ int APErrorStatus::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APErrorStatus::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APErrorStatus)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const APErrorStatus* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APErrorStatus* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APErrorStatus>(
           &from);
   if (source == NULL) {
@@ -468,15 +486,21 @@ void APErrorStatus::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APErrorStatus)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void APErrorStatus::MergeFrom(const APErrorStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APErrorStatus)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void APErrorStatus::UnsafeMergeFrom(const APErrorStatus& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.status() != 0) {
     set_status(from.status());
   }
@@ -493,7 +517,7 @@ void APErrorStatus::CopyFrom(const APErrorStatus& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APErrorStatus)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool APErrorStatus::IsInitialized() const {
@@ -526,16 +550,19 @@ void APErrorStatus::InternalSwap(APErrorStatus* other) {
 void APErrorStatus::clear_status() {
   status_ = 0;
 }
- ::access_point::APErrorStatus_APErrno APErrorStatus::status() const {
+::access_point::APErrorStatus_APErrno APErrorStatus::status() const {
   // @@protoc_insertion_point(field_get:access_point.APErrorStatus.Status)
   return static_cast< ::access_point::APErrorStatus_APErrno >(status_);
 }
- void APErrorStatus::set_status(::access_point::APErrorStatus_APErrno value) {
+void APErrorStatus::set_status(::access_point::APErrorStatus_APErrno value) {
   
   status_ = value;
   // @@protoc_insertion_point(field_set:access_point.APErrorStatus.Status)
 }
 
+inline const APErrorStatus* APErrorStatus::internal_default_instance() {
+  return &APErrorStatus_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -547,12 +574,12 @@ const int APRadio::kHandleFieldNumber;
 
 APRadio::APRadio()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APRadio)
 }
 
 void APRadio::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
   APRadio_default_oneof_instance_->name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   APRadio_default_oneof_instance_->handle_ = 0u;
 }
@@ -561,15 +588,13 @@ APRadio::APRadio(const APRadio& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APRadio)
 }
 
 void APRadio::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   clear_has_Radio();
+  _cached_size_ = 0;
 }
 
 APRadio::~APRadio() {
@@ -580,8 +605,6 @@ APRadio::~APRadio() {
 void APRadio::SharedDtor() {
   if (has_Radio()) {
     clear_Radio();
-  }
-  if (this != default_instance_) {
   }
 }
 
@@ -596,11 +619,11 @@ const ::google::protobuf::Descriptor* APRadio::descriptor() {
 }
 
 const APRadio& APRadio::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
+  return *internal_default_instance();
 }
 
-APRadio* APRadio::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<APRadio> APRadio_default_instance_;
 
 APRadio* APRadio::New(::google::protobuf::Arena* arena) const {
   APRadio* n = new APRadio;
@@ -612,7 +635,7 @@ APRadio* APRadio::New(::google::protobuf::Arena* arena) const {
 
 void APRadio::clear_Radio() {
 // @@protoc_insertion_point(one_of_clear_start:access_point.APRadio)
-  switch(Radio_case()) {
+  switch (Radio_case()) {
     case kName: {
       Radio_.name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
       break;
@@ -656,14 +679,13 @@ bool APRadio::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_Handle;
+        goto after_handle;
         break;
       }
 
       // optional uint32 Handle = 2;
       case 2: {
         if (tag == 16) {
-         parse_Handle:
           clear_Radio();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -672,6 +694,7 @@ bool APRadio::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+       after_handle:
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -720,6 +743,7 @@ void APRadio::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APRadio::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APRadio)
   // optional string Name = 1;
   if (has_name()) {
@@ -741,9 +765,9 @@ void APRadio::SerializeWithCachedSizes(
   return target;
 }
 
-int APRadio::ByteSize() const {
+size_t APRadio::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APRadio)
-  int total_size = 0;
+  size_t total_size = 0;
 
   switch (Radio_case()) {
     // optional string Name = 1;
@@ -764,18 +788,17 @@ int APRadio::ByteSize() const {
       break;
     }
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APRadio::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APRadio)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const APRadio* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APRadio* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APRadio>(
           &from);
   if (source == NULL) {
@@ -783,15 +806,21 @@ void APRadio::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APRadio)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void APRadio::MergeFrom(const APRadio& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APRadio)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void APRadio::UnsafeMergeFrom(const APRadio& from) {
+  GOOGLE_DCHECK(&from != this);
   switch (from.Radio_case()) {
     case kName: {
       set_name(from.name());
@@ -818,7 +847,7 @@ void APRadio::CopyFrom(const APRadio& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APRadio)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool APRadio::IsInitialized() const {
@@ -861,14 +890,14 @@ void APRadio::clear_name() {
     clear_has_Radio();
   }
 }
- const ::std::string& APRadio::name() const {
+const ::std::string& APRadio::name() const {
   // @@protoc_insertion_point(field_get:access_point.APRadio.Name)
   if (has_name()) {
     return Radio_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
- void APRadio::set_name(const ::std::string& value) {
+void APRadio::set_name(const ::std::string& value) {
   // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
   if (!has_name()) {
     clear_Radio();
@@ -878,7 +907,7 @@ void APRadio::clear_name() {
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
 }
- void APRadio::set_name(const char* value) {
+void APRadio::set_name(const char* value) {
   if (!has_name()) {
     clear_Radio();
     set_has_name();
@@ -888,7 +917,7 @@ void APRadio::clear_name() {
       ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APRadio.Name)
 }
- void APRadio::set_name(const char* value, size_t size) {
+void APRadio::set_name(const char* value, size_t size) {
   if (!has_name()) {
     clear_Radio();
     set_has_name();
@@ -898,7 +927,7 @@ void APRadio::clear_name() {
       reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APRadio.Name)
 }
- ::std::string* APRadio::mutable_name() {
+::std::string* APRadio::mutable_name() {
   if (!has_name()) {
     clear_Radio();
     set_has_name();
@@ -907,7 +936,7 @@ void APRadio::clear_name() {
   // @@protoc_insertion_point(field_mutable:access_point.APRadio.Name)
   return Radio_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* APRadio::release_name() {
+::std::string* APRadio::release_name() {
   // @@protoc_insertion_point(field_release:access_point.APRadio.Name)
   if (has_name()) {
     clear_has_Radio();
@@ -916,7 +945,7 @@ void APRadio::clear_name() {
     return NULL;
   }
 }
- void APRadio::set_allocated_name(::std::string* name) {
+void APRadio::set_allocated_name(::std::string* name) {
   if (!has_name()) {
     Radio_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
@@ -942,14 +971,14 @@ void APRadio::clear_handle() {
     clear_has_Radio();
   }
 }
- ::google::protobuf::uint32 APRadio::handle() const {
+::google::protobuf::uint32 APRadio::handle() const {
   // @@protoc_insertion_point(field_get:access_point.APRadio.Handle)
   if (has_handle()) {
     return Radio_.handle_;
   }
   return 0u;
 }
- void APRadio::set_handle(::google::protobuf::uint32 value) {
+void APRadio::set_handle(::google::protobuf::uint32 value) {
   if (!has_handle()) {
     clear_Radio();
     set_has_handle();
@@ -967,6 +996,9 @@ void APRadio::clear_has_Radio() {
 APRadio::RadioCase APRadio::Radio_case() const {
   return APRadio::RadioCase(_oneof_case_[0]);
 }
+inline const APRadio* APRadio::internal_default_instance() {
+  return &APRadio_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -978,12 +1010,12 @@ const int APSsid::kHandleFieldNumber;
 
 APSsid::APSsid()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:access_point.APSsid)
 }
 
 void APSsid::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
   APSsid_default_oneof_instance_->name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   APSsid_default_oneof_instance_->handle_ = 0u;
 }
@@ -992,15 +1024,13 @@ APSsid::APSsid(const APSsid& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:access_point.APSsid)
 }
 
 void APSsid::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   clear_has_Ssid();
+  _cached_size_ = 0;
 }
 
 APSsid::~APSsid() {
@@ -1011,8 +1041,6 @@ APSsid::~APSsid() {
 void APSsid::SharedDtor() {
   if (has_Ssid()) {
     clear_Ssid();
-  }
-  if (this != default_instance_) {
   }
 }
 
@@ -1027,11 +1055,11 @@ const ::google::protobuf::Descriptor* APSsid::descriptor() {
 }
 
 const APSsid& APSsid::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
+  return *internal_default_instance();
 }
 
-APSsid* APSsid::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<APSsid> APSsid_default_instance_;
 
 APSsid* APSsid::New(::google::protobuf::Arena* arena) const {
   APSsid* n = new APSsid;
@@ -1043,7 +1071,7 @@ APSsid* APSsid::New(::google::protobuf::Arena* arena) const {
 
 void APSsid::clear_Ssid() {
 // @@protoc_insertion_point(one_of_clear_start:access_point.APSsid)
-  switch(Ssid_case()) {
+  switch (Ssid_case()) {
     case kName: {
       Ssid_.name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
       break;
@@ -1087,14 +1115,13 @@ bool APSsid::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_Handle;
+        goto after_handle;
         break;
       }
 
       // optional uint32 Handle = 2;
       case 2: {
         if (tag == 16) {
-         parse_Handle:
           clear_Ssid();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1103,6 +1130,7 @@ bool APSsid::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+       after_handle:
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1151,6 +1179,7 @@ void APSsid::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* APSsid::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:access_point.APSsid)
   // optional string Name = 1;
   if (has_name()) {
@@ -1172,9 +1201,9 @@ void APSsid::SerializeWithCachedSizes(
   return target;
 }
 
-int APSsid::ByteSize() const {
+size_t APSsid::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:access_point.APSsid)
-  int total_size = 0;
+  size_t total_size = 0;
 
   switch (Ssid_case()) {
     // optional string Name = 1;
@@ -1195,18 +1224,17 @@ int APSsid::ByteSize() const {
       break;
     }
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void APSsid::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:access_point.APSsid)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const APSsid* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APSsid* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APSsid>(
           &from);
   if (source == NULL) {
@@ -1214,15 +1242,21 @@ void APSsid::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APSsid)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void APSsid::MergeFrom(const APSsid& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:access_point.APSsid)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void APSsid::UnsafeMergeFrom(const APSsid& from) {
+  GOOGLE_DCHECK(&from != this);
   switch (from.Ssid_case()) {
     case kName: {
       set_name(from.name());
@@ -1249,7 +1283,7 @@ void APSsid::CopyFrom(const APSsid& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:access_point.APSsid)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool APSsid::IsInitialized() const {
@@ -1292,14 +1326,14 @@ void APSsid::clear_name() {
     clear_has_Ssid();
   }
 }
- const ::std::string& APSsid::name() const {
+const ::std::string& APSsid::name() const {
   // @@protoc_insertion_point(field_get:access_point.APSsid.Name)
   if (has_name()) {
     return Ssid_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
- void APSsid::set_name(const ::std::string& value) {
+void APSsid::set_name(const ::std::string& value) {
   // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
   if (!has_name()) {
     clear_Ssid();
@@ -1309,7 +1343,7 @@ void APSsid::clear_name() {
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
 }
- void APSsid::set_name(const char* value) {
+void APSsid::set_name(const char* value) {
   if (!has_name()) {
     clear_Ssid();
     set_has_name();
@@ -1319,7 +1353,7 @@ void APSsid::clear_name() {
       ::std::string(value));
   // @@protoc_insertion_point(field_set_char:access_point.APSsid.Name)
 }
- void APSsid::set_name(const char* value, size_t size) {
+void APSsid::set_name(const char* value, size_t size) {
   if (!has_name()) {
     clear_Ssid();
     set_has_name();
@@ -1329,7 +1363,7 @@ void APSsid::clear_name() {
       reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:access_point.APSsid.Name)
 }
- ::std::string* APSsid::mutable_name() {
+::std::string* APSsid::mutable_name() {
   if (!has_name()) {
     clear_Ssid();
     set_has_name();
@@ -1338,7 +1372,7 @@ void APSsid::clear_name() {
   // @@protoc_insertion_point(field_mutable:access_point.APSsid.Name)
   return Ssid_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* APSsid::release_name() {
+::std::string* APSsid::release_name() {
   // @@protoc_insertion_point(field_release:access_point.APSsid.Name)
   if (has_name()) {
     clear_has_Ssid();
@@ -1347,7 +1381,7 @@ void APSsid::clear_name() {
     return NULL;
   }
 }
- void APSsid::set_allocated_name(::std::string* name) {
+void APSsid::set_allocated_name(::std::string* name) {
   if (!has_name()) {
     Ssid_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
@@ -1373,14 +1407,14 @@ void APSsid::clear_handle() {
     clear_has_Ssid();
   }
 }
- ::google::protobuf::uint32 APSsid::handle() const {
+::google::protobuf::uint32 APSsid::handle() const {
   // @@protoc_insertion_point(field_get:access_point.APSsid.Handle)
   if (has_handle()) {
     return Ssid_.handle_;
   }
   return 0u;
 }
- void APSsid::set_handle(::google::protobuf::uint32 value) {
+void APSsid::set_handle(::google::protobuf::uint32 value) {
   if (!has_handle()) {
     clear_Ssid();
     set_has_handle();
@@ -1397,6 +1431,9 @@ void APSsid::clear_has_Ssid() {
 }
 APSsid::SsidCase APSsid::Ssid_case() const {
   return APSsid::SsidCase(_oneof_case_[0]);
+}
+inline const APSsid* APSsid::internal_default_instance() {
+  return &APSsid_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
