@@ -37,7 +37,9 @@ func SystemStatsOperation(conn *grpc.ClientConn) {
 
 
     fmt.Printf("---System statistics----\n")
-    fmt.Printf("AP ID     : %s\n", response.ID)
-    fmt.Printf("Uptime    : %d\n", response.Uptime)
-    fmt.Printf("When      : %s\n", response.When)
+    fmt.Printf("AP ID       : %s\n", response.ID)
+    fmt.Printf("Serial No   : %s\n", response.SerialNumber)
+    fmt.Printf("Product ID  : %s\n", response.ProductId)
+    fmt.Printf("Uptime      : %d\n", response.Uptime)
+    fmt.Printf("When        : %s\n", response.When)
 }

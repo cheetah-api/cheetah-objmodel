@@ -34,9 +34,11 @@ def print_globals(response):
 # Print System Stats
 def print_system_stats(response):
     print "----System statistics----"
-    print "AP ID     : %s" %(response.ID)
-    print "Uptime    : %d" %(response.Uptime)
-    print "When      : %s" %(response.When)
+    print "AP ID       : %s" %(response.ID)
+    print "Serial No   : %s" %(response.SerialNumber)
+    print "Product ID  : %s" %(response.ProductId)
+    print "Uptime      : %d" %(response.Uptime)
+    print "When        : %s" %(response.When)
     print
 
 # Print Memory Stats

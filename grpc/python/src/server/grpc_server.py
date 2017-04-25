@@ -225,6 +225,8 @@ class APStatistics ():
         print str(e)
 
     resp.When = str(datetime.now())
+    resp.SerialNumber = open('/MERAKI_SERIAL', 'r').read()
+    resp.ProductId = open('/AP_PLATFORM_NAME', 'r').read()
 
     return (resp)
 
