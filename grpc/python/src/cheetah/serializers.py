@@ -28,5 +28,5 @@ def global_get_serializer():
 
 def get_stats_serializer():
     """Get Stats Message serializer."""
-    serializer = ap_stats_pb2.APStatsGetMsg()
+    serializer = ap_stats_pb2.APStatsMsg()
     return serializer

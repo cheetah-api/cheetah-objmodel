@@ -12,101 +12,38 @@ import unittest
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
+
 from cheetah import GrpcClient
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
 from util import util
 
-# Print System Stats
-def print_system_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_system_stats(response)
-    else:
-        print "System stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
+# gRPC libs
+from grpc.beta import implementations
 
-# Print Memory Stats
-def print_memory_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_memory_stats(response)
-    else:
-        print "Memory stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
+TIMEOUT_SECONDS = 20
 
-# Print DNS Stats
-def print_dns_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_dns_stats(response)
-    else:
-        print "DNS stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
-# Print Route Stats
-def print_route_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_route_stats(response)
-    else:
-        print "Route stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
-# Print Interface Stats
-def print_interface_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_interface_stats(response)
-    else:
-        print "Interface stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
-# Print Client Stats
-def print_client_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_client_stats(response)
-    else:
-        print "Client stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
-# Print Radio Stats
-def print_radio_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_radio_stats(response)
-    else:
-        print "Radio stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
-# Print WLAN Stats
-def print_wlan_stats(response):
-    if (response.ErrStatus.Status ==
-        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
-        util.print_wlan_stats(response)
-    else:
-        print "WLAN stats response error 0x%x" %(response.ErrStatus.Status)
-        return False
-    return True
-
+stats_types = [
+               "Reserved",          # AP_RESERVED = 0
+               "SystemStats",       # AP_SYSTEM_STATS = 1
+               "MemoryStats",       # AP_MEMORY_STATS = 2
+               "InterfaceStats",    # AP_INTERFACE_STATS = 3
+               "RoutingStats",      # AP_ROUTING_STATS = 4
+               "DNSStats",          # AP_DNS_STATS = 5
+               "RadioStats",        # AP_RADIO_STATS = 6
+               "WLANStats",         # AP_WLAN_STATS = 7
+               "ClientStats"        # AP_CLIENT_STATS = 8
+              ]
 # Print Received Globals
 def print_globals(response):
     if (response.ErrStatus.Status ==
         ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
         util.print_globals(response)
+        return True
     else:
         print "Globals response error 0x%x" %(response.ErrStatus.Status)
         return False
-    return True
 
 # Global notification Callback
 # This function is called from the global_init thread context
@@ -163,6 +100,7 @@ def global_init(event):
         print "Server died?"
     os._exit(0)
 
+
 #
 #
 class ClientTestCase(unittest.TestCase):
@@ -186,7 +124,6 @@ class ClientTestCase(unittest.TestCase):
 
             # Initialize only once
             ClientTestCase.test_init = True
-
 
 #
 # Alphabetical order makes this test run first
@@ -220,56 +157,95 @@ class TestSuite_000_Global(ClientTestCase):
         err = print_globals(response)
         self.assertTrue(err)
 
+
+def stats_cback(response, stats_type, event):
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        return (response.HasField(stats_types[stats_type]))
+    else:
+        return (response.ErrStatus.Status ==
+                    ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE)
+
+def stats_operation(self, stats_type, time_interval, count=1, event=None):
+
+    response, counter = ClientTestCase.client.stats_get(stats_type, time_interval,
+                        stats_cback, count, event)
+    self.assertTrue(count==counter)
+
+#
+# Test unary statistics
+#
 class TestSuite_001_Statistics(ClientTestCase):
+
+    time_interval = ap_stats_pb2.AP_STATS_UNARY_OPERATION
 
     def test_001_get_system_stats(self):
         # Get system stats
-        response = ClientTestCase.client.system_stats_get()
-        err = print_system_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_SYSTEM_STATS, self.time_interval)
 
     def test_002_get_memory_stats(self):
         # Get memory stats
-        response = ClientTestCase.client.memory_stats_get()
-        err = print_memory_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_MEMORY_STATS, self.time_interval)
 
     def test_003_get_dns_stats(self):
         # Get DNS stats
-        response = ClientTestCase.client.dns_stats_get()
-        err = print_dns_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_DNS_STATS, self.time_interval)
 
     def test_004_get_route_stats(self):
         # Get Route stats
-        response = ClientTestCase.client.routes_stats_get()
-        err = print_route_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_ROUTING_STATS, self.time_interval)
 
     def test_005_get_interface_stats(self):
         # Get Interface stats
-        response = ClientTestCase.client.interface_stats_get()
-        err = print_interface_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_INTERFACE_STATS, self.time_interval)
 
     def test_006_get_wlan_stats(self):
         # Get WLAN stats
-        response = ClientTestCase.client.wlan_stats_get()
-        err = print_wlan_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_WLAN_STATS, self.time_interval)
 
     def test_007_get_client_stats(self):
         # Get Client stats
-        response = ClientTestCase.client.client_stats_get()
-        err = print_client_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_CLIENT_STATS, self.time_interval)
 
     def test_008_get_radio_stats(self):
         # Get Radio stats
-        response = ClientTestCase.client.radio_stats_get()
-        err = print_radio_stats(response)
-        self.assertTrue(err)
+        stats_operation(self, ap_stats_pb2.AP_RADIO_STATS, self.time_interval)
 
+
+def stats_thread(self, stats_type, time_interval, count, event):
+    t = threading.Thread(target = stats_operation,
+                         args=(self, stats_type, time_interval, count, event))
+    t.start()
+    #event.wait()
+    return t
+
+#
+# Test stream statistics
+#
+class TestSuite_002_Statistics(ClientTestCase):
+
+    # threading.Event() used to sync threads
+    stats_event = None
+
+    time_interval = ap_stats_pb2.AP_STATS_MIN_TIME_INTERVAL
+    count = 2
+
+    def test_001_stream_get_system_stats(self):
+        # Get system stats
+
+        TestSuite_002_Statistics.stats_event = threading.Event()
+        t = stats_thread(self, ap_stats_pb2.AP_SYSTEM_STATS, self.time_interval,
+                         self.count, TestSuite_002_Statistics.stats_event)
+        t.join()
+ 
+    def test_002_stream_get_memory_stats(self):
+        # Get memory stats
+
+        # Create a synchronization event
+        TestSuite_002_Statistics.stats_event = threading.Event()
+        t = stats_thread(self, ap_stats_pb2.AP_MEMORY_STATS, self.time_interval,
+                         self.count, TestSuite_002_Statistics.stats_event)
+        t.join()
 
 if __name__ == '__main__':
     unittest.main()

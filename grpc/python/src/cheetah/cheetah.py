@@ -8,8 +8,21 @@ import serializers
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from util import util
 
 from grpc.beta import implementations
+
+stats_types = [
+               "Reserved",          # AP_RESERVED = 0
+               "SystemStats",       # AP_SYSTEM_STATS = 1
+               "MemoryStats",       # AP_MEMORY_STATS = 2
+               "InterfaceStats",    # AP_INTERFACE_STATS = 3
+               "RoutingStats",      # AP_ROUTING_STATS = 4
+               "DNSStats",          # AP_DNS_STATS = 5
+               "RadioStats",        # AP_RADIO_STATS = 6
+               "WLANStats",         # AP_WLAN_STATS = 7
+               "ClientStats"        # AP_CLIENT_STATS = 8
+              ]
 
 class Operation(object):
     ADD = 1
@@ -28,39 +41,12 @@ class AbstractClient(object):
         pass
 
     @abc.abstractmethod
-    def system_stats_get(self, *args, **kwargs):
+    def stats_get(self, *args, **kwargs):
         pass
 
-    @abc.abstractmethod
-    def memory_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def dns_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def routes_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def interface_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def wlan_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def client_stats_get(self, *args, **kwargs):
-        pass
-
-    @abc.abstractmethod
-    def radio_stats_get(self, *args, **kwargs):
-        pass
 
 class GrpcClient(AbstractClient):
-    TIMEOUT_SECONDS = 20
+    TIMEOUT_SECONDS = 365*24*60*60 # Seconds
 
     def __init__(self, host, port, channel_credentials=None):
         if channel_credentials is None:
@@ -87,67 +73,35 @@ class GrpcClient(AbstractClient):
                 break
         # Returns on exit
         return response
-    
+
     def global_get(self):
         """Global Get"""
         serializer = serializers.global_get_serializer()
-        response = self._stubs[0].APGlobalsGet(serializer,
-            self.TIMEOUT_SECONDS)
+        response = self._stubs[0].APGlobalsGet(serializer, self.TIMEOUT_SECONDS)
         return response
 
-    def system_stats_get(self):
-        """System Stats Get"""
+    def stats_get(self, stats_type, time_interval, cback_func, count, event):
+        """Stats Get"""
+
+        local_counter = 0
+
+        #serializer = serializers.get_stats_serializer(stats_type, time_interval)
         serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APSystemStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
 
-    def memory_stats_get(self):
-        """Memory Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APMemoryStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
+        # Create Stats element
+        stats = serializer.StatsRequest.add()
+        stats.StatsType = stats_type
+        stats.TimeInterval = time_interval
 
-    def dns_stats_get(self):
-        """DNS Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APDNSStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
-
-    def routes_stats_get(self):
-        """Route Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APRoutesStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
-
-    def interface_stats_get(self):
-        """Interface Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APInterfaceStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
-
-    def client_stats_get(self):
-        """Client Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APClientStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
-
-
-    def radio_stats_get(self):
-        """Radio Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APRadioStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
-
-    def wlan_stats_get(self):
-        """WLAN Stats Get"""
-        serializer = serializers.get_stats_serializer()
-        response = self._stubs[1].APWLANStatsGet(serializer,
-            self.TIMEOUT_SECONDS)
-        return response
+        for response in self._stubs[1].APStatsGet(serializer, self.TIMEOUT_SECONDS):
+            local_counter += 1
+            if not cback_func(response, stats_type, event):
+                break
+            if (count == local_counter):
+                break
+       
+        # Terminated
+        # This would notify the main thread to proceed
+        #if not event is None:
+           #event.set()
+        return (response, local_counter)

@@ -26,6 +26,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "ap_common_types.pb.h"
 // @@protoc_insertion_point(includes)
@@ -40,13 +41,15 @@ void protobuf_ShutdownFile_ap_5fstats_2eproto();
 
 class APClientEntry;
 class APClientStatsMsgRsp;
-class APDNSServersMsgRsp;
+class APDNSStatsMsgRsp;
 class APInterfaceEntry;
 class APInterfaceStatsMsgRsp;
 class APMemoryStatsMsgRsp;
 class APRadioStatsMsgRsp;
-class APRoutesMsgRsp;
-class APStatsGetMsg;
+class APRoutingStatsMsgRsp;
+class APStatsMsg;
+class APStatsMsgRsp;
+class APStatsRequest;
 class APSystemStatsMsgRsp;
 class APWLANStatsMsgRsp;
 class DfsState;
@@ -60,36 +63,86 @@ class SlabInfo;
 class WLAN;
 class WLANEntry;
 
+enum APStatsType {
+  AP_RESERVED = 0,
+  AP_SYSTEM_STATS = 1,
+  AP_MEMORY_STATS = 2,
+  AP_INTERFACE_STATS = 3,
+  AP_ROUTING_STATS = 4,
+  AP_DNS_STATS = 5,
+  AP_RADIO_STATS = 6,
+  AP_WLAN_STATS = 7,
+  AP_CLIENT_STATS = 8,
+  APStatsType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  APStatsType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool APStatsType_IsValid(int value);
+const APStatsType APStatsType_MIN = AP_RESERVED;
+const APStatsType APStatsType_MAX = AP_CLIENT_STATS;
+const int APStatsType_ARRAYSIZE = APStatsType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* APStatsType_descriptor();
+inline const ::std::string& APStatsType_Name(APStatsType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    APStatsType_descriptor(), value);
+}
+inline bool APStatsType_Parse(
+    const ::std::string& name, APStatsType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<APStatsType>(
+    APStatsType_descriptor(), name, value);
+}
+enum StatsTimeInterval {
+  AP_STATS_UNARY_OPERATION = 0,
+  AP_STATS_ZERO_TIME_INTERVAL = 0,
+  AP_STATS_MIN_TIME_INTERVAL = 5,
+  StatsTimeInterval_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  StatsTimeInterval_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool StatsTimeInterval_IsValid(int value);
+const StatsTimeInterval StatsTimeInterval_MIN = AP_STATS_UNARY_OPERATION;
+const StatsTimeInterval StatsTimeInterval_MAX = AP_STATS_MIN_TIME_INTERVAL;
+const int StatsTimeInterval_ARRAYSIZE = StatsTimeInterval_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* StatsTimeInterval_descriptor();
+inline const ::std::string& StatsTimeInterval_Name(StatsTimeInterval value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    StatsTimeInterval_descriptor(), value);
+}
+inline bool StatsTimeInterval_Parse(
+    const ::std::string& name, StatsTimeInterval* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<StatsTimeInterval>(
+    StatsTimeInterval_descriptor(), name, value);
+}
 // ===================================================================
 
-class APStatsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsGetMsg) */ {
+class APStatsRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsRequest) */ {
  public:
-  APStatsGetMsg();
-  virtual ~APStatsGetMsg();
+  APStatsRequest();
+  virtual ~APStatsRequest();
 
-  APStatsGetMsg(const APStatsGetMsg& from);
+  APStatsRequest(const APStatsRequest& from);
 
-  inline APStatsGetMsg& operator=(const APStatsGetMsg& from) {
+  inline APStatsRequest& operator=(const APStatsRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const APStatsGetMsg& default_instance();
+  static const APStatsRequest& default_instance();
 
-  static const APStatsGetMsg* internal_default_instance();
+  static const APStatsRequest* internal_default_instance();
 
-  void Swap(APStatsGetMsg* other);
+  void Swap(APStatsRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline APStatsGetMsg* New() const { return New(NULL); }
+  inline APStatsRequest* New() const { return New(NULL); }
 
-  APStatsGetMsg* New(::google::protobuf::Arena* arena) const;
+  APStatsRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const APStatsGetMsg& from);
-  void MergeFrom(const APStatsGetMsg& from);
+  void CopyFrom(const APStatsRequest& from);
+  void MergeFrom(const APStatsRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -108,8 +161,8 @@ class APStatsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(APStatsGetMsg* other);
-  void UnsafeMergeFrom(const APStatsGetMsg& from);
+  void InternalSwap(APStatsRequest* other);
+  void UnsafeMergeFrom(const APStatsRequest& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -125,10 +178,24 @@ class APStatsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:access_point.APStatsGetMsg)
+  // optional .access_point.APStatsType StatsType = 1;
+  void clear_statstype();
+  static const int kStatsTypeFieldNumber = 1;
+  ::access_point::APStatsType statstype() const;
+  void set_statstype(::access_point::APStatsType value);
+
+  // optional uint32 TimeInterval = 2;
+  void clear_timeinterval();
+  static const int kTimeIntervalFieldNumber = 2;
+  ::google::protobuf::uint32 timeinterval() const;
+  void set_timeinterval(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:access_point.APStatsRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  int statstype_;
+  ::google::protobuf::uint32 timeinterval_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -137,7 +204,99 @@ class APStatsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   void InitAsDefaultInstance();
 };
-extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsGetMsg> APStatsGetMsg_default_instance_;
+extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsRequest> APStatsRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class APStatsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsMsg) */ {
+ public:
+  APStatsMsg();
+  virtual ~APStatsMsg();
+
+  APStatsMsg(const APStatsMsg& from);
+
+  inline APStatsMsg& operator=(const APStatsMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APStatsMsg& default_instance();
+
+  static const APStatsMsg* internal_default_instance();
+
+  void Swap(APStatsMsg* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APStatsMsg* New() const { return New(NULL); }
+
+  APStatsMsg* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APStatsMsg& from);
+  void MergeFrom(const APStatsMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APStatsMsg* other);
+  void UnsafeMergeFrom(const APStatsMsg& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .access_point.APStatsRequest StatsRequest = 1;
+  int statsrequest_size() const;
+  void clear_statsrequest();
+  static const int kStatsRequestFieldNumber = 1;
+  const ::access_point::APStatsRequest& statsrequest(int index) const;
+  ::access_point::APStatsRequest* mutable_statsrequest(int index);
+  ::access_point::APStatsRequest* add_statsrequest();
+  ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >*
+      mutable_statsrequest();
+  const ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >&
+      statsrequest() const;
+
+  // @@protoc_insertion_point(class_scope:access_point.APStatsMsg)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest > statsrequest_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsMsg> APStatsMsg_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -204,18 +363,9 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // optional string ID = 2;
+  // optional string ID = 1;
   void clear_id();
-  static const int kIDFieldNumber = 2;
+  static const int kIDFieldNumber = 1;
   const ::std::string& id() const;
   void set_id(const ::std::string& value);
   void set_id(const char* value);
@@ -224,15 +374,15 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_id();
   void set_allocated_id(::std::string* id);
 
-  // optional uint32 Uptime = 3;
+  // optional uint32 Uptime = 2;
   void clear_uptime();
-  static const int kUptimeFieldNumber = 3;
+  static const int kUptimeFieldNumber = 2;
   ::google::protobuf::uint32 uptime() const;
   void set_uptime(::google::protobuf::uint32 value);
 
-  // optional string When = 4;
+  // optional string When = 3;
   void clear_when();
-  static const int kWhenFieldNumber = 4;
+  static const int kWhenFieldNumber = 3;
   const ::std::string& when() const;
   void set_when(const ::std::string& value);
   void set_when(const char* value);
@@ -241,9 +391,9 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_when();
   void set_allocated_when(::std::string* when);
 
-  // optional string SerialNumber = 5;
+  // optional string SerialNumber = 4;
   void clear_serialnumber();
-  static const int kSerialNumberFieldNumber = 5;
+  static const int kSerialNumberFieldNumber = 4;
   const ::std::string& serialnumber() const;
   void set_serialnumber(const ::std::string& value);
   void set_serialnumber(const char* value);
@@ -252,9 +402,9 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_serialnumber();
   void set_allocated_serialnumber(::std::string* serialnumber);
 
-  // optional string ProductId = 6;
+  // optional string ProductId = 5;
   void clear_productid();
-  static const int kProductIdFieldNumber = 6;
+  static const int kProductIdFieldNumber = 5;
   const ::std::string& productid() const;
   void set_productid(const ::std::string& value);
   void set_productid(const char* value);
@@ -271,7 +421,6 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
   ::google::protobuf::internal::ArenaStringPtr when_;
   ::google::protobuf::internal::ArenaStringPtr serialnumber_;
   ::google::protobuf::internal::ArenaStringPtr productid_;
-  ::access_point::APErrorStatus* errstatus_;
   ::google::protobuf::uint32 uptime_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
@@ -553,28 +702,19 @@ class APMemoryStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // optional .access_point.MemInfo ProcMemInfo = 2;
+  // optional .access_point.MemInfo ProcMemInfo = 1;
   bool has_procmeminfo() const;
   void clear_procmeminfo();
-  static const int kProcMemInfoFieldNumber = 2;
+  static const int kProcMemInfoFieldNumber = 1;
   const ::access_point::MemInfo& procmeminfo() const;
   ::access_point::MemInfo* mutable_procmeminfo();
   ::access_point::MemInfo* release_procmeminfo();
   void set_allocated_procmeminfo(::access_point::MemInfo* procmeminfo);
 
-  // optional .access_point.SlabInfo TopProcSlabInfo = 3;
+  // optional .access_point.SlabInfo TopProcSlabInfo = 2;
   bool has_topprocslabinfo() const;
   void clear_topprocslabinfo();
-  static const int kTopProcSlabInfoFieldNumber = 3;
+  static const int kTopProcSlabInfoFieldNumber = 2;
   const ::access_point::SlabInfo& topprocslabinfo() const;
   ::access_point::SlabInfo* mutable_topprocslabinfo();
   ::access_point::SlabInfo* release_topprocslabinfo();
@@ -584,7 +724,6 @@ class APMemoryStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::access_point::APErrorStatus* errstatus_;
   ::access_point::MemInfo* procmeminfo_;
   ::access_point::SlabInfo* topprocslabinfo_;
   mutable int _cached_size_;
@@ -599,34 +738,34 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APMemoryStatsMsgRsp> 
 
 // -------------------------------------------------------------------
 
-class APDNSServersMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APDNSServersMsgRsp) */ {
+class APDNSStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APDNSStatsMsgRsp) */ {
  public:
-  APDNSServersMsgRsp();
-  virtual ~APDNSServersMsgRsp();
+  APDNSStatsMsgRsp();
+  virtual ~APDNSStatsMsgRsp();
 
-  APDNSServersMsgRsp(const APDNSServersMsgRsp& from);
+  APDNSStatsMsgRsp(const APDNSStatsMsgRsp& from);
 
-  inline APDNSServersMsgRsp& operator=(const APDNSServersMsgRsp& from) {
+  inline APDNSStatsMsgRsp& operator=(const APDNSStatsMsgRsp& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const APDNSServersMsgRsp& default_instance();
+  static const APDNSStatsMsgRsp& default_instance();
 
-  static const APDNSServersMsgRsp* internal_default_instance();
+  static const APDNSStatsMsgRsp* internal_default_instance();
 
-  void Swap(APDNSServersMsgRsp* other);
+  void Swap(APDNSStatsMsgRsp* other);
 
   // implements Message ----------------------------------------------
 
-  inline APDNSServersMsgRsp* New() const { return New(NULL); }
+  inline APDNSStatsMsgRsp* New() const { return New(NULL); }
 
-  APDNSServersMsgRsp* New(::google::protobuf::Arena* arena) const;
+  APDNSStatsMsgRsp* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const APDNSServersMsgRsp& from);
-  void MergeFrom(const APDNSServersMsgRsp& from);
+  void CopyFrom(const APDNSStatsMsgRsp& from);
+  void MergeFrom(const APDNSStatsMsgRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -645,8 +784,8 @@ class APDNSServersMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(APDNSServersMsgRsp* other);
-  void UnsafeMergeFrom(const APDNSServersMsgRsp& from);
+  void InternalSwap(APDNSStatsMsgRsp* other);
+  void UnsafeMergeFrom(const APDNSStatsMsgRsp& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -662,19 +801,10 @@ class APDNSServersMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated string IP = 2;
+  // repeated string IP = 1;
   int ip_size() const;
   void clear_ip();
-  static const int kIPFieldNumber = 2;
+  static const int kIPFieldNumber = 1;
   const ::std::string& ip(int index) const;
   ::std::string* mutable_ip(int index);
   void set_ip(int index, const ::std::string& value);
@@ -687,12 +817,11 @@ class APDNSServersMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
   const ::google::protobuf::RepeatedPtrField< ::std::string>& ip() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ip();
 
-  // @@protoc_insertion_point(class_scope:access_point.APDNSServersMsgRsp)
+  // @@protoc_insertion_point(class_scope:access_point.APDNSStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> ip_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -701,7 +830,7 @@ class APDNSServersMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   void InitAsDefaultInstance();
 };
-extern ::google::protobuf::internal::ExplicitlyConstructed<APDNSServersMsgRsp> APDNSServersMsgRsp_default_instance_;
+extern ::google::protobuf::internal::ExplicitlyConstructed<APDNSStatsMsgRsp> APDNSStatsMsgRsp_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -865,34 +994,34 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<IPv4Route> IPv4Route_
 
 // -------------------------------------------------------------------
 
-class APRoutesMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APRoutesMsgRsp) */ {
+class APRoutingStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APRoutingStatsMsgRsp) */ {
  public:
-  APRoutesMsgRsp();
-  virtual ~APRoutesMsgRsp();
+  APRoutingStatsMsgRsp();
+  virtual ~APRoutingStatsMsgRsp();
 
-  APRoutesMsgRsp(const APRoutesMsgRsp& from);
+  APRoutingStatsMsgRsp(const APRoutingStatsMsgRsp& from);
 
-  inline APRoutesMsgRsp& operator=(const APRoutesMsgRsp& from) {
+  inline APRoutingStatsMsgRsp& operator=(const APRoutingStatsMsgRsp& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const APRoutesMsgRsp& default_instance();
+  static const APRoutingStatsMsgRsp& default_instance();
 
-  static const APRoutesMsgRsp* internal_default_instance();
+  static const APRoutingStatsMsgRsp* internal_default_instance();
 
-  void Swap(APRoutesMsgRsp* other);
+  void Swap(APRoutingStatsMsgRsp* other);
 
   // implements Message ----------------------------------------------
 
-  inline APRoutesMsgRsp* New() const { return New(NULL); }
+  inline APRoutingStatsMsgRsp* New() const { return New(NULL); }
 
-  APRoutesMsgRsp* New(::google::protobuf::Arena* arena) const;
+  APRoutingStatsMsgRsp* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const APRoutesMsgRsp& from);
-  void MergeFrom(const APRoutesMsgRsp& from);
+  void CopyFrom(const APRoutingStatsMsgRsp& from);
+  void MergeFrom(const APRoutingStatsMsgRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -911,8 +1040,8 @@ class APRoutesMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(APRoutesMsgRsp* other);
-  void UnsafeMergeFrom(const APRoutesMsgRsp& from);
+  void InternalSwap(APRoutingStatsMsgRsp* other);
+  void UnsafeMergeFrom(const APRoutingStatsMsgRsp& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -928,19 +1057,10 @@ class APRoutesMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated .access_point.IPv4Route IPv4Routes = 2;
+  // repeated .access_point.IPv4Route IPv4Routes = 1;
   int ipv4routes_size() const;
   void clear_ipv4routes();
-  static const int kIPv4RoutesFieldNumber = 2;
+  static const int kIPv4RoutesFieldNumber = 1;
   const ::access_point::IPv4Route& ipv4routes(int index) const;
   ::access_point::IPv4Route* mutable_ipv4routes(int index);
   ::access_point::IPv4Route* add_ipv4routes();
@@ -949,12 +1069,11 @@ class APRoutesMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_
   const ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >&
       ipv4routes() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APRoutesMsgRsp)
+  // @@protoc_insertion_point(class_scope:access_point.APRoutingStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route > ipv4routes_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -963,7 +1082,7 @@ class APRoutesMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_
 
   void InitAsDefaultInstance();
 };
-extern ::google::protobuf::internal::ExplicitlyConstructed<APRoutesMsgRsp> APRoutesMsgRsp_default_instance_;
+extern ::google::protobuf::internal::ExplicitlyConstructed<APRoutingStatsMsgRsp> APRoutingStatsMsgRsp_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -1363,19 +1482,10 @@ class APWLANStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated .access_point.WLANEntry WLANEntries = 2;
+  // repeated .access_point.WLANEntry WLANEntries = 1;
   int wlanentries_size() const;
   void clear_wlanentries();
-  static const int kWLANEntriesFieldNumber = 2;
+  static const int kWLANEntriesFieldNumber = 1;
   const ::access_point::WLANEntry& wlanentries(int index) const;
   ::access_point::WLANEntry* mutable_wlanentries(int index);
   ::access_point::WLANEntry* add_wlanentries();
@@ -1389,7 +1499,6 @@ class APWLANStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inserti
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry > wlanentries_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -1989,19 +2098,10 @@ class APRadioStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated .access_point.RadioEntry Radios = 2;
+  // repeated .access_point.RadioEntry Radios = 1;
   int radios_size() const;
   void clear_radios();
-  static const int kRadiosFieldNumber = 2;
+  static const int kRadiosFieldNumber = 1;
   const ::access_point::RadioEntry& radios(int index) const;
   ::access_point::RadioEntry* mutable_radios(int index);
   ::access_point::RadioEntry* add_radios();
@@ -2015,7 +2115,6 @@ class APRadioStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry > radios_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2288,19 +2387,10 @@ class APClientStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated .access_point.APClientEntry Clients = 2;
+  // repeated .access_point.APClientEntry Clients = 1;
   int clients_size() const;
   void clear_clients();
-  static const int kClientsFieldNumber = 2;
+  static const int kClientsFieldNumber = 1;
   const ::access_point::APClientEntry& clients(int index) const;
   ::access_point::APClientEntry* mutable_clients(int index);
   ::access_point::APClientEntry* add_clients();
@@ -2314,7 +2404,6 @@ class APClientStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry > clients_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2537,19 +2626,10 @@ class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
-  bool has_errstatus() const;
-  void clear_errstatus();
-  static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
-
-  // repeated .access_point.APInterfaceEntry Interfaces = 2;
+  // repeated .access_point.APInterfaceEntry Interfaces = 1;
   int interfaces_size() const;
   void clear_interfaces();
-  static const int kInterfacesFieldNumber = 2;
+  static const int kInterfacesFieldNumber = 1;
   const ::access_point::APInterfaceEntry& interfaces(int index) const;
   ::access_point::APInterfaceEntry* mutable_interfaces(int index);
   ::access_point::APInterfaceEntry* add_interfaces();
@@ -2563,7 +2643,6 @@ class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_in
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry > interfaces_;
-  ::access_point::APErrorStatus* errstatus_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2574,61 +2653,286 @@ class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_in
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<APInterfaceStatsMsgRsp> APInterfaceStatsMsgRsp_default_instance_;
 
+// -------------------------------------------------------------------
+
+class APStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsMsgRsp) */ {
+ public:
+  APStatsMsgRsp();
+  virtual ~APStatsMsgRsp();
+
+  APStatsMsgRsp(const APStatsMsgRsp& from);
+
+  inline APStatsMsgRsp& operator=(const APStatsMsgRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APStatsMsgRsp& default_instance();
+
+  enum MsgRspCase {
+    kSystemStats = 2,
+    kMemoryStats = 3,
+    kInterfaceStats = 4,
+    kRoutingStats = 5,
+    kDNSStats = 6,
+    kRadioStats = 7,
+    kWLANStats = 8,
+    kClientStats = 9,
+    MSG_RSP_NOT_SET = 0,
+  };
+
+  static const APStatsMsgRsp* internal_default_instance();
+
+  void Swap(APStatsMsgRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APStatsMsgRsp* New() const { return New(NULL); }
+
+  APStatsMsgRsp* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APStatsMsgRsp& from);
+  void MergeFrom(const APStatsMsgRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APStatsMsgRsp* other);
+  void UnsafeMergeFrom(const APStatsMsgRsp& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .access_point.APErrorStatus ErrStatus = 1;
+  bool has_errstatus() const;
+  void clear_errstatus();
+  static const int kErrStatusFieldNumber = 1;
+  const ::access_point::APErrorStatus& errstatus() const;
+  ::access_point::APErrorStatus* mutable_errstatus();
+  ::access_point::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
+
+  // optional .access_point.APSystemStatsMsgRsp SystemStats = 2;
+  bool has_systemstats() const;
+  void clear_systemstats();
+  static const int kSystemStatsFieldNumber = 2;
+  const ::access_point::APSystemStatsMsgRsp& systemstats() const;
+  ::access_point::APSystemStatsMsgRsp* mutable_systemstats();
+  ::access_point::APSystemStatsMsgRsp* release_systemstats();
+  void set_allocated_systemstats(::access_point::APSystemStatsMsgRsp* systemstats);
+
+  // optional .access_point.APMemoryStatsMsgRsp MemoryStats = 3;
+  bool has_memorystats() const;
+  void clear_memorystats();
+  static const int kMemoryStatsFieldNumber = 3;
+  const ::access_point::APMemoryStatsMsgRsp& memorystats() const;
+  ::access_point::APMemoryStatsMsgRsp* mutable_memorystats();
+  ::access_point::APMemoryStatsMsgRsp* release_memorystats();
+  void set_allocated_memorystats(::access_point::APMemoryStatsMsgRsp* memorystats);
+
+  // optional .access_point.APInterfaceStatsMsgRsp InterfaceStats = 4;
+  bool has_interfacestats() const;
+  void clear_interfacestats();
+  static const int kInterfaceStatsFieldNumber = 4;
+  const ::access_point::APInterfaceStatsMsgRsp& interfacestats() const;
+  ::access_point::APInterfaceStatsMsgRsp* mutable_interfacestats();
+  ::access_point::APInterfaceStatsMsgRsp* release_interfacestats();
+  void set_allocated_interfacestats(::access_point::APInterfaceStatsMsgRsp* interfacestats);
+
+  // optional .access_point.APRoutingStatsMsgRsp RoutingStats = 5;
+  bool has_routingstats() const;
+  void clear_routingstats();
+  static const int kRoutingStatsFieldNumber = 5;
+  const ::access_point::APRoutingStatsMsgRsp& routingstats() const;
+  ::access_point::APRoutingStatsMsgRsp* mutable_routingstats();
+  ::access_point::APRoutingStatsMsgRsp* release_routingstats();
+  void set_allocated_routingstats(::access_point::APRoutingStatsMsgRsp* routingstats);
+
+  // optional .access_point.APDNSStatsMsgRsp DNSStats = 6;
+  bool has_dnsstats() const;
+  void clear_dnsstats();
+  static const int kDNSStatsFieldNumber = 6;
+  const ::access_point::APDNSStatsMsgRsp& dnsstats() const;
+  ::access_point::APDNSStatsMsgRsp* mutable_dnsstats();
+  ::access_point::APDNSStatsMsgRsp* release_dnsstats();
+  void set_allocated_dnsstats(::access_point::APDNSStatsMsgRsp* dnsstats);
+
+  // optional .access_point.APRadioStatsMsgRsp RadioStats = 7;
+  bool has_radiostats() const;
+  void clear_radiostats();
+  static const int kRadioStatsFieldNumber = 7;
+  const ::access_point::APRadioStatsMsgRsp& radiostats() const;
+  ::access_point::APRadioStatsMsgRsp* mutable_radiostats();
+  ::access_point::APRadioStatsMsgRsp* release_radiostats();
+  void set_allocated_radiostats(::access_point::APRadioStatsMsgRsp* radiostats);
+
+  // optional .access_point.APWLANStatsMsgRsp WLANStats = 8;
+  bool has_wlanstats() const;
+  void clear_wlanstats();
+  static const int kWLANStatsFieldNumber = 8;
+  const ::access_point::APWLANStatsMsgRsp& wlanstats() const;
+  ::access_point::APWLANStatsMsgRsp* mutable_wlanstats();
+  ::access_point::APWLANStatsMsgRsp* release_wlanstats();
+  void set_allocated_wlanstats(::access_point::APWLANStatsMsgRsp* wlanstats);
+
+  // optional .access_point.APClientStatsMsgRsp ClientStats = 9;
+  bool has_clientstats() const;
+  void clear_clientstats();
+  static const int kClientStatsFieldNumber = 9;
+  const ::access_point::APClientStatsMsgRsp& clientstats() const;
+  ::access_point::APClientStatsMsgRsp* mutable_clientstats();
+  ::access_point::APClientStatsMsgRsp* release_clientstats();
+  void set_allocated_clientstats(::access_point::APClientStatsMsgRsp* clientstats);
+
+  MsgRspCase msg_rsp_case() const;
+  // @@protoc_insertion_point(class_scope:access_point.APStatsMsgRsp)
+ private:
+  inline void set_has_systemstats();
+  inline void set_has_memorystats();
+  inline void set_has_interfacestats();
+  inline void set_has_routingstats();
+  inline void set_has_dnsstats();
+  inline void set_has_radiostats();
+  inline void set_has_wlanstats();
+  inline void set_has_clientstats();
+
+  inline bool has_msg_rsp() const;
+  void clear_msg_rsp();
+  inline void clear_has_msg_rsp();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::access_point::APErrorStatus* errstatus_;
+  union MsgRspUnion {
+    MsgRspUnion() {}
+    ::access_point::APSystemStatsMsgRsp* systemstats_;
+    ::access_point::APMemoryStatsMsgRsp* memorystats_;
+    ::access_point::APInterfaceStatsMsgRsp* interfacestats_;
+    ::access_point::APRoutingStatsMsgRsp* routingstats_;
+    ::access_point::APDNSStatsMsgRsp* dnsstats_;
+    ::access_point::APRadioStatsMsgRsp* radiostats_;
+    ::access_point::APWLANStatsMsgRsp* wlanstats_;
+    ::access_point::APClientStatsMsgRsp* clientstats_;
+  } msg_rsp_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsMsgRsp> APStatsMsgRsp_default_instance_;
+
 // ===================================================================
 
 
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// APStatsGetMsg
+// APStatsRequest
 
-inline const APStatsGetMsg* APStatsGetMsg::internal_default_instance() {
-  return &APStatsGetMsg_default_instance_.get();
+// optional .access_point.APStatsType StatsType = 1;
+inline void APStatsRequest::clear_statstype() {
+  statstype_ = 0;
+}
+inline ::access_point::APStatsType APStatsRequest::statstype() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsRequest.StatsType)
+  return static_cast< ::access_point::APStatsType >(statstype_);
+}
+inline void APStatsRequest::set_statstype(::access_point::APStatsType value) {
+  
+  statstype_ = value;
+  // @@protoc_insertion_point(field_set:access_point.APStatsRequest.StatsType)
+}
+
+// optional uint32 TimeInterval = 2;
+inline void APStatsRequest::clear_timeinterval() {
+  timeinterval_ = 0u;
+}
+inline ::google::protobuf::uint32 APStatsRequest::timeinterval() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsRequest.TimeInterval)
+  return timeinterval_;
+}
+inline void APStatsRequest::set_timeinterval(::google::protobuf::uint32 value) {
+  
+  timeinterval_ = value;
+  // @@protoc_insertion_point(field_set:access_point.APStatsRequest.TimeInterval)
+}
+
+inline const APStatsRequest* APStatsRequest::internal_default_instance() {
+  return &APStatsRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// APStatsMsg
+
+// repeated .access_point.APStatsRequest StatsRequest = 1;
+inline int APStatsMsg::statsrequest_size() const {
+  return statsrequest_.size();
+}
+inline void APStatsMsg::clear_statsrequest() {
+  statsrequest_.Clear();
+}
+inline const ::access_point::APStatsRequest& APStatsMsg::statsrequest(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsg.StatsRequest)
+  return statsrequest_.Get(index);
+}
+inline ::access_point::APStatsRequest* APStatsMsg::mutable_statsrequest(int index) {
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsg.StatsRequest)
+  return statsrequest_.Mutable(index);
+}
+inline ::access_point::APStatsRequest* APStatsMsg::add_statsrequest() {
+  // @@protoc_insertion_point(field_add:access_point.APStatsMsg.StatsRequest)
+  return statsrequest_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >*
+APStatsMsg::mutable_statsrequest() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.APStatsMsg.StatsRequest)
+  return &statsrequest_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >&
+APStatsMsg::statsrequest() const {
+  // @@protoc_insertion_point(field_list:access_point.APStatsMsg.StatsRequest)
+  return statsrequest_;
+}
+
+inline const APStatsMsg* APStatsMsg::internal_default_instance() {
+  return &APStatsMsg_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
 // APSystemStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APSystemStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APSystemStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APSystemStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APSystemStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APSystemStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APSystemStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.ErrStatus)
-}
-
-// optional string ID = 2;
+// optional string ID = 1;
 inline void APSystemStatsMsgRsp::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2672,7 +2976,7 @@ inline void APSystemStatsMsgRsp::set_allocated_id(::std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.ID)
 }
 
-// optional uint32 Uptime = 3;
+// optional uint32 Uptime = 2;
 inline void APSystemStatsMsgRsp::clear_uptime() {
   uptime_ = 0u;
 }
@@ -2686,7 +2990,7 @@ inline void APSystemStatsMsgRsp::set_uptime(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.Uptime)
 }
 
-// optional string When = 4;
+// optional string When = 3;
 inline void APSystemStatsMsgRsp::clear_when() {
   when_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2730,7 +3034,7 @@ inline void APSystemStatsMsgRsp::set_allocated_when(::std::string* when) {
   // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.When)
 }
 
-// optional string SerialNumber = 5;
+// optional string SerialNumber = 4;
 inline void APSystemStatsMsgRsp::clear_serialnumber() {
   serialnumber_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2774,7 +3078,7 @@ inline void APSystemStatsMsgRsp::set_allocated_serialnumber(::std::string* seria
   // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.SerialNumber)
 }
 
-// optional string ProductId = 6;
+// optional string ProductId = 5;
 inline void APSystemStatsMsgRsp::clear_productid() {
   productid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2953,46 +3257,7 @@ inline const SlabInfo* SlabInfo::internal_default_instance() {
 
 // APMemoryStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APMemoryStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APMemoryStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APMemoryStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APMemoryStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APMemoryStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APMemoryStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APMemoryStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APMemoryStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APMemoryStatsMsgRsp.ErrStatus)
-}
-
-// optional .access_point.MemInfo ProcMemInfo = 2;
+// optional .access_point.MemInfo ProcMemInfo = 1;
 inline bool APMemoryStatsMsgRsp::has_procmeminfo() const {
   return this != internal_default_instance() && procmeminfo_ != NULL;
 }
@@ -3031,7 +3296,7 @@ inline void APMemoryStatsMsgRsp::set_allocated_procmeminfo(::access_point::MemIn
   // @@protoc_insertion_point(field_set_allocated:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
 }
 
-// optional .access_point.SlabInfo TopProcSlabInfo = 3;
+// optional .access_point.SlabInfo TopProcSlabInfo = 2;
 inline bool APMemoryStatsMsgRsp::has_topprocslabinfo() const {
   return this != internal_default_instance() && topprocslabinfo_ != NULL;
 }
@@ -3075,104 +3340,65 @@ inline const APMemoryStatsMsgRsp* APMemoryStatsMsgRsp::internal_default_instance
 }
 // -------------------------------------------------------------------
 
-// APDNSServersMsgRsp
+// APDNSStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APDNSServersMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APDNSServersMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APDNSServersMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APDNSServersMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APDNSServersMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APDNSServersMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APDNSServersMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APDNSServersMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APDNSServersMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APDNSServersMsgRsp.ErrStatus)
-}
-
-// repeated string IP = 2;
-inline int APDNSServersMsgRsp::ip_size() const {
+// repeated string IP = 1;
+inline int APDNSStatsMsgRsp::ip_size() const {
   return ip_.size();
 }
-inline void APDNSServersMsgRsp::clear_ip() {
+inline void APDNSStatsMsgRsp::clear_ip() {
   ip_.Clear();
 }
-inline const ::std::string& APDNSServersMsgRsp::ip(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APDNSServersMsgRsp.IP)
+inline const ::std::string& APDNSStatsMsgRsp::ip(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.APDNSStatsMsgRsp.IP)
   return ip_.Get(index);
 }
-inline ::std::string* APDNSServersMsgRsp::mutable_ip(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APDNSServersMsgRsp.IP)
+inline ::std::string* APDNSStatsMsgRsp::mutable_ip(int index) {
+  // @@protoc_insertion_point(field_mutable:access_point.APDNSStatsMsgRsp.IP)
   return ip_.Mutable(index);
 }
-inline void APDNSServersMsgRsp::set_ip(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APDNSServersMsgRsp.IP)
+inline void APDNSStatsMsgRsp::set_ip(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:access_point.APDNSStatsMsgRsp.IP)
   ip_.Mutable(index)->assign(value);
 }
-inline void APDNSServersMsgRsp::set_ip(int index, const char* value) {
+inline void APDNSStatsMsgRsp::set_ip(int index, const char* value) {
   ip_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:access_point.APDNSServersMsgRsp.IP)
+  // @@protoc_insertion_point(field_set_char:access_point.APDNSStatsMsgRsp.IP)
 }
-inline void APDNSServersMsgRsp::set_ip(int index, const char* value, size_t size) {
+inline void APDNSStatsMsgRsp::set_ip(int index, const char* value, size_t size) {
   ip_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:access_point.APDNSServersMsgRsp.IP)
+  // @@protoc_insertion_point(field_set_pointer:access_point.APDNSStatsMsgRsp.IP)
 }
-inline ::std::string* APDNSServersMsgRsp::add_ip() {
-  // @@protoc_insertion_point(field_add_mutable:access_point.APDNSServersMsgRsp.IP)
+inline ::std::string* APDNSStatsMsgRsp::add_ip() {
+  // @@protoc_insertion_point(field_add_mutable:access_point.APDNSStatsMsgRsp.IP)
   return ip_.Add();
 }
-inline void APDNSServersMsgRsp::add_ip(const ::std::string& value) {
+inline void APDNSStatsMsgRsp::add_ip(const ::std::string& value) {
   ip_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:access_point.APDNSServersMsgRsp.IP)
+  // @@protoc_insertion_point(field_add:access_point.APDNSStatsMsgRsp.IP)
 }
-inline void APDNSServersMsgRsp::add_ip(const char* value) {
+inline void APDNSStatsMsgRsp::add_ip(const char* value) {
   ip_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:access_point.APDNSServersMsgRsp.IP)
+  // @@protoc_insertion_point(field_add_char:access_point.APDNSStatsMsgRsp.IP)
 }
-inline void APDNSServersMsgRsp::add_ip(const char* value, size_t size) {
+inline void APDNSStatsMsgRsp::add_ip(const char* value, size_t size) {
   ip_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:access_point.APDNSServersMsgRsp.IP)
+  // @@protoc_insertion_point(field_add_pointer:access_point.APDNSStatsMsgRsp.IP)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-APDNSServersMsgRsp::ip() const {
-  // @@protoc_insertion_point(field_list:access_point.APDNSServersMsgRsp.IP)
+APDNSStatsMsgRsp::ip() const {
+  // @@protoc_insertion_point(field_list:access_point.APDNSStatsMsgRsp.IP)
   return ip_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-APDNSServersMsgRsp::mutable_ip() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APDNSServersMsgRsp.IP)
+APDNSStatsMsgRsp::mutable_ip() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.APDNSStatsMsgRsp.IP)
   return &ip_;
 }
 
-inline const APDNSServersMsgRsp* APDNSServersMsgRsp::internal_default_instance() {
-  return &APDNSServersMsgRsp_default_instance_.get();
+inline const APDNSStatsMsgRsp* APDNSStatsMsgRsp::internal_default_instance() {
+  return &APDNSStatsMsgRsp_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -3445,79 +3671,40 @@ inline const IPv4Route* IPv4Route::internal_default_instance() {
 }
 // -------------------------------------------------------------------
 
-// APRoutesMsgRsp
+// APRoutingStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APRoutesMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APRoutesMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APRoutesMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APRoutesMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APRoutesMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APRoutesMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APRoutesMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APRoutesMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APRoutesMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APRoutesMsgRsp.ErrStatus)
-}
-
-// repeated .access_point.IPv4Route IPv4Routes = 2;
-inline int APRoutesMsgRsp::ipv4routes_size() const {
+// repeated .access_point.IPv4Route IPv4Routes = 1;
+inline int APRoutingStatsMsgRsp::ipv4routes_size() const {
   return ipv4routes_.size();
 }
-inline void APRoutesMsgRsp::clear_ipv4routes() {
+inline void APRoutingStatsMsgRsp::clear_ipv4routes() {
   ipv4routes_.Clear();
 }
-inline const ::access_point::IPv4Route& APRoutesMsgRsp::ipv4routes(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APRoutesMsgRsp.IPv4Routes)
+inline const ::access_point::IPv4Route& APRoutingStatsMsgRsp::ipv4routes(int index) const {
+  // @@protoc_insertion_point(field_get:access_point.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Get(index);
 }
-inline ::access_point::IPv4Route* APRoutesMsgRsp::mutable_ipv4routes(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APRoutesMsgRsp.IPv4Routes)
+inline ::access_point::IPv4Route* APRoutingStatsMsgRsp::mutable_ipv4routes(int index) {
+  // @@protoc_insertion_point(field_mutable:access_point.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Mutable(index);
 }
-inline ::access_point::IPv4Route* APRoutesMsgRsp::add_ipv4routes() {
-  // @@protoc_insertion_point(field_add:access_point.APRoutesMsgRsp.IPv4Routes)
+inline ::access_point::IPv4Route* APRoutingStatsMsgRsp::add_ipv4routes() {
+  // @@protoc_insertion_point(field_add:access_point.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >*
-APRoutesMsgRsp::mutable_ipv4routes() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APRoutesMsgRsp.IPv4Routes)
+APRoutingStatsMsgRsp::mutable_ipv4routes() {
+  // @@protoc_insertion_point(field_mutable_list:access_point.APRoutingStatsMsgRsp.IPv4Routes)
   return &ipv4routes_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >&
-APRoutesMsgRsp::ipv4routes() const {
-  // @@protoc_insertion_point(field_list:access_point.APRoutesMsgRsp.IPv4Routes)
+APRoutingStatsMsgRsp::ipv4routes() const {
+  // @@protoc_insertion_point(field_list:access_point.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_;
 }
 
-inline const APRoutesMsgRsp* APRoutesMsgRsp::internal_default_instance() {
-  return &APRoutesMsgRsp_default_instance_.get();
+inline const APRoutingStatsMsgRsp* APRoutingStatsMsgRsp::internal_default_instance() {
+  return &APRoutingStatsMsgRsp_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -3854,46 +4041,7 @@ inline const WLANEntry* WLANEntry::internal_default_instance() {
 
 // APWLANStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APWLANStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APWLANStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APWLANStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APWLANStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APWLANStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APWLANStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APWLANStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APWLANStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APWLANStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APWLANStatsMsgRsp.ErrStatus)
-}
-
-// repeated .access_point.WLANEntry WLANEntries = 2;
+// repeated .access_point.WLANEntry WLANEntries = 1;
 inline int APWLANStatsMsgRsp::wlanentries_size() const {
   return wlanentries_.size();
 }
@@ -4473,46 +4621,7 @@ inline const RadioEntry* RadioEntry::internal_default_instance() {
 
 // APRadioStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APRadioStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APRadioStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APRadioStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APRadioStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APRadioStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APRadioStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APRadioStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APRadioStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APRadioStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APRadioStatsMsgRsp.ErrStatus)
-}
-
-// repeated .access_point.RadioEntry Radios = 2;
+// repeated .access_point.RadioEntry Radios = 1;
 inline int APRadioStatsMsgRsp::radios_size() const {
   return radios_.size();
 }
@@ -4853,46 +4962,7 @@ inline const APClientEntry* APClientEntry::internal_default_instance() {
 
 // APClientStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APClientStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APClientStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APClientStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APClientStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APClientStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APClientStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APClientStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APClientStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APClientStatsMsgRsp.ErrStatus)
-}
-
-// repeated .access_point.APClientEntry Clients = 2;
+// repeated .access_point.APClientEntry Clients = 1;
 inline int APClientStatsMsgRsp::clients_size() const {
   return clients_.size();
 }
@@ -5092,46 +5162,7 @@ inline const APInterfaceEntry* APInterfaceEntry::internal_default_instance() {
 
 // APInterfaceStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
-inline bool APInterfaceStatsMsgRsp::has_errstatus() const {
-  return this != internal_default_instance() && errstatus_ != NULL;
-}
-inline void APInterfaceStatsMsgRsp::clear_errstatus() {
-  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
-  errstatus_ = NULL;
-}
-inline const ::access_point::APErrorStatus& APInterfaceStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceStatsMsgRsp.ErrStatus)
-  return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
-}
-inline ::access_point::APErrorStatus* APInterfaceStatsMsgRsp::mutable_errstatus() {
-  
-  if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
-  }
-  // @@protoc_insertion_point(field_mutable:access_point.APInterfaceStatsMsgRsp.ErrStatus)
-  return errstatus_;
-}
-inline ::access_point::APErrorStatus* APInterfaceStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APInterfaceStatsMsgRsp.ErrStatus)
-  
-  ::access_point::APErrorStatus* temp = errstatus_;
-  errstatus_ = NULL;
-  return temp;
-}
-inline void APInterfaceStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
-  delete errstatus_;
-  errstatus_ = errstatus;
-  if (errstatus) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APInterfaceStatsMsgRsp.ErrStatus)
-}
-
-// repeated .access_point.APInterfaceEntry Interfaces = 2;
+// repeated .access_point.APInterfaceEntry Interfaces = 1;
 inline int APInterfaceStatsMsgRsp::interfaces_size() const {
   return interfaces_.size();
 }
@@ -5164,7 +5195,450 @@ APInterfaceStatsMsgRsp::interfaces() const {
 inline const APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::internal_default_instance() {
   return &APInterfaceStatsMsgRsp_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// APStatsMsgRsp
+
+// optional .access_point.APErrorStatus ErrStatus = 1;
+inline bool APStatsMsgRsp::has_errstatus() const {
+  return this != internal_default_instance() && errstatus_ != NULL;
+}
+inline void APStatsMsgRsp::clear_errstatus() {
+  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
+  errstatus_ = NULL;
+}
+inline const ::access_point::APErrorStatus& APStatsMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.ErrStatus)
+  return errstatus_ != NULL ? *errstatus_
+                         : *::access_point::APErrorStatus::internal_default_instance();
+}
+inline ::access_point::APErrorStatus* APStatsMsgRsp::mutable_errstatus() {
+  
+  if (errstatus_ == NULL) {
+    errstatus_ = new ::access_point::APErrorStatus;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.ErrStatus)
+  return errstatus_;
+}
+inline ::access_point::APErrorStatus* APStatsMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.ErrStatus)
+  
+  ::access_point::APErrorStatus* temp = errstatus_;
+  errstatus_ = NULL;
+  return temp;
+}
+inline void APStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+  delete errstatus_;
+  errstatus_ = errstatus;
+  if (errstatus) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.ErrStatus)
+}
+
+// optional .access_point.APSystemStatsMsgRsp SystemStats = 2;
+inline bool APStatsMsgRsp::has_systemstats() const {
+  return msg_rsp_case() == kSystemStats;
+}
+inline void APStatsMsgRsp::set_has_systemstats() {
+  _oneof_case_[0] = kSystemStats;
+}
+inline void APStatsMsgRsp::clear_systemstats() {
+  if (has_systemstats()) {
+    delete msg_rsp_.systemstats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APSystemStatsMsgRsp& APStatsMsgRsp::systemstats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.SystemStats)
+  return has_systemstats()
+      ? *msg_rsp_.systemstats_
+      : ::access_point::APSystemStatsMsgRsp::default_instance();
+}
+inline ::access_point::APSystemStatsMsgRsp* APStatsMsgRsp::mutable_systemstats() {
+  if (!has_systemstats()) {
+    clear_msg_rsp();
+    set_has_systemstats();
+    msg_rsp_.systemstats_ = new ::access_point::APSystemStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.SystemStats)
+  return msg_rsp_.systemstats_;
+}
+inline ::access_point::APSystemStatsMsgRsp* APStatsMsgRsp::release_systemstats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.SystemStats)
+  if (has_systemstats()) {
+    clear_has_msg_rsp();
+    ::access_point::APSystemStatsMsgRsp* temp = msg_rsp_.systemstats_;
+    msg_rsp_.systemstats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_systemstats(::access_point::APSystemStatsMsgRsp* systemstats) {
+  clear_msg_rsp();
+  if (systemstats) {
+    set_has_systemstats();
+    msg_rsp_.systemstats_ = systemstats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.SystemStats)
+}
+
+// optional .access_point.APMemoryStatsMsgRsp MemoryStats = 3;
+inline bool APStatsMsgRsp::has_memorystats() const {
+  return msg_rsp_case() == kMemoryStats;
+}
+inline void APStatsMsgRsp::set_has_memorystats() {
+  _oneof_case_[0] = kMemoryStats;
+}
+inline void APStatsMsgRsp::clear_memorystats() {
+  if (has_memorystats()) {
+    delete msg_rsp_.memorystats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APMemoryStatsMsgRsp& APStatsMsgRsp::memorystats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.MemoryStats)
+  return has_memorystats()
+      ? *msg_rsp_.memorystats_
+      : ::access_point::APMemoryStatsMsgRsp::default_instance();
+}
+inline ::access_point::APMemoryStatsMsgRsp* APStatsMsgRsp::mutable_memorystats() {
+  if (!has_memorystats()) {
+    clear_msg_rsp();
+    set_has_memorystats();
+    msg_rsp_.memorystats_ = new ::access_point::APMemoryStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.MemoryStats)
+  return msg_rsp_.memorystats_;
+}
+inline ::access_point::APMemoryStatsMsgRsp* APStatsMsgRsp::release_memorystats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.MemoryStats)
+  if (has_memorystats()) {
+    clear_has_msg_rsp();
+    ::access_point::APMemoryStatsMsgRsp* temp = msg_rsp_.memorystats_;
+    msg_rsp_.memorystats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_memorystats(::access_point::APMemoryStatsMsgRsp* memorystats) {
+  clear_msg_rsp();
+  if (memorystats) {
+    set_has_memorystats();
+    msg_rsp_.memorystats_ = memorystats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.MemoryStats)
+}
+
+// optional .access_point.APInterfaceStatsMsgRsp InterfaceStats = 4;
+inline bool APStatsMsgRsp::has_interfacestats() const {
+  return msg_rsp_case() == kInterfaceStats;
+}
+inline void APStatsMsgRsp::set_has_interfacestats() {
+  _oneof_case_[0] = kInterfaceStats;
+}
+inline void APStatsMsgRsp::clear_interfacestats() {
+  if (has_interfacestats()) {
+    delete msg_rsp_.interfacestats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APInterfaceStatsMsgRsp& APStatsMsgRsp::interfacestats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.InterfaceStats)
+  return has_interfacestats()
+      ? *msg_rsp_.interfacestats_
+      : ::access_point::APInterfaceStatsMsgRsp::default_instance();
+}
+inline ::access_point::APInterfaceStatsMsgRsp* APStatsMsgRsp::mutable_interfacestats() {
+  if (!has_interfacestats()) {
+    clear_msg_rsp();
+    set_has_interfacestats();
+    msg_rsp_.interfacestats_ = new ::access_point::APInterfaceStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.InterfaceStats)
+  return msg_rsp_.interfacestats_;
+}
+inline ::access_point::APInterfaceStatsMsgRsp* APStatsMsgRsp::release_interfacestats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.InterfaceStats)
+  if (has_interfacestats()) {
+    clear_has_msg_rsp();
+    ::access_point::APInterfaceStatsMsgRsp* temp = msg_rsp_.interfacestats_;
+    msg_rsp_.interfacestats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_interfacestats(::access_point::APInterfaceStatsMsgRsp* interfacestats) {
+  clear_msg_rsp();
+  if (interfacestats) {
+    set_has_interfacestats();
+    msg_rsp_.interfacestats_ = interfacestats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.InterfaceStats)
+}
+
+// optional .access_point.APRoutingStatsMsgRsp RoutingStats = 5;
+inline bool APStatsMsgRsp::has_routingstats() const {
+  return msg_rsp_case() == kRoutingStats;
+}
+inline void APStatsMsgRsp::set_has_routingstats() {
+  _oneof_case_[0] = kRoutingStats;
+}
+inline void APStatsMsgRsp::clear_routingstats() {
+  if (has_routingstats()) {
+    delete msg_rsp_.routingstats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APRoutingStatsMsgRsp& APStatsMsgRsp::routingstats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.RoutingStats)
+  return has_routingstats()
+      ? *msg_rsp_.routingstats_
+      : ::access_point::APRoutingStatsMsgRsp::default_instance();
+}
+inline ::access_point::APRoutingStatsMsgRsp* APStatsMsgRsp::mutable_routingstats() {
+  if (!has_routingstats()) {
+    clear_msg_rsp();
+    set_has_routingstats();
+    msg_rsp_.routingstats_ = new ::access_point::APRoutingStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.RoutingStats)
+  return msg_rsp_.routingstats_;
+}
+inline ::access_point::APRoutingStatsMsgRsp* APStatsMsgRsp::release_routingstats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.RoutingStats)
+  if (has_routingstats()) {
+    clear_has_msg_rsp();
+    ::access_point::APRoutingStatsMsgRsp* temp = msg_rsp_.routingstats_;
+    msg_rsp_.routingstats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_routingstats(::access_point::APRoutingStatsMsgRsp* routingstats) {
+  clear_msg_rsp();
+  if (routingstats) {
+    set_has_routingstats();
+    msg_rsp_.routingstats_ = routingstats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.RoutingStats)
+}
+
+// optional .access_point.APDNSStatsMsgRsp DNSStats = 6;
+inline bool APStatsMsgRsp::has_dnsstats() const {
+  return msg_rsp_case() == kDNSStats;
+}
+inline void APStatsMsgRsp::set_has_dnsstats() {
+  _oneof_case_[0] = kDNSStats;
+}
+inline void APStatsMsgRsp::clear_dnsstats() {
+  if (has_dnsstats()) {
+    delete msg_rsp_.dnsstats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APDNSStatsMsgRsp& APStatsMsgRsp::dnsstats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.DNSStats)
+  return has_dnsstats()
+      ? *msg_rsp_.dnsstats_
+      : ::access_point::APDNSStatsMsgRsp::default_instance();
+}
+inline ::access_point::APDNSStatsMsgRsp* APStatsMsgRsp::mutable_dnsstats() {
+  if (!has_dnsstats()) {
+    clear_msg_rsp();
+    set_has_dnsstats();
+    msg_rsp_.dnsstats_ = new ::access_point::APDNSStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.DNSStats)
+  return msg_rsp_.dnsstats_;
+}
+inline ::access_point::APDNSStatsMsgRsp* APStatsMsgRsp::release_dnsstats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.DNSStats)
+  if (has_dnsstats()) {
+    clear_has_msg_rsp();
+    ::access_point::APDNSStatsMsgRsp* temp = msg_rsp_.dnsstats_;
+    msg_rsp_.dnsstats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_dnsstats(::access_point::APDNSStatsMsgRsp* dnsstats) {
+  clear_msg_rsp();
+  if (dnsstats) {
+    set_has_dnsstats();
+    msg_rsp_.dnsstats_ = dnsstats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.DNSStats)
+}
+
+// optional .access_point.APRadioStatsMsgRsp RadioStats = 7;
+inline bool APStatsMsgRsp::has_radiostats() const {
+  return msg_rsp_case() == kRadioStats;
+}
+inline void APStatsMsgRsp::set_has_radiostats() {
+  _oneof_case_[0] = kRadioStats;
+}
+inline void APStatsMsgRsp::clear_radiostats() {
+  if (has_radiostats()) {
+    delete msg_rsp_.radiostats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APRadioStatsMsgRsp& APStatsMsgRsp::radiostats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.RadioStats)
+  return has_radiostats()
+      ? *msg_rsp_.radiostats_
+      : ::access_point::APRadioStatsMsgRsp::default_instance();
+}
+inline ::access_point::APRadioStatsMsgRsp* APStatsMsgRsp::mutable_radiostats() {
+  if (!has_radiostats()) {
+    clear_msg_rsp();
+    set_has_radiostats();
+    msg_rsp_.radiostats_ = new ::access_point::APRadioStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.RadioStats)
+  return msg_rsp_.radiostats_;
+}
+inline ::access_point::APRadioStatsMsgRsp* APStatsMsgRsp::release_radiostats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.RadioStats)
+  if (has_radiostats()) {
+    clear_has_msg_rsp();
+    ::access_point::APRadioStatsMsgRsp* temp = msg_rsp_.radiostats_;
+    msg_rsp_.radiostats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_radiostats(::access_point::APRadioStatsMsgRsp* radiostats) {
+  clear_msg_rsp();
+  if (radiostats) {
+    set_has_radiostats();
+    msg_rsp_.radiostats_ = radiostats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.RadioStats)
+}
+
+// optional .access_point.APWLANStatsMsgRsp WLANStats = 8;
+inline bool APStatsMsgRsp::has_wlanstats() const {
+  return msg_rsp_case() == kWLANStats;
+}
+inline void APStatsMsgRsp::set_has_wlanstats() {
+  _oneof_case_[0] = kWLANStats;
+}
+inline void APStatsMsgRsp::clear_wlanstats() {
+  if (has_wlanstats()) {
+    delete msg_rsp_.wlanstats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APWLANStatsMsgRsp& APStatsMsgRsp::wlanstats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.WLANStats)
+  return has_wlanstats()
+      ? *msg_rsp_.wlanstats_
+      : ::access_point::APWLANStatsMsgRsp::default_instance();
+}
+inline ::access_point::APWLANStatsMsgRsp* APStatsMsgRsp::mutable_wlanstats() {
+  if (!has_wlanstats()) {
+    clear_msg_rsp();
+    set_has_wlanstats();
+    msg_rsp_.wlanstats_ = new ::access_point::APWLANStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.WLANStats)
+  return msg_rsp_.wlanstats_;
+}
+inline ::access_point::APWLANStatsMsgRsp* APStatsMsgRsp::release_wlanstats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.WLANStats)
+  if (has_wlanstats()) {
+    clear_has_msg_rsp();
+    ::access_point::APWLANStatsMsgRsp* temp = msg_rsp_.wlanstats_;
+    msg_rsp_.wlanstats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_wlanstats(::access_point::APWLANStatsMsgRsp* wlanstats) {
+  clear_msg_rsp();
+  if (wlanstats) {
+    set_has_wlanstats();
+    msg_rsp_.wlanstats_ = wlanstats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.WLANStats)
+}
+
+// optional .access_point.APClientStatsMsgRsp ClientStats = 9;
+inline bool APStatsMsgRsp::has_clientstats() const {
+  return msg_rsp_case() == kClientStats;
+}
+inline void APStatsMsgRsp::set_has_clientstats() {
+  _oneof_case_[0] = kClientStats;
+}
+inline void APStatsMsgRsp::clear_clientstats() {
+  if (has_clientstats()) {
+    delete msg_rsp_.clientstats_;
+    clear_has_msg_rsp();
+  }
+}
+inline  const ::access_point::APClientStatsMsgRsp& APStatsMsgRsp::clientstats() const {
+  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.ClientStats)
+  return has_clientstats()
+      ? *msg_rsp_.clientstats_
+      : ::access_point::APClientStatsMsgRsp::default_instance();
+}
+inline ::access_point::APClientStatsMsgRsp* APStatsMsgRsp::mutable_clientstats() {
+  if (!has_clientstats()) {
+    clear_msg_rsp();
+    set_has_clientstats();
+    msg_rsp_.clientstats_ = new ::access_point::APClientStatsMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.ClientStats)
+  return msg_rsp_.clientstats_;
+}
+inline ::access_point::APClientStatsMsgRsp* APStatsMsgRsp::release_clientstats() {
+  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.ClientStats)
+  if (has_clientstats()) {
+    clear_has_msg_rsp();
+    ::access_point::APClientStatsMsgRsp* temp = msg_rsp_.clientstats_;
+    msg_rsp_.clientstats_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APStatsMsgRsp::set_allocated_clientstats(::access_point::APClientStatsMsgRsp* clientstats) {
+  clear_msg_rsp();
+  if (clientstats) {
+    set_has_clientstats();
+    msg_rsp_.clientstats_ = clientstats;
+  }
+  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.ClientStats)
+}
+
+inline bool APStatsMsgRsp::has_msg_rsp() const {
+  return msg_rsp_case() != MSG_RSP_NOT_SET;
+}
+inline void APStatsMsgRsp::clear_has_msg_rsp() {
+  _oneof_case_[0] = MSG_RSP_NOT_SET;
+}
+inline APStatsMsgRsp::MsgRspCase APStatsMsgRsp::msg_rsp_case() const {
+  return APStatsMsgRsp::MsgRspCase(_oneof_case_[0]);
+}
+inline const APStatsMsgRsp* APStatsMsgRsp::internal_default_instance() {
+  return &APStatsMsgRsp_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -5209,6 +5683,25 @@ inline const APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::internal_default_in
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace access_point
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::access_point::APStatsType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APStatsType>() {
+  return ::access_point::APStatsType_descriptor();
+}
+template <> struct is_proto_enum< ::access_point::StatsTimeInterval> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::access_point::StatsTimeInterval>() {
+  return ::access_point::StatsTimeInterval_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

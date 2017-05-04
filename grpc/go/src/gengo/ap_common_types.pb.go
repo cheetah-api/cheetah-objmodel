@@ -20,14 +20,15 @@ It has these top-level messages:
 	APGlobalNotif
 	APGlobalsGetMsg
 	APGlobalsGetMsgRsp
-	APStatsGetMsg
+	APStatsRequest
+	APStatsMsg
 	APSystemStatsMsgRsp
 	MemInfo
 	SlabInfo
 	APMemoryStatsMsgRsp
-	APDNSServersMsgRsp
+	APDNSStatsMsgRsp
 	IPv4Route
-	APRoutesMsgRsp
+	APRoutingStatsMsgRsp
 	MulticastCounter
 	WLAN
 	WLANEntry
@@ -41,6 +42,7 @@ It has these top-level messages:
 	APClientStatsMsgRsp
 	APInterfaceEntry
 	APInterfaceStatsMsgRsp
+	APStatsMsgRsp
 */
 package access_point
 

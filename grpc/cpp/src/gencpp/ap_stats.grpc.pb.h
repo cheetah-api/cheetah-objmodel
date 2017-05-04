@@ -45,110 +45,32 @@ class APStatistics GRPC_FINAL {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Get system level statistics
-    virtual ::grpc::Status APSystemStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APSystemStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APSystemStatsMsgRsp>> AsyncAPSystemStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APSystemStatsMsgRsp>>(AsyncAPSystemStatsGetRaw(context, request, cq));
+    // Get statistics
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>>(APStatsGetRaw(context, request));
     }
-    // Get memory statistics
-    virtual ::grpc::Status APMemoryStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APMemoryStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APMemoryStatsMsgRsp>> AsyncAPMemoryStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APMemoryStatsMsgRsp>>(AsyncAPMemoryStatsGetRaw(context, request, cq));
-    }
-    // Get DNS servers
-    virtual ::grpc::Status APDNSStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APDNSServersMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APDNSServersMsgRsp>> AsyncAPDNSStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APDNSServersMsgRsp>>(AsyncAPDNSStatsGetRaw(context, request, cq));
-    }
-    // Get routes
-    virtual ::grpc::Status APRoutesStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRoutesMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRoutesMsgRsp>> AsyncAPRoutesStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRoutesMsgRsp>>(AsyncAPRoutesStatsGetRaw(context, request, cq));
-    }
-    // Get radio statistics
-    virtual ::grpc::Status APRadioStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRadioStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRadioStatsMsgRsp>> AsyncAPRadioStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRadioStatsMsgRsp>>(AsyncAPRadioStatsGetRaw(context, request, cq));
-    }
-    // Get WLAN statistics
-    virtual ::grpc::Status APWLANStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APWLANStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APWLANStatsMsgRsp>> AsyncAPWLANStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APWLANStatsMsgRsp>>(AsyncAPWLANStatsGetRaw(context, request, cq));
-    }
-    // Get Client statistics
-    virtual ::grpc::Status APClientStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APClientStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APClientStatsMsgRsp>> AsyncAPClientStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APClientStatsMsgRsp>>(AsyncAPClientStatsGetRaw(context, request, cq));
-    }
-    // Get Interface statistics
-    virtual ::grpc::Status APInterfaceStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APInterfaceStatsMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APInterfaceStatsMsgRsp>> AsyncAPInterfaceStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APInterfaceStatsMsgRsp>>(AsyncAPInterfaceStatsGetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
     }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APSystemStatsMsgRsp>* AsyncAPSystemStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APMemoryStatsMsgRsp>* AsyncAPMemoryStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APDNSServersMsgRsp>* AsyncAPDNSStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRoutesMsgRsp>* AsyncAPRoutesStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APRadioStatsMsgRsp>* AsyncAPRadioStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APWLANStatsMsgRsp>* AsyncAPWLANStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APClientStatsMsgRsp>* AsyncAPClientStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APInterfaceStatsMsgRsp>* AsyncAPInterfaceStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status APSystemStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APSystemStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APSystemStatsMsgRsp>> AsyncAPSystemStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APSystemStatsMsgRsp>>(AsyncAPSystemStatsGetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientReader< ::access_point::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::access_point::APStatsMsgRsp>>(APStatsGetRaw(context, request));
     }
-    ::grpc::Status APMemoryStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APMemoryStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APMemoryStatsMsgRsp>> AsyncAPMemoryStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APMemoryStatsMsgRsp>>(AsyncAPMemoryStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APDNSStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APDNSServersMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APDNSServersMsgRsp>> AsyncAPDNSStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APDNSServersMsgRsp>>(AsyncAPDNSStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APRoutesStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRoutesMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APRoutesMsgRsp>> AsyncAPRoutesStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APRoutesMsgRsp>>(AsyncAPRoutesStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APRadioStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRadioStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APRadioStatsMsgRsp>> AsyncAPRadioStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APRadioStatsMsgRsp>>(AsyncAPRadioStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APWLANStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APWLANStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APWLANStatsMsgRsp>> AsyncAPWLANStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APWLANStatsMsgRsp>>(AsyncAPWLANStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APClientStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APClientStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APClientStatsMsgRsp>> AsyncAPClientStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APClientStatsMsgRsp>>(AsyncAPClientStatsGetRaw(context, request, cq));
-    }
-    ::grpc::Status APInterfaceStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APInterfaceStatsMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APInterfaceStatsMsgRsp>> AsyncAPInterfaceStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APInterfaceStatsMsgRsp>>(AsyncAPInterfaceStatsGetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APSystemStatsMsgRsp>* AsyncAPSystemStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APMemoryStatsMsgRsp>* AsyncAPMemoryStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APDNSServersMsgRsp>* AsyncAPDNSStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APRoutesMsgRsp>* AsyncAPRoutesStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APRadioStatsMsgRsp>* AsyncAPRadioStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APWLANStatsMsgRsp>* AsyncAPWLANStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APClientStatsMsgRsp>* AsyncAPClientStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APInterfaceStatsMsgRsp>* AsyncAPInterfaceStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    const ::grpc::RpcMethod rpcmethod_APSystemStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APMemoryStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APDNSStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APRoutesStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APRadioStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APWLANStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APClientStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_APInterfaceStatsGet_;
+    ::grpc::ClientReader< ::access_point::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_APStatsGet_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -156,316 +78,43 @@ class APStatistics GRPC_FINAL {
    public:
     Service();
     virtual ~Service();
-    // Get system level statistics
-    virtual ::grpc::Status APSystemStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APSystemStatsMsgRsp* response);
-    // Get memory statistics
-    virtual ::grpc::Status APMemoryStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APMemoryStatsMsgRsp* response);
-    // Get DNS servers
-    virtual ::grpc::Status APDNSStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APDNSServersMsgRsp* response);
-    // Get routes
-    virtual ::grpc::Status APRoutesStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRoutesMsgRsp* response);
-    // Get radio statistics
-    virtual ::grpc::Status APRadioStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRadioStatsMsgRsp* response);
-    // Get WLAN statistics
-    virtual ::grpc::Status APWLANStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APWLANStatsMsgRsp* response);
-    // Get Client statistics
-    virtual ::grpc::Status APClientStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APClientStatsMsgRsp* response);
-    // Get Interface statistics
-    virtual ::grpc::Status APInterfaceStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APInterfaceStatsMsgRsp* response);
+    // Get statistics
+    virtual ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer);
   };
   template <class BaseClass>
-  class WithAsyncMethod_APSystemStatsGet : public BaseClass {
+  class WithAsyncMethod_APStatsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_APSystemStatsGet() {
+    WithAsyncMethod_APStatsGet() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_APSystemStatsGet() GRPC_OVERRIDE {
+    ~WithAsyncMethod_APStatsGet() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APSystemStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APSystemStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPSystemStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APSystemStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestAPStatsGet(::grpc::ServerContext* context, ::access_point::APStatsMsg* request, ::grpc::ServerAsyncWriter< ::access_point::APStatsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
+  typedef WithAsyncMethod_APStatsGet<Service > AsyncService;
   template <class BaseClass>
-  class WithAsyncMethod_APMemoryStatsGet : public BaseClass {
+  class WithGenericMethod_APStatsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_APMemoryStatsGet() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_APMemoryStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APMemoryStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APMemoryStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPMemoryStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APMemoryStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APDNSStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APDNSStatsGet() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_APDNSStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APDNSStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APDNSServersMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPDNSStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APDNSServersMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APRoutesStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APRoutesStatsGet() {
-      ::grpc::Service::MarkMethodAsync(3);
-    }
-    ~WithAsyncMethod_APRoutesStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APRoutesStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRoutesMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPRoutesStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APRoutesMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APRadioStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APRadioStatsGet() {
-      ::grpc::Service::MarkMethodAsync(4);
-    }
-    ~WithAsyncMethod_APRadioStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APRadioStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRadioStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPRadioStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APRadioStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APWLANStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APWLANStatsGet() {
-      ::grpc::Service::MarkMethodAsync(5);
-    }
-    ~WithAsyncMethod_APWLANStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APWLANStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APWLANStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPWLANStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APWLANStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APClientStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APClientStatsGet() {
-      ::grpc::Service::MarkMethodAsync(6);
-    }
-    ~WithAsyncMethod_APClientStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APClientStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APClientStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPClientStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APClientStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_APInterfaceStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_APInterfaceStatsGet() {
-      ::grpc::Service::MarkMethodAsync(7);
-    }
-    ~WithAsyncMethod_APInterfaceStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APInterfaceStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APInterfaceStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestAPInterfaceStatsGet(::grpc::ServerContext* context, ::access_point::APStatsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APInterfaceStatsMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_APSystemStatsGet<WithAsyncMethod_APMemoryStatsGet<WithAsyncMethod_APDNSStatsGet<WithAsyncMethod_APRoutesStatsGet<WithAsyncMethod_APRadioStatsGet<WithAsyncMethod_APWLANStatsGet<WithAsyncMethod_APClientStatsGet<WithAsyncMethod_APInterfaceStatsGet<Service > > > > > > > > AsyncService;
-  template <class BaseClass>
-  class WithGenericMethod_APSystemStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APSystemStatsGet() {
+    WithGenericMethod_APStatsGet() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_APSystemStatsGet() GRPC_OVERRIDE {
+    ~WithGenericMethod_APStatsGet() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APSystemStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APSystemStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APMemoryStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APMemoryStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_APMemoryStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APMemoryStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APMemoryStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APDNSStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APDNSStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_APDNSStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APDNSStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APDNSServersMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APRoutesStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APRoutesStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(3);
-    }
-    ~WithGenericMethod_APRoutesStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APRoutesStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRoutesMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APRadioStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APRadioStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(4);
-    }
-    ~WithGenericMethod_APRadioStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APRadioStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRadioStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APWLANStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APWLANStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(5);
-    }
-    ~WithGenericMethod_APWLANStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APWLANStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APWLANStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APClientStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APClientStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(6);
-    }
-    ~WithGenericMethod_APClientStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APClientStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APClientStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_APInterfaceStatsGet : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_APInterfaceStatsGet() {
-      ::grpc::Service::MarkMethodGeneric(7);
-    }
-    ~WithGenericMethod_APInterfaceStatsGet() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status APInterfaceStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APInterfaceStatsMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

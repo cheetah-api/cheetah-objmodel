@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # gRPC generated python bindings
 from genpy import ap_common_types_pb2
+from genpy import ap_stats_pb2
 
 # Utilities
 from tutorial import client_init
@@ -39,9 +40,17 @@ if __name__ == '__main__':
     # Create another channel for gRPC requests.
     channel = implementations.insecure_channel(server_ip, server_port)
 
-    # Issue statistics operations
-    stats.system_stats_operation(channel)
-    stats.memory_stats_operation(channel)
+    # Stats operations 
+
+    # System Stats every 6 seconds 
+    t1=stats.stats_operations(channel, ap_stats_pb2.AP_SYSTEM_STATS, 6)
+
+    # Memory Stats every 11 seconds 
+    t2=stats.stats_operations(channel, ap_stats_pb2.AP_MEMORY_STATS, 11)
+
+    # Wait till the threads terminate
+    t1.join()
+    t2.join()
 
     # Exit and Kill any running GRPC threads.
     os._exit(0)

@@ -31,8 +31,8 @@ def client_init(stub, event):
     # The Server will allow/deny access based on the version number.
     # The same RPC is used to setup a notification channel for global
     # events coming from the server.
-    #
-    # # Set the client version number based on the current proto files' version
+
+    # Set the client version number based on the current proto files' version
     init_msg = ap_global_pb2.APInitMsg()
     init_msg.MajorVer = ap_version_pb2.AP_MAJOR_VERSION
     init_msg.MinorVer = ap_version_pb2.AP_MINOR_VERSION

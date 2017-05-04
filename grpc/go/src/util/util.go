@@ -24,3 +24,21 @@ func GetServerIPPort() (string, string) {
 
     return server, port
 }
+
+func GetHTTPServerIPPort() (string, string) {
+    server := os.Getenv("HTTP_SERVER_IP")
+    if server == "" {
+        fmt.Printf("Could not read env HTTP_SERVER_IP")
+        os.Exit(-1)
+    }
+
+    port := os.Getenv("HTTP_SERVER_PORT")
+    if port == "" {
+        fmt.Printf("Could not read env HTTP_SERVER_PORT")
+        os.Exit(-1)
+    }
+
+    fmt.Printf("Using HTTP SERVER IP PORT: %s:%s\n", server, port)
+
+    return server, port
+}

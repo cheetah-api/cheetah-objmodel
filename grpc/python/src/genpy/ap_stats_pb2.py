@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -20,21 +21,125 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_stats.proto',
   package='access_point',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x61p_stats.proto\x12\x0c\x61\x63\x63\x65ss_point\x1a\x15\x61p_common_types.proto\"\x0f\n\rAPStatsGetMsg\"\x98\x01\n\x13\x41PSystemStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\n\n\x02ID\x18\x02 \x01(\t\x12\x0e\n\x06Uptime\x18\x03 \x01(\r\x12\x0c\n\x04When\x18\x04 \x01(\t\x12\x14\n\x0cSerialNumber\x18\x05 \x01(\t\x12\x11\n\tProductId\x18\x06 \x01(\t\"1\n\x07MemInfo\x12\x10\n\x08Total_kB\x18\x01 \x01(\r\x12\x14\n\x0c\x41vailable_kB\x18\x02 \x01(\r\"N\n\x08SlabInfo\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x12\n\nActiveObjs\x18\x02 \x01(\x05\x12\x0f\n\x07NumObjs\x18\x03 \x01(\x05\x12\x0f\n\x07ObjSize\x18\x04 \x01(\x05\"\xa2\x01\n\x13\x41PMemoryStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12*\n\x0bProcMemInfo\x18\x02 \x01(\x0b\x32\x15.access_point.MemInfo\x12/\n\x0fTopProcSlabInfo\x18\x03 \x01(\x0b\x32\x16.access_point.SlabInfo\"P\n\x12\x41PDNSServersMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\n\n\x02IP\x18\x02 \x03(\t\"\x8a\x01\n\tIPv4Route\x12\x13\n\x0b\x44\x65stination\x18\x01 \x01(\t\x12\x0f\n\x07Gateway\x18\x02 \x01(\t\x12\x0f\n\x07Genmask\x18\x03 \x01(\t\x12\r\n\x05\x46lags\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0b\n\x03Ref\x18\x06 \x01(\r\x12\x0b\n\x03Use\x18\x07 \x01(\r\x12\r\n\x05Iface\x18\x08 \x01(\t\"m\n\x0e\x41PRoutesMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12+\n\nIPv4Routes\x18\x02 \x03(\x0b\x32\x17.access_point.IPv4Route\"=\n\x10MulticastCounter\x12\x13\n\x0bTxMcastPkts\x18\x01 \x01(\r\x12\x14\n\x0cTxMcastBytes\x18\x02 \x01(\x04\" \n\x04WLAN\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0c\n\x04SSID\x18\x02 \x01(\t\"\xa2\x01\n\tWLANEntry\x12 \n\x04Wlan\x18\x01 \x01(\x0b\x32\x12.access_point.WLAN\x12\x12\n\nRadioIndex\x18\x02 \x01(\r\x12\r\n\x05\x42SSID\x18\x03 \x01(\t\x12\x0b\n\x03\x44\x65v\x18\x04 \x01(\t\x12\x12\n\nNumClients\x18\x05 \x01(\x05\x12/\n\x07\x43ounter\x18\x06 \x01(\x0b\x32\x1e.access_point.MulticastCounter\"q\n\x11\x41PWLANStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12,\n\x0bWLANEntries\x18\x02 \x03(\x0b\x32\x17.access_point.WLANEntry\"a\n\x10RadioUtilization\x12\x0b\n\x03\x41ll\x18\x01 \x01(\x02\x12\n\n\x02Tx\x18\x02 \x01(\x02\x12\x0f\n\x07RxInBSS\x18\x03 \x01(\x02\x12\x12\n\nRxOtherBSS\x18\x04 \x01(\x02\x12\x0f\n\x07NonWifi\x18\x05 \x01(\x02\"\x95\x01\n\rRadioCounters\x12\x0f\n\x07TxBytes\x18\x01 \x01(\x04\x12\x0e\n\x06TxPkts\x18\x02 \x01(\r\x12\x0e\n\x06TxMgmt\x18\x03 \x01(\r\x12\x10\n\x08TxErrors\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x0e\n\x06RxMgmt\x18\x07 \x01(\r\x12\x10\n\x08RxErrors\x18\x08 \x01(\r\"3\n\x08\x44\x66sState\x12\x10\n\x08\x43\x61\x63State\x18\x01 \x01(\r\x12\x15\n\rRadarDetected\x18\x02 \x01(\x08\"\xaa\x02\n\nRadioEntry\x12\x0b\n\x03\x44\x65v\x18\x01 \x01(\t\x12\x0c\n\x04\x42\x61nd\x18\x02 \x01(\t\x12\x0f\n\x07\x43hannel\x18\x03 \x01(\r\x12\x18\n\x10SecondaryChannel\x18\x04 \x01(\r\x12\x11\n\tBandwidth\x18\x05 \x01(\r\x12\x12\n\nNoiseFloor\x18\x06 \x01(\x05\x12\x12\n\nMaxTxPower\x18\x07 \x01(\r\x12\x33\n\x0bUtilization\x18\x08 \x01(\x0b\x32\x1e.access_point.RadioUtilization\x12\x13\n\x0b\x41ntennaRSSI\x18\t \x03(\x05\x12,\n\x07\x43ounter\x18\n \x01(\x0b\x32\x1b.access_point.RadioCounters\x12#\n\x03\x44\x46S\x18\x0b \x01(\x0b\x32\x16.access_point.DfsState\"n\n\x12\x41PRadioStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12(\n\x06Radios\x18\x02 \x03(\x0b\x32\x18.access_point.RadioEntry\"\xaa\x02\n\rAPClientEntry\x12\x0b\n\x03MAC\x18\x02 \x01(\t\x12\x12\n\nRadioIndex\x18\x03 \x01(\r\x12\x0c\n\x04\x42\x61nd\x18\x04 \x01(\t\x12 \n\x04Wlan\x18\x06 \x01(\x0b\x32\x12.access_point.WLAN\x12\x18\n\x10\x43onnectedTimeSec\x18\x07 \x01(\r\x12\x1c\n\x14InactiveTimeMilliSec\x18\x08 \x01(\r\x12\x0c\n\x04RSSI\x18\t \x01(\x05\x12\n\n\x02NF\x18\n \x01(\x05\x12\x13\n\x0b\x41ntennaRSSI\x18\x0b \x03(\x05\x12\x11\n\tTxBitRate\x18\x0c \x01(\x05\x12\x16\n\x0eTxUnicastBytes\x18\r \x01(\x04\x12\x15\n\rTxUnicastPkts\x18\x0e \x01(\r\x12\x0f\n\x07RxBytes\x18\x0f \x01(\x04\x12\x0e\n\x06RxPkts\x18\x10 \x01(\r\"s\n\x13\x41PClientStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12,\n\x07\x43lients\x18\x02 \x03(\x0b\x32\x1b.access_point.APClientEntry\"\xa7\x01\n\x10\x41PInterfaceEntry\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0c\n\x04Link\x18\x02 \x01(\x08\x12\x12\n\nFullDuplex\x18\x03 \x01(\x08\x12\r\n\x05Speed\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x12\n\nRxDiscards\x18\x07 \x01(\r\x12\x0f\n\x07TxBytes\x18\x08 \x01(\x04\x12\x0e\n\x06TxPkts\x18\t \x01(\r\"|\n\x16\x41PInterfaceStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\x32\n\nInterfaces\x18\x02 \x03(\x0b\x32\x1e.access_point.APInterfaceEntry2\xa5\x05\n\x0c\x41PStatistics\x12R\n\x10\x41PSystemStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a!.access_point.APSystemStatsMsgRsp\x12R\n\x10\x41PMemoryStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a!.access_point.APMemoryStatsMsgRsp\x12N\n\rAPDNSStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a .access_point.APDNSServersMsgRsp\x12M\n\x10\x41PRoutesStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a\x1c.access_point.APRoutesMsgRsp\x12P\n\x0f\x41PRadioStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a .access_point.APRadioStatsMsgRsp\x12N\n\x0e\x41PWLANStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a\x1f.access_point.APWLANStatsMsgRsp\x12R\n\x10\x41PClientStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a!.access_point.APClientStatsMsgRsp\x12X\n\x13\x41PInterfaceStatsGet\x12\x1b.access_point.APStatsGetMsg\x1a$.access_point.APInterfaceStatsMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x0e\x61p_stats.proto\x12\x0c\x61\x63\x63\x65ss_point\x1a\x15\x61p_common_types.proto\"T\n\x0e\x41PStatsRequest\x12,\n\tStatsType\x18\x01 \x01(\x0e\x32\x19.access_point.APStatsType\x12\x14\n\x0cTimeInterval\x18\x02 \x01(\r\"@\n\nAPStatsMsg\x12\x32\n\x0cStatsRequest\x18\x01 \x03(\x0b\x32\x1c.access_point.APStatsRequest\"h\n\x13\x41PSystemStatsMsgRsp\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0e\n\x06Uptime\x18\x02 \x01(\r\x12\x0c\n\x04When\x18\x03 \x01(\t\x12\x14\n\x0cSerialNumber\x18\x04 \x01(\t\x12\x11\n\tProductId\x18\x05 \x01(\t\"1\n\x07MemInfo\x12\x10\n\x08Total_kB\x18\x01 \x01(\r\x12\x14\n\x0c\x41vailable_kB\x18\x02 \x01(\r\"N\n\x08SlabInfo\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x12\n\nActiveObjs\x18\x02 \x01(\x05\x12\x0f\n\x07NumObjs\x18\x03 \x01(\x05\x12\x0f\n\x07ObjSize\x18\x04 \x01(\x05\"r\n\x13\x41PMemoryStatsMsgRsp\x12*\n\x0bProcMemInfo\x18\x01 \x01(\x0b\x32\x15.access_point.MemInfo\x12/\n\x0fTopProcSlabInfo\x18\x02 \x01(\x0b\x32\x16.access_point.SlabInfo\"\x1e\n\x10\x41PDNSStatsMsgRsp\x12\n\n\x02IP\x18\x01 \x03(\t\"\x8a\x01\n\tIPv4Route\x12\x13\n\x0b\x44\x65stination\x18\x01 \x01(\t\x12\x0f\n\x07Gateway\x18\x02 \x01(\t\x12\x0f\n\x07Genmask\x18\x03 \x01(\t\x12\r\n\x05\x46lags\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0b\n\x03Ref\x18\x06 \x01(\r\x12\x0b\n\x03Use\x18\x07 \x01(\r\x12\r\n\x05Iface\x18\x08 \x01(\t\"C\n\x14\x41PRoutingStatsMsgRsp\x12+\n\nIPv4Routes\x18\x01 \x03(\x0b\x32\x17.access_point.IPv4Route\"=\n\x10MulticastCounter\x12\x13\n\x0bTxMcastPkts\x18\x01 \x01(\r\x12\x14\n\x0cTxMcastBytes\x18\x02 \x01(\x04\" \n\x04WLAN\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0c\n\x04SSID\x18\x02 \x01(\t\"\xa2\x01\n\tWLANEntry\x12 \n\x04Wlan\x18\x01 \x01(\x0b\x32\x12.access_point.WLAN\x12\x12\n\nRadioIndex\x18\x02 \x01(\r\x12\r\n\x05\x42SSID\x18\x03 \x01(\t\x12\x0b\n\x03\x44\x65v\x18\x04 \x01(\t\x12\x12\n\nNumClients\x18\x05 \x01(\x05\x12/\n\x07\x43ounter\x18\x06 \x01(\x0b\x32\x1e.access_point.MulticastCounter\"A\n\x11\x41PWLANStatsMsgRsp\x12,\n\x0bWLANEntries\x18\x01 \x03(\x0b\x32\x17.access_point.WLANEntry\"a\n\x10RadioUtilization\x12\x0b\n\x03\x41ll\x18\x01 \x01(\x02\x12\n\n\x02Tx\x18\x02 \x01(\x02\x12\x0f\n\x07RxInBSS\x18\x03 \x01(\x02\x12\x12\n\nRxOtherBSS\x18\x04 \x01(\x02\x12\x0f\n\x07NonWifi\x18\x05 \x01(\x02\"\x95\x01\n\rRadioCounters\x12\x0f\n\x07TxBytes\x18\x01 \x01(\x04\x12\x0e\n\x06TxPkts\x18\x02 \x01(\r\x12\x0e\n\x06TxMgmt\x18\x03 \x01(\r\x12\x10\n\x08TxErrors\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x0e\n\x06RxMgmt\x18\x07 \x01(\r\x12\x10\n\x08RxErrors\x18\x08 \x01(\r\"3\n\x08\x44\x66sState\x12\x10\n\x08\x43\x61\x63State\x18\x01 \x01(\r\x12\x15\n\rRadarDetected\x18\x02 \x01(\x08\"\xaa\x02\n\nRadioEntry\x12\x0b\n\x03\x44\x65v\x18\x01 \x01(\t\x12\x0c\n\x04\x42\x61nd\x18\x02 \x01(\t\x12\x0f\n\x07\x43hannel\x18\x03 \x01(\r\x12\x18\n\x10SecondaryChannel\x18\x04 \x01(\r\x12\x11\n\tBandwidth\x18\x05 \x01(\r\x12\x12\n\nNoiseFloor\x18\x06 \x01(\x05\x12\x12\n\nMaxTxPower\x18\x07 \x01(\r\x12\x33\n\x0bUtilization\x18\x08 \x01(\x0b\x32\x1e.access_point.RadioUtilization\x12\x13\n\x0b\x41ntennaRSSI\x18\t \x03(\x05\x12,\n\x07\x43ounter\x18\n \x01(\x0b\x32\x1b.access_point.RadioCounters\x12#\n\x03\x44\x46S\x18\x0b \x01(\x0b\x32\x16.access_point.DfsState\">\n\x12\x41PRadioStatsMsgRsp\x12(\n\x06Radios\x18\x01 \x03(\x0b\x32\x18.access_point.RadioEntry\"\xaa\x02\n\rAPClientEntry\x12\x0b\n\x03MAC\x18\x02 \x01(\t\x12\x12\n\nRadioIndex\x18\x03 \x01(\r\x12\x0c\n\x04\x42\x61nd\x18\x04 \x01(\t\x12 \n\x04Wlan\x18\x06 \x01(\x0b\x32\x12.access_point.WLAN\x12\x18\n\x10\x43onnectedTimeSec\x18\x07 \x01(\r\x12\x1c\n\x14InactiveTimeMilliSec\x18\x08 \x01(\r\x12\x0c\n\x04RSSI\x18\t \x01(\x05\x12\n\n\x02NF\x18\n \x01(\x05\x12\x13\n\x0b\x41ntennaRSSI\x18\x0b \x03(\x05\x12\x11\n\tTxBitRate\x18\x0c \x01(\x05\x12\x16\n\x0eTxUnicastBytes\x18\r \x01(\x04\x12\x15\n\rTxUnicastPkts\x18\x0e \x01(\r\x12\x0f\n\x07RxBytes\x18\x0f \x01(\x04\x12\x0e\n\x06RxPkts\x18\x10 \x01(\r\"C\n\x13\x41PClientStatsMsgRsp\x12,\n\x07\x43lients\x18\x01 \x03(\x0b\x32\x1b.access_point.APClientEntry\"\xa7\x01\n\x10\x41PInterfaceEntry\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0c\n\x04Link\x18\x02 \x01(\x08\x12\x12\n\nFullDuplex\x18\x03 \x01(\x08\x12\r\n\x05Speed\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x12\n\nRxDiscards\x18\x07 \x01(\r\x12\x0f\n\x07TxBytes\x18\x08 \x01(\x04\x12\x0e\n\x06TxPkts\x18\t \x01(\r\"L\n\x16\x41PInterfaceStatsMsgRsp\x12\x32\n\nInterfaces\x18\x01 \x03(\x0b\x32\x1e.access_point.APInterfaceEntry\"\x96\x04\n\rAPStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\x38\n\x0bSystemStats\x18\x02 \x01(\x0b\x32!.access_point.APSystemStatsMsgRspH\x00\x12\x38\n\x0bMemoryStats\x18\x03 \x01(\x0b\x32!.access_point.APMemoryStatsMsgRspH\x00\x12>\n\x0eInterfaceStats\x18\x04 \x01(\x0b\x32$.access_point.APInterfaceStatsMsgRspH\x00\x12:\n\x0cRoutingStats\x18\x05 \x01(\x0b\x32\".access_point.APRoutingStatsMsgRspH\x00\x12\x32\n\x08\x44NSStats\x18\x06 \x01(\x0b\x32\x1e.access_point.APDNSStatsMsgRspH\x00\x12\x36\n\nRadioStats\x18\x07 \x01(\x0b\x32 .access_point.APRadioStatsMsgRspH\x00\x12\x34\n\tWLANStats\x18\x08 \x01(\x0b\x32\x1f.access_point.APWLANStatsMsgRspH\x00\x12\x38\n\x0b\x43lientStats\x18\t \x01(\x0b\x32!.access_point.APClientStatsMsgRspH\x00\x42\t\n\x07msg_rsp*\xc4\x01\n\x0b\x41PStatsType\x12\x0f\n\x0b\x41P_RESERVED\x10\x00\x12\x13\n\x0f\x41P_SYSTEM_STATS\x10\x01\x12\x13\n\x0f\x41P_MEMORY_STATS\x10\x02\x12\x16\n\x12\x41P_INTERFACE_STATS\x10\x03\x12\x14\n\x10\x41P_ROUTING_STATS\x10\x04\x12\x10\n\x0c\x41P_DNS_STATS\x10\x05\x12\x12\n\x0e\x41P_RADIO_STATS\x10\x06\x12\x11\n\rAP_WLAN_STATS\x10\x07\x12\x13\n\x0f\x41P_CLIENT_STATS\x10\x08*v\n\x11StatsTimeInterval\x12\x1c\n\x18\x41P_STATS_UNARY_OPERATION\x10\x00\x12\x1f\n\x1b\x41P_STATS_ZERO_TIME_INTERVAL\x10\x00\x12\x1e\n\x1a\x41P_STATS_MIN_TIME_INTERVAL\x10\x05\x1a\x02\x10\x01\x32U\n\x0c\x41PStatistics\x12\x45\n\nAPStatsGet\x12\x18.access_point.APStatsMsg\x1a\x1b.access_point.APStatsMsgRsp0\x01\x62\x06proto3')
   ,
   dependencies=[ap__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
+_APSTATSTYPE = _descriptor.EnumDescriptor(
+  name='APStatsType',
+  full_name='access_point.APStatsType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AP_RESERVED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_SYSTEM_STATS', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_MEMORY_STATS', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_INTERFACE_STATS', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_ROUTING_STATS', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_DNS_STATS', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_RADIO_STATS', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_WLAN_STATS', index=7, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_CLIENT_STATS', index=8, number=8,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=2956,
+  serialized_end=3152,
+)
+_sym_db.RegisterEnumDescriptor(_APSTATSTYPE)
+
+APStatsType = enum_type_wrapper.EnumTypeWrapper(_APSTATSTYPE)
+_STATSTIMEINTERVAL = _descriptor.EnumDescriptor(
+  name='StatsTimeInterval',
+  full_name='access_point.StatsTimeInterval',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AP_STATS_UNARY_OPERATION', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_STATS_ZERO_TIME_INTERVAL', index=1, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_STATS_MIN_TIME_INTERVAL', index=2, number=5,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=_descriptor._ParseOptions(descriptor_pb2.EnumOptions(), _b('\020\001')),
+  serialized_start=3154,
+  serialized_end=3272,
+)
+_sym_db.RegisterEnumDescriptor(_STATSTIMEINTERVAL)
+
+StatsTimeInterval = enum_type_wrapper.EnumTypeWrapper(_STATSTIMEINTERVAL)
+AP_RESERVED = 0
+AP_SYSTEM_STATS = 1
+AP_MEMORY_STATS = 2
+AP_INTERFACE_STATS = 3
+AP_ROUTING_STATS = 4
+AP_DNS_STATS = 5
+AP_RADIO_STATS = 6
+AP_WLAN_STATS = 7
+AP_CLIENT_STATS = 8
+AP_STATS_UNARY_OPERATION = 0
+AP_STATS_ZERO_TIME_INTERVAL = 0
+AP_STATS_MIN_TIME_INTERVAL = 5
 
 
 
-_APSTATSGETMSG = _descriptor.Descriptor(
-  name='APStatsGetMsg',
-  full_name='access_point.APStatsGetMsg',
+_APSTATSREQUEST = _descriptor.Descriptor(
+  name='APStatsRequest',
+  full_name='access_point.APStatsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='StatsType', full_name='access_point.APStatsRequest.StatsType', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='TimeInterval', full_name='access_point.APStatsRequest.TimeInterval', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -48,7 +153,38 @@ _APSTATSGETMSG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=55,
-  serialized_end=70,
+  serialized_end=139,
+)
+
+
+_APSTATSMSG = _descriptor.Descriptor(
+  name='APStatsMsg',
+  full_name='access_point.APStatsMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='StatsRequest', full_name='access_point.APStatsMsg.StatsRequest', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=141,
+  serialized_end=205,
 )
 
 
@@ -60,43 +196,36 @@ _APSYSTEMSTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APSystemStatsMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='ID', full_name='access_point.APSystemStatsMsgRsp.ID', index=1,
-      number=2, type=9, cpp_type=9, label=1,
+      name='ID', full_name='access_point.APSystemStatsMsgRsp.ID', index=0,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Uptime', full_name='access_point.APSystemStatsMsgRsp.Uptime', index=2,
-      number=3, type=13, cpp_type=3, label=1,
+      name='Uptime', full_name='access_point.APSystemStatsMsgRsp.Uptime', index=1,
+      number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='When', full_name='access_point.APSystemStatsMsgRsp.When', index=3,
+      name='When', full_name='access_point.APSystemStatsMsgRsp.When', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='SerialNumber', full_name='access_point.APSystemStatsMsgRsp.SerialNumber', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SerialNumber', full_name='access_point.APSystemStatsMsgRsp.SerialNumber', index=4,
+      name='ProductId', full_name='access_point.APSystemStatsMsgRsp.ProductId', index=4,
       number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='ProductId', full_name='access_point.APSystemStatsMsgRsp.ProductId', index=5,
-      number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -113,8 +242,8 @@ _APSYSTEMSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=225,
+  serialized_start=207,
+  serialized_end=311,
 )
 
 
@@ -151,8 +280,8 @@ _MEMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=276,
+  serialized_start=313,
+  serialized_end=362,
 )
 
 
@@ -203,8 +332,8 @@ _SLABINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=278,
-  serialized_end=356,
+  serialized_start=364,
+  serialized_end=442,
 )
 
 
@@ -216,22 +345,15 @@ _APMEMORYSTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APMemoryStatsMsgRsp.ErrStatus', index=0,
+      name='ProcMemInfo', full_name='access_point.APMemoryStatsMsgRsp.ProcMemInfo', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ProcMemInfo', full_name='access_point.APMemoryStatsMsgRsp.ProcMemInfo', index=1,
+      name='TopProcSlabInfo', full_name='access_point.APMemoryStatsMsgRsp.TopProcSlabInfo', index=1,
       number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='TopProcSlabInfo', full_name='access_point.APMemoryStatsMsgRsp.TopProcSlabInfo', index=2,
-      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -248,28 +370,21 @@ _APMEMORYSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=359,
-  serialized_end=521,
+  serialized_start=444,
+  serialized_end=558,
 )
 
 
-_APDNSSERVERSMSGRSP = _descriptor.Descriptor(
-  name='APDNSServersMsgRsp',
-  full_name='access_point.APDNSServersMsgRsp',
+_APDNSSTATSMSGRSP = _descriptor.Descriptor(
+  name='APDNSStatsMsgRsp',
+  full_name='access_point.APDNSStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APDNSServersMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='IP', full_name='access_point.APDNSServersMsgRsp.IP', index=1,
-      number=2, type=9, cpp_type=9, label=3,
+      name='IP', full_name='access_point.APDNSStatsMsgRsp.IP', index=0,
+      number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -286,8 +401,8 @@ _APDNSSERVERSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=523,
-  serialized_end=603,
+  serialized_start=560,
+  serialized_end=590,
 )
 
 
@@ -366,28 +481,21 @@ _IPV4ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=606,
-  serialized_end=744,
+  serialized_start=593,
+  serialized_end=731,
 )
 
 
-_APROUTESMSGRSP = _descriptor.Descriptor(
-  name='APRoutesMsgRsp',
-  full_name='access_point.APRoutesMsgRsp',
+_APROUTINGSTATSMSGRSP = _descriptor.Descriptor(
+  name='APRoutingStatsMsgRsp',
+  full_name='access_point.APRoutingStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APRoutesMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='IPv4Routes', full_name='access_point.APRoutesMsgRsp.IPv4Routes', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='IPv4Routes', full_name='access_point.APRoutingStatsMsgRsp.IPv4Routes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -404,8 +512,8 @@ _APROUTESMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=746,
-  serialized_end=855,
+  serialized_start=733,
+  serialized_end=800,
 )
 
 
@@ -442,8 +550,8 @@ _MULTICASTCOUNTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=857,
-  serialized_end=918,
+  serialized_start=802,
+  serialized_end=863,
 )
 
 
@@ -480,8 +588,8 @@ _WLAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=920,
-  serialized_end=952,
+  serialized_start=865,
+  serialized_end=897,
 )
 
 
@@ -546,8 +654,8 @@ _WLANENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=955,
-  serialized_end=1117,
+  serialized_start=900,
+  serialized_end=1062,
 )
 
 
@@ -559,15 +667,8 @@ _APWLANSTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APWLANStatsMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='WLANEntries', full_name='access_point.APWLANStatsMsgRsp.WLANEntries', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='WLANEntries', full_name='access_point.APWLANStatsMsgRsp.WLANEntries', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -584,8 +685,8 @@ _APWLANSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1119,
-  serialized_end=1232,
+  serialized_start=1064,
+  serialized_end=1129,
 )
 
 
@@ -643,8 +744,8 @@ _RADIOUTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1234,
-  serialized_end=1331,
+  serialized_start=1131,
+  serialized_end=1228,
 )
 
 
@@ -723,8 +824,8 @@ _RADIOCOUNTERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1334,
-  serialized_end=1483,
+  serialized_start=1231,
+  serialized_end=1380,
 )
 
 
@@ -761,8 +862,8 @@ _DFSSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1485,
-  serialized_end=1536,
+  serialized_start=1382,
+  serialized_end=1433,
 )
 
 
@@ -862,8 +963,8 @@ _RADIOENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1539,
-  serialized_end=1837,
+  serialized_start=1436,
+  serialized_end=1734,
 )
 
 
@@ -875,15 +976,8 @@ _APRADIOSTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APRadioStatsMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='Radios', full_name='access_point.APRadioStatsMsgRsp.Radios', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='Radios', full_name='access_point.APRadioStatsMsgRsp.Radios', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -900,8 +994,8 @@ _APRADIOSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1839,
-  serialized_end=1949,
+  serialized_start=1736,
+  serialized_end=1798,
 )
 
 
@@ -1022,8 +1116,8 @@ _APCLIENTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1952,
-  serialized_end=2250,
+  serialized_start=1801,
+  serialized_end=2099,
 )
 
 
@@ -1035,15 +1129,8 @@ _APCLIENTSTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APClientStatsMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='Clients', full_name='access_point.APClientStatsMsgRsp.Clients', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='Clients', full_name='access_point.APClientStatsMsgRsp.Clients', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1060,8 +1147,8 @@ _APCLIENTSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2252,
-  serialized_end=2367,
+  serialized_start=2101,
+  serialized_end=2168,
 )
 
 
@@ -1147,8 +1234,8 @@ _APINTERFACEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2370,
-  serialized_end=2537,
+  serialized_start=2171,
+  serialized_end=2338,
 )
 
 
@@ -1160,15 +1247,8 @@ _APINTERFACESTATSMSGRSP = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APInterfaceStatsMsgRsp.ErrStatus', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='Interfaces', full_name='access_point.APInterfaceStatsMsgRsp.Interfaces', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='Interfaces', full_name='access_point.APInterfaceStatsMsgRsp.Interfaces', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1185,39 +1265,157 @@ _APINTERFACESTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2539,
-  serialized_end=2663,
+  serialized_start=2340,
+  serialized_end=2416,
 )
 
-_APSYSTEMSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
-_APMEMORYSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
+
+_APSTATSMSGRSP = _descriptor.Descriptor(
+  name='APStatsMsgRsp',
+  full_name='access_point.APStatsMsgRsp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ErrStatus', full_name='access_point.APStatsMsgRsp.ErrStatus', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='SystemStats', full_name='access_point.APStatsMsgRsp.SystemStats', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='MemoryStats', full_name='access_point.APStatsMsgRsp.MemoryStats', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='InterfaceStats', full_name='access_point.APStatsMsgRsp.InterfaceStats', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='RoutingStats', full_name='access_point.APStatsMsgRsp.RoutingStats', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='DNSStats', full_name='access_point.APStatsMsgRsp.DNSStats', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='RadioStats', full_name='access_point.APStatsMsgRsp.RadioStats', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='WLANStats', full_name='access_point.APStatsMsgRsp.WLANStats', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ClientStats', full_name='access_point.APStatsMsgRsp.ClientStats', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='msg_rsp', full_name='access_point.APStatsMsgRsp.msg_rsp',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=2419,
+  serialized_end=2953,
+)
+
+_APSTATSREQUEST.fields_by_name['StatsType'].enum_type = _APSTATSTYPE
+_APSTATSMSG.fields_by_name['StatsRequest'].message_type = _APSTATSREQUEST
 _APMEMORYSTATSMSGRSP.fields_by_name['ProcMemInfo'].message_type = _MEMINFO
 _APMEMORYSTATSMSGRSP.fields_by_name['TopProcSlabInfo'].message_type = _SLABINFO
-_APDNSSERVERSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
-_APROUTESMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
-_APROUTESMSGRSP.fields_by_name['IPv4Routes'].message_type = _IPV4ROUTE
+_APROUTINGSTATSMSGRSP.fields_by_name['IPv4Routes'].message_type = _IPV4ROUTE
 _WLANENTRY.fields_by_name['Wlan'].message_type = _WLAN
 _WLANENTRY.fields_by_name['Counter'].message_type = _MULTICASTCOUNTER
-_APWLANSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 _APWLANSTATSMSGRSP.fields_by_name['WLANEntries'].message_type = _WLANENTRY
 _RADIOENTRY.fields_by_name['Utilization'].message_type = _RADIOUTILIZATION
 _RADIOENTRY.fields_by_name['Counter'].message_type = _RADIOCOUNTERS
 _RADIOENTRY.fields_by_name['DFS'].message_type = _DFSSTATE
-_APRADIOSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 _APRADIOSTATSMSGRSP.fields_by_name['Radios'].message_type = _RADIOENTRY
 _APCLIENTENTRY.fields_by_name['Wlan'].message_type = _WLAN
-_APCLIENTSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 _APCLIENTSTATSMSGRSP.fields_by_name['Clients'].message_type = _APCLIENTENTRY
-_APINTERFACESTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 _APINTERFACESTATSMSGRSP.fields_by_name['Interfaces'].message_type = _APINTERFACEENTRY
-DESCRIPTOR.message_types_by_name['APStatsGetMsg'] = _APSTATSGETMSG
+_APSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
+_APSTATSMSGRSP.fields_by_name['SystemStats'].message_type = _APSYSTEMSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['MemoryStats'].message_type = _APMEMORYSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['InterfaceStats'].message_type = _APINTERFACESTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['RoutingStats'].message_type = _APROUTINGSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['DNSStats'].message_type = _APDNSSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['RadioStats'].message_type = _APRADIOSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['WLANStats'].message_type = _APWLANSTATSMSGRSP
+_APSTATSMSGRSP.fields_by_name['ClientStats'].message_type = _APCLIENTSTATSMSGRSP
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['SystemStats'])
+_APSTATSMSGRSP.fields_by_name['SystemStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['MemoryStats'])
+_APSTATSMSGRSP.fields_by_name['MemoryStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['InterfaceStats'])
+_APSTATSMSGRSP.fields_by_name['InterfaceStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['RoutingStats'])
+_APSTATSMSGRSP.fields_by_name['RoutingStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['DNSStats'])
+_APSTATSMSGRSP.fields_by_name['DNSStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['RadioStats'])
+_APSTATSMSGRSP.fields_by_name['RadioStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['WLANStats'])
+_APSTATSMSGRSP.fields_by_name['WLANStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+_APSTATSMSGRSP.oneofs_by_name['msg_rsp'].fields.append(
+  _APSTATSMSGRSP.fields_by_name['ClientStats'])
+_APSTATSMSGRSP.fields_by_name['ClientStats'].containing_oneof = _APSTATSMSGRSP.oneofs_by_name['msg_rsp']
+DESCRIPTOR.message_types_by_name['APStatsRequest'] = _APSTATSREQUEST
+DESCRIPTOR.message_types_by_name['APStatsMsg'] = _APSTATSMSG
 DESCRIPTOR.message_types_by_name['APSystemStatsMsgRsp'] = _APSYSTEMSTATSMSGRSP
 DESCRIPTOR.message_types_by_name['MemInfo'] = _MEMINFO
 DESCRIPTOR.message_types_by_name['SlabInfo'] = _SLABINFO
 DESCRIPTOR.message_types_by_name['APMemoryStatsMsgRsp'] = _APMEMORYSTATSMSGRSP
-DESCRIPTOR.message_types_by_name['APDNSServersMsgRsp'] = _APDNSSERVERSMSGRSP
+DESCRIPTOR.message_types_by_name['APDNSStatsMsgRsp'] = _APDNSSTATSMSGRSP
 DESCRIPTOR.message_types_by_name['IPv4Route'] = _IPV4ROUTE
-DESCRIPTOR.message_types_by_name['APRoutesMsgRsp'] = _APROUTESMSGRSP
+DESCRIPTOR.message_types_by_name['APRoutingStatsMsgRsp'] = _APROUTINGSTATSMSGRSP
 DESCRIPTOR.message_types_by_name['MulticastCounter'] = _MULTICASTCOUNTER
 DESCRIPTOR.message_types_by_name['WLAN'] = _WLAN
 DESCRIPTOR.message_types_by_name['WLANEntry'] = _WLANENTRY
@@ -1231,13 +1429,23 @@ DESCRIPTOR.message_types_by_name['APClientEntry'] = _APCLIENTENTRY
 DESCRIPTOR.message_types_by_name['APClientStatsMsgRsp'] = _APCLIENTSTATSMSGRSP
 DESCRIPTOR.message_types_by_name['APInterfaceEntry'] = _APINTERFACEENTRY
 DESCRIPTOR.message_types_by_name['APInterfaceStatsMsgRsp'] = _APINTERFACESTATSMSGRSP
+DESCRIPTOR.message_types_by_name['APStatsMsgRsp'] = _APSTATSMSGRSP
+DESCRIPTOR.enum_types_by_name['APStatsType'] = _APSTATSTYPE
+DESCRIPTOR.enum_types_by_name['StatsTimeInterval'] = _STATSTIMEINTERVAL
 
-APStatsGetMsg = _reflection.GeneratedProtocolMessageType('APStatsGetMsg', (_message.Message,), dict(
-  DESCRIPTOR = _APSTATSGETMSG,
+APStatsRequest = _reflection.GeneratedProtocolMessageType('APStatsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _APSTATSREQUEST,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APStatsGetMsg)
+  # @@protoc_insertion_point(class_scope:access_point.APStatsRequest)
   ))
-_sym_db.RegisterMessage(APStatsGetMsg)
+_sym_db.RegisterMessage(APStatsRequest)
+
+APStatsMsg = _reflection.GeneratedProtocolMessageType('APStatsMsg', (_message.Message,), dict(
+  DESCRIPTOR = _APSTATSMSG,
+  __module__ = 'ap_stats_pb2'
+  # @@protoc_insertion_point(class_scope:access_point.APStatsMsg)
+  ))
+_sym_db.RegisterMessage(APStatsMsg)
 
 APSystemStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APSystemStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APSYSTEMSTATSMSGRSP,
@@ -1267,12 +1475,12 @@ APMemoryStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APMemoryStatsMsg
   ))
 _sym_db.RegisterMessage(APMemoryStatsMsgRsp)
 
-APDNSServersMsgRsp = _reflection.GeneratedProtocolMessageType('APDNSServersMsgRsp', (_message.Message,), dict(
-  DESCRIPTOR = _APDNSSERVERSMSGRSP,
+APDNSStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APDNSStatsMsgRsp', (_message.Message,), dict(
+  DESCRIPTOR = _APDNSSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APDNSServersMsgRsp)
+  # @@protoc_insertion_point(class_scope:access_point.APDNSStatsMsgRsp)
   ))
-_sym_db.RegisterMessage(APDNSServersMsgRsp)
+_sym_db.RegisterMessage(APDNSStatsMsgRsp)
 
 IPv4Route = _reflection.GeneratedProtocolMessageType('IPv4Route', (_message.Message,), dict(
   DESCRIPTOR = _IPV4ROUTE,
@@ -1281,12 +1489,12 @@ IPv4Route = _reflection.GeneratedProtocolMessageType('IPv4Route', (_message.Mess
   ))
 _sym_db.RegisterMessage(IPv4Route)
 
-APRoutesMsgRsp = _reflection.GeneratedProtocolMessageType('APRoutesMsgRsp', (_message.Message,), dict(
-  DESCRIPTOR = _APROUTESMSGRSP,
+APRoutingStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APRoutingStatsMsgRsp', (_message.Message,), dict(
+  DESCRIPTOR = _APROUTINGSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APRoutesMsgRsp)
+  # @@protoc_insertion_point(class_scope:access_point.APRoutingStatsMsgRsp)
   ))
-_sym_db.RegisterMessage(APRoutesMsgRsp)
+_sym_db.RegisterMessage(APRoutingStatsMsgRsp)
 
 MulticastCounter = _reflection.GeneratedProtocolMessageType('MulticastCounter', (_message.Message,), dict(
   DESCRIPTOR = _MULTICASTCOUNTER,
@@ -1379,7 +1587,16 @@ APInterfaceStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APInterfaceSt
   ))
 _sym_db.RegisterMessage(APInterfaceStatsMsgRsp)
 
+APStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APStatsMsgRsp', (_message.Message,), dict(
+  DESCRIPTOR = _APSTATSMSGRSP,
+  __module__ = 'ap_stats_pb2'
+  # @@protoc_insertion_point(class_scope:access_point.APStatsMsgRsp)
+  ))
+_sym_db.RegisterMessage(APStatsMsgRsp)
 
+
+_STATSTIMEINTERVAL.has_options = True
+_STATSTIMEINTERVAL._options = _descriptor._ParseOptions(descriptor_pb2.EnumOptions(), _b('\020\001'))
 import grpc
 from grpc.beta import implementations as beta_implementations
 from grpc.beta import interfaces as beta_interfaces
@@ -1404,45 +1621,10 @@ class APStatisticsStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.APSystemStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APSystemStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APSystemStatsMsgRsp.FromString,
-        )
-    self.APMemoryStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APMemoryStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APMemoryStatsMsgRsp.FromString,
-        )
-    self.APDNSStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APDNSStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APDNSServersMsgRsp.FromString,
-        )
-    self.APRoutesStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APRoutesStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APRoutesMsgRsp.FromString,
-        )
-    self.APRadioStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APRadioStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APRadioStatsMsgRsp.FromString,
-        )
-    self.APWLANStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APWLANStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APWLANStatsMsgRsp.FromString,
-        )
-    self.APClientStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APClientStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APClientStatsMsgRsp.FromString,
-        )
-    self.APInterfaceStatsGet = channel.unary_unary(
-        '/access_point.APStatistics/APInterfaceStatsGet',
-        request_serializer=APStatsGetMsg.SerializeToString,
-        response_deserializer=APInterfaceStatsMsgRsp.FromString,
+    self.APStatsGet = channel.unary_stream(
+        '/access_point.APStatistics/APStatsGet',
+        request_serializer=APStatsMsg.SerializeToString,
+        response_deserializer=APStatsMsgRsp.FromString,
         )
 
 
@@ -1457,57 +1639,8 @@ class APStatisticsServicer(object):
   /;
   """
 
-  def APSystemStatsGet(self, request, context):
-    """Get system level statistics
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APMemoryStatsGet(self, request, context):
-    """Get memory statistics
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APDNSStatsGet(self, request, context):
-    """Get DNS servers
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APRoutesStatsGet(self, request, context):
-    """Get routes
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APRadioStatsGet(self, request, context):
-    """Get radio statistics
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APWLANStatsGet(self, request, context):
-    """Get WLAN statistics
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APClientStatsGet(self, request, context):
-    """Get Client statistics
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def APInterfaceStatsGet(self, request, context):
-    """Get Interface statistics
+  def APStatsGet(self, request, context):
+    """Get statistics
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -1516,45 +1649,10 @@ class APStatisticsServicer(object):
 
 def add_APStatisticsServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'APSystemStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APSystemStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APSystemStatsMsgRsp.SerializeToString,
-      ),
-      'APMemoryStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APMemoryStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APMemoryStatsMsgRsp.SerializeToString,
-      ),
-      'APDNSStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APDNSStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APDNSServersMsgRsp.SerializeToString,
-      ),
-      'APRoutesStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APRoutesStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APRoutesMsgRsp.SerializeToString,
-      ),
-      'APRadioStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APRadioStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APRadioStatsMsgRsp.SerializeToString,
-      ),
-      'APWLANStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APWLANStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APWLANStatsMsgRsp.SerializeToString,
-      ),
-      'APClientStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APClientStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APClientStatsMsgRsp.SerializeToString,
-      ),
-      'APInterfaceStatsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APInterfaceStatsGet,
-          request_deserializer=APStatsGetMsg.FromString,
-          response_serializer=APInterfaceStatsMsgRsp.SerializeToString,
+      'APStatsGet': grpc.unary_stream_rpc_method_handler(
+          servicer.APStatsGet,
+          request_deserializer=APStatsMsg.FromString,
+          response_serializer=APStatsMsgRsp.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
@@ -1572,36 +1670,8 @@ class BetaAPStatisticsServicer(object):
   Various RPC calls to get statistics for system, wlan, radio, etc
   /;
   """
-  def APSystemStatsGet(self, request, context):
-    """Get system level statistics
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APMemoryStatsGet(self, request, context):
-    """Get memory statistics
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APDNSStatsGet(self, request, context):
-    """Get DNS servers
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APRoutesStatsGet(self, request, context):
-    """Get routes
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APRadioStatsGet(self, request, context):
-    """Get radio statistics
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APWLANStatsGet(self, request, context):
-    """Get WLAN statistics
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APClientStatsGet(self, request, context):
-    """Get Client statistics
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APInterfaceStatsGet(self, request, context):
-    """Get Interface statistics
+  def APStatsGet(self, request, context):
+    """Get statistics
     """
     context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
@@ -1616,78 +1686,21 @@ class BetaAPStatisticsStub(object):
   Various RPC calls to get statistics for system, wlan, radio, etc
   /;
   """
-  def APSystemStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get system level statistics
+  def APStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    """Get statistics
     """
     raise NotImplementedError()
-  APSystemStatsGet.future = None
-  def APMemoryStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get memory statistics
-    """
-    raise NotImplementedError()
-  APMemoryStatsGet.future = None
-  def APDNSStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get DNS servers
-    """
-    raise NotImplementedError()
-  APDNSStatsGet.future = None
-  def APRoutesStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get routes
-    """
-    raise NotImplementedError()
-  APRoutesStatsGet.future = None
-  def APRadioStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get radio statistics
-    """
-    raise NotImplementedError()
-  APRadioStatsGet.future = None
-  def APWLANStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get WLAN statistics
-    """
-    raise NotImplementedError()
-  APWLANStatsGet.future = None
-  def APClientStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get Client statistics
-    """
-    raise NotImplementedError()
-  APClientStatsGet.future = None
-  def APInterfaceStatsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get Interface statistics
-    """
-    raise NotImplementedError()
-  APInterfaceStatsGet.future = None
 
 
 def beta_create_APStatistics_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
   request_deserializers = {
-    ('access_point.APStatistics', 'APClientStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APDNSStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APInterfaceStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APMemoryStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APRadioStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APRoutesStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APSystemStatsGet'): APStatsGetMsg.FromString,
-    ('access_point.APStatistics', 'APWLANStatsGet'): APStatsGetMsg.FromString,
+    ('access_point.APStatistics', 'APStatsGet'): APStatsMsg.FromString,
   }
   response_serializers = {
-    ('access_point.APStatistics', 'APClientStatsGet'): APClientStatsMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APDNSStatsGet'): APDNSServersMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APInterfaceStatsGet'): APInterfaceStatsMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APMemoryStatsGet'): APMemoryStatsMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APRadioStatsGet'): APRadioStatsMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APRoutesStatsGet'): APRoutesMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APSystemStatsGet'): APSystemStatsMsgRsp.SerializeToString,
-    ('access_point.APStatistics', 'APWLANStatsGet'): APWLANStatsMsgRsp.SerializeToString,
+    ('access_point.APStatistics', 'APStatsGet'): APStatsMsgRsp.SerializeToString,
   }
   method_implementations = {
-    ('access_point.APStatistics', 'APClientStatsGet'): face_utilities.unary_unary_inline(servicer.APClientStatsGet),
-    ('access_point.APStatistics', 'APDNSStatsGet'): face_utilities.unary_unary_inline(servicer.APDNSStatsGet),
-    ('access_point.APStatistics', 'APInterfaceStatsGet'): face_utilities.unary_unary_inline(servicer.APInterfaceStatsGet),
-    ('access_point.APStatistics', 'APMemoryStatsGet'): face_utilities.unary_unary_inline(servicer.APMemoryStatsGet),
-    ('access_point.APStatistics', 'APRadioStatsGet'): face_utilities.unary_unary_inline(servicer.APRadioStatsGet),
-    ('access_point.APStatistics', 'APRoutesStatsGet'): face_utilities.unary_unary_inline(servicer.APRoutesStatsGet),
-    ('access_point.APStatistics', 'APSystemStatsGet'): face_utilities.unary_unary_inline(servicer.APSystemStatsGet),
-    ('access_point.APStatistics', 'APWLANStatsGet'): face_utilities.unary_unary_inline(servicer.APWLANStatsGet),
+    ('access_point.APStatistics', 'APStatsGet'): face_utilities.unary_stream_inline(servicer.APStatsGet),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -1695,34 +1708,13 @@ def beta_create_APStatistics_server(servicer, pool=None, pool_size=None, default
 
 def beta_create_APStatistics_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
   request_serializers = {
-    ('access_point.APStatistics', 'APClientStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APDNSStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APInterfaceStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APMemoryStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APRadioStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APRoutesStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APSystemStatsGet'): APStatsGetMsg.SerializeToString,
-    ('access_point.APStatistics', 'APWLANStatsGet'): APStatsGetMsg.SerializeToString,
+    ('access_point.APStatistics', 'APStatsGet'): APStatsMsg.SerializeToString,
   }
   response_deserializers = {
-    ('access_point.APStatistics', 'APClientStatsGet'): APClientStatsMsgRsp.FromString,
-    ('access_point.APStatistics', 'APDNSStatsGet'): APDNSServersMsgRsp.FromString,
-    ('access_point.APStatistics', 'APInterfaceStatsGet'): APInterfaceStatsMsgRsp.FromString,
-    ('access_point.APStatistics', 'APMemoryStatsGet'): APMemoryStatsMsgRsp.FromString,
-    ('access_point.APStatistics', 'APRadioStatsGet'): APRadioStatsMsgRsp.FromString,
-    ('access_point.APStatistics', 'APRoutesStatsGet'): APRoutesMsgRsp.FromString,
-    ('access_point.APStatistics', 'APSystemStatsGet'): APSystemStatsMsgRsp.FromString,
-    ('access_point.APStatistics', 'APWLANStatsGet'): APWLANStatsMsgRsp.FromString,
+    ('access_point.APStatistics', 'APStatsGet'): APStatsMsgRsp.FromString,
   }
   cardinalities = {
-    'APClientStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APDNSStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APInterfaceStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APMemoryStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APRadioStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APRoutesStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APSystemStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'APWLANStatsGet': cardinality.Cardinality.UNARY_UNARY,
+    'APStatsGet': cardinality.Cardinality.UNARY_STREAM,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
   return beta_implementations.dynamic_stub(channel, 'access_point.APStatistics', cardinalities, options=stub_options)

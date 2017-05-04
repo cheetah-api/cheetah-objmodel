@@ -16,14 +16,7 @@
 namespace access_point {
 
 static const char* APStatistics_method_names[] = {
-  "/access_point.APStatistics/APSystemStatsGet",
-  "/access_point.APStatistics/APMemoryStatsGet",
-  "/access_point.APStatistics/APDNSStatsGet",
-  "/access_point.APStatistics/APRoutesStatsGet",
-  "/access_point.APStatistics/APRadioStatsGet",
-  "/access_point.APStatistics/APWLANStatsGet",
-  "/access_point.APStatistics/APClientStatsGet",
-  "/access_point.APStatistics/APInterfaceStatsGet",
+  "/access_point.APStatistics/APStatsGet",
 };
 
 std::unique_ptr< APStatistics::Stub> APStatistics::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,180 +25,33 @@ std::unique_ptr< APStatistics::Stub> APStatistics::NewStub(const std::shared_ptr
 }
 
 APStatistics::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_APSystemStatsGet_(APStatistics_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APMemoryStatsGet_(APStatistics_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APDNSStatsGet_(APStatistics_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APRoutesStatsGet_(APStatistics_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APRadioStatsGet_(APStatistics_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APWLANStatsGet_(APStatistics_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APClientStatsGet_(APStatistics_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_APInterfaceStatsGet_(APStatistics_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_APStatsGet_(APStatistics_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::Status APStatistics::Stub::APSystemStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APSystemStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APSystemStatsGet_, context, request, response);
+::grpc::ClientReader< ::access_point::APStatsMsgRsp>* APStatistics::Stub::APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
+  return new ::grpc::ClientReader< ::access_point::APStatsMsgRsp>(channel_.get(), rpcmethod_APStatsGet_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::access_point::APSystemStatsMsgRsp>* APStatistics::Stub::AsyncAPSystemStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APSystemStatsMsgRsp>(channel_.get(), cq, rpcmethod_APSystemStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APMemoryStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APMemoryStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APMemoryStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APMemoryStatsMsgRsp>* APStatistics::Stub::AsyncAPMemoryStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APMemoryStatsMsgRsp>(channel_.get(), cq, rpcmethod_APMemoryStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APDNSStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APDNSServersMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APDNSStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APDNSServersMsgRsp>* APStatistics::Stub::AsyncAPDNSStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APDNSServersMsgRsp>(channel_.get(), cq, rpcmethod_APDNSStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APRoutesStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRoutesMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APRoutesStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APRoutesMsgRsp>* APStatistics::Stub::AsyncAPRoutesStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APRoutesMsgRsp>(channel_.get(), cq, rpcmethod_APRoutesStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APRadioStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APRadioStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APRadioStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APRadioStatsMsgRsp>* APStatistics::Stub::AsyncAPRadioStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APRadioStatsMsgRsp>(channel_.get(), cq, rpcmethod_APRadioStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APWLANStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APWLANStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APWLANStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APWLANStatsMsgRsp>* APStatistics::Stub::AsyncAPWLANStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APWLANStatsMsgRsp>(channel_.get(), cq, rpcmethod_APWLANStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APClientStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APClientStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APClientStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APClientStatsMsgRsp>* APStatistics::Stub::AsyncAPClientStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APClientStatsMsgRsp>(channel_.get(), cq, rpcmethod_APClientStatsGet_, context, request);
-}
-
-::grpc::Status APStatistics::Stub::APInterfaceStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::access_point::APInterfaceStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APInterfaceStatsGet_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::access_point::APInterfaceStatsMsgRsp>* APStatistics::Stub::AsyncAPInterfaceStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APInterfaceStatsMsgRsp>(channel_.get(), cq, rpcmethod_APInterfaceStatsGet_, context, request);
+::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>* APStatistics::Stub::AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>(channel_.get(), cq, rpcmethod_APStatsGet_, context, request, tag);
 }
 
 APStatistics::Service::Service() {
   (void)APStatistics_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
       APStatistics_method_names[0],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APSystemStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APSystemStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APMemoryStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APMemoryStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[2],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APDNSServersMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APDNSStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[3],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APRoutesMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APRoutesStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[4],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APRadioStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APRadioStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[5],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APWLANStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APWLANStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[6],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APClientStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APClientStatsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      APStatistics_method_names[7],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APStatistics::Service, ::access_point::APStatsGetMsg, ::access_point::APInterfaceStatsMsgRsp>(
-          std::mem_fn(&APStatistics::Service::APInterfaceStatsGet), this)));
+      ::grpc::RpcMethod::SERVER_STREAMING,
+      new ::grpc::ServerStreamingHandler< APStatistics::Service, ::access_point::APStatsMsg, ::access_point::APStatsMsgRsp>(
+          std::mem_fn(&APStatistics::Service::APStatsGet), this)));
 }
 
 APStatistics::Service::~Service() {
 }
 
-::grpc::Status APStatistics::Service::APSystemStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APSystemStatsMsgRsp* response) {
+::grpc::Status APStatistics::Service::APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) {
   (void) context;
   (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APMemoryStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APMemoryStatsMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APDNSStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APDNSServersMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APRoutesStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRoutesMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APRadioStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APRadioStatsMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APWLANStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APWLANStatsMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APClientStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APClientStatsMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status APStatistics::Service::APInterfaceStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsGetMsg* request, ::access_point::APInterfaceStatsMsgRsp* response) {
-  (void) context;
-  (void) request;
-  (void) response;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

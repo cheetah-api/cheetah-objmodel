@@ -23,58 +23,96 @@ service APStatistics {
     // Various RPC calls to get statistics for system, wlan, radio, etc
     ///;
 
-    // Get system level statistics
-    rpc APSystemStatsGet(APStatsGetMsg) returns (APSystemStatsMsgRsp);
-
-    // Get memory statistics
-    rpc APMemoryStatsGet(APStatsGetMsg) returns (APMemoryStatsMsgRsp);
-
-    // Get DNS servers
-    rpc APDNSStatsGet(APStatsGetMsg) returns (APDNSServersMsgRsp);
-
-    // Get routes
-    rpc APRoutesStatsGet(APStatsGetMsg) returns (APRoutesMsgRsp);
-
-    // Get radio statistics
-    rpc APRadioStatsGet(APStatsGetMsg) returns (APRadioStatsMsgRsp);
-
-    // Get WLAN statistics
-    rpc APWLANStatsGet(APStatsGetMsg) returns (APWLANStatsMsgRsp);
-
-    // Get Client statistics
-    rpc APClientStatsGet(APStatsGetMsg) returns (APClientStatsMsgRsp);
-
-    // Get Interface statistics
-    rpc APInterfaceStatsGet(APStatsGetMsg) returns (APInterfaceStatsMsgRsp);
+    // Get statistics
+    rpc APStatsGet(APStatsMsg) returns (stream APStatsMsgRsp);
 
     //@}
 }
 
+enum APStatsType {
+    //@addtogroup APStatistics
+    //@{
+    // The type defining the category of statistics to be retrieved
+    ///;
+    AP_RESERVED = 0;
+
+    // System level information
+    AP_SYSTEM_STATS = 1;
+
+    // Memory counters
+    AP_MEMORY_STATS = 2;
+
+    // Interface statistics: interface counters, etc
+    AP_INTERFACE_STATS = 3;
+
+    // Routing table
+    AP_ROUTING_STATS = 4;
+
+    // DNS entries
+    AP_DNS_STATS = 5;
+
+    // Radio information
+    AP_RADIO_STATS = 6;
+
+    // WLAN information
+    AP_WLAN_STATS = 7;
+
+    // Wireless Client information
+    AP_CLIENT_STATS = 8;
+
+    //@}
+}
+
+// Minimum TimeInterval allowed (in seconds)
+enum StatsTimeInterval {
+    option allow_alias = true;
+
+    // Set to 0 if this is a pull operation
+    AP_STATS_UNARY_OPERATION    = 0;
+    AP_STATS_ZERO_TIME_INTERVAL = 0;
+
+    // Minimum requested interval for push notifications
+    AP_STATS_MIN_TIME_INTERVAL = 5;
+}
+
 // Request message for statistics
-message APStatsGetMsg {
+message APStatsRequest {
+
+    // The type to be retrieved
+    APStatsType StatsType = 1;
+
+    // The time interval (cadence) that the server should use to push statistics.
+    // If set to 0 the server will respond only once
+    // For positive values, the connection will remain open and the server will be
+    // pushing statistics of this category every TimeInterval seconds
+    uint32 TimeInterval = 2;
+}
+
+// Request message for statistics
+message APStatsMsg {
+
+    // List of type/interval requests
+    repeated APStatsRequest StatsRequest = 1;
 }
 
 // System Statistics
 message APSystemStatsMsgRsp {
 
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
     // AP MAC Address: "5c-5b-35-0e-02-1c"
-    string ID = 2;
+    string ID = 1;
 
     // Uptime since Linux boot, in seconds
-    uint32 Uptime = 3;
+    uint32 Uptime = 2;
 
     // When these statistics were gathered
     // Absolute time: "2016-07-15T16:18:39.335026717Z"
-    string When = 4;
+    string When = 3;
 
     // AP Serial Number
-    string SerialNumber = 5;
+    string SerialNumber = 4;
 
     // AP Product ID: AP2800, etc
-    string ProductId = 6;
+    string ProductId = 5;
 }
 
 // Data from /proc/meminfo
@@ -106,24 +144,18 @@ message SlabInfo {
 // Memory Statistics
 message APMemoryStatsMsgRsp {
  
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
     // Data from /proc/meminfo
-    MemInfo ProcMemInfo = 2;
+    MemInfo ProcMemInfo = 1;
 
     // Top entry from /proc/slabinfo
-    SlabInfo TopProcSlabInfo = 3;
+    SlabInfo TopProcSlabInfo = 2;
 }
 
 // Entries from /etc/resolv.conf
-message APDNSServersMsgRsp {
-
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
+message APDNSStatsMsgRsp {
 
     // Server's IP address
-    repeated string IP = 2;
+    repeated string IP = 1;
 }
 
 // IPv4 route entry
@@ -154,12 +186,9 @@ message IPv4Route {
 }
 
 // Network routes
-message APRoutesMsgRsp {
+message APRoutingStatsMsgRsp {
 
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
-    repeated IPv4Route IPv4Routes = 2;
+    repeated IPv4Route IPv4Routes = 1;
 }
 
 // Multicast Counter entry
@@ -208,11 +237,8 @@ message WLANEntry {
 // WLAN statistics
 message APWLANStatsMsgRsp {
 
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
     // WLAN Entries
-    repeated WLANEntry WLANEntries = 2;
+    repeated WLANEntry WLANEntries = 1;
 }
 
 // Radio utilization
@@ -314,11 +340,8 @@ message RadioEntry {
 // AP Radio Statistics
 message APRadioStatsMsgRsp {
 
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
     // Radio entries
-    repeated RadioEntry Radios = 2;
+    repeated RadioEntry Radios = 1;
 }
 
 // Client entry
@@ -376,11 +399,8 @@ message APClientEntry {
 // AP Client statistics
 message APClientStatsMsgRsp {
 
-    // Corresponding error code
-    APErrorStatus ErrStatus = 1;
-
     // Client entries
-    repeated APClientEntry Clients = 2;
+    repeated APClientEntry Clients = 1;
 }
 
 // Interface entry
@@ -415,11 +435,26 @@ message APInterfaceEntry {
 
 // AP Interface statistics
 message APInterfaceStatsMsgRsp {
+
+    // Interface entries
+    repeated APInterfaceEntry Interfaces = 1;
+}
+
+// AP statistics response
+message APStatsMsgRsp {
+
     // Corresponding error code
     APErrorStatus ErrStatus = 1;
 
-    // Interface entries
-    repeated APInterfaceEntry Interfaces = 2;
+    oneof msg_rsp {
+        APSystemStatsMsgRsp    SystemStats    = 2;
+        APMemoryStatsMsgRsp    MemoryStats    = 3;
+        APInterfaceStatsMsgRsp InterfaceStats = 4;
+        APRoutingStatsMsgRsp   RoutingStats   = 5;
+        APDNSStatsMsgRsp       DNSStats       = 6;
+        APRadioStatsMsgRsp     RadioStats     = 7;
+        APWLANStatsMsgRsp      WLANStats      = 8;
+        APClientStatsMsgRsp    ClientStats    = 9;
+    }
 }
-
 // @}

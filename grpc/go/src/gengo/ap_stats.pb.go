@@ -18,43 +18,154 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// Request message for statistics
-type APStatsGetMsg struct {
+type APStatsType int32
+
+const (
+	// @addtogroup APStatistics
+	// @{
+	// The type defining the category of statistics to be retrieved
+	// /;
+	APStatsType_AP_RESERVED APStatsType = 0
+	// System level information
+	APStatsType_AP_SYSTEM_STATS APStatsType = 1
+	// Memory counters
+	APStatsType_AP_MEMORY_STATS APStatsType = 2
+	// Interface statistics: interface counters, etc
+	APStatsType_AP_INTERFACE_STATS APStatsType = 3
+	// Routing table
+	APStatsType_AP_ROUTING_STATS APStatsType = 4
+	// DNS entries
+	APStatsType_AP_DNS_STATS APStatsType = 5
+	// Radio information
+	APStatsType_AP_RADIO_STATS APStatsType = 6
+	// WLAN information
+	APStatsType_AP_WLAN_STATS APStatsType = 7
+	// Wireless Client information
+	APStatsType_AP_CLIENT_STATS APStatsType = 8
+)
+
+var APStatsType_name = map[int32]string{
+	0: "AP_RESERVED",
+	1: "AP_SYSTEM_STATS",
+	2: "AP_MEMORY_STATS",
+	3: "AP_INTERFACE_STATS",
+	4: "AP_ROUTING_STATS",
+	5: "AP_DNS_STATS",
+	6: "AP_RADIO_STATS",
+	7: "AP_WLAN_STATS",
+	8: "AP_CLIENT_STATS",
+}
+var APStatsType_value = map[string]int32{
+	"AP_RESERVED":        0,
+	"AP_SYSTEM_STATS":    1,
+	"AP_MEMORY_STATS":    2,
+	"AP_INTERFACE_STATS": 3,
+	"AP_ROUTING_STATS":   4,
+	"AP_DNS_STATS":       5,
+	"AP_RADIO_STATS":     6,
+	"AP_WLAN_STATS":      7,
+	"AP_CLIENT_STATS":    8,
 }
 
-func (m *APStatsGetMsg) Reset()                    { *m = APStatsGetMsg{} }
-func (m *APStatsGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*APStatsGetMsg) ProtoMessage()               {}
-func (*APStatsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (x APStatsType) String() string {
+	return proto.EnumName(APStatsType_name, int32(x))
+}
+func (APStatsType) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+
+// Minimum TimeInterval allowed (in seconds)
+type StatsTimeInterval int32
+
+const (
+	// Set to 0 if this is a pull operation
+	StatsTimeInterval_AP_STATS_UNARY_OPERATION    StatsTimeInterval = 0
+	StatsTimeInterval_AP_STATS_ZERO_TIME_INTERVAL StatsTimeInterval = 0
+	// Minimum requested interval for push notifications
+	StatsTimeInterval_AP_STATS_MIN_TIME_INTERVAL StatsTimeInterval = 5
+)
+
+var StatsTimeInterval_name = map[int32]string{
+	0: "AP_STATS_UNARY_OPERATION",
+	// Duplicate value: 0: "AP_STATS_ZERO_TIME_INTERVAL",
+	5: "AP_STATS_MIN_TIME_INTERVAL",
+}
+var StatsTimeInterval_value = map[string]int32{
+	"AP_STATS_UNARY_OPERATION":    0,
+	"AP_STATS_ZERO_TIME_INTERVAL": 0,
+	"AP_STATS_MIN_TIME_INTERVAL":  5,
+}
+
+func (x StatsTimeInterval) String() string {
+	return proto.EnumName(StatsTimeInterval_name, int32(x))
+}
+func (StatsTimeInterval) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+
+// Request message for statistics
+type APStatsRequest struct {
+	// The type to be retrieved
+	StatsType APStatsType `protobuf:"varint,1,opt,name=StatsType,enum=access_point.APStatsType" json:"StatsType,omitempty"`
+	// The time interval (cadence) that the server should use to push statistics.
+	// If set to 0 the server will respond only once
+	// For positive values, the connection will remain open and the server will be
+	// pushing statistics of this category every TimeInterval seconds
+	TimeInterval uint32 `protobuf:"varint,2,opt,name=TimeInterval" json:"TimeInterval,omitempty"`
+}
+
+func (m *APStatsRequest) Reset()                    { *m = APStatsRequest{} }
+func (m *APStatsRequest) String() string            { return proto.CompactTextString(m) }
+func (*APStatsRequest) ProtoMessage()               {}
+func (*APStatsRequest) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+
+func (m *APStatsRequest) GetStatsType() APStatsType {
+	if m != nil {
+		return m.StatsType
+	}
+	return APStatsType_AP_RESERVED
+}
+
+func (m *APStatsRequest) GetTimeInterval() uint32 {
+	if m != nil {
+		return m.TimeInterval
+	}
+	return 0
+}
+
+// Request message for statistics
+type APStatsMsg struct {
+	// List of type/interval requests
+	StatsRequest []*APStatsRequest `protobuf:"bytes,1,rep,name=StatsRequest" json:"StatsRequest,omitempty"`
+}
+
+func (m *APStatsMsg) Reset()                    { *m = APStatsMsg{} }
+func (m *APStatsMsg) String() string            { return proto.CompactTextString(m) }
+func (*APStatsMsg) ProtoMessage()               {}
+func (*APStatsMsg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+
+func (m *APStatsMsg) GetStatsRequest() []*APStatsRequest {
+	if m != nil {
+		return m.StatsRequest
+	}
+	return nil
+}
 
 // System Statistics
 type APSystemStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// AP MAC Address: "5c-5b-35-0e-02-1c"
-	ID string `protobuf:"bytes,2,opt,name=ID" json:"ID,omitempty"`
+	ID string `protobuf:"bytes,1,opt,name=ID" json:"ID,omitempty"`
 	// Uptime since Linux boot, in seconds
-	Uptime uint32 `protobuf:"varint,3,opt,name=Uptime" json:"Uptime,omitempty"`
+	Uptime uint32 `protobuf:"varint,2,opt,name=Uptime" json:"Uptime,omitempty"`
 	// When these statistics were gathered
 	// Absolute time: "2016-07-15T16:18:39.335026717Z"
-	When string `protobuf:"bytes,4,opt,name=When" json:"When,omitempty"`
+	When string `protobuf:"bytes,3,opt,name=When" json:"When,omitempty"`
 	// AP Serial Number
-	SerialNumber string `protobuf:"bytes,5,opt,name=SerialNumber" json:"SerialNumber,omitempty"`
+	SerialNumber string `protobuf:"bytes,4,opt,name=SerialNumber" json:"SerialNumber,omitempty"`
 	// AP Product ID: AP2800, etc
-	ProductId string `protobuf:"bytes,6,opt,name=ProductId" json:"ProductId,omitempty"`
+	ProductId string `protobuf:"bytes,5,opt,name=ProductId" json:"ProductId,omitempty"`
 }
 
 func (m *APSystemStatsMsgRsp) Reset()                    { *m = APSystemStatsMsgRsp{} }
 func (m *APSystemStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APSystemStatsMsgRsp) ProtoMessage()               {}
-func (*APSystemStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
-
-func (m *APSystemStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APSystemStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *APSystemStatsMsgRsp) GetID() string {
 	if m != nil {
@@ -102,7 +213,7 @@ type MemInfo struct {
 func (m *MemInfo) Reset()                    { *m = MemInfo{} }
 func (m *MemInfo) String() string            { return proto.CompactTextString(m) }
 func (*MemInfo) ProtoMessage()               {}
-func (*MemInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
+func (*MemInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *MemInfo) GetTotalKB() uint32 {
 	if m != nil {
@@ -133,7 +244,7 @@ type SlabInfo struct {
 func (m *SlabInfo) Reset()                    { *m = SlabInfo{} }
 func (m *SlabInfo) String() string            { return proto.CompactTextString(m) }
 func (*SlabInfo) ProtoMessage()               {}
-func (*SlabInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
+func (*SlabInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *SlabInfo) GetName() string {
 	if m != nil {
@@ -165,25 +276,16 @@ func (m *SlabInfo) GetObjSize() int32 {
 
 // Memory Statistics
 type APMemoryStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Data from /proc/meminfo
-	ProcMemInfo *MemInfo `protobuf:"bytes,2,opt,name=ProcMemInfo" json:"ProcMemInfo,omitempty"`
+	ProcMemInfo *MemInfo `protobuf:"bytes,1,opt,name=ProcMemInfo" json:"ProcMemInfo,omitempty"`
 	// Top entry from /proc/slabinfo
-	TopProcSlabInfo *SlabInfo `protobuf:"bytes,3,opt,name=TopProcSlabInfo" json:"TopProcSlabInfo,omitempty"`
+	TopProcSlabInfo *SlabInfo `protobuf:"bytes,2,opt,name=TopProcSlabInfo" json:"TopProcSlabInfo,omitempty"`
 }
 
 func (m *APMemoryStatsMsgRsp) Reset()                    { *m = APMemoryStatsMsgRsp{} }
 func (m *APMemoryStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APMemoryStatsMsgRsp) ProtoMessage()               {}
-func (*APMemoryStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
-
-func (m *APMemoryStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APMemoryStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *APMemoryStatsMsgRsp) GetProcMemInfo() *MemInfo {
 	if m != nil {
@@ -200,26 +302,17 @@ func (m *APMemoryStatsMsgRsp) GetTopProcSlabInfo() *SlabInfo {
 }
 
 // Entries from /etc/resolv.conf
-type APDNSServersMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+type APDNSStatsMsgRsp struct {
 	// Server's IP address
-	IP []string `protobuf:"bytes,2,rep,name=IP" json:"IP,omitempty"`
+	IP []string `protobuf:"bytes,1,rep,name=IP" json:"IP,omitempty"`
 }
 
-func (m *APDNSServersMsgRsp) Reset()                    { *m = APDNSServersMsgRsp{} }
-func (m *APDNSServersMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*APDNSServersMsgRsp) ProtoMessage()               {}
-func (*APDNSServersMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
+func (m *APDNSStatsMsgRsp) Reset()                    { *m = APDNSStatsMsgRsp{} }
+func (m *APDNSStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*APDNSStatsMsgRsp) ProtoMessage()               {}
+func (*APDNSStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
-func (m *APDNSServersMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
-
-func (m *APDNSServersMsgRsp) GetIP() []string {
+func (m *APDNSStatsMsgRsp) GetIP() []string {
 	if m != nil {
 		return m.IP
 	}
@@ -249,7 +342,7 @@ type IPv4Route struct {
 func (m *IPv4Route) Reset()                    { *m = IPv4Route{} }
 func (m *IPv4Route) String() string            { return proto.CompactTextString(m) }
 func (*IPv4Route) ProtoMessage()               {}
-func (*IPv4Route) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
+func (*IPv4Route) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *IPv4Route) GetDestination() string {
 	if m != nil {
@@ -308,25 +401,16 @@ func (m *IPv4Route) GetIface() string {
 }
 
 // Network routes
-type APRoutesMsgRsp struct {
-	// Corresponding error code
-	ErrStatus  *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
-	IPv4Routes []*IPv4Route   `protobuf:"bytes,2,rep,name=IPv4Routes" json:"IPv4Routes,omitempty"`
+type APRoutingStatsMsgRsp struct {
+	IPv4Routes []*IPv4Route `protobuf:"bytes,1,rep,name=IPv4Routes" json:"IPv4Routes,omitempty"`
 }
 
-func (m *APRoutesMsgRsp) Reset()                    { *m = APRoutesMsgRsp{} }
-func (m *APRoutesMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*APRoutesMsgRsp) ProtoMessage()               {}
-func (*APRoutesMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
+func (m *APRoutingStatsMsgRsp) Reset()                    { *m = APRoutingStatsMsgRsp{} }
+func (m *APRoutingStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*APRoutingStatsMsgRsp) ProtoMessage()               {}
+func (*APRoutingStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
-func (m *APRoutesMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
-
-func (m *APRoutesMsgRsp) GetIPv4Routes() []*IPv4Route {
+func (m *APRoutingStatsMsgRsp) GetIPv4Routes() []*IPv4Route {
 	if m != nil {
 		return m.IPv4Routes
 	}
@@ -344,7 +428,7 @@ type MulticastCounter struct {
 func (m *MulticastCounter) Reset()                    { *m = MulticastCounter{} }
 func (m *MulticastCounter) String() string            { return proto.CompactTextString(m) }
 func (*MulticastCounter) ProtoMessage()               {}
-func (*MulticastCounter) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
+func (*MulticastCounter) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 func (m *MulticastCounter) GetTxMcastPkts() uint32 {
 	if m != nil {
@@ -373,7 +457,7 @@ type WLAN struct {
 func (m *WLAN) Reset()                    { *m = WLAN{} }
 func (m *WLAN) String() string            { return proto.CompactTextString(m) }
 func (*WLAN) ProtoMessage()               {}
-func (*WLAN) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
+func (*WLAN) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 func (m *WLAN) GetID() string {
 	if m != nil {
@@ -408,7 +492,7 @@ type WLANEntry struct {
 func (m *WLANEntry) Reset()                    { *m = WLANEntry{} }
 func (m *WLANEntry) String() string            { return proto.CompactTextString(m) }
 func (*WLANEntry) ProtoMessage()               {}
-func (*WLANEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
+func (*WLANEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *WLANEntry) GetWlan() *WLAN {
 	if m != nil {
@@ -454,23 +538,14 @@ func (m *WLANEntry) GetCounter() *MulticastCounter {
 
 // WLAN statistics
 type APWLANStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// WLAN Entries
-	WLANEntries []*WLANEntry `protobuf:"bytes,2,rep,name=WLANEntries" json:"WLANEntries,omitempty"`
+	WLANEntries []*WLANEntry `protobuf:"bytes,1,rep,name=WLANEntries" json:"WLANEntries,omitempty"`
 }
 
 func (m *APWLANStatsMsgRsp) Reset()                    { *m = APWLANStatsMsgRsp{} }
 func (m *APWLANStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APWLANStatsMsgRsp) ProtoMessage()               {}
-func (*APWLANStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
-
-func (m *APWLANStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APWLANStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *APWLANStatsMsgRsp) GetWLANEntries() []*WLANEntry {
 	if m != nil {
@@ -500,7 +575,7 @@ type RadioUtilization struct {
 func (m *RadioUtilization) Reset()                    { *m = RadioUtilization{} }
 func (m *RadioUtilization) String() string            { return proto.CompactTextString(m) }
 func (*RadioUtilization) ProtoMessage()               {}
-func (*RadioUtilization) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
+func (*RadioUtilization) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 func (m *RadioUtilization) GetAll() float32 {
 	if m != nil {
@@ -560,7 +635,7 @@ type RadioCounters struct {
 func (m *RadioCounters) Reset()                    { *m = RadioCounters{} }
 func (m *RadioCounters) String() string            { return proto.CompactTextString(m) }
 func (*RadioCounters) ProtoMessage()               {}
-func (*RadioCounters) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
+func (*RadioCounters) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
 
 func (m *RadioCounters) GetTxBytes() uint64 {
 	if m != nil {
@@ -629,7 +704,7 @@ type DfsState struct {
 func (m *DfsState) Reset()                    { *m = DfsState{} }
 func (m *DfsState) String() string            { return proto.CompactTextString(m) }
 func (*DfsState) ProtoMessage()               {}
-func (*DfsState) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
+func (*DfsState) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
 
 func (m *DfsState) GetCacState() uint32 {
 	if m != nil {
@@ -675,7 +750,7 @@ type RadioEntry struct {
 func (m *RadioEntry) Reset()                    { *m = RadioEntry{} }
 func (m *RadioEntry) String() string            { return proto.CompactTextString(m) }
 func (*RadioEntry) ProtoMessage()               {}
-func (*RadioEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
+func (*RadioEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
 
 func (m *RadioEntry) GetDev() string {
 	if m != nil {
@@ -756,23 +831,14 @@ func (m *RadioEntry) GetDFS() *DfsState {
 
 // AP Radio Statistics
 type APRadioStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Radio entries
-	Radios []*RadioEntry `protobuf:"bytes,2,rep,name=Radios" json:"Radios,omitempty"`
+	Radios []*RadioEntry `protobuf:"bytes,1,rep,name=Radios" json:"Radios,omitempty"`
 }
 
 func (m *APRadioStatsMsgRsp) Reset()                    { *m = APRadioStatsMsgRsp{} }
 func (m *APRadioStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APRadioStatsMsgRsp) ProtoMessage()               {}
-func (*APRadioStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
-
-func (m *APRadioStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APRadioStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
 
 func (m *APRadioStatsMsgRsp) GetRadios() []*RadioEntry {
 	if m != nil {
@@ -820,7 +886,7 @@ type APClientEntry struct {
 func (m *APClientEntry) Reset()                    { *m = APClientEntry{} }
 func (m *APClientEntry) String() string            { return proto.CompactTextString(m) }
 func (*APClientEntry) ProtoMessage()               {}
-func (*APClientEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
+func (*APClientEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
 
 func (m *APClientEntry) GetMAC() string {
 	if m != nil {
@@ -922,23 +988,14 @@ func (m *APClientEntry) GetRxPkts() uint32 {
 
 // AP Client statistics
 type APClientStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Client entries
-	Clients []*APClientEntry `protobuf:"bytes,2,rep,name=Clients" json:"Clients,omitempty"`
+	Clients []*APClientEntry `protobuf:"bytes,1,rep,name=Clients" json:"Clients,omitempty"`
 }
 
 func (m *APClientStatsMsgRsp) Reset()                    { *m = APClientStatsMsgRsp{} }
 func (m *APClientStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APClientStatsMsgRsp) ProtoMessage()               {}
-func (*APClientStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
-
-func (m *APClientStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APClientStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
 
 func (m *APClientStatsMsgRsp) GetClients() []*APClientEntry {
 	if m != nil {
@@ -972,7 +1029,7 @@ type APInterfaceEntry struct {
 func (m *APInterfaceEntry) Reset()                    { *m = APInterfaceEntry{} }
 func (m *APInterfaceEntry) String() string            { return proto.CompactTextString(m) }
 func (*APInterfaceEntry) ProtoMessage()               {}
-func (*APInterfaceEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
+func (*APInterfaceEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
 
 func (m *APInterfaceEntry) GetName() string {
 	if m != nil {
@@ -1039,23 +1096,14 @@ func (m *APInterfaceEntry) GetTxPkts() uint32 {
 
 // AP Interface statistics
 type APInterfaceStatsMsgRsp struct {
-	// Corresponding error code
-	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Interface entries
-	Interfaces []*APInterfaceEntry `protobuf:"bytes,2,rep,name=Interfaces" json:"Interfaces,omitempty"`
+	Interfaces []*APInterfaceEntry `protobuf:"bytes,1,rep,name=Interfaces" json:"Interfaces,omitempty"`
 }
 
 func (m *APInterfaceStatsMsgRsp) Reset()                    { *m = APInterfaceStatsMsgRsp{} }
 func (m *APInterfaceStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APInterfaceStatsMsgRsp) ProtoMessage()               {}
-func (*APInterfaceStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
-
-func (m *APInterfaceStatsMsgRsp) GetErrStatus() *APErrorStatus {
-	if m != nil {
-		return m.ErrStatus
-	}
-	return nil
-}
+func (*APInterfaceStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
 
 func (m *APInterfaceStatsMsgRsp) GetInterfaces() []*APInterfaceEntry {
 	if m != nil {
@@ -1064,15 +1112,333 @@ func (m *APInterfaceStatsMsgRsp) GetInterfaces() []*APInterfaceEntry {
 	return nil
 }
 
+// AP statistics response
+type APStatsMsgRsp struct {
+	// Corresponding error code
+	ErrStatus *APErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	// Types that are valid to be assigned to MsgRsp:
+	//	*APStatsMsgRsp_SystemStats
+	//	*APStatsMsgRsp_MemoryStats
+	//	*APStatsMsgRsp_InterfaceStats
+	//	*APStatsMsgRsp_RoutingStats
+	//	*APStatsMsgRsp_DNSStats
+	//	*APStatsMsgRsp_RadioStats
+	//	*APStatsMsgRsp_WLANStats
+	//	*APStatsMsgRsp_ClientStats
+	MsgRsp isAPStatsMsgRsp_MsgRsp `protobuf_oneof:"msg_rsp"`
+}
+
+func (m *APStatsMsgRsp) Reset()                    { *m = APStatsMsgRsp{} }
+func (m *APStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*APStatsMsgRsp) ProtoMessage()               {}
+func (*APStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
+
+type isAPStatsMsgRsp_MsgRsp interface {
+	isAPStatsMsgRsp_MsgRsp()
+}
+
+type APStatsMsgRsp_SystemStats struct {
+	SystemStats *APSystemStatsMsgRsp `protobuf:"bytes,2,opt,name=SystemStats,oneof"`
+}
+type APStatsMsgRsp_MemoryStats struct {
+	MemoryStats *APMemoryStatsMsgRsp `protobuf:"bytes,3,opt,name=MemoryStats,oneof"`
+}
+type APStatsMsgRsp_InterfaceStats struct {
+	InterfaceStats *APInterfaceStatsMsgRsp `protobuf:"bytes,4,opt,name=InterfaceStats,oneof"`
+}
+type APStatsMsgRsp_RoutingStats struct {
+	RoutingStats *APRoutingStatsMsgRsp `protobuf:"bytes,5,opt,name=RoutingStats,oneof"`
+}
+type APStatsMsgRsp_DNSStats struct {
+	DNSStats *APDNSStatsMsgRsp `protobuf:"bytes,6,opt,name=DNSStats,oneof"`
+}
+type APStatsMsgRsp_RadioStats struct {
+	RadioStats *APRadioStatsMsgRsp `protobuf:"bytes,7,opt,name=RadioStats,oneof"`
+}
+type APStatsMsgRsp_WLANStats struct {
+	WLANStats *APWLANStatsMsgRsp `protobuf:"bytes,8,opt,name=WLANStats,oneof"`
+}
+type APStatsMsgRsp_ClientStats struct {
+	ClientStats *APClientStatsMsgRsp `protobuf:"bytes,9,opt,name=ClientStats,oneof"`
+}
+
+func (*APStatsMsgRsp_SystemStats) isAPStatsMsgRsp_MsgRsp()    {}
+func (*APStatsMsgRsp_MemoryStats) isAPStatsMsgRsp_MsgRsp()    {}
+func (*APStatsMsgRsp_InterfaceStats) isAPStatsMsgRsp_MsgRsp() {}
+func (*APStatsMsgRsp_RoutingStats) isAPStatsMsgRsp_MsgRsp()   {}
+func (*APStatsMsgRsp_DNSStats) isAPStatsMsgRsp_MsgRsp()       {}
+func (*APStatsMsgRsp_RadioStats) isAPStatsMsgRsp_MsgRsp()     {}
+func (*APStatsMsgRsp_WLANStats) isAPStatsMsgRsp_MsgRsp()      {}
+func (*APStatsMsgRsp_ClientStats) isAPStatsMsgRsp_MsgRsp()    {}
+
+func (m *APStatsMsgRsp) GetMsgRsp() isAPStatsMsgRsp_MsgRsp {
+	if m != nil {
+		return m.MsgRsp
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetErrStatus() *APErrorStatus {
+	if m != nil {
+		return m.ErrStatus
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetSystemStats() *APSystemStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_SystemStats); ok {
+		return x.SystemStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetMemoryStats() *APMemoryStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_MemoryStats); ok {
+		return x.MemoryStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetInterfaceStats() *APInterfaceStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_InterfaceStats); ok {
+		return x.InterfaceStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetRoutingStats() *APRoutingStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_RoutingStats); ok {
+		return x.RoutingStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetDNSStats() *APDNSStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_DNSStats); ok {
+		return x.DNSStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetRadioStats() *APRadioStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_RadioStats); ok {
+		return x.RadioStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetWLANStats() *APWLANStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_WLANStats); ok {
+		return x.WLANStats
+	}
+	return nil
+}
+
+func (m *APStatsMsgRsp) GetClientStats() *APClientStatsMsgRsp {
+	if x, ok := m.GetMsgRsp().(*APStatsMsgRsp_ClientStats); ok {
+		return x.ClientStats
+	}
+	return nil
+}
+
+// XXX_OneofFuncs is for the internal use of the proto package.
+func (*APStatsMsgRsp) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _APStatsMsgRsp_OneofMarshaler, _APStatsMsgRsp_OneofUnmarshaler, _APStatsMsgRsp_OneofSizer, []interface{}{
+		(*APStatsMsgRsp_SystemStats)(nil),
+		(*APStatsMsgRsp_MemoryStats)(nil),
+		(*APStatsMsgRsp_InterfaceStats)(nil),
+		(*APStatsMsgRsp_RoutingStats)(nil),
+		(*APStatsMsgRsp_DNSStats)(nil),
+		(*APStatsMsgRsp_RadioStats)(nil),
+		(*APStatsMsgRsp_WLANStats)(nil),
+		(*APStatsMsgRsp_ClientStats)(nil),
+	}
+}
+
+func _APStatsMsgRsp_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*APStatsMsgRsp)
+	// msg_rsp
+	switch x := m.MsgRsp.(type) {
+	case *APStatsMsgRsp_SystemStats:
+		b.EncodeVarint(2<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.SystemStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_MemoryStats:
+		b.EncodeVarint(3<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.MemoryStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_InterfaceStats:
+		b.EncodeVarint(4<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.InterfaceStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_RoutingStats:
+		b.EncodeVarint(5<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.RoutingStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_DNSStats:
+		b.EncodeVarint(6<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.DNSStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_RadioStats:
+		b.EncodeVarint(7<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.RadioStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_WLANStats:
+		b.EncodeVarint(8<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.WLANStats); err != nil {
+			return err
+		}
+	case *APStatsMsgRsp_ClientStats:
+		b.EncodeVarint(9<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.ClientStats); err != nil {
+			return err
+		}
+	case nil:
+	default:
+		return fmt.Errorf("APStatsMsgRsp.MsgRsp has unexpected type %T", x)
+	}
+	return nil
+}
+
+func _APStatsMsgRsp_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*APStatsMsgRsp)
+	switch tag {
+	case 2: // msg_rsp.SystemStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APSystemStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_SystemStats{msg}
+		return true, err
+	case 3: // msg_rsp.MemoryStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APMemoryStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_MemoryStats{msg}
+		return true, err
+	case 4: // msg_rsp.InterfaceStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APInterfaceStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_InterfaceStats{msg}
+		return true, err
+	case 5: // msg_rsp.RoutingStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APRoutingStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_RoutingStats{msg}
+		return true, err
+	case 6: // msg_rsp.DNSStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APDNSStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_DNSStats{msg}
+		return true, err
+	case 7: // msg_rsp.RadioStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APRadioStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_RadioStats{msg}
+		return true, err
+	case 8: // msg_rsp.WLANStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APWLANStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_WLANStats{msg}
+		return true, err
+	case 9: // msg_rsp.ClientStats
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(APClientStatsMsgRsp)
+		err := b.DecodeMessage(msg)
+		m.MsgRsp = &APStatsMsgRsp_ClientStats{msg}
+		return true, err
+	default:
+		return false, nil
+	}
+}
+
+func _APStatsMsgRsp_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*APStatsMsgRsp)
+	// msg_rsp
+	switch x := m.MsgRsp.(type) {
+	case *APStatsMsgRsp_SystemStats:
+		s := proto.Size(x.SystemStats)
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_MemoryStats:
+		s := proto.Size(x.MemoryStats)
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_InterfaceStats:
+		s := proto.Size(x.InterfaceStats)
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_RoutingStats:
+		s := proto.Size(x.RoutingStats)
+		n += proto.SizeVarint(5<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_DNSStats:
+		s := proto.Size(x.DNSStats)
+		n += proto.SizeVarint(6<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_RadioStats:
+		s := proto.Size(x.RadioStats)
+		n += proto.SizeVarint(7<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_WLANStats:
+		s := proto.Size(x.WLANStats)
+		n += proto.SizeVarint(8<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *APStatsMsgRsp_ClientStats:
+		s := proto.Size(x.ClientStats)
+		n += proto.SizeVarint(9<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case nil:
+	default:
+		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
+	}
+	return n
+}
+
 func init() {
-	proto.RegisterType((*APStatsGetMsg)(nil), "access_point.APStatsGetMsg")
+	proto.RegisterType((*APStatsRequest)(nil), "access_point.APStatsRequest")
+	proto.RegisterType((*APStatsMsg)(nil), "access_point.APStatsMsg")
 	proto.RegisterType((*APSystemStatsMsgRsp)(nil), "access_point.APSystemStatsMsgRsp")
 	proto.RegisterType((*MemInfo)(nil), "access_point.MemInfo")
 	proto.RegisterType((*SlabInfo)(nil), "access_point.SlabInfo")
 	proto.RegisterType((*APMemoryStatsMsgRsp)(nil), "access_point.APMemoryStatsMsgRsp")
-	proto.RegisterType((*APDNSServersMsgRsp)(nil), "access_point.APDNSServersMsgRsp")
+	proto.RegisterType((*APDNSStatsMsgRsp)(nil), "access_point.APDNSStatsMsgRsp")
 	proto.RegisterType((*IPv4Route)(nil), "access_point.IPv4Route")
-	proto.RegisterType((*APRoutesMsgRsp)(nil), "access_point.APRoutesMsgRsp")
+	proto.RegisterType((*APRoutingStatsMsgRsp)(nil), "access_point.APRoutingStatsMsgRsp")
 	proto.RegisterType((*MulticastCounter)(nil), "access_point.MulticastCounter")
 	proto.RegisterType((*WLAN)(nil), "access_point.WLAN")
 	proto.RegisterType((*WLANEntry)(nil), "access_point.WLANEntry")
@@ -1086,6 +1452,9 @@ func init() {
 	proto.RegisterType((*APClientStatsMsgRsp)(nil), "access_point.APClientStatsMsgRsp")
 	proto.RegisterType((*APInterfaceEntry)(nil), "access_point.APInterfaceEntry")
 	proto.RegisterType((*APInterfaceStatsMsgRsp)(nil), "access_point.APInterfaceStatsMsgRsp")
+	proto.RegisterType((*APStatsMsgRsp)(nil), "access_point.APStatsMsgRsp")
+	proto.RegisterEnum("access_point.APStatsType", APStatsType_name, APStatsType_value)
+	proto.RegisterEnum("access_point.StatsTimeInterval", StatsTimeInterval_name, StatsTimeInterval_value)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1099,22 +1468,8 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for APStatistics service
 
 type APStatisticsClient interface {
-	// Get system level statistics
-	APSystemStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APSystemStatsMsgRsp, error)
-	// Get memory statistics
-	APMemoryStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APMemoryStatsMsgRsp, error)
-	// Get DNS servers
-	APDNSStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APDNSServersMsgRsp, error)
-	// Get routes
-	APRoutesStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APRoutesMsgRsp, error)
-	// Get radio statistics
-	APRadioStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APRadioStatsMsgRsp, error)
-	// Get WLAN statistics
-	APWLANStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APWLANStatsMsgRsp, error)
-	// Get Client statistics
-	APClientStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APClientStatsMsgRsp, error)
-	// Get Interface statistics
-	APInterfaceStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APInterfaceStatsMsgRsp, error)
+	// Get statistics
+	APStatsGet(ctx context.Context, in *APStatsMsg, opts ...grpc.CallOption) (APStatistics_APStatsGetClient, error)
 }
 
 type aPStatisticsClient struct {
@@ -1125,383 +1480,197 @@ func NewAPStatisticsClient(cc *grpc.ClientConn) APStatisticsClient {
 	return &aPStatisticsClient{cc}
 }
 
-func (c *aPStatisticsClient) APSystemStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APSystemStatsMsgRsp, error) {
-	out := new(APSystemStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APSystemStatsGet", in, out, c.cc, opts...)
+func (c *aPStatisticsClient) APStatsGet(ctx context.Context, in *APStatsMsg, opts ...grpc.CallOption) (APStatistics_APStatsGetClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_APStatistics_serviceDesc.Streams[0], c.cc, "/access_point.APStatistics/APStatsGet", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &aPStatisticsAPStatsGetClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func (c *aPStatisticsClient) APMemoryStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APMemoryStatsMsgRsp, error) {
-	out := new(APMemoryStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APMemoryStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
+type APStatistics_APStatsGetClient interface {
+	Recv() (*APStatsMsgRsp, error)
+	grpc.ClientStream
 }
 
-func (c *aPStatisticsClient) APDNSStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APDNSServersMsgRsp, error) {
-	out := new(APDNSServersMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APDNSStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
+type aPStatisticsAPStatsGetClient struct {
+	grpc.ClientStream
 }
 
-func (c *aPStatisticsClient) APRoutesStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APRoutesMsgRsp, error) {
-	out := new(APRoutesMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APRoutesStatsGet", in, out, c.cc, opts...)
-	if err != nil {
+func (x *aPStatisticsAPStatsGetClient) Recv() (*APStatsMsgRsp, error) {
+	m := new(APStatsMsgRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
-	return out, nil
-}
-
-func (c *aPStatisticsClient) APRadioStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APRadioStatsMsgRsp, error) {
-	out := new(APRadioStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APRadioStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *aPStatisticsClient) APWLANStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APWLANStatsMsgRsp, error) {
-	out := new(APWLANStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APWLANStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *aPStatisticsClient) APClientStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APClientStatsMsgRsp, error) {
-	out := new(APClientStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APClientStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *aPStatisticsClient) APInterfaceStatsGet(ctx context.Context, in *APStatsGetMsg, opts ...grpc.CallOption) (*APInterfaceStatsMsgRsp, error) {
-	out := new(APInterfaceStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/access_point.APStatistics/APInterfaceStatsGet", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
+	return m, nil
 }
 
 // Server API for APStatistics service
 
 type APStatisticsServer interface {
-	// Get system level statistics
-	APSystemStatsGet(context.Context, *APStatsGetMsg) (*APSystemStatsMsgRsp, error)
-	// Get memory statistics
-	APMemoryStatsGet(context.Context, *APStatsGetMsg) (*APMemoryStatsMsgRsp, error)
-	// Get DNS servers
-	APDNSStatsGet(context.Context, *APStatsGetMsg) (*APDNSServersMsgRsp, error)
-	// Get routes
-	APRoutesStatsGet(context.Context, *APStatsGetMsg) (*APRoutesMsgRsp, error)
-	// Get radio statistics
-	APRadioStatsGet(context.Context, *APStatsGetMsg) (*APRadioStatsMsgRsp, error)
-	// Get WLAN statistics
-	APWLANStatsGet(context.Context, *APStatsGetMsg) (*APWLANStatsMsgRsp, error)
-	// Get Client statistics
-	APClientStatsGet(context.Context, *APStatsGetMsg) (*APClientStatsMsgRsp, error)
-	// Get Interface statistics
-	APInterfaceStatsGet(context.Context, *APStatsGetMsg) (*APInterfaceStatsMsgRsp, error)
+	// Get statistics
+	APStatsGet(*APStatsMsg, APStatistics_APStatsGetServer) error
 }
 
 func RegisterAPStatisticsServer(s *grpc.Server, srv APStatisticsServer) {
 	s.RegisterService(&_APStatistics_serviceDesc, srv)
 }
 
-func _APStatistics_APSystemStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
+func _APStatistics_APStatsGet_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(APStatsMsg)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APSystemStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APSystemStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APSystemStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(APStatisticsServer).APStatsGet(m, &aPStatisticsAPStatsGetServer{stream})
 }
 
-func _APStatistics_APMemoryStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APMemoryStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APMemoryStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APMemoryStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+type APStatistics_APStatsGetServer interface {
+	Send(*APStatsMsgRsp) error
+	grpc.ServerStream
 }
 
-func _APStatistics_APDNSStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APDNSStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APDNSStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APDNSStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+type aPStatisticsAPStatsGetServer struct {
+	grpc.ServerStream
 }
 
-func _APStatistics_APRoutesStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APRoutesStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APRoutesStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APRoutesStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _APStatistics_APRadioStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APRadioStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APRadioStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APRadioStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _APStatistics_APWLANStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APWLANStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APWLANStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APWLANStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _APStatistics_APClientStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APClientStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APClientStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APClientStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _APStatistics_APInterfaceStatsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(APStatsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(APStatisticsServer).APInterfaceStatsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/access_point.APStatistics/APInterfaceStatsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APStatisticsServer).APInterfaceStatsGet(ctx, req.(*APStatsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+func (x *aPStatisticsAPStatsGetServer) Send(m *APStatsMsgRsp) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 var _APStatistics_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "access_point.APStatistics",
 	HandlerType: (*APStatisticsServer)(nil),
-	Methods: []grpc.MethodDesc{
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
 		{
-			MethodName: "APSystemStatsGet",
-			Handler:    _APStatistics_APSystemStatsGet_Handler,
-		},
-		{
-			MethodName: "APMemoryStatsGet",
-			Handler:    _APStatistics_APMemoryStatsGet_Handler,
-		},
-		{
-			MethodName: "APDNSStatsGet",
-			Handler:    _APStatistics_APDNSStatsGet_Handler,
-		},
-		{
-			MethodName: "APRoutesStatsGet",
-			Handler:    _APStatistics_APRoutesStatsGet_Handler,
-		},
-		{
-			MethodName: "APRadioStatsGet",
-			Handler:    _APStatistics_APRadioStatsGet_Handler,
-		},
-		{
-			MethodName: "APWLANStatsGet",
-			Handler:    _APStatistics_APWLANStatsGet_Handler,
-		},
-		{
-			MethodName: "APClientStatsGet",
-			Handler:    _APStatistics_APClientStatsGet_Handler,
-		},
-		{
-			MethodName: "APInterfaceStatsGet",
-			Handler:    _APStatistics_APInterfaceStatsGet_Handler,
+			StreamName:    "APStatsGet",
+			Handler:       _APStatistics_APStatsGet_Handler,
+			ServerStreams: true,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
 	Metadata: "ap_stats.proto",
 }
 
 func init() { proto.RegisterFile("ap_stats.proto", fileDescriptor2) }
 
 var fileDescriptor2 = []byte{
-	// 1483 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0x4f, 0x6f, 0xdb, 0xc6,
-	0x12, 0x07, 0xf5, 0xc7, 0x96, 0x46, 0x96, 0xad, 0xb7, 0x2f, 0xc9, 0xd3, 0x4b, 0x83, 0xd4, 0x21,
-	0x82, 0xc0, 0xc8, 0x21, 0x28, 0xdc, 0x16, 0x6d, 0x2e, 0x45, 0x24, 0x2b, 0x36, 0x84, 0x44, 0x0a,
-	0xb1, 0x94, 0xe1, 0xdc, 0x0c, 0x9a, 0x5a, 0xdb, 0x8c, 0x29, 0x52, 0x20, 0x57, 0x8e, 0x9c, 0x5b,
-	0x81, 0x02, 0x6d, 0xcf, 0x3d, 0xf6, 0xdc, 0x0f, 0xd2, 0x63, 0x51, 0xa0, 0xb7, 0x9e, 0xfa, 0x35,
-	0xfa, 0x01, 0x8a, 0x99, 0x5d, 0x52, 0x2b, 0xc9, 0x46, 0x92, 0x42, 0xb7, 0x9d, 0xdf, 0xcc, 0xce,
-	0xee, 0xce, 0xfc, 0x66, 0x76, 0x49, 0xd8, 0xf4, 0xc6, 0xc7, 0xa9, 0xf4, 0x64, 0xfa, 0x64, 0x9c,
-	0xc4, 0x32, 0x66, 0x1b, 0x9e, 0xef, 0x8b, 0x34, 0x3d, 0x1e, 0xc7, 0x41, 0x24, 0xef, 0xde, 0xf6,
-	0xc6, 0xc7, 0x7e, 0x3c, 0x1a, 0xc5, 0xd1, 0xb1, 0xbc, 0x1a, 0x0b, 0x6d, 0x64, 0x6f, 0x41, 0xbd,
-	0xe5, 0xb8, 0x38, 0xeb, 0x40, 0xc8, 0x5e, 0x7a, 0x66, 0xff, 0x61, 0xc1, 0x7f, 0x5b, 0x8e, 0x7b,
-	0x95, 0x4a, 0x31, 0x22, 0xbc, 0x97, 0x9e, 0xf1, 0x74, 0xcc, 0x9e, 0x42, 0xf5, 0x79, 0x92, 0x20,
-	0x32, 0x49, 0x9b, 0xd6, 0xb6, 0xb5, 0x53, 0xdb, 0xfd, 0xe4, 0x89, 0xb9, 0xc2, 0x93, 0x96, 0xf3,
-	0x3c, 0x49, 0x62, 0x6d, 0xc2, 0x67, 0xd6, 0x6c, 0x13, 0x0a, 0xdd, 0x4e, 0xb3, 0xb0, 0x6d, 0xed,
-	0x54, 0x79, 0xa1, 0xdb, 0x61, 0x77, 0x60, 0xed, 0x70, 0x2c, 0x83, 0x91, 0x68, 0x16, 0xb7, 0xad,
-	0x9d, 0x3a, 0xd7, 0x12, 0x63, 0x50, 0x3a, 0x3a, 0x17, 0x51, 0xb3, 0x44, 0x96, 0x34, 0x66, 0x36,
-	0x6c, 0xb8, 0x22, 0x09, 0xbc, 0xb0, 0x3f, 0x19, 0x9d, 0x88, 0xa4, 0x59, 0x26, 0xdd, 0x1c, 0xc6,
-	0xee, 0x41, 0xd5, 0x49, 0xe2, 0xe1, 0xc4, 0x97, 0xdd, 0x61, 0x73, 0x8d, 0x0c, 0x66, 0x80, 0x7d,
-	0x00, 0xeb, 0x3d, 0x31, 0xea, 0x46, 0xa7, 0x31, 0xfb, 0x3f, 0x54, 0x06, 0xb1, 0xf4, 0xc2, 0xe3,
-	0x8b, 0x36, 0x1d, 0xa1, 0xce, 0xd7, 0x49, 0x7e, 0xd1, 0x66, 0x0f, 0x60, 0xa3, 0x75, 0xe9, 0x05,
-	0xa1, 0x77, 0x12, 0x0a, 0x54, 0x17, 0x48, 0x5d, 0xcb, 0xb1, 0x17, 0x6d, 0x3b, 0x81, 0x8a, 0x1b,
-	0x7a, 0x27, 0xe4, 0x89, 0x41, 0xa9, 0xef, 0x8d, 0x04, 0x79, 0xa9, 0x72, 0x1a, 0xb3, 0xfb, 0x00,
-	0x2d, 0x5f, 0x06, 0x97, 0xe2, 0xd5, 0xc9, 0x9b, 0x94, 0x1c, 0x94, 0xb9, 0x81, 0xb0, 0x26, 0xac,
-	0xf7, 0x27, 0x23, 0x52, 0x16, 0x49, 0x99, 0x89, 0xa8, 0x79, 0x75, 0xf2, 0xc6, 0x0d, 0xde, 0x09,
-	0x3a, 0x7b, 0x99, 0x67, 0xa2, 0xfd, 0x3b, 0x65, 0xa3, 0x27, 0x46, 0x71, 0x72, 0xb5, 0xa2, 0x6c,
-	0x7c, 0x05, 0x35, 0x27, 0x89, 0x7d, 0x1d, 0x13, 0xda, 0x67, 0x6d, 0xf7, 0xf6, 0xfc, 0x64, 0xad,
-	0xe4, 0xa6, 0x25, 0x7b, 0x06, 0x5b, 0x83, 0x78, 0x8c, 0x48, 0x16, 0x06, 0x3a, 0x47, 0x6d, 0xf7,
-	0xce, 0xfc, 0xe4, 0x4c, 0xcb, 0x17, 0xcd, 0xed, 0x63, 0x60, 0x2d, 0xa7, 0xd3, 0x77, 0x5d, 0x91,
-	0x5c, 0x8a, 0x64, 0x45, 0xcc, 0x72, 0x9a, 0x85, 0xed, 0x22, 0x31, 0xcb, 0xb1, 0x7f, 0xb3, 0xa0,
-	0xda, 0x75, 0x2e, 0xbf, 0xe0, 0xf1, 0x44, 0x0a, 0xb6, 0x0d, 0xb5, 0x8e, 0x48, 0x65, 0x10, 0x79,
-	0x32, 0x88, 0x23, 0x9d, 0x2b, 0x13, 0xc2, 0xc0, 0x1f, 0x78, 0x52, 0xbc, 0xf5, 0xae, 0x34, 0x3d,
-	0x33, 0x91, 0x34, 0x22, 0x1a, 0x79, 0xe9, 0x05, 0x1d, 0x12, 0x35, 0x4a, 0x64, 0xb7, 0xa0, 0xbc,
-	0x1f, 0x7a, 0x67, 0xa9, 0xa6, 0xa9, 0x12, 0x90, 0xd3, 0x3d, 0x21, 0x93, 0xc0, 0x27, 0x86, 0xd6,
-	0xb9, 0x96, 0x58, 0x03, 0x8a, 0x5c, 0x9c, 0x12, 0x2b, 0xeb, 0x1c, 0x87, 0x88, 0x1c, 0xa6, 0xa2,
-	0xb9, 0xae, 0x90, 0xc3, 0x54, 0xa0, 0xc7, 0xee, 0xa9, 0xe7, 0x8b, 0x66, 0x45, 0x79, 0x24, 0xc1,
-	0xfe, 0xce, 0x82, 0xcd, 0x96, 0x43, 0x27, 0x59, 0x49, 0xd6, 0x21, 0x0f, 0x4c, 0x4a, 0x11, 0xab,
-	0xed, 0xfe, 0x6f, 0x7e, 0x6e, 0xae, 0xe7, 0x86, 0xa9, 0xfd, 0x1a, 0x1a, 0xbd, 0x49, 0x28, 0x03,
-	0xdf, 0x4b, 0xe5, 0x5e, 0x3c, 0x89, 0xa4, 0x48, 0x30, 0xb0, 0x83, 0x69, 0x0f, 0x11, 0xe7, 0x42,
-	0xa6, 0xba, 0x94, 0x4c, 0x08, 0xcb, 0x56, 0x8b, 0xed, 0x2b, 0xb5, 0xa0, 0xb5, 0x53, 0xe2, 0x73,
-	0x98, 0xfd, 0x18, 0x4a, 0x47, 0x2f, 0x5b, 0x7d, 0xdd, 0x1e, 0xac, 0xbc, 0x3d, 0x30, 0x28, 0xb9,
-	0x6e, 0xde, 0x30, 0x68, 0x6c, 0xff, 0x69, 0x41, 0x15, 0x8d, 0x9f, 0x47, 0x32, 0xb9, 0x62, 0x8f,
-	0xa0, 0x74, 0x14, 0x7a, 0x91, 0x0e, 0x01, 0x9b, 0x3f, 0x06, 0x9a, 0x71, 0xd2, 0x63, 0x45, 0x72,
-	0x6f, 0x18, 0xc4, 0xdd, 0x68, 0x28, 0xa6, 0xba, 0xa4, 0x0d, 0x04, 0x03, 0xdf, 0xa6, 0xa5, 0x54,
-	0x8a, 0x95, 0x80, 0x09, 0xea, 0x88, 0x4b, 0x9d, 0x5e, 0x1c, 0xa2, 0x9f, 0xfe, 0x64, 0xb4, 0x17,
-	0x06, 0x22, 0x92, 0x29, 0x25, 0xb8, 0xcc, 0x0d, 0x84, 0x7d, 0x0d, 0xeb, 0x3a, 0x34, 0x94, 0xe8,
-	0xda, 0xee, 0xfd, 0x85, 0x72, 0x5a, 0x08, 0x20, 0xcf, 0xcc, 0xed, 0x1f, 0x2d, 0xf8, 0x4f, 0xcb,
-	0xc1, 0x2d, 0xaf, 0xa8, 0xba, 0x9f, 0x42, 0x2d, 0x8b, 0x53, 0x70, 0x53, 0xa2, 0xf3, 0x40, 0x72,
-	0xd3, 0xd6, 0xfe, 0xc1, 0x82, 0x06, 0x05, 0xe7, 0x50, 0x06, 0x61, 0xf0, 0x4e, 0x55, 0x48, 0x03,
-	0x8a, 0xad, 0x30, 0xa4, 0x4d, 0x14, 0x38, 0x0e, 0x31, 0x5d, 0x03, 0x15, 0xcc, 0x02, 0x2f, 0x0c,
-	0xa6, 0x58, 0x29, 0x7c, 0xda, 0x8d, 0xda, 0xae, 0x4b, 0x61, 0x2c, 0xf0, 0x4c, 0xa4, 0xf0, 0x4f,
-	0x5f, 0xc9, 0x73, 0x91, 0xa0, 0xb2, 0x44, 0x4a, 0x03, 0xa1, 0x86, 0x18, 0x47, 0x47, 0xc1, 0x69,
-	0x40, 0x31, 0x2d, 0xf0, 0x4c, 0xb4, 0xff, 0xb2, 0xa0, 0x4e, 0x5b, 0xd1, 0x71, 0xa2, 0x16, 0x39,
-	0x98, 0x2a, 0x2e, 0x59, 0xc4, 0xa5, 0x4c, 0xc4, 0xca, 0x1b, 0x4c, 0x89, 0x87, 0x2a, 0xc1, 0x5a,
-	0x52, 0x78, 0xef, 0x6c, 0x24, 0xb3, 0x5b, 0x46, 0x49, 0xec, 0x2e, 0x54, 0x06, 0x53, 0x8a, 0x9e,
-	0x2a, 0xe1, 0x3a, 0xcf, 0x65, 0x75, 0x16, 0xb5, 0x4a, 0x59, 0xad, 0xc2, 0x67, 0xab, 0x70, 0xb5,
-	0x8a, 0x2a, 0x65, 0x2d, 0x29, 0x9c, 0x56, 0x59, 0xcf, 0xf0, 0x6c, 0x15, 0x9e, 0xad, 0x52, 0x51,
-	0xab, 0x64, 0xb2, 0xfd, 0x12, 0x2a, 0x9d, 0xd3, 0x14, 0x13, 0x26, 0xd0, 0x6e, 0xcf, 0xf3, 0x69,
-	0xac, 0xeb, 0x28, 0x97, 0xd9, 0x43, 0x0a, 0x82, 0x97, 0x74, 0x84, 0x14, 0xbe, 0x14, 0x43, 0x3a,
-	0x60, 0x85, 0xcf, 0x83, 0xf6, 0xcf, 0x45, 0xcd, 0x72, 0x55, 0x1b, 0x9a, 0xbd, 0xd6, 0x8c, 0xbd,
-	0x0c, 0x4a, 0x6d, 0x2f, 0x1a, 0x66, 0xf5, 0x84, 0x63, 0x3c, 0xe8, 0xde, 0xb9, 0x17, 0x45, 0x22,
-	0xd4, 0xd1, 0xc9, 0x44, 0xf6, 0x18, 0x1a, 0xae, 0xf0, 0xe3, 0x68, 0xe8, 0x25, 0x57, 0x99, 0x89,
-	0x0a, 0xd3, 0x12, 0x8e, 0x17, 0x2f, 0x7a, 0x7b, 0x1b, 0x0c, 0xe5, 0xb9, 0xee, 0x7b, 0x33, 0x80,
-	0xaa, 0x26, 0x0e, 0x52, 0xb1, 0x1f, 0xc6, 0xb1, 0x2a, 0x0c, 0xac, 0x9a, 0x1c, 0x41, 0x7d, 0xcf,
-	0x9b, 0x0e, 0xa6, 0x4e, 0xfc, 0x56, 0x24, 0x3a, 0x7c, 0x06, 0xc2, 0x9e, 0x41, 0xcd, 0x60, 0x22,
-	0x45, 0x71, 0xa9, 0xb2, 0x16, 0xf9, 0xca, 0xcd, 0x29, 0xd8, 0xa7, 0x5a, 0x91, 0x14, 0x51, 0xe4,
-	0x71, 0xd7, 0xed, 0x36, 0xab, 0xdb, 0xc5, 0x9d, 0x32, 0x37, 0x21, 0xf6, 0xe5, 0xac, 0x72, 0xe1,
-	0xba, 0x3a, 0x9b, 0x23, 0x61, 0x5e, 0xb6, 0x6c, 0x07, 0x8a, 0x9d, 0x7d, 0xb7, 0x59, 0xbb, 0xee,
-	0xfa, 0xcb, 0x52, 0xcb, 0xd1, 0xc4, 0xfe, 0xd6, 0xc2, 0x3b, 0x8f, 0xdc, 0xac, 0xa8, 0xc2, 0x3f,
-	0x83, 0x35, 0x72, 0x97, 0x15, 0x77, 0xf3, 0x9a, 0x1d, 0xab, 0xea, 0xd6, 0x76, 0xf6, 0xaf, 0x45,
-	0x7c, 0xe4, 0xa9, 0x66, 0x95, 0x93, 0xa4, 0xd7, 0xda, 0xd3, 0x8c, 0xc0, 0xe1, 0x42, 0xab, 0x2c,
-	0x2e, 0xb5, 0xca, 0x8c, 0x44, 0x25, 0x83, 0x44, 0x59, 0x1b, 0x5e, 0x7b, 0x4f, 0x1b, 0x7e, 0x0c,
-	0x8d, 0xbd, 0x38, 0x8a, 0x88, 0xae, 0x83, 0x60, 0x24, 0x5c, 0xe1, 0xeb, 0x74, 0x2f, 0xe1, 0x6c,
-	0x17, 0x6e, 0x75, 0x23, 0x8f, 0x1e, 0x4d, 0x08, 0xf5, 0x82, 0x30, 0x0c, 0xd0, 0x5e, 0xd5, 0xd0,
-	0xb5, 0x3a, 0xdc, 0x9b, 0xce, 0x2f, 0x52, 0x8c, 0xc6, 0xd8, 0xa5, 0xfa, 0xfb, 0x94, 0xd3, 0x32,
-	0x2f, 0xf4, 0xf7, 0x17, 0xa9, 0x50, 0x5b, 0xa6, 0xc2, 0x3d, 0xa8, 0x0e, 0xa6, 0xed, 0x40, 0x72,
-	0x2c, 0xc5, 0x0d, 0x9a, 0x38, 0x03, 0xd8, 0x23, 0xd8, 0x1c, 0x4c, 0x0f, 0xa3, 0x60, 0x76, 0xa5,
-	0xd5, 0xa9, 0x41, 0x2c, 0xa0, 0x58, 0xb3, 0x39, 0x42, 0xed, 0x62, 0x93, 0x36, 0x3e, 0x0f, 0x9a,
-	0x7d, 0x66, 0xeb, 0xa6, 0x3e, 0xd3, 0x30, 0xfb, 0x8c, 0xfd, 0x3d, 0x3d, 0x04, 0x55, 0x0e, 0x57,
-	0x44, 0x24, 0xe4, 0xbe, 0xbe, 0xd2, 0x14, 0x93, 0x96, 0x26, 0x1a, 0x94, 0xe1, 0x99, 0xad, 0xfd,
-	0xb7, 0x05, 0x8d, 0x96, 0xd3, 0xc5, 0x3a, 0xc0, 0x77, 0x8a, 0x22, 0xd4, 0x75, 0xef, 0x61, 0x06,
-	0xa5, 0x97, 0x41, 0x74, 0xa1, 0xbb, 0x16, 0x8d, 0x91, 0x66, 0xfb, 0x93, 0x30, 0xec, 0x4c, 0xc6,
-	0xa1, 0xa6, 0x59, 0x85, 0x1b, 0x08, 0xde, 0xc8, 0xee, 0x58, 0x88, 0xa1, 0x6e, 0x39, 0x4a, 0xf8,
-	0x17, 0x6d, 0x99, 0xae, 0x9e, 0x4e, 0x90, 0xfa, 0x5e, 0x32, 0x4c, 0xb3, 0xde, 0x32, 0x43, 0xcc,
-	0xeb, 0xa4, 0x72, 0xd3, 0x75, 0x52, 0x35, 0xaf, 0x13, 0xfb, 0x27, 0x0b, 0xee, 0x18, 0xc7, 0x5e,
-	0x51, 0x0e, 0xbe, 0x01, 0xc8, 0x5d, 0x66, 0x69, 0xb8, 0xbf, 0x38, 0x77, 0x3e, 0xd6, 0xdc, 0x98,
-	0xb1, 0xfb, 0x4b, 0x19, 0x36, 0xd4, 0xf7, 0x5b, 0x90, 0xca, 0xc0, 0x4f, 0x19, 0xc7, 0xe4, 0x18,
-	0x5f, 0x6f, 0x07, 0x42, 0xb2, 0xa5, 0xcd, 0x18, 0xdf, 0x7b, 0x77, 0x1f, 0x2c, 0x29, 0x97, 0x3e,
-	0xfd, 0xc8, 0xa7, 0xf1, 0x0d, 0xf2, 0xf1, 0x3e, 0x97, 0x3f, 0x60, 0xfa, 0xd8, 0x92, 0xf0, 0x53,
-	0xe0, 0x83, 0x1c, 0x6e, 0x2f, 0x2a, 0x97, 0x3e, 0x22, 0x7a, 0xb8, 0x47, 0xf5, 0x64, 0xfd, 0x30,
-	0x97, 0xf7, 0x16, 0x95, 0x73, 0x2f, 0x6d, 0x07, 0xb6, 0xcc, 0xae, 0xfd, 0xf1, 0x1b, 0x5c, 0xea,
-	0xf8, 0x7d, 0x7c, 0xcd, 0xe7, 0x0f, 0xbd, 0xf7, 0x3a, 0xfc, 0x74, 0x51, 0xb9, 0xf8, 0x46, 0xa4,
-	0xa4, 0x18, 0xfd, 0xe0, 0xe3, 0x93, 0xb2, 0xdc, 0x4c, 0x5e, 0x63, 0x8f, 0x99, 0xa7, 0xf8, 0x7b,
-	0xdd, 0x3e, 0xbc, 0x91, 0xad, 0x86, 0xe7, 0x93, 0x35, 0xfa, 0xdb, 0xf0, 0xf9, 0x3f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0x16, 0xfe, 0xcd, 0xcd, 0xa4, 0x10, 0x00, 0x00,
+	// 1769 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x58, 0xcf, 0x6e, 0xe3, 0xc8,
+	0xd1, 0xb7, 0xfe, 0x59, 0x52, 0xc9, 0xf6, 0x68, 0x7a, 0x67, 0xe7, 0xd3, 0x7a, 0x06, 0xb3, 0x5e,
+	0x62, 0xb1, 0x30, 0x7c, 0x18, 0x2c, 0xf4, 0x25, 0xd8, 0x04, 0x08, 0x92, 0xa1, 0x2c, 0x79, 0x4c,
+	0xac, 0x45, 0x09, 0x4d, 0x7a, 0x67, 0x27, 0x17, 0x82, 0x96, 0xda, 0x1e, 0xee, 0x50, 0xa4, 0x42,
+	0x52, 0x1e, 0x79, 0x5f, 0x20, 0x39, 0x06, 0xc8, 0x31, 0x4f, 0x13, 0x20, 0x97, 0x3c, 0x40, 0x4e,
+	0x79, 0x8d, 0x3c, 0x40, 0x50, 0xd5, 0x4d, 0xa9, 0x45, 0xc9, 0x08, 0x90, 0x5b, 0xd7, 0xaf, 0xab,
+	0xab, 0xbb, 0xab, 0x7e, 0x55, 0x5d, 0x24, 0x1c, 0xf9, 0x73, 0x2f, 0xcd, 0xfc, 0x2c, 0x7d, 0x3d,
+	0x4f, 0xe2, 0x2c, 0x66, 0x07, 0xfe, 0x64, 0x22, 0xd2, 0xd4, 0x9b, 0xc7, 0x41, 0x94, 0x1d, 0x7f,
+	0xee, 0xcf, 0xbd, 0x49, 0x3c, 0x9b, 0xc5, 0x91, 0x97, 0x3d, 0xcc, 0x85, 0x52, 0x32, 0x66, 0x70,
+	0x64, 0x8e, 0x1d, 0x5c, 0xc5, 0xc5, 0x1f, 0x16, 0x22, 0xcd, 0xd8, 0x77, 0xd0, 0x24, 0xd9, 0x7d,
+	0x98, 0x8b, 0x4e, 0xe9, 0xa4, 0x74, 0x7a, 0xd4, 0xfd, 0xe2, 0xb5, 0x6e, 0xea, 0xb5, 0x5a, 0x80,
+	0x0a, 0x7c, 0xad, 0xcb, 0x0c, 0x38, 0x70, 0x83, 0x99, 0xb0, 0xa2, 0x4c, 0x24, 0xf7, 0x7e, 0xd8,
+	0x29, 0x9f, 0x94, 0x4e, 0x0f, 0xf9, 0x06, 0x66, 0xd8, 0x00, 0x6a, 0xf5, 0x30, 0xbd, 0x63, 0x6f,
+	0xe0, 0x40, 0xdf, 0xba, 0x53, 0x3a, 0xa9, 0x9c, 0xb6, 0xba, 0x2f, 0x77, 0xee, 0xa6, 0x74, 0xf8,
+	0xc6, 0x0a, 0xe3, 0x2f, 0x25, 0xf8, 0xcc, 0x1c, 0x3b, 0x0f, 0x69, 0x26, 0x66, 0xb9, 0x59, 0x9e,
+	0xce, 0xd9, 0x11, 0x94, 0xad, 0x3e, 0x9d, 0xbe, 0xc9, 0xcb, 0x56, 0x9f, 0x3d, 0x87, 0xfd, 0xeb,
+	0x79, 0x16, 0xcc, 0x84, 0x3a, 0x95, 0x92, 0x18, 0x83, 0xea, 0xbb, 0x0f, 0x22, 0xea, 0x54, 0x48,
+	0x93, 0xc6, 0x78, 0x0f, 0x47, 0x24, 0x81, 0x1f, 0xda, 0x8b, 0xd9, 0x8d, 0x48, 0x3a, 0x55, 0x9a,
+	0xdb, 0xc0, 0xd8, 0x4b, 0x68, 0x8e, 0x93, 0x78, 0xba, 0x98, 0x64, 0xd6, 0xb4, 0x53, 0x23, 0x85,
+	0x35, 0x60, 0xbc, 0x85, 0xfa, 0x50, 0xcc, 0xac, 0xe8, 0x36, 0x66, 0x5f, 0x40, 0xc3, 0x8d, 0x33,
+	0x3f, 0xf4, 0x3e, 0xf6, 0xe8, 0x38, 0x87, 0xbc, 0x4e, 0xf2, 0xf7, 0x3d, 0xf6, 0x15, 0x1c, 0x98,
+	0xf7, 0x7e, 0x10, 0xfa, 0x37, 0xa1, 0xc0, 0x69, 0x79, 0xb2, 0xd6, 0x0a, 0xfb, 0xbe, 0x67, 0x24,
+	0xd0, 0x70, 0x42, 0xff, 0x86, 0x2c, 0x31, 0xa8, 0xda, 0xfe, 0x4c, 0xa8, 0x4b, 0xd1, 0x98, 0xbd,
+	0x02, 0x30, 0x27, 0x59, 0x70, 0x2f, 0x46, 0x37, 0x3f, 0xa5, 0x64, 0xa0, 0xc6, 0x35, 0x84, 0x75,
+	0xa0, 0x6e, 0x2f, 0x66, 0x34, 0x59, 0xa1, 0xc9, 0x5c, 0xc4, 0x99, 0xd1, 0xcd, 0x4f, 0x4e, 0xf0,
+	0xb3, 0xa0, 0xfb, 0xd5, 0x78, 0x2e, 0x1a, 0x7f, 0x26, 0x97, 0x0e, 0xc5, 0x2c, 0x4e, 0x1e, 0x74,
+	0x97, 0x7e, 0x07, 0xad, 0x71, 0x12, 0x4f, 0xd4, 0xc5, 0xe8, 0x18, 0xad, 0xee, 0xe7, 0x9b, 0xb1,
+	0x52, 0x93, 0x5c, 0xd7, 0x64, 0x6f, 0xe0, 0x89, 0x1b, 0xcf, 0x11, 0xc9, 0xef, 0x42, 0x27, 0x6d,
+	0x75, 0x9f, 0x6f, 0x2e, 0xce, 0x67, 0x79, 0x51, 0xdd, 0x30, 0xa0, 0x6d, 0x8e, 0xfb, 0xb6, 0x53,
+	0x8c, 0xf0, 0x98, 0x18, 0x83, 0x11, 0x1e, 0x1b, 0xff, 0x28, 0x41, 0xd3, 0x1a, 0xdf, 0xff, 0x82,
+	0xc7, 0x8b, 0x4c, 0xb0, 0x13, 0x68, 0xf5, 0x45, 0x9a, 0x05, 0x91, 0x9f, 0x05, 0x71, 0xa4, 0x7c,
+	0xa6, 0x43, 0xe8, 0x80, 0xb7, 0x7e, 0x26, 0x3e, 0xf9, 0x0f, 0x74, 0x9a, 0x26, 0xcf, 0x45, 0x9a,
+	0x11, 0xd1, 0xcc, 0x4f, 0x3f, 0x2a, 0x5a, 0xe4, 0x22, 0x7b, 0x06, 0xb5, 0x8b, 0xd0, 0xbf, 0x4b,
+	0x15, 0x25, 0xa4, 0x80, 0xdc, 0x1a, 0x8a, 0x2c, 0x09, 0x26, 0x44, 0x84, 0x43, 0xae, 0x24, 0xd6,
+	0x86, 0x0a, 0x17, 0xb7, 0x9d, 0x7d, 0x02, 0x71, 0x88, 0xc8, 0x75, 0x2a, 0x3a, 0x75, 0x89, 0x5c,
+	0xa7, 0x02, 0x2d, 0x5a, 0xb7, 0xfe, 0x44, 0x74, 0x1a, 0xd2, 0x22, 0x09, 0xc6, 0x08, 0x9e, 0x99,
+	0x63, 0xbc, 0x48, 0x10, 0xdd, 0x6d, 0x86, 0x00, 0x56, 0x57, 0x4c, 0x55, 0xb6, 0xfc, 0xdf, 0xa6,
+	0x13, 0x57, 0xf3, 0x5c, 0x53, 0x35, 0x7e, 0x84, 0xf6, 0x70, 0x11, 0x66, 0xc1, 0xc4, 0x4f, 0xb3,
+	0xf3, 0x78, 0x81, 0xd9, 0x88, 0x2e, 0x72, 0x97, 0x43, 0x44, 0xc6, 0x1f, 0xb3, 0x54, 0x91, 0x53,
+	0x87, 0x28, 0xa1, 0xa5, 0xd8, 0x7b, 0xc0, 0x0d, 0xd1, 0x4f, 0x55, 0xbe, 0x81, 0x19, 0x67, 0x50,
+	0x7d, 0x77, 0x65, 0xda, 0x5b, 0x09, 0xc7, 0xa0, 0xea, 0x38, 0x56, 0x5f, 0xf9, 0x96, 0xc6, 0xc6,
+	0x3f, 0x4b, 0xd0, 0x44, 0xe5, 0x41, 0x94, 0x25, 0x0f, 0xec, 0x1b, 0xa8, 0xbe, 0x0b, 0xfd, 0x48,
+	0x11, 0x89, 0x6d, 0x5e, 0x03, 0xd5, 0x38, 0xcd, 0x23, 0xc7, 0xb9, 0x3f, 0x0d, 0x62, 0x2b, 0x9a,
+	0x8a, 0xa5, 0x4a, 0x12, 0x0d, 0x41, 0x17, 0xf6, 0x68, 0x2b, 0x19, 0x2c, 0x29, 0xa0, 0xab, 0xfb,
+	0xe2, 0x5e, 0x05, 0x0a, 0x87, 0x68, 0xc7, 0x5e, 0xcc, 0xce, 0xc3, 0x40, 0x44, 0x59, 0x4a, 0xa1,
+	0xaa, 0x71, 0x0d, 0x61, 0xbf, 0x82, 0xba, 0x72, 0x0d, 0x85, 0xac, 0xd5, 0x7d, 0x55, 0xe0, 0x76,
+	0xc1, 0x81, 0x3c, 0x57, 0x37, 0x6c, 0x78, 0x6a, 0x8e, 0xf1, 0xc4, 0x7a, 0xac, 0x7e, 0x0d, 0xad,
+	0xfc, 0xae, 0xc1, 0x63, 0xc1, 0x5a, 0x39, 0x83, 0xeb, 0xba, 0xc6, 0x9f, 0x4a, 0xd0, 0xa6, 0x0b,
+	0x5e, 0x67, 0x41, 0x18, 0xfc, 0x2c, 0xf9, 0xda, 0x86, 0x8a, 0x19, 0x86, 0xe4, 0xad, 0x32, 0xc7,
+	0x21, 0xba, 0xdc, 0x95, 0x0e, 0x29, 0xf3, 0xb2, 0xbb, 0x44, 0xde, 0xf2, 0xa5, 0x15, 0xf5, 0x1c,
+	0x87, 0x5c, 0x51, 0xe6, 0xb9, 0x48, 0x2e, 0x5c, 0x8e, 0xb2, 0x0f, 0x22, 0xc1, 0xc9, 0x2a, 0x4d,
+	0x6a, 0x08, 0x95, 0x89, 0x38, 0x7a, 0x17, 0xdc, 0x06, 0xe4, 0x97, 0x32, 0xcf, 0x45, 0xe3, 0x5f,
+	0x25, 0x38, 0xa4, 0xa3, 0xa8, 0xbb, 0x52, 0xe1, 0x70, 0x97, 0x92, 0x0f, 0x25, 0xe2, 0x43, 0x2e,
+	0x62, 0x1e, 0xb8, 0x4b, 0xe2, 0x92, 0xaa, 0xb1, 0x52, 0x92, 0xf8, 0xf0, 0x6e, 0x96, 0xd1, 0xb1,
+	0x08, 0x47, 0x89, 0x1d, 0x43, 0xc3, 0x5d, 0x0e, 0x92, 0x24, 0x4e, 0x64, 0x42, 0x1d, 0xf2, 0x95,
+	0x2c, 0xef, 0x22, 0x77, 0xa9, 0xc9, 0x5d, 0xf8, 0x7a, 0x17, 0x2e, 0x77, 0x91, 0x89, 0xa5, 0x24,
+	0x89, 0xd3, 0x2e, 0xf5, 0x1c, 0xcf, 0x77, 0xe1, 0xf9, 0x2e, 0x0d, 0xb9, 0x4b, 0x2e, 0x1b, 0x57,
+	0xd0, 0xe8, 0xdf, 0xa6, 0x18, 0x35, 0x81, 0x7a, 0xe7, 0xfe, 0x84, 0xc6, 0x2a, 0x17, 0x56, 0x32,
+	0xfb, 0x9a, 0x9c, 0xe0, 0x27, 0x7d, 0x91, 0x89, 0x49, 0x26, 0xa6, 0x74, 0xc1, 0x06, 0xdf, 0x04,
+	0x8d, 0xbf, 0x56, 0x14, 0x53, 0x25, 0xbf, 0x15, 0x03, 0x4b, 0x6b, 0x06, 0x32, 0xa8, 0xf6, 0xfc,
+	0x68, 0x9a, 0xe7, 0x04, 0x8e, 0xf1, 0xa2, 0xe7, 0x1f, 0xfc, 0x28, 0x12, 0xa1, 0xf2, 0x4e, 0x2e,
+	0xb2, 0x33, 0x68, 0x3b, 0x62, 0x12, 0x47, 0x53, 0x3f, 0x79, 0xc8, 0x55, 0xa4, 0x9b, 0xb6, 0x70,
+	0x7c, 0x8e, 0xd0, 0xda, 0xa7, 0x60, 0x9a, 0x7d, 0x50, 0x55, 0x68, 0x0d, 0x10, 0xf3, 0xe3, 0x20,
+	0x15, 0x17, 0x61, 0x1c, 0x4b, 0x72, 0x23, 0xf3, 0x57, 0x08, 0xce, 0x0f, 0xfd, 0xa5, 0xbb, 0x1c,
+	0xc7, 0x9f, 0x44, 0xa2, 0xdc, 0xa7, 0x21, 0xec, 0x0d, 0xb4, 0x34, 0x26, 0x92, 0x17, 0xb7, 0xb2,
+	0xa3, 0xc8, 0x57, 0xae, 0x2f, 0xc1, 0x5a, 0x63, 0x46, 0x99, 0x88, 0x22, 0x9f, 0x3b, 0x8e, 0xd5,
+	0x69, 0x9e, 0x54, 0x4e, 0x6b, 0x5c, 0x87, 0xd8, 0x2f, 0xd7, 0xd9, 0x07, 0x64, 0xff, 0xc5, 0x0e,
+	0xfb, 0x39, 0x09, 0x57, 0xa9, 0xc7, 0x4e, 0xa1, 0xd2, 0xbf, 0x70, 0x3a, 0xad, 0x5d, 0xef, 0x49,
+	0x1e, 0x5a, 0x8e, 0x2a, 0xc6, 0x05, 0x30, 0x73, 0x4c, 0x56, 0xf4, 0x2c, 0xfd, 0x16, 0xf6, 0x09,
+	0xcb, 0x13, 0xb4, 0xb3, 0x63, 0x57, 0x99, 0xa1, 0x4a, 0xcf, 0xf8, 0x5b, 0x05, 0x0e, 0xcd, 0xb1,
+	0x2c, 0x1a, 0xab, 0x40, 0x0f, 0xcd, 0x73, 0x15, 0x55, 0x1c, 0x16, 0x4a, 0x56, 0x65, 0xab, 0x64,
+	0xe5, 0x44, 0xa8, 0x6a, 0x44, 0xc8, 0xcb, 0xe1, 0xfe, 0x7f, 0x29, 0x87, 0x67, 0xd0, 0x3e, 0x8f,
+	0xa3, 0x88, 0x28, 0x87, 0xad, 0x95, 0x23, 0x26, 0x2a, 0x64, 0x5b, 0x38, 0xeb, 0xc2, 0x33, 0x2b,
+	0xf2, 0xa9, 0x1d, 0x40, 0x68, 0x18, 0x84, 0x61, 0x80, 0xfa, 0x32, 0x0f, 0x76, 0xce, 0xe1, 0xd9,
+	0x54, 0x8c, 0x90, 0x26, 0x34, 0xc6, 0x4a, 0x63, 0x5f, 0x50, 0x5c, 0x6a, 0xbc, 0x6c, 0x5f, 0x14,
+	0xc3, 0xd9, 0xda, 0x0e, 0xe7, 0x4b, 0x68, 0xba, 0xcb, 0x5e, 0x90, 0x71, 0x4c, 0xa7, 0x03, 0x5a,
+	0xb8, 0x06, 0xd8, 0x37, 0x70, 0xe4, 0x2e, 0xaf, 0xa3, 0x60, 0xfd, 0xb4, 0x1c, 0x52, 0x92, 0x17,
+	0x50, 0xcc, 0xbb, 0x15, 0x42, 0x29, 0x7f, 0x44, 0x07, 0xdf, 0x04, 0xf5, 0x5a, 0xf1, 0xe4, 0xb1,
+	0x5a, 0xd1, 0xd6, 0x6b, 0x85, 0x71, 0x85, 0x1d, 0x8e, 0x0c, 0xa1, 0x4e, 0x06, 0xe4, 0xa0, 0x7a,
+	0x1e, 0x24, 0x1b, 0x5e, 0x14, 0x3b, 0x51, 0x2d, 0xec, 0x3c, 0xd7, 0x35, 0xfe, 0x5d, 0xc2, 0xf6,
+	0x84, 0x5a, 0x5c, 0x7c, 0xbd, 0x25, 0x29, 0x76, 0x75, 0x6b, 0x0c, 0xaa, 0x57, 0x41, 0xf4, 0x51,
+	0x55, 0x0f, 0x1a, 0x23, 0x55, 0x2e, 0x16, 0x61, 0xd8, 0x5f, 0xcc, 0x43, 0x45, 0x95, 0x06, 0xd7,
+	0x10, 0x7c, 0xdd, 0x9c, 0xb9, 0x10, 0x53, 0x95, 0xfa, 0x52, 0xf8, 0x1f, 0xca, 0x23, 0x3d, 0x01,
+	0xfd, 0x20, 0x9d, 0xf8, 0xc9, 0x34, 0xcd, 0x73, 0x7c, 0x8d, 0xe8, 0x65, 0xbd, 0xf1, 0x58, 0x59,
+	0x6f, 0xea, 0x65, 0xdd, 0xf8, 0x11, 0x9e, 0x6b, 0xb7, 0xd6, 0xfd, 0xf8, 0x5b, 0x80, 0x15, 0x9e,
+	0xbb, 0xf2, 0x55, 0xd1, 0x95, 0x9b, 0xfe, 0xe2, 0xda, 0x0a, 0xe3, 0x8f, 0x35, 0x4c, 0xb1, 0xcd,
+	0xc7, 0xb4, 0x39, 0x48, 0x12, 0x44, 0x16, 0xa9, 0x6a, 0x18, 0xb6, 0x62, 0x43, 0x35, 0x5d, 0xaa,
+	0xf0, 0xb5, 0x36, 0x1b, 0x40, 0x4b, 0xfb, 0x3c, 0x50, 0x9d, 0xe7, 0x57, 0x5b, 0x9f, 0x18, 0xc5,
+	0x2f, 0x88, 0xcb, 0x3d, 0xae, 0xaf, 0x43, 0x33, 0x5a, 0x4b, 0x4c, 0x81, 0xda, 0x61, 0x66, 0xab,
+	0x6b, 0x46, 0x33, 0x1a, 0xc8, 0x6c, 0x38, 0xda, 0x74, 0x19, 0xc5, 0xb5, 0xd5, 0xfd, 0xfa, 0x51,
+	0xf7, 0x6c, 0x1a, 0x2b, 0xac, 0x66, 0x97, 0x70, 0xa0, 0xf7, 0x89, 0xc4, 0x86, 0x56, 0xd7, 0x28,
+	0x5a, 0xdb, 0xee, 0x25, 0x2f, 0xf7, 0xf8, 0xc6, 0x4a, 0xf6, 0x1b, 0x68, 0xe4, 0x1d, 0xf6, 0xee,
+	0xfe, 0xa7, 0xd8, 0x81, 0x5f, 0xee, 0xf1, 0xd5, 0x0a, 0xd6, 0x53, 0x15, 0x4f, 0xae, 0xaf, 0xd3,
+	0xfa, 0x93, 0xad, 0x53, 0x14, 0xaa, 0xef, 0xe5, 0x1e, 0xd7, 0x56, 0xb1, 0xdf, 0xc9, 0xee, 0x50,
+	0x9a, 0x90, 0x8f, 0xcc, 0x97, 0x45, 0x13, 0x85, 0x2e, 0xeb, 0x72, 0x8f, 0xaf, 0xd7, 0x60, 0x8c,
+	0xb4, 0xa4, 0x26, 0xba, 0xee, 0x88, 0xd1, 0x56, 0xde, 0x63, 0x8c, 0x34, 0xb0, 0xd7, 0x84, 0xfa,
+	0x2c, 0xbd, 0xf3, 0x92, 0x74, 0x7e, 0xf6, 0xf7, 0x12, 0xb4, 0xb4, 0xaf, 0x5d, 0xf6, 0x04, 0x45,
+	0x8f, 0x0f, 0x9c, 0x01, 0xff, 0x61, 0xd0, 0x6f, 0xef, 0xb1, 0xcf, 0xe0, 0x89, 0x39, 0xf6, 0x9c,
+	0xf7, 0x8e, 0x3b, 0x18, 0x7a, 0x8e, 0x6b, 0xba, 0x4e, 0xbb, 0xa4, 0xc0, 0xe1, 0x60, 0x38, 0xe2,
+	0xef, 0x15, 0x58, 0x66, 0xcf, 0xf1, 0xfd, 0xf1, 0x2c, 0xdb, 0x1d, 0xf0, 0x0b, 0xf3, 0x7c, 0xa0,
+	0xf0, 0x0a, 0x7b, 0x86, 0xc5, 0xc3, 0xe3, 0xa3, 0x6b, 0xd7, 0xb2, 0xdf, 0x2a, 0xb4, 0xca, 0xda,
+	0x70, 0x60, 0x8e, 0xbd, 0xbe, 0xed, 0x28, 0xa4, 0xc6, 0x18, 0x7e, 0xa8, 0x7b, 0xdc, 0xec, 0x5b,
+	0x23, 0x85, 0xed, 0xb3, 0xa7, 0x98, 0x27, 0x1e, 0x3a, 0x40, 0x41, 0x75, 0xb5, 0xf7, 0xf9, 0x95,
+	0x35, 0xb0, 0x5d, 0x05, 0x36, 0xce, 0xee, 0xe1, 0xa9, 0xbc, 0x83, 0xf6, 0x29, 0xce, 0x5e, 0x42,
+	0x07, 0x8f, 0x8e, 0x2a, 0xde, 0xb5, 0x6d, 0xf2, 0xf7, 0xde, 0x68, 0x3c, 0xe0, 0xa6, 0x6b, 0x8d,
+	0xec, 0xf6, 0x1e, 0xfb, 0x12, 0x5e, 0xac, 0x66, 0x7f, 0x3f, 0xe0, 0x23, 0xcf, 0xb5, 0x86, 0x03,
+	0x79, 0xfc, 0x1f, 0xcc, 0xab, 0xf6, 0x1e, 0x7b, 0x05, 0xc7, 0x2b, 0x85, 0xa1, 0x65, 0x17, 0xe6,
+	0x6b, 0xc7, 0xe5, 0x76, 0xa9, 0x7b, 0x8d, 0xb7, 0xc0, 0x9d, 0x83, 0x34, 0x0b, 0x26, 0x18, 0xa0,
+	0xfc, 0xeb, 0xff, 0xad, 0xc8, 0x58, 0x67, 0xe7, 0x77, 0xfe, 0x30, 0xbd, 0x3b, 0x7e, 0xf1, 0xd8,
+	0x0c, 0x4f, 0xe7, 0xdf, 0x96, 0x6e, 0xf6, 0xe9, 0xd7, 0xc5, 0xff, 0xff, 0x27, 0x00, 0x00, 0xff,
+	0xff, 0x52, 0x71, 0x7d, 0xbb, 0xf1, 0x10, 0x00, 0x00,
 }
