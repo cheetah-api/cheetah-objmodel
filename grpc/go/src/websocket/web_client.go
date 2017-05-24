@@ -21,21 +21,42 @@ import (
     pb "gengo"
 )
 
+/* Command line arguments */
+var (
+    web_server = flag.String("web-ip", "", "Websocket server IP")
+    web_port = flag.String("web-port", "", "Websocket server port")
+)
+
 func initWssClient() (conn *websocket.Conn) {
     fmt.Println("Starting Web Client")
+    http_address := ""
 
-    /* Get HTTP Server IP and Port from Env */
-    http_server, http_port := util.GetHTTPServerIPPort()
-    http_address := fmt.Sprintf("%s:%s", http_server, http_port)
+    log.Println("Initializing connection to Web server ...")
 
-    ws, err := websocket.Dial(fmt.Sprintf("ws://%s/ws", http_address), "",
+    if (*web_server != "") {
+        fmt.Printf("Web Server IP: %s\n", *web_server)
+        if (*web_port != "") {
+            log.Printf("Web Server Port: %s\n", *web_port)
+        } else {
+            log.Printf("Please provide Websocket Port\n")
+            os.Exit(1)
+        }
+        http_address = fmt.Sprintf("%s:%s", *web_server, *web_port)
+    } else {
+        /* Get HTTP Server IP and Port from Env */
+        http_server, http_port := util.GetHTTPServerIPPort()
+        http_address = fmt.Sprintf("%s:%s", http_server, http_port)
+    }
+
+    log.Printf("Initializing connection to %s: ", http_address)
+    wss_conn, err := websocket.Dial(fmt.Sprintf("ws://%s/ws", http_address), "",
                               fmt.Sprintf("http://%s/", http_address))
     if err != nil {
-        fmt.Printf("Dial failed: %s\n", err.Error())
+        log.Printf("Dial failed: %s\n", err.Error())
         os.Exit(1)
     }
 
-    return ws
+    return wss_conn
 }
 
 func main() {
@@ -47,6 +68,7 @@ func main() {
     /* Initialize with web server */
     wss_conn := initWssClient()
 
+    log.Println("Initializing connection to gRPC server ...")
     /* Get GRPC Server IP and Port from Env */
     server,port := util.GetServerIPPort()
     address := fmt.Sprintf("%s:%s", server, port)

@@ -85,7 +85,7 @@ func process_memory_stats(ws *websocket.Conn, msg *pb.APMemoryStatsMsgRsp) {
     }
 
     tags := map[string]string{
-                "AP":  fmt.Sprintf("%s", ws_to_remote_host(ws)),
+                "AP":  ws_to_remote_host(ws),
     }
     // Create a point and add to batch
     fields := map[string]interface{}{
@@ -107,17 +107,17 @@ func process_memory_stats(ws *websocket.Conn, msg *pb.APMemoryStatsMsgRsp) {
 func process_interface_stats(ws *websocket.Conn, msg *pb.APInterfaceStatsMsgRsp) {
     dbg.Println(*msg)
 
-    for _, ifEntry := range msg.GetInterfaces() {
+    /* Generate a new batchpoint */
+    db_bp := get_db_bp()
+    if db_bp == nil {
+        return
+    }
 
-        /* Generate a new batchpoint */
-        db_bp := get_db_bp()
-        if db_bp == nil {
-            return
-        }
+    for _, ifEntry := range msg.GetInterfaces() {
 
         /* Create tags */
         tags := map[string]string{
-                    "AP":  fmt.Sprintf("%s", ws_to_remote_host(ws)),
+                    "AP": ws_to_remote_host(ws),
         }
 
         /* Create a point and add to batch */
@@ -134,11 +134,11 @@ func process_interface_stats(ws *websocket.Conn, msg *pb.APInterfaceStatsMsgRsp)
             log.Fatal(err)
         }
         db_bp.AddPoint(pt)
+    }
 
-        // Write the batch
-        if err := db_client.Write(db_bp); err != nil {
-            log.Fatal(err)
-        }
+    // Write the batch
+    if err := db_client.Write(db_bp); err != nil {
+        log.Fatal(err)
     }
 }
 
@@ -151,15 +151,120 @@ func process_dns_stats(ws *websocket.Conn, msg *pb.APDNSStatsMsgRsp) {
 }
 
 func process_radio_stats(ws *websocket.Conn, msg *pb.APRadioStatsMsgRsp) {
-    //dbg.Println(*msg)
+    dbg.Println(*msg)
+
+    /* Generate a new batchpoint */
+    db_bp := get_db_bp()
+    if db_bp == nil {
+        return
+    }
+
+    for _, radioEntry := range msg.GetRadios() {
+
+        /* Create tags */
+        tags := map[string]string{
+                    "AP": ws_to_remote_host(ws),
+                    "Device": radioEntry.GetDev(),
+        }
+
+        /* Create a point and add to batch */
+        fields := map[string]interface{}{
+                "Band": radioEntry.GetBand(),
+                "Channel": radioEntry.GetChannel(),
+                "NoiseFloor": radioEntry.GetNoiseFloor(),
+                "MaxTxPower": radioEntry.GetMaxTxPower(),
+                "Bandwidth": radioEntry.GetBandwidth(),
+                "CacState": radioEntry.DFS.GetCacState(),
+        }
+
+        pt, err := client.NewPoint("radios", tags, fields, time.Now())
+        if err != nil {
+            log.Fatal(err)
+        }
+        db_bp.AddPoint(pt)
+    }
+
+    // Write the batch
+    if err := db_client.Write(db_bp); err != nil {
+        log.Fatal(err)
+    }
 }
 
 func process_wlan_stats(ws *websocket.Conn, msg *pb.APWLANStatsMsgRsp) {
-    //dbg.Println(*msg)
+    dbg.Println(*msg)
+
+    /* Generate a new batchpoint */
+    db_bp := get_db_bp()
+    if db_bp == nil {
+        return
+    }
+
+    for _, wlanEntry := range msg.GetWLANEntries() {
+
+        /* Create tags */
+        tags := map[string]string{
+                    "AP": ws_to_remote_host(ws),
+                    "WLAN": wlanEntry.GetWlan().GetID(),
+                    "BSSID": wlanEntry.GetBSSID(),
+        }
+
+        /* Create a point and add to batch */
+        fields := map[string]interface{}{
+                "ID": wlanEntry.GetWlan().GetID(),
+                "SSID": wlanEntry.GetWlan().GetSSID(),
+                "NumClients": wlanEntry.GetNumClients(),
+        }
+
+        pt, err := client.NewPoint("wlans", tags, fields, time.Now())
+        if err != nil {
+            log.Fatal(err)
+        }
+        db_bp.AddPoint(pt)
+    }
+
+    // Write the batch
+    if err := db_client.Write(db_bp); err != nil {
+        log.Fatal(err)
+    }
 }
 
 func process_client_stats(ws *websocket.Conn, msg *pb.APClientStatsMsgRsp) {
-    //dbg.Println(*msg)
+    dbg.Println(*msg)
+
+    /* Generate a new batchpoint */
+    db_bp := get_db_bp()
+    if db_bp == nil {
+        return
+    }
+
+    for _, clientEntry := range msg.GetClients() {
+
+        /* Create tags */
+        tags := map[string]string{
+                    "AP": ws_to_remote_host(ws),
+                    "MAC": clientEntry.GetMAC(),
+        }
+
+        /* Create a point and add to batch */
+        fields := map[string]interface{}{
+                "Band": clientEntry.GetBand(),
+                "RSSI": clientEntry.GetRSSI(),
+                "Wlan": clientEntry.GetWlan().GetID(),
+                "SSID": clientEntry.GetWlan().GetSSID(),
+                "ConnectedTimeSec": clientEntry.GetConnectedTimeSec(),
+        }
+
+        pt, err := client.NewPoint("clients", tags, fields, time.Now())
+        if err != nil {
+            log.Fatal(err)
+        }
+        db_bp.AddPoint(pt)
+    }
+
+    // Write the batch
+    if err := db_client.Write(db_bp); err != nil {
+        log.Fatal(err)
+    }
 }
 
 
