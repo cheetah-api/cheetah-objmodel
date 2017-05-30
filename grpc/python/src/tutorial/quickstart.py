@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2017 by Cisco Systems, Inc.
 # All rights reserved.
 #
 
@@ -40,12 +40,12 @@ if __name__ == '__main__':
     # Create another channel for gRPC requests.
     channel = implementations.insecure_channel(server_ip, server_port)
 
-    # Stats operations 
+    # Stats operations
 
-    # System Stats every 6 seconds 
+    # System Stats every 6 seconds
     t1=stats.stats_operations(channel, ap_stats_pb2.AP_SYSTEM_STATS, 6)
 
-    # Memory Stats every 11 seconds 
+    # Memory Stats every 11 seconds
     t2=stats.stats_operations(channel, ap_stats_pb2.AP_MEMORY_STATS, 11)
 
     # Wait till the threads terminate

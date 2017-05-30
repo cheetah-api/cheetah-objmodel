@@ -21,8 +21,7 @@ On the client side, the very first thing we need to do is set the server IP addr
 
 If your application is a hosted one and started by IOx then the variables below are being populated automatically by the infrastructure and you can skip this step.
 
-Set the server address and port number as environment variables with the
-following example command (this is assuming you are in bash shell):
+Set the server address and port number as environment variables with the following example command (this is assuming you are in bash shell):
 
 ```
     $ export SERVER_IP=192.168.122.192
@@ -179,7 +178,7 @@ The Cheetah API provides for a way to get statistics in both a unary and stream 
 The code below will initiate the retrieval of system statistics every 6 seconds.
 
 ```python
-   # System Stats every 6 seconds 
+   # System Stats every 6 seconds
    t1=stats.stats_operations(channel, ap_stats_pb2.AP_SYSTEM_STATS, 6)
 ```
 
