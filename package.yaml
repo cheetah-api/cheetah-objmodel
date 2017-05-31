@@ -1,0 +1,29 @@
+descriptor-schema-version: "2.2"
+
+info:
+  name: ap-python-client
+  description: "Simple AP client app"
+  version: "1.0"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  type: lxc
+  cpuarch: armv7l
+  kernel-version: 3.14.33
+  resources:
+      profile: custom
+      platform-env: ["grpc-server"]
+      cpu: 500
+      memory: 96
+      disk: 5
+
+      network:
+        -
+          interface-name: eth0
+
+  startup:
+    rootfs: rootfs.img
+    target: /sbin/init
+

@@ -1,0 +1,150 @@
+// @file
+// @brief System definitions for all of the access point proto files.
+//
+//---------------------------------------------------------------------
+// Copyright (c) 2016 by Cisco Systems, Inc.
+// All rights reserved.
+//---------------------------------------------------------------------
+//
+//
+
+//@defgroup System
+//@brief System AP definitions and Global initializations.
+
+syntax = "proto3";
+package access_point;
+
+// @defgroup APCommonTypes
+// @ingroup System
+// Access Point common types.
+// The following messages are used as common access point types.
+// @{
+
+// Status codes, including errors and success codes.
+// All errors are defined below.
+message APErrorStatus {
+    enum APErrno {
+
+        // !!! Common error codes for all RPCs and objects
+
+        // Success, no errors detected. 0x0.
+        AP_SUCCESS = 0x0;
+        // Client is not connected.
+        // The client is expected to remain connected after init and version
+        // validation, RPC calls can fail with this error code otherwise.
+        // Refer to RPC APGlobalInitNotif. 0x1
+        AP_NOT_CONNECTED = 0x1;
+        // Operation must be retried. 0x2
+        AP_EAGAIN = 0x2;
+        // One or more components does not have sufficient memory. 0x3
+        AP_ENOMEM = 0x3;
+        // Too many outstanding requests. 0x4
+        AP_EBUSY = 0x4;
+        // One or more arguments are invalid. 0x5
+        AP_EINVAL = 0x5;
+        // Unsupported version. 0x6
+        AP_UNSUPPORTED_VER = 0x6;
+        // Not Available. 0x7
+        AP_NOT_AVAILABLE = 0x7;
+        // Stream mode not supported. 0x8
+        AP_STREAM_NOT_SUPPORTED = 0x8;
+        // Operation not supported. 0x9
+        AP_ENOTSUP = 0x9;
+        // One or more objects is errored:
+        // Each object must be individually examined. 0xa
+        AP_SOME_ERR = 0xa;
+        // Operation Timed out.
+        // The result of the operation is undeterministic (success or fail). 0xb
+        AP_TIMEOUT = 0xb;
+        // Due to some event, the client will no longer receive notification
+        // events on this channel. 0xc
+        // Such events include:
+        // - Notification Session was hijacked by another client.
+        AP_NOTIF_TERM = 0xc;
+
+        // !!! Error codes for Client INIT operations.
+
+        // Offset for INIT errors. 0x500
+        AP_INIT_START_OFFSET = 0x500;
+        // Success, no errors detected - clear state.
+        // This error is returned on the first-ever initialization, or,
+        // when a fatal event has occured and all previous state was lost. 0x501
+        AP_INIT_STATE_CLEAR = 0x501;
+        // Success, no errors detected - previous state fully recovered.
+        // This error is returned on a client re-initialization with
+        // successful recovery of state. 0x502
+        AP_INIT_STATE_READY = 0x502;
+        // Server software incompatible with client software version. 0x503
+        AP_INIT_UNSUPPORTED_VER = 0x503;
+        // Initialization request received while server is not ready. 0x504
+        AP_INIT_SERVER_NOT_INITIALIZED = 0x504;
+        // Server operational mode change from stream to non-stream
+        // or vice-versa failed. 0x505
+        AP_INIT_SERVER_MODE_CHANGE_FAILED = 0x505;
+
+        // !!! Error codes for Radio operations.
+        // TBD
+
+    }
+    APErrno Status = 1;
+}
+
+// Registration Operations.
+enum APRegOp {
+    // Reserved. 0x0
+    AP_REGOP_RESERVED    = 0x0;
+    // Register. 0x1
+    AP_REGOP_REGISTER    = 0x1;
+    // Un-Register. 0x2
+    AP_REGOP_UNREGISTER  = 0x2;
+    // End Of File. 0x3
+    AP_REGOP_EOF         = 0x3;
+}
+
+// Object Operations.
+enum APObjectOp {
+    // Reserved. 0x0
+    AP_OBJOP_RESERVED   = 0x0;
+    // Add. 0x1
+    AP_OBJOP_ADD        = 0x1;
+    // Update. 0x2
+    AP_OBJOP_UPDATE     = 0x2;
+    // Delete. 0x3
+    AP_OBJOP_DELETE     = 0x3;
+}
+
+// Notification Operations.
+enum APNotifOp {
+    // Reserved. 0x0
+    AP_NOTIFOP_RESERVED   = 0x0;
+    // Enable. 0x1
+    AP_NOTIFOP_ENABLE     = 0x1;
+    // Disable. 0x2
+    AP_NOTIFOP_DISABLE    = 0x2;
+}
+
+// Radio info.
+message APRadio {
+     // One of radio name or handle
+     oneof Radio {
+        // Radio name.
+        string Name = 1;
+
+        // Radio handle. Can be retrieved from Radio API
+        uint32 Handle = 2;
+    }
+}
+
+// Ssid info.
+message APSsid {
+     // One of ssid name or handle
+     oneof Ssid {
+        // Ssid name.
+        string Name = 1;
+
+        // Ssid handle. Can be retrieved from Ssid API
+        uint32 Handle = 2;
+    }
+}
+
+// @}

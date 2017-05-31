@@ -1,0 +1,41 @@
+#!/bin/sh
+PROG_NAME=/usr/bin/dna-agent
+
+# This pulls in all environment variables that the platform exports
+# like the gRPC server IP and port
+source /data/.env
+
+# Web server IP and port
+WEB_IP="10.30.114.87"
+WEB_PORT=8080
+
+# Start function implementation
+do_start() {
+        echo "Starting ${PROG_NAME}" &> /var/log/dna-agent.log &
+
+        ${PROG_NAME} --web-ip $WEB_IP \
+                     --web-port $WEB_PORT \
+                     &> /var/log/dna-agent.log &
+}
+# Stop function implementation
+do_stop() {
+        echo "Stopping ${PROG_NAME}"
+        start-stop-daemon --stop --name ${PROG_NAME} --quiet
+}
+# Parse command and take action
+case "$1" in
+          start)
+                do_start
+                ;;
+          stop)
+                do_stop
+                ;;
+          restart)
+                $0 stop
+                sleep 1
+                $0 start
+                ;;
+          *)
+                echo "Usage: $0 {start|stop|restart}"
+                exit 1
+esac

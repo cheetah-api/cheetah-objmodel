@@ -1,0 +1,162 @@
+// @file
+// @brief Server RPC proto file. Client invokes to init the session
+// on server.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package access_point;
+
+import "ap_common_types.proto";
+
+// @defgroup APGlobal
+// @ingroup System
+// Global Initialization and Notifications.
+// The following RPCs are used in global initialization and capability queries.
+// @{
+service APGlobal {
+    //@addtogroup APGlobal
+    //@{
+    ///;
+
+    // Initialize the connection, and setup a notification channel.
+    // This MUST be the first call to setup the Access Point connection.
+    //
+    // The caller MUST maintain the notification channel to be able to
+    // communicate with the server.
+    // If this channel is not properly established and maintained, all other
+    // RPC requests are rejected.
+    //
+    // The caller must send its version information as part of the APInitMsg
+    // message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
+    // that tells the caller whether he can proceed or not.
+    // Refer to message APGlobalNotif below for further details.
+    //
+    // After the version handshake, the notification channel is used for
+    // "push" event notifications, such as:
+    //    - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+    //        heartbeat notification messages are sent to the client on
+    //        a periodic basis.
+    //    Refer to APGlobalNotif definition for further info.
+    rpc APGlobalInitNotif(APInitMsg) returns (stream APGlobalNotif);
+
+    // Get platform specific globals
+    rpc APGlobalsGet(APGlobalsGetMsg) returns (APGlobalsGetMsgRsp);
+    //@}
+}
+
+// Initialization message sent to the server.
+// If the client and server are running compatible version numbers, a
+// connection will be made and the server response will be received
+// with a successful status code.
+message APInitMsg {
+    // Client's Major version of service-layer API (refer to ap_version.proto)
+    uint32 MajorVer = 1;
+
+    // Minor Version
+    uint32 MinorVer = 2;
+
+    // Sub-Version
+    uint32 SubVer = 3;
+}
+
+// Server's response to the APInitMsg.
+// On Success (ErrStatus), the session with the server is established
+// and the client is allowed to proceed.
+message APInitMsgRsp {
+    // Server's version of access point API (refer to ap_version.proto)
+    // Major-number revisions are NOT backwards compatible,
+    // unless otherwise specified. The Server may reject a session if there
+    // is a version number mismatch or non-backwards compatibility.
+    uint32 MajorVer = 1;
+
+    // Minor Version
+    uint32 MinorVer = 2;
+
+    // Sub-Version
+    uint32 SubVer = 3;
+}
+
+
+// Global Event Notification types.
+enum APGlobalNotifType {
+    // Reserved. 0x0
+    AP_GLOBAL_EVENT_TYPE_RESERVED = 0x0;
+
+    // Error. ErrStatus field elaborates on the message. 0x1
+    AP_GLOBAL_EVENT_TYPE_ERROR = 0x1;
+
+    // HeartBeat. 0x2
+    AP_GLOBAL_EVENT_TYPE_HEARTBEAT = 0x2;
+
+    // Version. APInitMsgRsp field elaborates on the server version. 0x3
+    AP_GLOBAL_EVENT_TYPE_VERSION = 0x3;
+}
+
+
+// Globals query message.
+message APGlobalNotif {
+    // Event Type.
+    APGlobalNotifType EventType = 1;
+
+    // Status code, interpreted based on the Event Type.
+    //
+    //   case EventType == AP_GLOBAL_EVENT_TYPE_ERROR:
+    //       case ErrStatus == AP_NOTIF_TERM:
+    //          => Another client is attempting to take over the session.
+    //             This session will be closed.
+    //       case ErrStatus == (some error from APErrorStatus)
+    //          => Client must look into the specific error message returned.
+    //
+    //   case EventType == AP_GLOBAL_EVENT_TYPE_HEARTBEAT:
+    //       case ErrStatus == AP_SUCCESS
+    //          => Client can safely ignore this heartbeat message.
+    //
+    //   case EventType == AP_GLOBAL_EVENT_TYPE_VERSION:
+    //       case ErrStatus == AP_SUCCESS
+    //          => Client version accepted.
+    //       case ErrStatus == AP_INIT_STATE_READY
+    //          => Client version accepted.
+    //             Any previous state was sucessfully recovered.
+    //       case ErrStatus == AP_INIT_STATE_CLEAR
+    //          => Client version accepted. Any previous state was lost.
+    //             Client must replay all previous objects to server.
+    //       case ErrStatus == AP_UNSUPPORTED_VER
+    //          => Client and Server version mismatch. The client is not
+    //             allowed to proceed, and the channel will be closed.
+    //       case ErrStatus == (some error from APErrorStatus)
+    //          => Client must either try again, or look into the specific
+    //             error message returned.
+    APErrorStatus ErrStatus = 2;
+
+    // Further info based on EventType.
+    oneof Event {
+        // case EventType == AP_GLOBAL_EVENT_TYPE_VERSION:
+        //     => this field carries the Server version number.
+        APInitMsgRsp InitRspMsg = 3;
+    }
+}
+
+// Globals query message.
+message APGlobalsGetMsg {
+
+}
+
+// Platform specific globals Response.
+message APGlobalsGetMsgRsp {
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Maximum radio name length
+    uint32 MaxRadioNameLength = 2;
+
+    // Maximum ssid name length
+    uint32 MaxSsidNameLength = 3;
+}
+
+// @}
