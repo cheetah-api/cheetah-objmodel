@@ -41,15 +41,15 @@ var APVersion_value = map[string]int32{
 func (x APVersion) String() string {
 	return proto.EnumName(APVersion_name, int32(x))
 }
-func (APVersion) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
+func (APVersion) EnumDescriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func init() {
 	proto.RegisterEnum("access_point.APVersion", APVersion_name, APVersion_value)
 }
 
-func init() { proto.RegisterFile("ap_version.proto", fileDescriptor3) }
+func init() { proto.RegisterFile("ap_version.proto", fileDescriptor4) }
 
-var fileDescriptor3 = []byte{
+var fileDescriptor4 = []byte{
 	// 129 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x48, 0x2c, 0x88, 0x2f,
 	0x4b, 0x2d, 0x2a, 0xce, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x49, 0x4c,

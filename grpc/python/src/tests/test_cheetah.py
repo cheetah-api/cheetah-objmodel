@@ -12,11 +12,12 @@ import unittest
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
-
 from cheetah import GrpcClient
+from cheetah import serializers
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 from util import util
 
 # gRPC libs
@@ -35,6 +36,15 @@ stats_types = [
                "WLANStats",         # AP_WLAN_STATS = 7
                "ClientStats"        # AP_CLIENT_STATS = 8
               ]
+
+pkt_types = [
+               "Reserved",          # AP_MSG_TYPE_RESERVED = 0
+               "APMgmtMsgSubtype",  # AP_MSG_TYPE_MGMT = 1
+               "APCtrlMsgSubtype",  # AP_MSG_TYPE_CTRL = 2
+               "APDataMsgSubtype",  # AP_MSG_TYPE_DATA = 3
+               "APCiscoMsgSubtype", # AP_MSG_TYPE_CISCO = 4
+            ]
+
 # Print Received Globals
 def print_globals(response):
     if (response.ErrStatus.Status ==
@@ -237,7 +247,7 @@ class TestSuite_002_Statistics(ClientTestCase):
         t = stats_thread(self, ap_stats_pb2.AP_SYSTEM_STATS, self.time_interval,
                          self.count, TestSuite_002_Statistics.stats_event)
         t.join()
- 
+
     def test_002_stream_get_memory_stats(self):
         # Get memory stats
 
@@ -246,6 +256,223 @@ class TestSuite_002_Statistics(ClientTestCase):
         t = stats_thread(self, ap_stats_pb2.AP_MEMORY_STATS, self.time_interval,
                          self.count, TestSuite_002_Statistics.stats_event)
         t.join()
+
+#
+# Test packet API
+#
+def pkt_cback(response, negative, event):
+    return (((negative == False) and
+             (response.ErrStatus.Status ==
+              ap_common_types_pb2.APErrorStatus.AP_SUCCESS)) or
+             ((negative == True) and
+             (response.ErrStatus.Status ==
+              ap_common_types_pb2.APErrorStatus.AP_EINVAL)))
+
+
+def pkt_operation(self, serializer, negative, event=None):
+
+    rc = ClientTestCase.client.pkts_get(serializer, pkt_cback, negative, event)
+    self.assertTrue(rc)
+
+
+class TestSuite_003_Packets(ClientTestCase):
+
+    # threading.Event() used to sync threads
+    pkt_event = None
+    count = 1
+
+    def test_negative_000_base(self):
+        # Try to get a junk message type
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT + \
+                      ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_001_mgmt(self):
+        # Get mgmt packets with bad subtype
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_002_ctrl(self):
+        # Get ctrl packets with bad subtype
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_003_data(self):
+        # Get data packets with bad subtype
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_004_cisco(self):
+        # Get cisco packets with bad subtype
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_005_mgmt_reserved(self):
+        # Get mgmt packets with reserved value
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = 0
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_006_ctrl_reserved(self):
+        # Get mgmt packets with reserved value
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.ctrl = 0
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_007_data_reserved(self):
+        # Get mgmt packets with reserved value
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = 0
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_008_cisco_reserved(self):
+        # Get mgmt packets with reserved value
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = 0
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_009_mgmt_out_of_bounds(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL + 1
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_010_ctrl_out_of_bounds(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL + 1
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_011_data_out_of_bounds(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ALL + 1
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_negative_012_cisco_out_of_bounds(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL + 1
+        pkt_operation(self, serializer, True, self.count)
+
+    def test_positive_001_mgmt(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_002_mgmt(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_AUTH
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_003_mgmt(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_PROBE
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_004_mgmt(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_005_ctrl(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_006_data(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ARP
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_007_data(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_DHCP
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_008_data(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_EAP
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_009_data(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ICMP
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_010_data(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
+        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ALL
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_011_cisco(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
+        pkt_operation(self, serializer, False, self.count)
+
+    def test_positive_012_cisco(self):
+        serializer = serializers.get_pkts_serializer()
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL
+        pkt_operation(self, serializer, False, self.count)
+
+    #def test_001_get_system_stats(self):
+
+        #TestSuite_003_Packets.pkt_event = threading.Event()
+        #t = pkt_thread(self, ap_packet_pb2.AP_MSG_TYPE_MGMT,
+                       #ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC,
+                       #self.count, TestSuite_003_Packets.pkt_event)
+        #t.join()
 
 if __name__ == '__main__':
     unittest.main()

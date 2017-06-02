@@ -9,6 +9,7 @@ from util import util
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 
 def global_init_serializer(init):
     """Global Init Message serializer."""
@@ -29,4 +30,9 @@ def global_get_serializer():
 def get_stats_serializer():
     """Get Stats Message serializer."""
     serializer = ap_stats_pb2.APStatsMsg()
+    return serializer
+
+def get_pkts_serializer():
+    """Get Pkts Message serializer."""
+    serializer = ap_packet_pb2.APPacketsMsg()
     return serializer

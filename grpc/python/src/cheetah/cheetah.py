@@ -8,6 +8,7 @@ import serializers
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 from util import util
 
 from grpc.beta import implementations
@@ -44,6 +45,10 @@ class AbstractClient(object):
     def stats_get(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def pkts_get(self, *args, **kwargs):
+        pass
+
 
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 365*24*60*60 # Seconds
@@ -61,6 +66,8 @@ class GrpcClient(AbstractClient):
             ap_global_pb2.beta_create_APGlobal_stub(channel),
             # 1
             ap_stats_pb2.beta_create_APStatistics_stub(channel),
+            # 2
+            ap_packet_pb2.beta_create_APPackets_stub(channel),
         )
 
     def global_init(self, g_params, cback_func, event):
@@ -99,9 +106,24 @@ class GrpcClient(AbstractClient):
                 break
             if (count == local_counter):
                 break
-       
+
         # Terminated
         # This would notify the main thread to proceed
         #if not event is None:
            #event.set()
         return (response, local_counter)
+
+
+    def pkts_get(self, serializer, cback_func, negative, event):
+        """Packets Get"""
+
+        local_counter = 0
+        for response in self._stubs[2].APPacketsGet(serializer, self.TIMEOUT_SECONDS):
+            local_counter += 1
+            return cback_func(response, negative, event)
+
+        # Terminated
+        # This would notify the main thread to proceed
+        #if not event is None:
+           #event.set()
+        #return (response, local_counter)

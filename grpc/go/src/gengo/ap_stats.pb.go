@@ -70,7 +70,7 @@ var APStatsType_value = map[string]int32{
 func (x APStatsType) String() string {
 	return proto.EnumName(APStatsType_name, int32(x))
 }
-func (APStatsType) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (APStatsType) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 // Minimum TimeInterval allowed (in seconds)
 type StatsTimeInterval int32
@@ -97,7 +97,7 @@ var StatsTimeInterval_value = map[string]int32{
 func (x StatsTimeInterval) String() string {
 	return proto.EnumName(StatsTimeInterval_name, int32(x))
 }
-func (StatsTimeInterval) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+func (StatsTimeInterval) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 // Request message for statistics
 type APStatsRequest struct {
@@ -113,7 +113,7 @@ type APStatsRequest struct {
 func (m *APStatsRequest) Reset()                    { *m = APStatsRequest{} }
 func (m *APStatsRequest) String() string            { return proto.CompactTextString(m) }
 func (*APStatsRequest) ProtoMessage()               {}
-func (*APStatsRequest) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (*APStatsRequest) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *APStatsRequest) GetStatsType() APStatsType {
 	if m != nil {
@@ -138,7 +138,7 @@ type APStatsMsg struct {
 func (m *APStatsMsg) Reset()                    { *m = APStatsMsg{} }
 func (m *APStatsMsg) String() string            { return proto.CompactTextString(m) }
 func (*APStatsMsg) ProtoMessage()               {}
-func (*APStatsMsg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+func (*APStatsMsg) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 func (m *APStatsMsg) GetStatsRequest() []*APStatsRequest {
 	if m != nil {
@@ -165,7 +165,7 @@ type APSystemStatsMsgRsp struct {
 func (m *APSystemStatsMsgRsp) Reset()                    { *m = APSystemStatsMsgRsp{} }
 func (m *APSystemStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APSystemStatsMsgRsp) ProtoMessage()               {}
-func (*APSystemStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
+func (*APSystemStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 func (m *APSystemStatsMsgRsp) GetID() string {
 	if m != nil {
@@ -213,7 +213,7 @@ type MemInfo struct {
 func (m *MemInfo) Reset()                    { *m = MemInfo{} }
 func (m *MemInfo) String() string            { return proto.CompactTextString(m) }
 func (*MemInfo) ProtoMessage()               {}
-func (*MemInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
+func (*MemInfo) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 func (m *MemInfo) GetTotalKB() uint32 {
 	if m != nil {
@@ -244,7 +244,7 @@ type SlabInfo struct {
 func (m *SlabInfo) Reset()                    { *m = SlabInfo{} }
 func (m *SlabInfo) String() string            { return proto.CompactTextString(m) }
 func (*SlabInfo) ProtoMessage()               {}
-func (*SlabInfo) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
+func (*SlabInfo) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
 
 func (m *SlabInfo) GetName() string {
 	if m != nil {
@@ -285,7 +285,7 @@ type APMemoryStatsMsgRsp struct {
 func (m *APMemoryStatsMsgRsp) Reset()                    { *m = APMemoryStatsMsgRsp{} }
 func (m *APMemoryStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APMemoryStatsMsgRsp) ProtoMessage()               {}
-func (*APMemoryStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
+func (*APMemoryStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
 
 func (m *APMemoryStatsMsgRsp) GetProcMemInfo() *MemInfo {
 	if m != nil {
@@ -310,7 +310,7 @@ type APDNSStatsMsgRsp struct {
 func (m *APDNSStatsMsgRsp) Reset()                    { *m = APDNSStatsMsgRsp{} }
 func (m *APDNSStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APDNSStatsMsgRsp) ProtoMessage()               {}
-func (*APDNSStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
+func (*APDNSStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
 
 func (m *APDNSStatsMsgRsp) GetIP() []string {
 	if m != nil {
@@ -342,7 +342,7 @@ type IPv4Route struct {
 func (m *IPv4Route) Reset()                    { *m = IPv4Route{} }
 func (m *IPv4Route) String() string            { return proto.CompactTextString(m) }
 func (*IPv4Route) ProtoMessage()               {}
-func (*IPv4Route) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
+func (*IPv4Route) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
 
 func (m *IPv4Route) GetDestination() string {
 	if m != nil {
@@ -408,7 +408,7 @@ type APRoutingStatsMsgRsp struct {
 func (m *APRoutingStatsMsgRsp) Reset()                    { *m = APRoutingStatsMsgRsp{} }
 func (m *APRoutingStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APRoutingStatsMsgRsp) ProtoMessage()               {}
-func (*APRoutingStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
+func (*APRoutingStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{8} }
 
 func (m *APRoutingStatsMsgRsp) GetIPv4Routes() []*IPv4Route {
 	if m != nil {
@@ -428,7 +428,7 @@ type MulticastCounter struct {
 func (m *MulticastCounter) Reset()                    { *m = MulticastCounter{} }
 func (m *MulticastCounter) String() string            { return proto.CompactTextString(m) }
 func (*MulticastCounter) ProtoMessage()               {}
-func (*MulticastCounter) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
+func (*MulticastCounter) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{9} }
 
 func (m *MulticastCounter) GetTxMcastPkts() uint32 {
 	if m != nil {
@@ -457,7 +457,7 @@ type WLAN struct {
 func (m *WLAN) Reset()                    { *m = WLAN{} }
 func (m *WLAN) String() string            { return proto.CompactTextString(m) }
 func (*WLAN) ProtoMessage()               {}
-func (*WLAN) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
+func (*WLAN) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{10} }
 
 func (m *WLAN) GetID() string {
 	if m != nil {
@@ -492,7 +492,7 @@ type WLANEntry struct {
 func (m *WLANEntry) Reset()                    { *m = WLANEntry{} }
 func (m *WLANEntry) String() string            { return proto.CompactTextString(m) }
 func (*WLANEntry) ProtoMessage()               {}
-func (*WLANEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
+func (*WLANEntry) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{11} }
 
 func (m *WLANEntry) GetWlan() *WLAN {
 	if m != nil {
@@ -545,7 +545,7 @@ type APWLANStatsMsgRsp struct {
 func (m *APWLANStatsMsgRsp) Reset()                    { *m = APWLANStatsMsgRsp{} }
 func (m *APWLANStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APWLANStatsMsgRsp) ProtoMessage()               {}
-func (*APWLANStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
+func (*APWLANStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{12} }
 
 func (m *APWLANStatsMsgRsp) GetWLANEntries() []*WLANEntry {
 	if m != nil {
@@ -575,7 +575,7 @@ type RadioUtilization struct {
 func (m *RadioUtilization) Reset()                    { *m = RadioUtilization{} }
 func (m *RadioUtilization) String() string            { return proto.CompactTextString(m) }
 func (*RadioUtilization) ProtoMessage()               {}
-func (*RadioUtilization) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
+func (*RadioUtilization) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{13} }
 
 func (m *RadioUtilization) GetAll() float32 {
 	if m != nil {
@@ -635,7 +635,7 @@ type RadioCounters struct {
 func (m *RadioCounters) Reset()                    { *m = RadioCounters{} }
 func (m *RadioCounters) String() string            { return proto.CompactTextString(m) }
 func (*RadioCounters) ProtoMessage()               {}
-func (*RadioCounters) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
+func (*RadioCounters) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{14} }
 
 func (m *RadioCounters) GetTxBytes() uint64 {
 	if m != nil {
@@ -704,7 +704,7 @@ type DfsState struct {
 func (m *DfsState) Reset()                    { *m = DfsState{} }
 func (m *DfsState) String() string            { return proto.CompactTextString(m) }
 func (*DfsState) ProtoMessage()               {}
-func (*DfsState) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
+func (*DfsState) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{15} }
 
 func (m *DfsState) GetCacState() uint32 {
 	if m != nil {
@@ -750,7 +750,7 @@ type RadioEntry struct {
 func (m *RadioEntry) Reset()                    { *m = RadioEntry{} }
 func (m *RadioEntry) String() string            { return proto.CompactTextString(m) }
 func (*RadioEntry) ProtoMessage()               {}
-func (*RadioEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
+func (*RadioEntry) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{16} }
 
 func (m *RadioEntry) GetDev() string {
 	if m != nil {
@@ -838,7 +838,7 @@ type APRadioStatsMsgRsp struct {
 func (m *APRadioStatsMsgRsp) Reset()                    { *m = APRadioStatsMsgRsp{} }
 func (m *APRadioStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APRadioStatsMsgRsp) ProtoMessage()               {}
-func (*APRadioStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
+func (*APRadioStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{17} }
 
 func (m *APRadioStatsMsgRsp) GetRadios() []*RadioEntry {
 	if m != nil {
@@ -886,7 +886,7 @@ type APClientEntry struct {
 func (m *APClientEntry) Reset()                    { *m = APClientEntry{} }
 func (m *APClientEntry) String() string            { return proto.CompactTextString(m) }
 func (*APClientEntry) ProtoMessage()               {}
-func (*APClientEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
+func (*APClientEntry) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{18} }
 
 func (m *APClientEntry) GetMAC() string {
 	if m != nil {
@@ -995,7 +995,7 @@ type APClientStatsMsgRsp struct {
 func (m *APClientStatsMsgRsp) Reset()                    { *m = APClientStatsMsgRsp{} }
 func (m *APClientStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APClientStatsMsgRsp) ProtoMessage()               {}
-func (*APClientStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
+func (*APClientStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{19} }
 
 func (m *APClientStatsMsgRsp) GetClients() []*APClientEntry {
 	if m != nil {
@@ -1029,7 +1029,7 @@ type APInterfaceEntry struct {
 func (m *APInterfaceEntry) Reset()                    { *m = APInterfaceEntry{} }
 func (m *APInterfaceEntry) String() string            { return proto.CompactTextString(m) }
 func (*APInterfaceEntry) ProtoMessage()               {}
-func (*APInterfaceEntry) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
+func (*APInterfaceEntry) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{20} }
 
 func (m *APInterfaceEntry) GetName() string {
 	if m != nil {
@@ -1103,7 +1103,7 @@ type APInterfaceStatsMsgRsp struct {
 func (m *APInterfaceStatsMsgRsp) Reset()                    { *m = APInterfaceStatsMsgRsp{} }
 func (m *APInterfaceStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APInterfaceStatsMsgRsp) ProtoMessage()               {}
-func (*APInterfaceStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
+func (*APInterfaceStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{21} }
 
 func (m *APInterfaceStatsMsgRsp) GetInterfaces() []*APInterfaceEntry {
 	if m != nil {
@@ -1131,7 +1131,7 @@ type APStatsMsgRsp struct {
 func (m *APStatsMsgRsp) Reset()                    { *m = APStatsMsgRsp{} }
 func (m *APStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*APStatsMsgRsp) ProtoMessage()               {}
-func (*APStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
+func (*APStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{22} }
 
 type isAPStatsMsgRsp_MsgRsp interface {
 	isAPStatsMsgRsp_MsgRsp()
@@ -1558,9 +1558,9 @@ var _APStatistics_serviceDesc = grpc.ServiceDesc{
 	Metadata: "ap_stats.proto",
 }
 
-func init() { proto.RegisterFile("ap_stats.proto", fileDescriptor2) }
+func init() { proto.RegisterFile("ap_stats.proto", fileDescriptor3) }
 
-var fileDescriptor2 = []byte{
+var fileDescriptor3 = []byte{
 	// 1769 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x58, 0xcf, 0x6e, 0xe3, 0xc8,
 	0xd1, 0xb7, 0xfe, 0x59, 0x52, 0xc9, 0xf6, 0x68, 0x7a, 0x67, 0xe7, 0xd3, 0x7a, 0x06, 0xb3, 0x5e,

@@ -15,27 +15,16 @@ import "ap_common_types.proto";
 
 // @defgroup APPackets
 // @ingroup System
-// Packet I/O
 // The following RPCs are used to register for packets that the
 // client is interested in receiving
 // @{
 service APPackets {
-    //@addtogroup APPacketss
-    //@{
-    // Set of packet I/O functions
-    ///;
-
-    // Register for packet types to be pushed
+    // Registration RPC for packet types to be pushed
     rpc APPacketsGet(APPacketsMsg) returns (stream APPacketsMsgRsp);
-    //@}
 }
 
-// Message Types
+// The message type defining the category of packets to be retrieved
 enum APMsgType {
-    //@addtogroup APPackets
-    //@{
-    // The message type defining the category of packets to be retrieved
-    ///;
     // Reserved. 0x0
     AP_MSG_TYPE_RESERVED = 0;
 
@@ -50,16 +39,10 @@ enum APMsgType {
 
     // Cisco proprietary frames
     AP_MSG_TYPE_CISCO = 4;
-
-    //@}
 }
 
-// Management frame subtypes
+// The message subtype for the AP_MSG_TYPE_MGMT message type category
 enum APMgmtMsgSubtype {
-    //@addtogroup APPackets
-    //@{
-    // The message subtype for the AP_MSG_TYPE_MGMT message type category
-    ///;
     // Reserved. 0x0
     AP_MGMT_MSG_SUBTYPE_RESERVED = 0x0;
 
@@ -74,31 +57,19 @@ enum APMgmtMsgSubtype {
 
     // All packets
     AP_MGMT_MSG_SUBTYPE_ALL = 0xFFFF;
-
-    //@}
 }
 
-// Control frame subtypes
+// The message subtype for the AP_MSG_TYPE_CTRL message type category
 enum APCtrlMsgSubtype {
-    //@addtogroup APPackets
-    //@{
-    // The message subtype for the AP_MSG_TYPE_CTRL message type category
-    ///;
     // Reserved. 0x0
     AP_CTRL_MSG_SUBTYPE_RESERVED = 0x0;
 
     // All packets
     AP_CTRL_MSG_SUBTYPE_ALL = 0xFFFF;
-
-    //@}
 }
 
-// Data frame subtypes
+// The message subtype for the AP_MSG_TYPE_DATA message type category
 enum APDataMsgSubtype {
-    //@addtogroup APPackets
-    //@{
-    // The message subtype for the AP_MSG_TYPE_DATA message type category
-    ///;
     // Reserved. 0x0
     AP_DATA_MSG_SUBTYPE_RESERVED = 0x0;
 
@@ -116,16 +87,10 @@ enum APDataMsgSubtype {
 
     // All packets
     AP_DATA_MSG_SUBTYPE_ALL = 0xFFFF;
-
-    //@}
 }
 
-// Cisco frame subtypes
+// The message subtype for the AP_MSG_TYPE_CISCO message type category
 enum APCiscoMsgSubtype {
-    //@addtogroup APPackets
-    //@{
-    // The message subtype for the AP_MSG_TYPE_CISCO message type category
-    ///;
     // Reserved. 0x0
     AP_CISCO_MSG_SUBTYPE_RESERVED = 0x0;
 
@@ -134,15 +99,10 @@ enum APCiscoMsgSubtype {
 
     // All packets
     AP_CISCO_MSG_SUBTYPE_ALL = 0xFFFF;
-
-    //@}
 }
 
+// The packet type/subtype definition
 message APPacketHdr {
-    //@addtogroup APPackets
-    //@{
-    // The packet type/subtype definition
-    ///;
 
     // AP Message Type, e.g.
     //    AP_MSG_TYPE_MGMT
@@ -169,8 +129,6 @@ message APPacketHdr {
         // case MsgType == AP_MSG_TYPE_CISCO:
         APCiscoMsgSubtype cisco = 5;
     }
-
-    //@}
 }
 
 // Packet message request

@@ -22,6 +22,7 @@ import pdb
 # gRPC generated python bindings
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 from genpy import ap_common_types_pb2
 from genpy import ap_version_pb2
 
@@ -584,7 +585,7 @@ def get_client_stats():
 #
 # Function table (operation to handler)
 #
-options = {
+stats_options = {
     ap_stats_pb2.AP_SYSTEM_STATS: get_system_stats,
     ap_stats_pb2.AP_MEMORY_STATS: get_memory_stats,
     ap_stats_pb2.AP_INTERFACE_STATS: get_interface_stats,
@@ -624,12 +625,85 @@ class APStatistics(ap_stats_pb2.APStatisticsServicer):
             request.TimeInterval = ap_stats_pb2.AP_STATS_MIN_TIME_INTERVAL
 
         while True:
-            yield (options[request.StatsType]())
+            yield (stats_options[request.StatsType]())
             # If it's a one time request, break out
             if request.TimeInterval == ap_stats_pb2.AP_STATS_UNARY_OPERATION:
                 return
             # Otherwise, loop for specified interval
             time.sleep(request.TimeInterval)
+
+## End class
+
+#
+#==============================================
+# APPacket service implementation
+#==============================================
+#
+pkt_types = [
+                "Reserved",   # AP_MSG_TYPE_RESERVED = 0
+                "mgmt",       # AP_MSG_TYPE_MGMT = 1
+                "ctrl",       # AP_MSG_TYPE_CTRL = 2
+                "data",       # AP_MSG_TYPE_DATA = 3
+                "cisco",      # AP_MSG_TYPE_CISCO = 4
+            ]
+
+class APPacket(ap_packet_pb2.APPacketsServicer):
+
+  def APPacketsGet(self, get_request, context):
+
+    response = ap_packet_pb2.APPacketsMsgRsp()
+    response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+
+    for request in get_request.PacketHdr:
+        # Make sure the requested type is valid
+        if request.MsgType not in ap_packet_pb2.APMsgType.values():
+            response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
+            yield response
+            return
+
+        # Make sure the subtype is set properly
+        if request.WhichOneof("Subtype") == pkt_types[request.MsgType]:
+           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+        else:
+           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
+           yield response
+           return
+
+        # Make sure the subtype is not the reserved value
+        if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
+              (request.mgmt == 0)) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
+              (request.ctrl == 0)) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
+              (request.data == 0)) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
+              (request.cisco == 0))):
+           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
+           yield response
+           return
+
+        # Make sure the subtype is supported
+        if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
+              (request.mgmt not in ap_packet_pb2.APMgmtMsgSubtype.values())) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
+             (request.ctrl not in ap_packet_pb2.APCtrlMsgSubtype.values())) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
+             (request.data not in ap_packet_pb2.APDataMsgSubtype.values())) or
+            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
+             (request.cisco not in ap_packet_pb2.APCiscoMsgSubtype.values()))):
+           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
+           yield response
+           return
+
+        yield response
+        return
+        #while True:
+            #response.PacketHdr.MsgType=request.MsgType
+            #response.PacketHdr.mgmt=ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+            #response.PacketLen=4
+            #response.PacketBuf="1234"
+            #yield response
+            #return
 
 ## End class
 
@@ -652,6 +726,9 @@ if __name__ == '__main__':
 
   # Add APStatistics servicer
   ap_stats_pb2.add_APStatisticsServicer_to_server(APStatistics(), server)
+
+  # Add APPacket servicer
+  ap_packet_pb2.add_APPacketsServicer_to_server(APPacket(), server)
 
   server.add_insecure_port('[::]:' + str(server_port))
   server.start()
