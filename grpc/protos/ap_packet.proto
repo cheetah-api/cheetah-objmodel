@@ -1,0 +1,196 @@
+// @file
+// @brief Packet I/O proto file
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2017 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package access_point;
+
+import "ap_common_types.proto";
+
+// @defgroup APPackets
+// @ingroup System
+// Packet I/O
+// The following RPCs are used to register for packets that the
+// client is interested in receiving
+// @{
+service APPackets {
+    //@addtogroup APPacketss
+    //@{
+    // Set of packet I/O functions
+    ///;
+
+    // Register for packet types to be pushed
+    rpc APPacketsGet(APPacketsMsg) returns (stream APPacketsMsgRsp);
+    //@}
+}
+
+// Message Types
+enum APMsgType {
+    //@addtogroup APPackets
+    //@{
+    // The message type defining the category of packets to be retrieved
+    ///;
+    // Reserved. 0x0
+    AP_MSG_TYPE_RESERVED = 0;
+
+    // Traditional IEEE_TYPE_MANAGEMENT frames
+    AP_MSG_TYPE_MGMT = 1;
+
+    // Traditional IEEE_TYPE_CONTROL frames
+    AP_MSG_TYPE_CTRL = 2;
+
+    // Combination of IEEE_TYPE_DATA frames as well as other types (e.g, QOS_DATA)
+    AP_MSG_TYPE_DATA = 3;
+
+    // Cisco proprietary frames
+    AP_MSG_TYPE_CISCO = 4;
+
+    //@}
+}
+
+// Management frame subtypes
+enum APMgmtMsgSubtype {
+    //@addtogroup APPackets
+    //@{
+    // The message subtype for the AP_MSG_TYPE_MGMT message type category
+    ///;
+    // Reserved. 0x0
+    AP_MGMT_MSG_SUBTYPE_RESERVED = 0x0;
+
+    // Association packets
+    AP_MGMT_MSG_SUBTYPE_ASSOC = 0x1;
+
+    // Authentication packets
+    AP_MGMT_MSG_SUBTYPE_AUTH = 0x2;
+
+    // Probe packets
+    AP_MGMT_MSG_SUBTYPE_PROBE = 0x4;
+
+    // All packets
+    AP_MGMT_MSG_SUBTYPE_ALL = 0xFFFF;
+
+    //@}
+}
+
+// Control frame subtypes
+enum APCtrlMsgSubtype {
+    //@addtogroup APPackets
+    //@{
+    // The message subtype for the AP_MSG_TYPE_CTRL message type category
+    ///;
+    // Reserved. 0x0
+    AP_CTRL_MSG_SUBTYPE_RESERVED = 0x0;
+
+    // All packets
+    AP_CTRL_MSG_SUBTYPE_ALL = 0xFFFF;
+
+    //@}
+}
+
+// Data frame subtypes
+enum APDataMsgSubtype {
+    //@addtogroup APPackets
+    //@{
+    // The message subtype for the AP_MSG_TYPE_DATA message type category
+    ///;
+    // Reserved. 0x0
+    AP_DATA_MSG_SUBTYPE_RESERVED = 0x0;
+
+    // ARP
+    AP_DATA_MSG_SUBTYPE_ARP = 0x1;
+
+    // DHCP
+    AP_DATA_MSG_SUBTYPE_DHCP = 0x2;
+
+    // EAP
+    AP_DATA_MSG_SUBTYPE_EAP = 0x4;
+
+    // ICMP
+    AP_DATA_MSG_SUBTYPE_ICMP = 0x8;
+
+    // All packets
+    AP_DATA_MSG_SUBTYPE_ALL = 0xFFFF;
+
+    //@}
+}
+
+// Cisco frame subtypes
+enum APCiscoMsgSubtype {
+    //@addtogroup APPackets
+    //@{
+    // The message subtype for the AP_MSG_TYPE_CISCO message type category
+    ///;
+    // Reserved. 0x0
+    AP_CISCO_MSG_SUBTYPE_RESERVED = 0x0;
+
+    // NDP
+    AP_CISCO_MSG_SUBTYPE_NDP = 0x1;
+
+    // All packets
+    AP_CISCO_MSG_SUBTYPE_ALL = 0xFFFF;
+
+    //@}
+}
+
+message APPacketHdr {
+    //@addtogroup APPackets
+    //@{
+    // The packet type/subtype definition
+    ///;
+
+    // AP Message Type, e.g.
+    //    AP_MSG_TYPE_MGMT
+    APMsgType MsgType = 1;
+
+    // AP Message Subtype
+    //
+    // It could be a mask for the request message, e.g:
+    //     AP_MGMT_MSG_SUBTYPE_ASSOC | AP_MGMT_MSG_SUBTYPE_AUTH, or just
+    //     AP_DATA_MSG_SUBTYPE_ICMP
+    //
+    // It must be unary for the response message
+    //
+    oneof Subtype {
+        // case MsgType == AP_MSG_TYPE_MGMT:
+        APMgmtMsgSubtype mgmt = 2;
+
+        // case MsgType == AP_MSG_TYPE_CONTROL:
+        APCtrlMsgSubtype ctrl = 3;
+
+        // case MsgType == AP_MSG_TYPE_DATA:
+        APDataMsgSubtype data = 4;
+
+        // case MsgType == AP_MSG_TYPE_CISCO:
+        APCiscoMsgSubtype cisco = 5;
+    }
+
+    //@}
+}
+
+// Packet message request
+message APPacketsMsg {
+    // List of packet registrations
+    repeated APPacketHdr PacketHdr = 1;
+}
+
+// Packet message response
+message APPacketsMsgRsp {
+    // Corresponding error code
+    APErrorStatus ErrStatus = 1;
+
+    // Type of pushed packet
+    APPacketHdr PacketHdr = 2;
+
+    // Length of pushed packet
+    uint32 PacketLen = 3;
+
+    // Buffer carrying the packet
+    bytes PacketBuf = 4;
+}
+// @}
