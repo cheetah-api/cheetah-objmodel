@@ -31,7 +31,7 @@
 #include "ap_common_types.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_ap_5fstats_2eproto();
@@ -115,7 +115,7 @@ inline bool StatsTimeInterval_Parse(
 }
 // ===================================================================
 
-class APStatsRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsRequest) */ {
+class APStatsRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APStatsRequest) */ {
  public:
   APStatsRequest();
   virtual ~APStatsRequest();
@@ -178,11 +178,11 @@ class APStatsRequest : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APStatsType StatsType = 1;
+  // optional .cheetah.APStatsType StatsType = 1;
   void clear_statstype();
   static const int kStatsTypeFieldNumber = 1;
-  ::access_point::APStatsType statstype() const;
-  void set_statstype(::access_point::APStatsType value);
+  ::cheetah::APStatsType statstype() const;
+  void set_statstype(::cheetah::APStatsType value);
 
   // optional uint32 TimeInterval = 2;
   void clear_timeinterval();
@@ -190,7 +190,7 @@ class APStatsRequest : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::uint32 timeinterval() const;
   void set_timeinterval(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APStatsRequest)
+  // @@protoc_insertion_point(class_scope:cheetah.APStatsRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -208,7 +208,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsRequest> APSta
 
 // -------------------------------------------------------------------
 
-class APStatsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsMsg) */ {
+class APStatsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APStatsMsg) */ {
  public:
   APStatsMsg();
   virtual ~APStatsMsg();
@@ -271,23 +271,23 @@ class APStatsMsg : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.APStatsRequest StatsRequest = 1;
+  // repeated .cheetah.APStatsRequest StatsRequest = 1;
   int statsrequest_size() const;
   void clear_statsrequest();
   static const int kStatsRequestFieldNumber = 1;
-  const ::access_point::APStatsRequest& statsrequest(int index) const;
-  ::access_point::APStatsRequest* mutable_statsrequest(int index);
-  ::access_point::APStatsRequest* add_statsrequest();
-  ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >*
+  const ::cheetah::APStatsRequest& statsrequest(int index) const;
+  ::cheetah::APStatsRequest* mutable_statsrequest(int index);
+  ::cheetah::APStatsRequest* add_statsrequest();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APStatsRequest >*
       mutable_statsrequest();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APStatsRequest >&
       statsrequest() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APStatsMsg)
+  // @@protoc_insertion_point(class_scope:cheetah.APStatsMsg)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest > statsrequest_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APStatsRequest > statsrequest_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -300,7 +300,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsMsg> APStatsMs
 
 // -------------------------------------------------------------------
 
-class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APSystemStatsMsgRsp) */ {
+class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APSystemStatsMsgRsp) */ {
  public:
   APSystemStatsMsgRsp();
   virtual ~APSystemStatsMsgRsp();
@@ -413,7 +413,7 @@ class APSystemStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_productid();
   void set_allocated_productid(::std::string* productid);
 
-  // @@protoc_insertion_point(class_scope:access_point.APSystemStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APSystemStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -434,7 +434,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APSystemStatsMsgRsp> 
 
 // -------------------------------------------------------------------
 
-class MemInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.MemInfo) */ {
+class MemInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.MemInfo) */ {
  public:
   MemInfo();
   virtual ~MemInfo();
@@ -509,7 +509,7 @@ class MemInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::uint32 available_kb() const;
   void set_available_kb(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.MemInfo)
+  // @@protoc_insertion_point(class_scope:cheetah.MemInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -527,7 +527,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<MemInfo> MemInfo_defa
 
 // -------------------------------------------------------------------
 
-class SlabInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.SlabInfo) */ {
+class SlabInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.SlabInfo) */ {
  public:
   SlabInfo();
   virtual ~SlabInfo();
@@ -619,7 +619,7 @@ class SlabInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::int32 objsize() const;
   void set_objsize(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.SlabInfo)
+  // @@protoc_insertion_point(class_scope:cheetah.SlabInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -639,7 +639,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<SlabInfo> SlabInfo_de
 
 // -------------------------------------------------------------------
 
-class APMemoryStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APMemoryStatsMsgRsp) */ {
+class APMemoryStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APMemoryStatsMsgRsp) */ {
  public:
   APMemoryStatsMsgRsp();
   virtual ~APMemoryStatsMsgRsp();
@@ -702,30 +702,30 @@ class APMemoryStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.MemInfo ProcMemInfo = 1;
+  // optional .cheetah.MemInfo ProcMemInfo = 1;
   bool has_procmeminfo() const;
   void clear_procmeminfo();
   static const int kProcMemInfoFieldNumber = 1;
-  const ::access_point::MemInfo& procmeminfo() const;
-  ::access_point::MemInfo* mutable_procmeminfo();
-  ::access_point::MemInfo* release_procmeminfo();
-  void set_allocated_procmeminfo(::access_point::MemInfo* procmeminfo);
+  const ::cheetah::MemInfo& procmeminfo() const;
+  ::cheetah::MemInfo* mutable_procmeminfo();
+  ::cheetah::MemInfo* release_procmeminfo();
+  void set_allocated_procmeminfo(::cheetah::MemInfo* procmeminfo);
 
-  // optional .access_point.SlabInfo TopProcSlabInfo = 2;
+  // optional .cheetah.SlabInfo TopProcSlabInfo = 2;
   bool has_topprocslabinfo() const;
   void clear_topprocslabinfo();
   static const int kTopProcSlabInfoFieldNumber = 2;
-  const ::access_point::SlabInfo& topprocslabinfo() const;
-  ::access_point::SlabInfo* mutable_topprocslabinfo();
-  ::access_point::SlabInfo* release_topprocslabinfo();
-  void set_allocated_topprocslabinfo(::access_point::SlabInfo* topprocslabinfo);
+  const ::cheetah::SlabInfo& topprocslabinfo() const;
+  ::cheetah::SlabInfo* mutable_topprocslabinfo();
+  ::cheetah::SlabInfo* release_topprocslabinfo();
+  void set_allocated_topprocslabinfo(::cheetah::SlabInfo* topprocslabinfo);
 
-  // @@protoc_insertion_point(class_scope:access_point.APMemoryStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APMemoryStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::access_point::MemInfo* procmeminfo_;
-  ::access_point::SlabInfo* topprocslabinfo_;
+  ::cheetah::MemInfo* procmeminfo_;
+  ::cheetah::SlabInfo* topprocslabinfo_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -738,7 +738,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APMemoryStatsMsgRsp> 
 
 // -------------------------------------------------------------------
 
-class APDNSStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APDNSStatsMsgRsp) */ {
+class APDNSStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APDNSStatsMsgRsp) */ {
  public:
   APDNSStatsMsgRsp();
   virtual ~APDNSStatsMsgRsp();
@@ -817,7 +817,7 @@ class APDNSStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertio
   const ::google::protobuf::RepeatedPtrField< ::std::string>& ip() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ip();
 
-  // @@protoc_insertion_point(class_scope:access_point.APDNSStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APDNSStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -834,7 +834,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APDNSStatsMsgRsp> APD
 
 // -------------------------------------------------------------------
 
-class IPv4Route : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.IPv4Route) */ {
+class IPv4Route : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.IPv4Route) */ {
  public:
   IPv4Route();
   virtual ~IPv4Route();
@@ -970,7 +970,7 @@ class IPv4Route : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_iface();
   void set_allocated_iface(::std::string* iface);
 
-  // @@protoc_insertion_point(class_scope:access_point.IPv4Route)
+  // @@protoc_insertion_point(class_scope:cheetah.IPv4Route)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -994,7 +994,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<IPv4Route> IPv4Route_
 
 // -------------------------------------------------------------------
 
-class APRoutingStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APRoutingStatsMsgRsp) */ {
+class APRoutingStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APRoutingStatsMsgRsp) */ {
  public:
   APRoutingStatsMsgRsp();
   virtual ~APRoutingStatsMsgRsp();
@@ -1057,23 +1057,23 @@ class APRoutingStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.IPv4Route IPv4Routes = 1;
+  // repeated .cheetah.IPv4Route IPv4Routes = 1;
   int ipv4routes_size() const;
   void clear_ipv4routes();
   static const int kIPv4RoutesFieldNumber = 1;
-  const ::access_point::IPv4Route& ipv4routes(int index) const;
-  ::access_point::IPv4Route* mutable_ipv4routes(int index);
-  ::access_point::IPv4Route* add_ipv4routes();
-  ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >*
+  const ::cheetah::IPv4Route& ipv4routes(int index) const;
+  ::cheetah::IPv4Route* mutable_ipv4routes(int index);
+  ::cheetah::IPv4Route* add_ipv4routes();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::IPv4Route >*
       mutable_ipv4routes();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::IPv4Route >&
       ipv4routes() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APRoutingStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APRoutingStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route > ipv4routes_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::IPv4Route > ipv4routes_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -1086,7 +1086,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APRoutingStatsMsgRsp>
 
 // -------------------------------------------------------------------
 
-class MulticastCounter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.MulticastCounter) */ {
+class MulticastCounter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.MulticastCounter) */ {
  public:
   MulticastCounter();
   virtual ~MulticastCounter();
@@ -1161,7 +1161,7 @@ class MulticastCounter : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::uint64 txmcastbytes() const;
   void set_txmcastbytes(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.MulticastCounter)
+  // @@protoc_insertion_point(class_scope:cheetah.MulticastCounter)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1179,7 +1179,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<MulticastCounter> Mul
 
 // -------------------------------------------------------------------
 
-class WLAN : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.WLAN) */ {
+class WLAN : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.WLAN) */ {
  public:
   WLAN();
   virtual ~WLAN();
@@ -1264,7 +1264,7 @@ class WLAN : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::std::string* release_ssid();
   void set_allocated_ssid(::std::string* ssid);
 
-  // @@protoc_insertion_point(class_scope:access_point.WLAN)
+  // @@protoc_insertion_point(class_scope:cheetah.WLAN)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1282,7 +1282,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<WLAN> WLAN_default_in
 
 // -------------------------------------------------------------------
 
-class WLANEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.WLANEntry) */ {
+class WLANEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.WLANEntry) */ {
  public:
   WLANEntry();
   virtual ~WLANEntry();
@@ -1345,14 +1345,14 @@ class WLANEntry : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.WLAN Wlan = 1;
+  // optional .cheetah.WLAN Wlan = 1;
   bool has_wlan() const;
   void clear_wlan();
   static const int kWlanFieldNumber = 1;
-  const ::access_point::WLAN& wlan() const;
-  ::access_point::WLAN* mutable_wlan();
-  ::access_point::WLAN* release_wlan();
-  void set_allocated_wlan(::access_point::WLAN* wlan);
+  const ::cheetah::WLAN& wlan() const;
+  ::cheetah::WLAN* mutable_wlan();
+  ::cheetah::WLAN* release_wlan();
+  void set_allocated_wlan(::cheetah::WLAN* wlan);
 
   // optional uint32 RadioIndex = 2;
   void clear_radioindex();
@@ -1388,23 +1388,23 @@ class WLANEntry : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::int32 numclients() const;
   void set_numclients(::google::protobuf::int32 value);
 
-  // optional .access_point.MulticastCounter Counter = 6;
+  // optional .cheetah.MulticastCounter Counter = 6;
   bool has_counter() const;
   void clear_counter();
   static const int kCounterFieldNumber = 6;
-  const ::access_point::MulticastCounter& counter() const;
-  ::access_point::MulticastCounter* mutable_counter();
-  ::access_point::MulticastCounter* release_counter();
-  void set_allocated_counter(::access_point::MulticastCounter* counter);
+  const ::cheetah::MulticastCounter& counter() const;
+  ::cheetah::MulticastCounter* mutable_counter();
+  ::cheetah::MulticastCounter* release_counter();
+  void set_allocated_counter(::cheetah::MulticastCounter* counter);
 
-  // @@protoc_insertion_point(class_scope:access_point.WLANEntry)
+  // @@protoc_insertion_point(class_scope:cheetah.WLANEntry)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr bssid_;
   ::google::protobuf::internal::ArenaStringPtr dev_;
-  ::access_point::WLAN* wlan_;
-  ::access_point::MulticastCounter* counter_;
+  ::cheetah::WLAN* wlan_;
+  ::cheetah::MulticastCounter* counter_;
   ::google::protobuf::uint32 radioindex_;
   ::google::protobuf::int32 numclients_;
   mutable int _cached_size_;
@@ -1419,7 +1419,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<WLANEntry> WLANEntry_
 
 // -------------------------------------------------------------------
 
-class APWLANStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APWLANStatsMsgRsp) */ {
+class APWLANStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APWLANStatsMsgRsp) */ {
  public:
   APWLANStatsMsgRsp();
   virtual ~APWLANStatsMsgRsp();
@@ -1482,23 +1482,23 @@ class APWLANStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.WLANEntry WLANEntries = 1;
+  // repeated .cheetah.WLANEntry WLANEntries = 1;
   int wlanentries_size() const;
   void clear_wlanentries();
   static const int kWLANEntriesFieldNumber = 1;
-  const ::access_point::WLANEntry& wlanentries(int index) const;
-  ::access_point::WLANEntry* mutable_wlanentries(int index);
-  ::access_point::WLANEntry* add_wlanentries();
-  ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry >*
+  const ::cheetah::WLANEntry& wlanentries(int index) const;
+  ::cheetah::WLANEntry* mutable_wlanentries(int index);
+  ::cheetah::WLANEntry* add_wlanentries();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::WLANEntry >*
       mutable_wlanentries();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::WLANEntry >&
       wlanentries() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APWLANStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APWLANStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry > wlanentries_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::WLANEntry > wlanentries_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -1511,7 +1511,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APWLANStatsMsgRsp> AP
 
 // -------------------------------------------------------------------
 
-class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.RadioUtilization) */ {
+class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.RadioUtilization) */ {
  public:
   RadioUtilization();
   virtual ~RadioUtilization();
@@ -1604,7 +1604,7 @@ class RadioUtilization : public ::google::protobuf::Message /* @@protoc_insertio
   float nonwifi() const;
   void set_nonwifi(float value);
 
-  // @@protoc_insertion_point(class_scope:access_point.RadioUtilization)
+  // @@protoc_insertion_point(class_scope:cheetah.RadioUtilization)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1625,7 +1625,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<RadioUtilization> Rad
 
 // -------------------------------------------------------------------
 
-class RadioCounters : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.RadioCounters) */ {
+class RadioCounters : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.RadioCounters) */ {
  public:
   RadioCounters();
   virtual ~RadioCounters();
@@ -1736,7 +1736,7 @@ class RadioCounters : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::uint32 rxerrors() const;
   void set_rxerrors(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.RadioCounters)
+  // @@protoc_insertion_point(class_scope:cheetah.RadioCounters)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1760,7 +1760,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<RadioCounters> RadioC
 
 // -------------------------------------------------------------------
 
-class DfsState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.DfsState) */ {
+class DfsState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.DfsState) */ {
  public:
   DfsState();
   virtual ~DfsState();
@@ -1835,7 +1835,7 @@ class DfsState : public ::google::protobuf::Message /* @@protoc_insertion_point(
   bool radardetected() const;
   void set_radardetected(bool value);
 
-  // @@protoc_insertion_point(class_scope:access_point.DfsState)
+  // @@protoc_insertion_point(class_scope:cheetah.DfsState)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1853,7 +1853,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<DfsState> DfsState_de
 
 // -------------------------------------------------------------------
 
-class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.RadioEntry) */ {
+class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.RadioEntry) */ {
  public:
   RadioEntry();
   virtual ~RadioEntry();
@@ -1968,14 +1968,14 @@ class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 maxtxpower() const;
   void set_maxtxpower(::google::protobuf::uint32 value);
 
-  // optional .access_point.RadioUtilization Utilization = 8;
+  // optional .cheetah.RadioUtilization Utilization = 8;
   bool has_utilization() const;
   void clear_utilization();
   static const int kUtilizationFieldNumber = 8;
-  const ::access_point::RadioUtilization& utilization() const;
-  ::access_point::RadioUtilization* mutable_utilization();
-  ::access_point::RadioUtilization* release_utilization();
-  void set_allocated_utilization(::access_point::RadioUtilization* utilization);
+  const ::cheetah::RadioUtilization& utilization() const;
+  ::cheetah::RadioUtilization* mutable_utilization();
+  ::cheetah::RadioUtilization* release_utilization();
+  void set_allocated_utilization(::cheetah::RadioUtilization* utilization);
 
   // repeated int32 AntennaRSSI = 9;
   int antennarssi_size() const;
@@ -1989,25 +1989,25 @@ class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_antennarssi();
 
-  // optional .access_point.RadioCounters Counter = 10;
+  // optional .cheetah.RadioCounters Counter = 10;
   bool has_counter() const;
   void clear_counter();
   static const int kCounterFieldNumber = 10;
-  const ::access_point::RadioCounters& counter() const;
-  ::access_point::RadioCounters* mutable_counter();
-  ::access_point::RadioCounters* release_counter();
-  void set_allocated_counter(::access_point::RadioCounters* counter);
+  const ::cheetah::RadioCounters& counter() const;
+  ::cheetah::RadioCounters* mutable_counter();
+  ::cheetah::RadioCounters* release_counter();
+  void set_allocated_counter(::cheetah::RadioCounters* counter);
 
-  // optional .access_point.DfsState DFS = 11;
+  // optional .cheetah.DfsState DFS = 11;
   bool has_dfs() const;
   void clear_dfs();
   static const int kDFSFieldNumber = 11;
-  const ::access_point::DfsState& dfs() const;
-  ::access_point::DfsState* mutable_dfs();
-  ::access_point::DfsState* release_dfs();
-  void set_allocated_dfs(::access_point::DfsState* dfs);
+  const ::cheetah::DfsState& dfs() const;
+  ::cheetah::DfsState* mutable_dfs();
+  ::cheetah::DfsState* release_dfs();
+  void set_allocated_dfs(::cheetah::DfsState* dfs);
 
-  // @@protoc_insertion_point(class_scope:access_point.RadioEntry)
+  // @@protoc_insertion_point(class_scope:cheetah.RadioEntry)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2015,9 +2015,9 @@ class RadioEntry : public ::google::protobuf::Message /* @@protoc_insertion_poin
   mutable int _antennarssi_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr dev_;
   ::google::protobuf::internal::ArenaStringPtr band_;
-  ::access_point::RadioUtilization* utilization_;
-  ::access_point::RadioCounters* counter_;
-  ::access_point::DfsState* dfs_;
+  ::cheetah::RadioUtilization* utilization_;
+  ::cheetah::RadioCounters* counter_;
+  ::cheetah::DfsState* dfs_;
   ::google::protobuf::uint32 channel_;
   ::google::protobuf::uint32 secondarychannel_;
   ::google::protobuf::uint32 bandwidth_;
@@ -2035,7 +2035,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<RadioEntry> RadioEntr
 
 // -------------------------------------------------------------------
 
-class APRadioStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APRadioStatsMsgRsp) */ {
+class APRadioStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APRadioStatsMsgRsp) */ {
  public:
   APRadioStatsMsgRsp();
   virtual ~APRadioStatsMsgRsp();
@@ -2098,23 +2098,23 @@ class APRadioStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.RadioEntry Radios = 1;
+  // repeated .cheetah.RadioEntry Radios = 1;
   int radios_size() const;
   void clear_radios();
   static const int kRadiosFieldNumber = 1;
-  const ::access_point::RadioEntry& radios(int index) const;
-  ::access_point::RadioEntry* mutable_radios(int index);
-  ::access_point::RadioEntry* add_radios();
-  ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry >*
+  const ::cheetah::RadioEntry& radios(int index) const;
+  ::cheetah::RadioEntry* mutable_radios(int index);
+  ::cheetah::RadioEntry* add_radios();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::RadioEntry >*
       mutable_radios();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::RadioEntry >&
       radios() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APRadioStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APRadioStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry > radios_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::RadioEntry > radios_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2127,7 +2127,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APRadioStatsMsgRsp> A
 
 // -------------------------------------------------------------------
 
-class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APClientEntry) */ {
+class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APClientEntry) */ {
  public:
   APClientEntry();
   virtual ~APClientEntry();
@@ -2218,14 +2218,14 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_band();
   void set_allocated_band(::std::string* band);
 
-  // optional .access_point.WLAN Wlan = 6;
+  // optional .cheetah.WLAN Wlan = 6;
   bool has_wlan() const;
   void clear_wlan();
   static const int kWlanFieldNumber = 6;
-  const ::access_point::WLAN& wlan() const;
-  ::access_point::WLAN* mutable_wlan();
-  ::access_point::WLAN* release_wlan();
-  void set_allocated_wlan(::access_point::WLAN* wlan);
+  const ::cheetah::WLAN& wlan() const;
+  ::cheetah::WLAN* mutable_wlan();
+  ::cheetah::WLAN* release_wlan();
+  void set_allocated_wlan(::cheetah::WLAN* wlan);
 
   // optional uint32 ConnectedTimeSec = 7;
   void clear_connectedtimesec();
@@ -2293,7 +2293,7 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::uint32 rxpkts() const;
   void set_rxpkts(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APClientEntry)
+  // @@protoc_insertion_point(class_scope:cheetah.APClientEntry)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2301,7 +2301,7 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   mutable int _antennarssi_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr mac_;
   ::google::protobuf::internal::ArenaStringPtr band_;
-  ::access_point::WLAN* wlan_;
+  ::cheetah::WLAN* wlan_;
   ::google::protobuf::uint32 radioindex_;
   ::google::protobuf::uint32 connectedtimesec_;
   ::google::protobuf::uint32 inactivetimemillisec_;
@@ -2324,7 +2324,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APClientEntry> APClie
 
 // -------------------------------------------------------------------
 
-class APClientStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APClientStatsMsgRsp) */ {
+class APClientStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APClientStatsMsgRsp) */ {
  public:
   APClientStatsMsgRsp();
   virtual ~APClientStatsMsgRsp();
@@ -2387,23 +2387,23 @@ class APClientStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.APClientEntry Clients = 1;
+  // repeated .cheetah.APClientEntry Clients = 1;
   int clients_size() const;
   void clear_clients();
   static const int kClientsFieldNumber = 1;
-  const ::access_point::APClientEntry& clients(int index) const;
-  ::access_point::APClientEntry* mutable_clients(int index);
-  ::access_point::APClientEntry* add_clients();
-  ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry >*
+  const ::cheetah::APClientEntry& clients(int index) const;
+  ::cheetah::APClientEntry* mutable_clients(int index);
+  ::cheetah::APClientEntry* add_clients();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientEntry >*
       mutable_clients();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientEntry >&
       clients() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APClientStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APClientStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry > clients_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientEntry > clients_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2416,7 +2416,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APClientStatsMsgRsp> 
 
 // -------------------------------------------------------------------
 
-class APInterfaceEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APInterfaceEntry) */ {
+class APInterfaceEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APInterfaceEntry) */ {
  public:
   APInterfaceEntry();
   virtual ~APInterfaceEntry();
@@ -2538,7 +2538,7 @@ class APInterfaceEntry : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::uint32 txpkts() const;
   void set_txpkts(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APInterfaceEntry)
+  // @@protoc_insertion_point(class_scope:cheetah.APInterfaceEntry)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2563,7 +2563,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APInterfaceEntry> API
 
 // -------------------------------------------------------------------
 
-class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APInterfaceStatsMsgRsp) */ {
+class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APInterfaceStatsMsgRsp) */ {
  public:
   APInterfaceStatsMsgRsp();
   virtual ~APInterfaceStatsMsgRsp();
@@ -2626,23 +2626,23 @@ class APInterfaceStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.APInterfaceEntry Interfaces = 1;
+  // repeated .cheetah.APInterfaceEntry Interfaces = 1;
   int interfaces_size() const;
   void clear_interfaces();
   static const int kInterfacesFieldNumber = 1;
-  const ::access_point::APInterfaceEntry& interfaces(int index) const;
-  ::access_point::APInterfaceEntry* mutable_interfaces(int index);
-  ::access_point::APInterfaceEntry* add_interfaces();
-  ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry >*
+  const ::cheetah::APInterfaceEntry& interfaces(int index) const;
+  ::cheetah::APInterfaceEntry* mutable_interfaces(int index);
+  ::cheetah::APInterfaceEntry* add_interfaces();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APInterfaceEntry >*
       mutable_interfaces();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APInterfaceEntry >&
       interfaces() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APInterfaceStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APInterfaceStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry > interfaces_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APInterfaceEntry > interfaces_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -2655,7 +2655,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APInterfaceStatsMsgRs
 
 // -------------------------------------------------------------------
 
-class APStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APStatsMsgRsp) */ {
+class APStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APStatsMsgRsp) */ {
  public:
   APStatsMsgRsp();
   virtual ~APStatsMsgRsp();
@@ -2730,89 +2730,89 @@ class APStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
   void clear_errstatus();
   static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
+  const ::cheetah::APErrorStatus& errstatus() const;
+  ::cheetah::APErrorStatus* mutable_errstatus();
+  ::cheetah::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::cheetah::APErrorStatus* errstatus);
 
-  // optional .access_point.APSystemStatsMsgRsp SystemStats = 2;
+  // optional .cheetah.APSystemStatsMsgRsp SystemStats = 2;
   bool has_systemstats() const;
   void clear_systemstats();
   static const int kSystemStatsFieldNumber = 2;
-  const ::access_point::APSystemStatsMsgRsp& systemstats() const;
-  ::access_point::APSystemStatsMsgRsp* mutable_systemstats();
-  ::access_point::APSystemStatsMsgRsp* release_systemstats();
-  void set_allocated_systemstats(::access_point::APSystemStatsMsgRsp* systemstats);
+  const ::cheetah::APSystemStatsMsgRsp& systemstats() const;
+  ::cheetah::APSystemStatsMsgRsp* mutable_systemstats();
+  ::cheetah::APSystemStatsMsgRsp* release_systemstats();
+  void set_allocated_systemstats(::cheetah::APSystemStatsMsgRsp* systemstats);
 
-  // optional .access_point.APMemoryStatsMsgRsp MemoryStats = 3;
+  // optional .cheetah.APMemoryStatsMsgRsp MemoryStats = 3;
   bool has_memorystats() const;
   void clear_memorystats();
   static const int kMemoryStatsFieldNumber = 3;
-  const ::access_point::APMemoryStatsMsgRsp& memorystats() const;
-  ::access_point::APMemoryStatsMsgRsp* mutable_memorystats();
-  ::access_point::APMemoryStatsMsgRsp* release_memorystats();
-  void set_allocated_memorystats(::access_point::APMemoryStatsMsgRsp* memorystats);
+  const ::cheetah::APMemoryStatsMsgRsp& memorystats() const;
+  ::cheetah::APMemoryStatsMsgRsp* mutable_memorystats();
+  ::cheetah::APMemoryStatsMsgRsp* release_memorystats();
+  void set_allocated_memorystats(::cheetah::APMemoryStatsMsgRsp* memorystats);
 
-  // optional .access_point.APInterfaceStatsMsgRsp InterfaceStats = 4;
+  // optional .cheetah.APInterfaceStatsMsgRsp InterfaceStats = 4;
   bool has_interfacestats() const;
   void clear_interfacestats();
   static const int kInterfaceStatsFieldNumber = 4;
-  const ::access_point::APInterfaceStatsMsgRsp& interfacestats() const;
-  ::access_point::APInterfaceStatsMsgRsp* mutable_interfacestats();
-  ::access_point::APInterfaceStatsMsgRsp* release_interfacestats();
-  void set_allocated_interfacestats(::access_point::APInterfaceStatsMsgRsp* interfacestats);
+  const ::cheetah::APInterfaceStatsMsgRsp& interfacestats() const;
+  ::cheetah::APInterfaceStatsMsgRsp* mutable_interfacestats();
+  ::cheetah::APInterfaceStatsMsgRsp* release_interfacestats();
+  void set_allocated_interfacestats(::cheetah::APInterfaceStatsMsgRsp* interfacestats);
 
-  // optional .access_point.APRoutingStatsMsgRsp RoutingStats = 5;
+  // optional .cheetah.APRoutingStatsMsgRsp RoutingStats = 5;
   bool has_routingstats() const;
   void clear_routingstats();
   static const int kRoutingStatsFieldNumber = 5;
-  const ::access_point::APRoutingStatsMsgRsp& routingstats() const;
-  ::access_point::APRoutingStatsMsgRsp* mutable_routingstats();
-  ::access_point::APRoutingStatsMsgRsp* release_routingstats();
-  void set_allocated_routingstats(::access_point::APRoutingStatsMsgRsp* routingstats);
+  const ::cheetah::APRoutingStatsMsgRsp& routingstats() const;
+  ::cheetah::APRoutingStatsMsgRsp* mutable_routingstats();
+  ::cheetah::APRoutingStatsMsgRsp* release_routingstats();
+  void set_allocated_routingstats(::cheetah::APRoutingStatsMsgRsp* routingstats);
 
-  // optional .access_point.APDNSStatsMsgRsp DNSStats = 6;
+  // optional .cheetah.APDNSStatsMsgRsp DNSStats = 6;
   bool has_dnsstats() const;
   void clear_dnsstats();
   static const int kDNSStatsFieldNumber = 6;
-  const ::access_point::APDNSStatsMsgRsp& dnsstats() const;
-  ::access_point::APDNSStatsMsgRsp* mutable_dnsstats();
-  ::access_point::APDNSStatsMsgRsp* release_dnsstats();
-  void set_allocated_dnsstats(::access_point::APDNSStatsMsgRsp* dnsstats);
+  const ::cheetah::APDNSStatsMsgRsp& dnsstats() const;
+  ::cheetah::APDNSStatsMsgRsp* mutable_dnsstats();
+  ::cheetah::APDNSStatsMsgRsp* release_dnsstats();
+  void set_allocated_dnsstats(::cheetah::APDNSStatsMsgRsp* dnsstats);
 
-  // optional .access_point.APRadioStatsMsgRsp RadioStats = 7;
+  // optional .cheetah.APRadioStatsMsgRsp RadioStats = 7;
   bool has_radiostats() const;
   void clear_radiostats();
   static const int kRadioStatsFieldNumber = 7;
-  const ::access_point::APRadioStatsMsgRsp& radiostats() const;
-  ::access_point::APRadioStatsMsgRsp* mutable_radiostats();
-  ::access_point::APRadioStatsMsgRsp* release_radiostats();
-  void set_allocated_radiostats(::access_point::APRadioStatsMsgRsp* radiostats);
+  const ::cheetah::APRadioStatsMsgRsp& radiostats() const;
+  ::cheetah::APRadioStatsMsgRsp* mutable_radiostats();
+  ::cheetah::APRadioStatsMsgRsp* release_radiostats();
+  void set_allocated_radiostats(::cheetah::APRadioStatsMsgRsp* radiostats);
 
-  // optional .access_point.APWLANStatsMsgRsp WLANStats = 8;
+  // optional .cheetah.APWLANStatsMsgRsp WLANStats = 8;
   bool has_wlanstats() const;
   void clear_wlanstats();
   static const int kWLANStatsFieldNumber = 8;
-  const ::access_point::APWLANStatsMsgRsp& wlanstats() const;
-  ::access_point::APWLANStatsMsgRsp* mutable_wlanstats();
-  ::access_point::APWLANStatsMsgRsp* release_wlanstats();
-  void set_allocated_wlanstats(::access_point::APWLANStatsMsgRsp* wlanstats);
+  const ::cheetah::APWLANStatsMsgRsp& wlanstats() const;
+  ::cheetah::APWLANStatsMsgRsp* mutable_wlanstats();
+  ::cheetah::APWLANStatsMsgRsp* release_wlanstats();
+  void set_allocated_wlanstats(::cheetah::APWLANStatsMsgRsp* wlanstats);
 
-  // optional .access_point.APClientStatsMsgRsp ClientStats = 9;
+  // optional .cheetah.APClientStatsMsgRsp ClientStats = 9;
   bool has_clientstats() const;
   void clear_clientstats();
   static const int kClientStatsFieldNumber = 9;
-  const ::access_point::APClientStatsMsgRsp& clientstats() const;
-  ::access_point::APClientStatsMsgRsp* mutable_clientstats();
-  ::access_point::APClientStatsMsgRsp* release_clientstats();
-  void set_allocated_clientstats(::access_point::APClientStatsMsgRsp* clientstats);
+  const ::cheetah::APClientStatsMsgRsp& clientstats() const;
+  ::cheetah::APClientStatsMsgRsp* mutable_clientstats();
+  ::cheetah::APClientStatsMsgRsp* release_clientstats();
+  void set_allocated_clientstats(::cheetah::APClientStatsMsgRsp* clientstats);
 
   MsgRspCase msg_rsp_case() const;
-  // @@protoc_insertion_point(class_scope:access_point.APStatsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APStatsMsgRsp)
  private:
   inline void set_has_systemstats();
   inline void set_has_memorystats();
@@ -2828,17 +2828,17 @@ class APStatsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline void clear_has_msg_rsp();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::access_point::APErrorStatus* errstatus_;
+  ::cheetah::APErrorStatus* errstatus_;
   union MsgRspUnion {
     MsgRspUnion() {}
-    ::access_point::APSystemStatsMsgRsp* systemstats_;
-    ::access_point::APMemoryStatsMsgRsp* memorystats_;
-    ::access_point::APInterfaceStatsMsgRsp* interfacestats_;
-    ::access_point::APRoutingStatsMsgRsp* routingstats_;
-    ::access_point::APDNSStatsMsgRsp* dnsstats_;
-    ::access_point::APRadioStatsMsgRsp* radiostats_;
-    ::access_point::APWLANStatsMsgRsp* wlanstats_;
-    ::access_point::APClientStatsMsgRsp* clientstats_;
+    ::cheetah::APSystemStatsMsgRsp* systemstats_;
+    ::cheetah::APMemoryStatsMsgRsp* memorystats_;
+    ::cheetah::APInterfaceStatsMsgRsp* interfacestats_;
+    ::cheetah::APRoutingStatsMsgRsp* routingstats_;
+    ::cheetah::APDNSStatsMsgRsp* dnsstats_;
+    ::cheetah::APRadioStatsMsgRsp* radiostats_;
+    ::cheetah::APWLANStatsMsgRsp* wlanstats_;
+    ::cheetah::APClientStatsMsgRsp* clientstats_;
   } msg_rsp_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -2860,18 +2860,18 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APStatsMsgRsp> APStat
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // APStatsRequest
 
-// optional .access_point.APStatsType StatsType = 1;
+// optional .cheetah.APStatsType StatsType = 1;
 inline void APStatsRequest::clear_statstype() {
   statstype_ = 0;
 }
-inline ::access_point::APStatsType APStatsRequest::statstype() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsRequest.StatsType)
-  return static_cast< ::access_point::APStatsType >(statstype_);
+inline ::cheetah::APStatsType APStatsRequest::statstype() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsRequest.StatsType)
+  return static_cast< ::cheetah::APStatsType >(statstype_);
 }
-inline void APStatsRequest::set_statstype(::access_point::APStatsType value) {
+inline void APStatsRequest::set_statstype(::cheetah::APStatsType value) {
   
   statstype_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APStatsRequest.StatsType)
+  // @@protoc_insertion_point(field_set:cheetah.APStatsRequest.StatsType)
 }
 
 // optional uint32 TimeInterval = 2;
@@ -2879,13 +2879,13 @@ inline void APStatsRequest::clear_timeinterval() {
   timeinterval_ = 0u;
 }
 inline ::google::protobuf::uint32 APStatsRequest::timeinterval() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsRequest.TimeInterval)
+  // @@protoc_insertion_point(field_get:cheetah.APStatsRequest.TimeInterval)
   return timeinterval_;
 }
 inline void APStatsRequest::set_timeinterval(::google::protobuf::uint32 value) {
   
   timeinterval_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APStatsRequest.TimeInterval)
+  // @@protoc_insertion_point(field_set:cheetah.APStatsRequest.TimeInterval)
 }
 
 inline const APStatsRequest* APStatsRequest::internal_default_instance() {
@@ -2895,33 +2895,33 @@ inline const APStatsRequest* APStatsRequest::internal_default_instance() {
 
 // APStatsMsg
 
-// repeated .access_point.APStatsRequest StatsRequest = 1;
+// repeated .cheetah.APStatsRequest StatsRequest = 1;
 inline int APStatsMsg::statsrequest_size() const {
   return statsrequest_.size();
 }
 inline void APStatsMsg::clear_statsrequest() {
   statsrequest_.Clear();
 }
-inline const ::access_point::APStatsRequest& APStatsMsg::statsrequest(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsg.StatsRequest)
+inline const ::cheetah::APStatsRequest& APStatsMsg::statsrequest(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsg.StatsRequest)
   return statsrequest_.Get(index);
 }
-inline ::access_point::APStatsRequest* APStatsMsg::mutable_statsrequest(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsg.StatsRequest)
+inline ::cheetah::APStatsRequest* APStatsMsg::mutable_statsrequest(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsg.StatsRequest)
   return statsrequest_.Mutable(index);
 }
-inline ::access_point::APStatsRequest* APStatsMsg::add_statsrequest() {
-  // @@protoc_insertion_point(field_add:access_point.APStatsMsg.StatsRequest)
+inline ::cheetah::APStatsRequest* APStatsMsg::add_statsrequest() {
+  // @@protoc_insertion_point(field_add:cheetah.APStatsMsg.StatsRequest)
   return statsrequest_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APStatsRequest >*
 APStatsMsg::mutable_statsrequest() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APStatsMsg.StatsRequest)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APStatsMsg.StatsRequest)
   return &statsrequest_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::APStatsRequest >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APStatsRequest >&
 APStatsMsg::statsrequest() const {
-  // @@protoc_insertion_point(field_list:access_point.APStatsMsg.StatsRequest)
+  // @@protoc_insertion_point(field_list:cheetah.APStatsMsg.StatsRequest)
   return statsrequest_;
 }
 
@@ -2937,32 +2937,32 @@ inline void APSystemStatsMsgRsp::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APSystemStatsMsgRsp::id() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_get:cheetah.APSystemStatsMsgRsp.ID)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APSystemStatsMsgRsp::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_set:cheetah.APSystemStatsMsgRsp.ID)
 }
 inline void APSystemStatsMsgRsp::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSystemStatsMsgRsp.ID)
 }
 inline void APSystemStatsMsgRsp::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSystemStatsMsgRsp.ID)
 }
 inline ::std::string* APSystemStatsMsgRsp::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSystemStatsMsgRsp.ID)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APSystemStatsMsgRsp::release_id() {
-  // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_release:cheetah.APSystemStatsMsgRsp.ID)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2973,7 +2973,7 @@ inline void APSystemStatsMsgRsp::set_allocated_id(::std::string* id) {
     
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.ID)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSystemStatsMsgRsp.ID)
 }
 
 // optional uint32 Uptime = 2;
@@ -2981,13 +2981,13 @@ inline void APSystemStatsMsgRsp::clear_uptime() {
   uptime_ = 0u;
 }
 inline ::google::protobuf::uint32 APSystemStatsMsgRsp::uptime() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.Uptime)
+  // @@protoc_insertion_point(field_get:cheetah.APSystemStatsMsgRsp.Uptime)
   return uptime_;
 }
 inline void APSystemStatsMsgRsp::set_uptime(::google::protobuf::uint32 value) {
   
   uptime_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.Uptime)
+  // @@protoc_insertion_point(field_set:cheetah.APSystemStatsMsgRsp.Uptime)
 }
 
 // optional string When = 3;
@@ -2995,32 +2995,32 @@ inline void APSystemStatsMsgRsp::clear_when() {
   when_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APSystemStatsMsgRsp::when() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_get:cheetah.APSystemStatsMsgRsp.When)
   return when_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APSystemStatsMsgRsp::set_when(const ::std::string& value) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_set:cheetah.APSystemStatsMsgRsp.When)
 }
 inline void APSystemStatsMsgRsp::set_when(const char* value) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSystemStatsMsgRsp.When)
 }
 inline void APSystemStatsMsgRsp::set_when(const char* value, size_t size) {
   
   when_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSystemStatsMsgRsp.When)
 }
 inline ::std::string* APSystemStatsMsgRsp::mutable_when() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSystemStatsMsgRsp.When)
   return when_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APSystemStatsMsgRsp::release_when() {
-  // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_release:cheetah.APSystemStatsMsgRsp.When)
   
   return when_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3031,7 +3031,7 @@ inline void APSystemStatsMsgRsp::set_allocated_when(::std::string* when) {
     
   }
   when_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), when);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.When)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSystemStatsMsgRsp.When)
 }
 
 // optional string SerialNumber = 4;
@@ -3039,32 +3039,32 @@ inline void APSystemStatsMsgRsp::clear_serialnumber() {
   serialnumber_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APSystemStatsMsgRsp::serialnumber() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_get:cheetah.APSystemStatsMsgRsp.SerialNumber)
   return serialnumber_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APSystemStatsMsgRsp::set_serialnumber(const ::std::string& value) {
   
   serialnumber_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_set:cheetah.APSystemStatsMsgRsp.SerialNumber)
 }
 inline void APSystemStatsMsgRsp::set_serialnumber(const char* value) {
   
   serialnumber_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSystemStatsMsgRsp.SerialNumber)
 }
 inline void APSystemStatsMsgRsp::set_serialnumber(const char* value, size_t size) {
   
   serialnumber_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSystemStatsMsgRsp.SerialNumber)
 }
 inline ::std::string* APSystemStatsMsgRsp::mutable_serialnumber() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSystemStatsMsgRsp.SerialNumber)
   return serialnumber_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APSystemStatsMsgRsp::release_serialnumber() {
-  // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_release:cheetah.APSystemStatsMsgRsp.SerialNumber)
   
   return serialnumber_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3075,7 +3075,7 @@ inline void APSystemStatsMsgRsp::set_allocated_serialnumber(::std::string* seria
     
   }
   serialnumber_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), serialnumber);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.SerialNumber)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSystemStatsMsgRsp.SerialNumber)
 }
 
 // optional string ProductId = 5;
@@ -3083,32 +3083,32 @@ inline void APSystemStatsMsgRsp::clear_productid() {
   productid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APSystemStatsMsgRsp::productid() const {
-  // @@protoc_insertion_point(field_get:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_get:cheetah.APSystemStatsMsgRsp.ProductId)
   return productid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APSystemStatsMsgRsp::set_productid(const ::std::string& value) {
   
   productid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_set:cheetah.APSystemStatsMsgRsp.ProductId)
 }
 inline void APSystemStatsMsgRsp::set_productid(const char* value) {
   
   productid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSystemStatsMsgRsp.ProductId)
 }
 inline void APSystemStatsMsgRsp::set_productid(const char* value, size_t size) {
   
   productid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSystemStatsMsgRsp.ProductId)
 }
 inline ::std::string* APSystemStatsMsgRsp::mutable_productid() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSystemStatsMsgRsp.ProductId)
   return productid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APSystemStatsMsgRsp::release_productid() {
-  // @@protoc_insertion_point(field_release:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_release:cheetah.APSystemStatsMsgRsp.ProductId)
   
   return productid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3119,7 +3119,7 @@ inline void APSystemStatsMsgRsp::set_allocated_productid(::std::string* producti
     
   }
   productid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), productid);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSystemStatsMsgRsp.ProductId)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSystemStatsMsgRsp.ProductId)
 }
 
 inline const APSystemStatsMsgRsp* APSystemStatsMsgRsp::internal_default_instance() {
@@ -3134,13 +3134,13 @@ inline void MemInfo::clear_total_kb() {
   total_kb_ = 0u;
 }
 inline ::google::protobuf::uint32 MemInfo::total_kb() const {
-  // @@protoc_insertion_point(field_get:access_point.MemInfo.Total_kB)
+  // @@protoc_insertion_point(field_get:cheetah.MemInfo.Total_kB)
   return total_kb_;
 }
 inline void MemInfo::set_total_kb(::google::protobuf::uint32 value) {
   
   total_kb_ = value;
-  // @@protoc_insertion_point(field_set:access_point.MemInfo.Total_kB)
+  // @@protoc_insertion_point(field_set:cheetah.MemInfo.Total_kB)
 }
 
 // optional uint32 Available_kB = 2;
@@ -3148,13 +3148,13 @@ inline void MemInfo::clear_available_kb() {
   available_kb_ = 0u;
 }
 inline ::google::protobuf::uint32 MemInfo::available_kb() const {
-  // @@protoc_insertion_point(field_get:access_point.MemInfo.Available_kB)
+  // @@protoc_insertion_point(field_get:cheetah.MemInfo.Available_kB)
   return available_kb_;
 }
 inline void MemInfo::set_available_kb(::google::protobuf::uint32 value) {
   
   available_kb_ = value;
-  // @@protoc_insertion_point(field_set:access_point.MemInfo.Available_kB)
+  // @@protoc_insertion_point(field_set:cheetah.MemInfo.Available_kB)
 }
 
 inline const MemInfo* MemInfo::internal_default_instance() {
@@ -3169,32 +3169,32 @@ inline void SlabInfo::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& SlabInfo::name() const {
-  // @@protoc_insertion_point(field_get:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_get:cheetah.SlabInfo.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void SlabInfo::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_set:cheetah.SlabInfo.Name)
 }
 inline void SlabInfo::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.SlabInfo.Name)
 }
 inline void SlabInfo::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.SlabInfo.Name)
 }
 inline ::std::string* SlabInfo::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.SlabInfo.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SlabInfo::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_release:cheetah.SlabInfo.Name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3205,7 +3205,7 @@ inline void SlabInfo::set_allocated_name(::std::string* name) {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:access_point.SlabInfo.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.SlabInfo.Name)
 }
 
 // optional int32 ActiveObjs = 2;
@@ -3213,13 +3213,13 @@ inline void SlabInfo::clear_activeobjs() {
   activeobjs_ = 0;
 }
 inline ::google::protobuf::int32 SlabInfo::activeobjs() const {
-  // @@protoc_insertion_point(field_get:access_point.SlabInfo.ActiveObjs)
+  // @@protoc_insertion_point(field_get:cheetah.SlabInfo.ActiveObjs)
   return activeobjs_;
 }
 inline void SlabInfo::set_activeobjs(::google::protobuf::int32 value) {
   
   activeobjs_ = value;
-  // @@protoc_insertion_point(field_set:access_point.SlabInfo.ActiveObjs)
+  // @@protoc_insertion_point(field_set:cheetah.SlabInfo.ActiveObjs)
 }
 
 // optional int32 NumObjs = 3;
@@ -3227,13 +3227,13 @@ inline void SlabInfo::clear_numobjs() {
   numobjs_ = 0;
 }
 inline ::google::protobuf::int32 SlabInfo::numobjs() const {
-  // @@protoc_insertion_point(field_get:access_point.SlabInfo.NumObjs)
+  // @@protoc_insertion_point(field_get:cheetah.SlabInfo.NumObjs)
   return numobjs_;
 }
 inline void SlabInfo::set_numobjs(::google::protobuf::int32 value) {
   
   numobjs_ = value;
-  // @@protoc_insertion_point(field_set:access_point.SlabInfo.NumObjs)
+  // @@protoc_insertion_point(field_set:cheetah.SlabInfo.NumObjs)
 }
 
 // optional int32 ObjSize = 4;
@@ -3241,13 +3241,13 @@ inline void SlabInfo::clear_objsize() {
   objsize_ = 0;
 }
 inline ::google::protobuf::int32 SlabInfo::objsize() const {
-  // @@protoc_insertion_point(field_get:access_point.SlabInfo.ObjSize)
+  // @@protoc_insertion_point(field_get:cheetah.SlabInfo.ObjSize)
   return objsize_;
 }
 inline void SlabInfo::set_objsize(::google::protobuf::int32 value) {
   
   objsize_ = value;
-  // @@protoc_insertion_point(field_set:access_point.SlabInfo.ObjSize)
+  // @@protoc_insertion_point(field_set:cheetah.SlabInfo.ObjSize)
 }
 
 inline const SlabInfo* SlabInfo::internal_default_instance() {
@@ -3257,7 +3257,7 @@ inline const SlabInfo* SlabInfo::internal_default_instance() {
 
 // APMemoryStatsMsgRsp
 
-// optional .access_point.MemInfo ProcMemInfo = 1;
+// optional .cheetah.MemInfo ProcMemInfo = 1;
 inline bool APMemoryStatsMsgRsp::has_procmeminfo() const {
   return this != internal_default_instance() && procmeminfo_ != NULL;
 }
@@ -3265,27 +3265,27 @@ inline void APMemoryStatsMsgRsp::clear_procmeminfo() {
   if (GetArenaNoVirtual() == NULL && procmeminfo_ != NULL) delete procmeminfo_;
   procmeminfo_ = NULL;
 }
-inline const ::access_point::MemInfo& APMemoryStatsMsgRsp::procmeminfo() const {
-  // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
+inline const ::cheetah::MemInfo& APMemoryStatsMsgRsp::procmeminfo() const {
+  // @@protoc_insertion_point(field_get:cheetah.APMemoryStatsMsgRsp.ProcMemInfo)
   return procmeminfo_ != NULL ? *procmeminfo_
-                         : *::access_point::MemInfo::internal_default_instance();
+                         : *::cheetah::MemInfo::internal_default_instance();
 }
-inline ::access_point::MemInfo* APMemoryStatsMsgRsp::mutable_procmeminfo() {
+inline ::cheetah::MemInfo* APMemoryStatsMsgRsp::mutable_procmeminfo() {
   
   if (procmeminfo_ == NULL) {
-    procmeminfo_ = new ::access_point::MemInfo;
+    procmeminfo_ = new ::cheetah::MemInfo;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
+  // @@protoc_insertion_point(field_mutable:cheetah.APMemoryStatsMsgRsp.ProcMemInfo)
   return procmeminfo_;
 }
-inline ::access_point::MemInfo* APMemoryStatsMsgRsp::release_procmeminfo() {
-  // @@protoc_insertion_point(field_release:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
+inline ::cheetah::MemInfo* APMemoryStatsMsgRsp::release_procmeminfo() {
+  // @@protoc_insertion_point(field_release:cheetah.APMemoryStatsMsgRsp.ProcMemInfo)
   
-  ::access_point::MemInfo* temp = procmeminfo_;
+  ::cheetah::MemInfo* temp = procmeminfo_;
   procmeminfo_ = NULL;
   return temp;
 }
-inline void APMemoryStatsMsgRsp::set_allocated_procmeminfo(::access_point::MemInfo* procmeminfo) {
+inline void APMemoryStatsMsgRsp::set_allocated_procmeminfo(::cheetah::MemInfo* procmeminfo) {
   delete procmeminfo_;
   procmeminfo_ = procmeminfo;
   if (procmeminfo) {
@@ -3293,10 +3293,10 @@ inline void APMemoryStatsMsgRsp::set_allocated_procmeminfo(::access_point::MemIn
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APMemoryStatsMsgRsp.ProcMemInfo)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APMemoryStatsMsgRsp.ProcMemInfo)
 }
 
-// optional .access_point.SlabInfo TopProcSlabInfo = 2;
+// optional .cheetah.SlabInfo TopProcSlabInfo = 2;
 inline bool APMemoryStatsMsgRsp::has_topprocslabinfo() const {
   return this != internal_default_instance() && topprocslabinfo_ != NULL;
 }
@@ -3304,27 +3304,27 @@ inline void APMemoryStatsMsgRsp::clear_topprocslabinfo() {
   if (GetArenaNoVirtual() == NULL && topprocslabinfo_ != NULL) delete topprocslabinfo_;
   topprocslabinfo_ = NULL;
 }
-inline const ::access_point::SlabInfo& APMemoryStatsMsgRsp::topprocslabinfo() const {
-  // @@protoc_insertion_point(field_get:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
+inline const ::cheetah::SlabInfo& APMemoryStatsMsgRsp::topprocslabinfo() const {
+  // @@protoc_insertion_point(field_get:cheetah.APMemoryStatsMsgRsp.TopProcSlabInfo)
   return topprocslabinfo_ != NULL ? *topprocslabinfo_
-                         : *::access_point::SlabInfo::internal_default_instance();
+                         : *::cheetah::SlabInfo::internal_default_instance();
 }
-inline ::access_point::SlabInfo* APMemoryStatsMsgRsp::mutable_topprocslabinfo() {
+inline ::cheetah::SlabInfo* APMemoryStatsMsgRsp::mutable_topprocslabinfo() {
   
   if (topprocslabinfo_ == NULL) {
-    topprocslabinfo_ = new ::access_point::SlabInfo;
+    topprocslabinfo_ = new ::cheetah::SlabInfo;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
+  // @@protoc_insertion_point(field_mutable:cheetah.APMemoryStatsMsgRsp.TopProcSlabInfo)
   return topprocslabinfo_;
 }
-inline ::access_point::SlabInfo* APMemoryStatsMsgRsp::release_topprocslabinfo() {
-  // @@protoc_insertion_point(field_release:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
+inline ::cheetah::SlabInfo* APMemoryStatsMsgRsp::release_topprocslabinfo() {
+  // @@protoc_insertion_point(field_release:cheetah.APMemoryStatsMsgRsp.TopProcSlabInfo)
   
-  ::access_point::SlabInfo* temp = topprocslabinfo_;
+  ::cheetah::SlabInfo* temp = topprocslabinfo_;
   topprocslabinfo_ = NULL;
   return temp;
 }
-inline void APMemoryStatsMsgRsp::set_allocated_topprocslabinfo(::access_point::SlabInfo* topprocslabinfo) {
+inline void APMemoryStatsMsgRsp::set_allocated_topprocslabinfo(::cheetah::SlabInfo* topprocslabinfo) {
   delete topprocslabinfo_;
   topprocslabinfo_ = topprocslabinfo;
   if (topprocslabinfo) {
@@ -3332,7 +3332,7 @@ inline void APMemoryStatsMsgRsp::set_allocated_topprocslabinfo(::access_point::S
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APMemoryStatsMsgRsp.TopProcSlabInfo)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APMemoryStatsMsgRsp.TopProcSlabInfo)
 }
 
 inline const APMemoryStatsMsgRsp* APMemoryStatsMsgRsp::internal_default_instance() {
@@ -3350,50 +3350,50 @@ inline void APDNSStatsMsgRsp::clear_ip() {
   ip_.Clear();
 }
 inline const ::std::string& APDNSStatsMsgRsp::ip(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_get:cheetah.APDNSStatsMsgRsp.IP)
   return ip_.Get(index);
 }
 inline ::std::string* APDNSStatsMsgRsp::mutable_ip(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_mutable:cheetah.APDNSStatsMsgRsp.IP)
   return ip_.Mutable(index);
 }
 inline void APDNSStatsMsgRsp::set_ip(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_set:cheetah.APDNSStatsMsgRsp.IP)
   ip_.Mutable(index)->assign(value);
 }
 inline void APDNSStatsMsgRsp::set_ip(int index, const char* value) {
   ip_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_set_char:cheetah.APDNSStatsMsgRsp.IP)
 }
 inline void APDNSStatsMsgRsp::set_ip(int index, const char* value, size_t size) {
   ip_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APDNSStatsMsgRsp.IP)
 }
 inline ::std::string* APDNSStatsMsgRsp::add_ip() {
-  // @@protoc_insertion_point(field_add_mutable:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_add_mutable:cheetah.APDNSStatsMsgRsp.IP)
   return ip_.Add();
 }
 inline void APDNSStatsMsgRsp::add_ip(const ::std::string& value) {
   ip_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_add:cheetah.APDNSStatsMsgRsp.IP)
 }
 inline void APDNSStatsMsgRsp::add_ip(const char* value) {
   ip_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_add_char:cheetah.APDNSStatsMsgRsp.IP)
 }
 inline void APDNSStatsMsgRsp::add_ip(const char* value, size_t size) {
   ip_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_add_pointer:cheetah.APDNSStatsMsgRsp.IP)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 APDNSStatsMsgRsp::ip() const {
-  // @@protoc_insertion_point(field_list:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_list:cheetah.APDNSStatsMsgRsp.IP)
   return ip_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 APDNSStatsMsgRsp::mutable_ip() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APDNSStatsMsgRsp.IP)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APDNSStatsMsgRsp.IP)
   return &ip_;
 }
 
@@ -3409,32 +3409,32 @@ inline void IPv4Route::clear_destination() {
   destination_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& IPv4Route::destination() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Destination)
   return destination_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IPv4Route::set_destination(const ::std::string& value) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Destination)
 }
 inline void IPv4Route::set_destination(const char* value) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_set_char:cheetah.IPv4Route.Destination)
 }
 inline void IPv4Route::set_destination(const char* value, size_t size) {
   
   destination_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.IPv4Route.Destination)
 }
 inline ::std::string* IPv4Route::mutable_destination() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_mutable:cheetah.IPv4Route.Destination)
   return destination_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IPv4Route::release_destination() {
-  // @@protoc_insertion_point(field_release:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_release:cheetah.IPv4Route.Destination)
   
   return destination_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3445,7 +3445,7 @@ inline void IPv4Route::set_allocated_destination(::std::string* destination) {
     
   }
   destination_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), destination);
-  // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Destination)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.IPv4Route.Destination)
 }
 
 // optional string Gateway = 2;
@@ -3453,32 +3453,32 @@ inline void IPv4Route::clear_gateway() {
   gateway_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& IPv4Route::gateway() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Gateway)
   return gateway_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IPv4Route::set_gateway(const ::std::string& value) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Gateway)
 }
 inline void IPv4Route::set_gateway(const char* value) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_set_char:cheetah.IPv4Route.Gateway)
 }
 inline void IPv4Route::set_gateway(const char* value, size_t size) {
   
   gateway_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.IPv4Route.Gateway)
 }
 inline ::std::string* IPv4Route::mutable_gateway() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_mutable:cheetah.IPv4Route.Gateway)
   return gateway_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IPv4Route::release_gateway() {
-  // @@protoc_insertion_point(field_release:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_release:cheetah.IPv4Route.Gateway)
   
   return gateway_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3489,7 +3489,7 @@ inline void IPv4Route::set_allocated_gateway(::std::string* gateway) {
     
   }
   gateway_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gateway);
-  // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Gateway)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.IPv4Route.Gateway)
 }
 
 // optional string Genmask = 3;
@@ -3497,32 +3497,32 @@ inline void IPv4Route::clear_genmask() {
   genmask_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& IPv4Route::genmask() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Genmask)
   return genmask_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IPv4Route::set_genmask(const ::std::string& value) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Genmask)
 }
 inline void IPv4Route::set_genmask(const char* value) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_set_char:cheetah.IPv4Route.Genmask)
 }
 inline void IPv4Route::set_genmask(const char* value, size_t size) {
   
   genmask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.IPv4Route.Genmask)
 }
 inline ::std::string* IPv4Route::mutable_genmask() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_mutable:cheetah.IPv4Route.Genmask)
   return genmask_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IPv4Route::release_genmask() {
-  // @@protoc_insertion_point(field_release:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_release:cheetah.IPv4Route.Genmask)
   
   return genmask_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3533,7 +3533,7 @@ inline void IPv4Route::set_allocated_genmask(::std::string* genmask) {
     
   }
   genmask_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), genmask);
-  // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Genmask)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.IPv4Route.Genmask)
 }
 
 // optional string Flags = 4;
@@ -3541,32 +3541,32 @@ inline void IPv4Route::clear_flags() {
   flags_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& IPv4Route::flags() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Flags)
   return flags_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IPv4Route::set_flags(const ::std::string& value) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Flags)
 }
 inline void IPv4Route::set_flags(const char* value) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_set_char:cheetah.IPv4Route.Flags)
 }
 inline void IPv4Route::set_flags(const char* value, size_t size) {
   
   flags_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.IPv4Route.Flags)
 }
 inline ::std::string* IPv4Route::mutable_flags() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_mutable:cheetah.IPv4Route.Flags)
   return flags_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IPv4Route::release_flags() {
-  // @@protoc_insertion_point(field_release:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_release:cheetah.IPv4Route.Flags)
   
   return flags_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3577,7 +3577,7 @@ inline void IPv4Route::set_allocated_flags(::std::string* flags) {
     
   }
   flags_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), flags);
-  // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Flags)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.IPv4Route.Flags)
 }
 
 // optional uint32 Metric = 5;
@@ -3585,13 +3585,13 @@ inline void IPv4Route::clear_metric() {
   metric_ = 0u;
 }
 inline ::google::protobuf::uint32 IPv4Route::metric() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Metric)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Metric)
   return metric_;
 }
 inline void IPv4Route::set_metric(::google::protobuf::uint32 value) {
   
   metric_ = value;
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Metric)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Metric)
 }
 
 // optional uint32 Ref = 6;
@@ -3599,13 +3599,13 @@ inline void IPv4Route::clear_ref() {
   ref_ = 0u;
 }
 inline ::google::protobuf::uint32 IPv4Route::ref() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Ref)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Ref)
   return ref_;
 }
 inline void IPv4Route::set_ref(::google::protobuf::uint32 value) {
   
   ref_ = value;
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Ref)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Ref)
 }
 
 // optional uint32 Use = 7;
@@ -3613,13 +3613,13 @@ inline void IPv4Route::clear_use() {
   use_ = 0u;
 }
 inline ::google::protobuf::uint32 IPv4Route::use() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Use)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Use)
   return use_;
 }
 inline void IPv4Route::set_use(::google::protobuf::uint32 value) {
   
   use_ = value;
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Use)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Use)
 }
 
 // optional string Iface = 8;
@@ -3627,32 +3627,32 @@ inline void IPv4Route::clear_iface() {
   iface_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& IPv4Route::iface() const {
-  // @@protoc_insertion_point(field_get:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_get:cheetah.IPv4Route.Iface)
   return iface_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IPv4Route::set_iface(const ::std::string& value) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_set:cheetah.IPv4Route.Iface)
 }
 inline void IPv4Route::set_iface(const char* value) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_set_char:cheetah.IPv4Route.Iface)
 }
 inline void IPv4Route::set_iface(const char* value, size_t size) {
   
   iface_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.IPv4Route.Iface)
 }
 inline ::std::string* IPv4Route::mutable_iface() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_mutable:cheetah.IPv4Route.Iface)
   return iface_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IPv4Route::release_iface() {
-  // @@protoc_insertion_point(field_release:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_release:cheetah.IPv4Route.Iface)
   
   return iface_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3663,7 +3663,7 @@ inline void IPv4Route::set_allocated_iface(::std::string* iface) {
     
   }
   iface_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iface);
-  // @@protoc_insertion_point(field_set_allocated:access_point.IPv4Route.Iface)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.IPv4Route.Iface)
 }
 
 inline const IPv4Route* IPv4Route::internal_default_instance() {
@@ -3673,33 +3673,33 @@ inline const IPv4Route* IPv4Route::internal_default_instance() {
 
 // APRoutingStatsMsgRsp
 
-// repeated .access_point.IPv4Route IPv4Routes = 1;
+// repeated .cheetah.IPv4Route IPv4Routes = 1;
 inline int APRoutingStatsMsgRsp::ipv4routes_size() const {
   return ipv4routes_.size();
 }
 inline void APRoutingStatsMsgRsp::clear_ipv4routes() {
   ipv4routes_.Clear();
 }
-inline const ::access_point::IPv4Route& APRoutingStatsMsgRsp::ipv4routes(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APRoutingStatsMsgRsp.IPv4Routes)
+inline const ::cheetah::IPv4Route& APRoutingStatsMsgRsp::ipv4routes(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Get(index);
 }
-inline ::access_point::IPv4Route* APRoutingStatsMsgRsp::mutable_ipv4routes(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APRoutingStatsMsgRsp.IPv4Routes)
+inline ::cheetah::IPv4Route* APRoutingStatsMsgRsp::mutable_ipv4routes(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Mutable(index);
 }
-inline ::access_point::IPv4Route* APRoutingStatsMsgRsp::add_ipv4routes() {
-  // @@protoc_insertion_point(field_add:access_point.APRoutingStatsMsgRsp.IPv4Routes)
+inline ::cheetah::IPv4Route* APRoutingStatsMsgRsp::add_ipv4routes() {
+  // @@protoc_insertion_point(field_add:cheetah.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::IPv4Route >*
 APRoutingStatsMsgRsp::mutable_ipv4routes() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APRoutingStatsMsgRsp.IPv4Routes)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APRoutingStatsMsgRsp.IPv4Routes)
   return &ipv4routes_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::IPv4Route >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::IPv4Route >&
 APRoutingStatsMsgRsp::ipv4routes() const {
-  // @@protoc_insertion_point(field_list:access_point.APRoutingStatsMsgRsp.IPv4Routes)
+  // @@protoc_insertion_point(field_list:cheetah.APRoutingStatsMsgRsp.IPv4Routes)
   return ipv4routes_;
 }
 
@@ -3715,13 +3715,13 @@ inline void MulticastCounter::clear_txmcastpkts() {
   txmcastpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 MulticastCounter::txmcastpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.MulticastCounter.TxMcastPkts)
+  // @@protoc_insertion_point(field_get:cheetah.MulticastCounter.TxMcastPkts)
   return txmcastpkts_;
 }
 inline void MulticastCounter::set_txmcastpkts(::google::protobuf::uint32 value) {
   
   txmcastpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.MulticastCounter.TxMcastPkts)
+  // @@protoc_insertion_point(field_set:cheetah.MulticastCounter.TxMcastPkts)
 }
 
 // optional uint64 TxMcastBytes = 2;
@@ -3729,13 +3729,13 @@ inline void MulticastCounter::clear_txmcastbytes() {
   txmcastbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 MulticastCounter::txmcastbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.MulticastCounter.TxMcastBytes)
+  // @@protoc_insertion_point(field_get:cheetah.MulticastCounter.TxMcastBytes)
   return txmcastbytes_;
 }
 inline void MulticastCounter::set_txmcastbytes(::google::protobuf::uint64 value) {
   
   txmcastbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.MulticastCounter.TxMcastBytes)
+  // @@protoc_insertion_point(field_set:cheetah.MulticastCounter.TxMcastBytes)
 }
 
 inline const MulticastCounter* MulticastCounter::internal_default_instance() {
@@ -3750,32 +3750,32 @@ inline void WLAN::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& WLAN::id() const {
-  // @@protoc_insertion_point(field_get:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_get:cheetah.WLAN.ID)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WLAN::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_set:cheetah.WLAN.ID)
 }
 inline void WLAN::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_set_char:cheetah.WLAN.ID)
 }
 inline void WLAN::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.WLAN.ID)
 }
 inline ::std::string* WLAN::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLAN.ID)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WLAN::release_id() {
-  // @@protoc_insertion_point(field_release:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_release:cheetah.WLAN.ID)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3786,7 +3786,7 @@ inline void WLAN::set_allocated_id(::std::string* id) {
     
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLAN.ID)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLAN.ID)
 }
 
 // optional string SSID = 2;
@@ -3794,32 +3794,32 @@ inline void WLAN::clear_ssid() {
   ssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& WLAN::ssid() const {
-  // @@protoc_insertion_point(field_get:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_get:cheetah.WLAN.SSID)
   return ssid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WLAN::set_ssid(const ::std::string& value) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_set:cheetah.WLAN.SSID)
 }
 inline void WLAN::set_ssid(const char* value) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_set_char:cheetah.WLAN.SSID)
 }
 inline void WLAN::set_ssid(const char* value, size_t size) {
   
   ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.WLAN.SSID)
 }
 inline ::std::string* WLAN::mutable_ssid() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLAN.SSID)
   return ssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WLAN::release_ssid() {
-  // @@protoc_insertion_point(field_release:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_release:cheetah.WLAN.SSID)
   
   return ssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3830,7 +3830,7 @@ inline void WLAN::set_allocated_ssid(::std::string* ssid) {
     
   }
   ssid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ssid);
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLAN.SSID)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLAN.SSID)
 }
 
 inline const WLAN* WLAN::internal_default_instance() {
@@ -3840,7 +3840,7 @@ inline const WLAN* WLAN::internal_default_instance() {
 
 // WLANEntry
 
-// optional .access_point.WLAN Wlan = 1;
+// optional .cheetah.WLAN Wlan = 1;
 inline bool WLANEntry::has_wlan() const {
   return this != internal_default_instance() && wlan_ != NULL;
 }
@@ -3848,27 +3848,27 @@ inline void WLANEntry::clear_wlan() {
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
   wlan_ = NULL;
 }
-inline const ::access_point::WLAN& WLANEntry::wlan() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.Wlan)
+inline const ::cheetah::WLAN& WLANEntry::wlan() const {
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.Wlan)
   return wlan_ != NULL ? *wlan_
-                         : *::access_point::WLAN::internal_default_instance();
+                         : *::cheetah::WLAN::internal_default_instance();
 }
-inline ::access_point::WLAN* WLANEntry::mutable_wlan() {
+inline ::cheetah::WLAN* WLANEntry::mutable_wlan() {
   
   if (wlan_ == NULL) {
-    wlan_ = new ::access_point::WLAN;
+    wlan_ = new ::cheetah::WLAN;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.Wlan)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLANEntry.Wlan)
   return wlan_;
 }
-inline ::access_point::WLAN* WLANEntry::release_wlan() {
-  // @@protoc_insertion_point(field_release:access_point.WLANEntry.Wlan)
+inline ::cheetah::WLAN* WLANEntry::release_wlan() {
+  // @@protoc_insertion_point(field_release:cheetah.WLANEntry.Wlan)
   
-  ::access_point::WLAN* temp = wlan_;
+  ::cheetah::WLAN* temp = wlan_;
   wlan_ = NULL;
   return temp;
 }
-inline void WLANEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
+inline void WLANEntry::set_allocated_wlan(::cheetah::WLAN* wlan) {
   delete wlan_;
   wlan_ = wlan;
   if (wlan) {
@@ -3876,7 +3876,7 @@ inline void WLANEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLANEntry.Wlan)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLANEntry.Wlan)
 }
 
 // optional uint32 RadioIndex = 2;
@@ -3884,13 +3884,13 @@ inline void WLANEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
 inline ::google::protobuf::uint32 WLANEntry::radioindex() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.RadioIndex)
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.RadioIndex)
   return radioindex_;
 }
 inline void WLANEntry::set_radioindex(::google::protobuf::uint32 value) {
   
   radioindex_ = value;
-  // @@protoc_insertion_point(field_set:access_point.WLANEntry.RadioIndex)
+  // @@protoc_insertion_point(field_set:cheetah.WLANEntry.RadioIndex)
 }
 
 // optional string BSSID = 3;
@@ -3898,32 +3898,32 @@ inline void WLANEntry::clear_bssid() {
   bssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& WLANEntry::bssid() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.BSSID)
   return bssid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WLANEntry::set_bssid(const ::std::string& value) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_set:cheetah.WLANEntry.BSSID)
 }
 inline void WLANEntry::set_bssid(const char* value) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_set_char:cheetah.WLANEntry.BSSID)
 }
 inline void WLANEntry::set_bssid(const char* value, size_t size) {
   
   bssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.WLANEntry.BSSID)
 }
 inline ::std::string* WLANEntry::mutable_bssid() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLANEntry.BSSID)
   return bssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WLANEntry::release_bssid() {
-  // @@protoc_insertion_point(field_release:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_release:cheetah.WLANEntry.BSSID)
   
   return bssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3934,7 +3934,7 @@ inline void WLANEntry::set_allocated_bssid(::std::string* bssid) {
     
   }
   bssid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bssid);
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLANEntry.BSSID)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLANEntry.BSSID)
 }
 
 // optional string Dev = 4;
@@ -3942,32 +3942,32 @@ inline void WLANEntry::clear_dev() {
   dev_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& WLANEntry::dev() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.Dev)
   return dev_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WLANEntry::set_dev(const ::std::string& value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_set:cheetah.WLANEntry.Dev)
 }
 inline void WLANEntry::set_dev(const char* value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_set_char:cheetah.WLANEntry.Dev)
 }
 inline void WLANEntry::set_dev(const char* value, size_t size) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.WLANEntry.Dev)
 }
 inline ::std::string* WLANEntry::mutable_dev() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLANEntry.Dev)
   return dev_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WLANEntry::release_dev() {
-  // @@protoc_insertion_point(field_release:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_release:cheetah.WLANEntry.Dev)
   
   return dev_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3978,7 +3978,7 @@ inline void WLANEntry::set_allocated_dev(::std::string* dev) {
     
   }
   dev_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dev);
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLANEntry.Dev)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLANEntry.Dev)
 }
 
 // optional int32 NumClients = 5;
@@ -3986,16 +3986,16 @@ inline void WLANEntry::clear_numclients() {
   numclients_ = 0;
 }
 inline ::google::protobuf::int32 WLANEntry::numclients() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.NumClients)
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.NumClients)
   return numclients_;
 }
 inline void WLANEntry::set_numclients(::google::protobuf::int32 value) {
   
   numclients_ = value;
-  // @@protoc_insertion_point(field_set:access_point.WLANEntry.NumClients)
+  // @@protoc_insertion_point(field_set:cheetah.WLANEntry.NumClients)
 }
 
-// optional .access_point.MulticastCounter Counter = 6;
+// optional .cheetah.MulticastCounter Counter = 6;
 inline bool WLANEntry::has_counter() const {
   return this != internal_default_instance() && counter_ != NULL;
 }
@@ -4003,27 +4003,27 @@ inline void WLANEntry::clear_counter() {
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
   counter_ = NULL;
 }
-inline const ::access_point::MulticastCounter& WLANEntry::counter() const {
-  // @@protoc_insertion_point(field_get:access_point.WLANEntry.Counter)
+inline const ::cheetah::MulticastCounter& WLANEntry::counter() const {
+  // @@protoc_insertion_point(field_get:cheetah.WLANEntry.Counter)
   return counter_ != NULL ? *counter_
-                         : *::access_point::MulticastCounter::internal_default_instance();
+                         : *::cheetah::MulticastCounter::internal_default_instance();
 }
-inline ::access_point::MulticastCounter* WLANEntry::mutable_counter() {
+inline ::cheetah::MulticastCounter* WLANEntry::mutable_counter() {
   
   if (counter_ == NULL) {
-    counter_ = new ::access_point::MulticastCounter;
+    counter_ = new ::cheetah::MulticastCounter;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.WLANEntry.Counter)
+  // @@protoc_insertion_point(field_mutable:cheetah.WLANEntry.Counter)
   return counter_;
 }
-inline ::access_point::MulticastCounter* WLANEntry::release_counter() {
-  // @@protoc_insertion_point(field_release:access_point.WLANEntry.Counter)
+inline ::cheetah::MulticastCounter* WLANEntry::release_counter() {
+  // @@protoc_insertion_point(field_release:cheetah.WLANEntry.Counter)
   
-  ::access_point::MulticastCounter* temp = counter_;
+  ::cheetah::MulticastCounter* temp = counter_;
   counter_ = NULL;
   return temp;
 }
-inline void WLANEntry::set_allocated_counter(::access_point::MulticastCounter* counter) {
+inline void WLANEntry::set_allocated_counter(::cheetah::MulticastCounter* counter) {
   delete counter_;
   counter_ = counter;
   if (counter) {
@@ -4031,7 +4031,7 @@ inline void WLANEntry::set_allocated_counter(::access_point::MulticastCounter* c
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.WLANEntry.Counter)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.WLANEntry.Counter)
 }
 
 inline const WLANEntry* WLANEntry::internal_default_instance() {
@@ -4041,33 +4041,33 @@ inline const WLANEntry* WLANEntry::internal_default_instance() {
 
 // APWLANStatsMsgRsp
 
-// repeated .access_point.WLANEntry WLANEntries = 1;
+// repeated .cheetah.WLANEntry WLANEntries = 1;
 inline int APWLANStatsMsgRsp::wlanentries_size() const {
   return wlanentries_.size();
 }
 inline void APWLANStatsMsgRsp::clear_wlanentries() {
   wlanentries_.Clear();
 }
-inline const ::access_point::WLANEntry& APWLANStatsMsgRsp::wlanentries(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APWLANStatsMsgRsp.WLANEntries)
+inline const ::cheetah::WLANEntry& APWLANStatsMsgRsp::wlanentries(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APWLANStatsMsgRsp.WLANEntries)
   return wlanentries_.Get(index);
 }
-inline ::access_point::WLANEntry* APWLANStatsMsgRsp::mutable_wlanentries(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APWLANStatsMsgRsp.WLANEntries)
+inline ::cheetah::WLANEntry* APWLANStatsMsgRsp::mutable_wlanentries(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APWLANStatsMsgRsp.WLANEntries)
   return wlanentries_.Mutable(index);
 }
-inline ::access_point::WLANEntry* APWLANStatsMsgRsp::add_wlanentries() {
-  // @@protoc_insertion_point(field_add:access_point.APWLANStatsMsgRsp.WLANEntries)
+inline ::cheetah::WLANEntry* APWLANStatsMsgRsp::add_wlanentries() {
+  // @@protoc_insertion_point(field_add:cheetah.APWLANStatsMsgRsp.WLANEntries)
   return wlanentries_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::WLANEntry >*
 APWLANStatsMsgRsp::mutable_wlanentries() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APWLANStatsMsgRsp.WLANEntries)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APWLANStatsMsgRsp.WLANEntries)
   return &wlanentries_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::WLANEntry >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::WLANEntry >&
 APWLANStatsMsgRsp::wlanentries() const {
-  // @@protoc_insertion_point(field_list:access_point.APWLANStatsMsgRsp.WLANEntries)
+  // @@protoc_insertion_point(field_list:cheetah.APWLANStatsMsgRsp.WLANEntries)
   return wlanentries_;
 }
 
@@ -4083,13 +4083,13 @@ inline void RadioUtilization::clear_all() {
   all_ = 0;
 }
 inline float RadioUtilization::all() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.All)
+  // @@protoc_insertion_point(field_get:cheetah.RadioUtilization.All)
   return all_;
 }
 inline void RadioUtilization::set_all(float value) {
   
   all_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.All)
+  // @@protoc_insertion_point(field_set:cheetah.RadioUtilization.All)
 }
 
 // optional float Tx = 2;
@@ -4097,13 +4097,13 @@ inline void RadioUtilization::clear_tx() {
   tx_ = 0;
 }
 inline float RadioUtilization::tx() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.Tx)
+  // @@protoc_insertion_point(field_get:cheetah.RadioUtilization.Tx)
   return tx_;
 }
 inline void RadioUtilization::set_tx(float value) {
   
   tx_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.Tx)
+  // @@protoc_insertion_point(field_set:cheetah.RadioUtilization.Tx)
 }
 
 // optional float RxInBSS = 3;
@@ -4111,13 +4111,13 @@ inline void RadioUtilization::clear_rxinbss() {
   rxinbss_ = 0;
 }
 inline float RadioUtilization::rxinbss() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.RxInBSS)
+  // @@protoc_insertion_point(field_get:cheetah.RadioUtilization.RxInBSS)
   return rxinbss_;
 }
 inline void RadioUtilization::set_rxinbss(float value) {
   
   rxinbss_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxInBSS)
+  // @@protoc_insertion_point(field_set:cheetah.RadioUtilization.RxInBSS)
 }
 
 // optional float RxOtherBSS = 4;
@@ -4125,13 +4125,13 @@ inline void RadioUtilization::clear_rxotherbss() {
   rxotherbss_ = 0;
 }
 inline float RadioUtilization::rxotherbss() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.RxOtherBSS)
+  // @@protoc_insertion_point(field_get:cheetah.RadioUtilization.RxOtherBSS)
   return rxotherbss_;
 }
 inline void RadioUtilization::set_rxotherbss(float value) {
   
   rxotherbss_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.RxOtherBSS)
+  // @@protoc_insertion_point(field_set:cheetah.RadioUtilization.RxOtherBSS)
 }
 
 // optional float NonWifi = 5;
@@ -4139,13 +4139,13 @@ inline void RadioUtilization::clear_nonwifi() {
   nonwifi_ = 0;
 }
 inline float RadioUtilization::nonwifi() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioUtilization.NonWifi)
+  // @@protoc_insertion_point(field_get:cheetah.RadioUtilization.NonWifi)
   return nonwifi_;
 }
 inline void RadioUtilization::set_nonwifi(float value) {
   
   nonwifi_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioUtilization.NonWifi)
+  // @@protoc_insertion_point(field_set:cheetah.RadioUtilization.NonWifi)
 }
 
 inline const RadioUtilization* RadioUtilization::internal_default_instance() {
@@ -4160,13 +4160,13 @@ inline void RadioCounters::clear_txbytes() {
   txbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 RadioCounters::txbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxBytes)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.TxBytes)
   return txbytes_;
 }
 inline void RadioCounters::set_txbytes(::google::protobuf::uint64 value) {
   
   txbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxBytes)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.TxBytes)
 }
 
 // optional uint32 TxPkts = 2;
@@ -4174,13 +4174,13 @@ inline void RadioCounters::clear_txpkts() {
   txpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::txpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxPkts)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.TxPkts)
   return txpkts_;
 }
 inline void RadioCounters::set_txpkts(::google::protobuf::uint32 value) {
   
   txpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxPkts)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.TxPkts)
 }
 
 // optional uint32 TxMgmt = 3;
@@ -4188,13 +4188,13 @@ inline void RadioCounters::clear_txmgmt() {
   txmgmt_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::txmgmt() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxMgmt)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.TxMgmt)
   return txmgmt_;
 }
 inline void RadioCounters::set_txmgmt(::google::protobuf::uint32 value) {
   
   txmgmt_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxMgmt)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.TxMgmt)
 }
 
 // optional uint32 TxErrors = 4;
@@ -4202,13 +4202,13 @@ inline void RadioCounters::clear_txerrors() {
   txerrors_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::txerrors() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.TxErrors)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.TxErrors)
   return txerrors_;
 }
 inline void RadioCounters::set_txerrors(::google::protobuf::uint32 value) {
   
   txerrors_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.TxErrors)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.TxErrors)
 }
 
 // optional uint64 RxBytes = 5;
@@ -4216,13 +4216,13 @@ inline void RadioCounters::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 RadioCounters::rxbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxBytes)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.RxBytes)
   return rxbytes_;
 }
 inline void RadioCounters::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxBytes)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.RxBytes)
 }
 
 // optional uint32 RxPkts = 6;
@@ -4230,13 +4230,13 @@ inline void RadioCounters::clear_rxpkts() {
   rxpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::rxpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxPkts)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.RxPkts)
   return rxpkts_;
 }
 inline void RadioCounters::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxPkts)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.RxPkts)
 }
 
 // optional uint32 RxMgmt = 7;
@@ -4244,13 +4244,13 @@ inline void RadioCounters::clear_rxmgmt() {
   rxmgmt_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::rxmgmt() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxMgmt)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.RxMgmt)
   return rxmgmt_;
 }
 inline void RadioCounters::set_rxmgmt(::google::protobuf::uint32 value) {
   
   rxmgmt_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxMgmt)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.RxMgmt)
 }
 
 // optional uint32 RxErrors = 8;
@@ -4258,13 +4258,13 @@ inline void RadioCounters::clear_rxerrors() {
   rxerrors_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioCounters::rxerrors() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioCounters.RxErrors)
+  // @@protoc_insertion_point(field_get:cheetah.RadioCounters.RxErrors)
   return rxerrors_;
 }
 inline void RadioCounters::set_rxerrors(::google::protobuf::uint32 value) {
   
   rxerrors_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioCounters.RxErrors)
+  // @@protoc_insertion_point(field_set:cheetah.RadioCounters.RxErrors)
 }
 
 inline const RadioCounters* RadioCounters::internal_default_instance() {
@@ -4279,13 +4279,13 @@ inline void DfsState::clear_cacstate() {
   cacstate_ = 0u;
 }
 inline ::google::protobuf::uint32 DfsState::cacstate() const {
-  // @@protoc_insertion_point(field_get:access_point.DfsState.CacState)
+  // @@protoc_insertion_point(field_get:cheetah.DfsState.CacState)
   return cacstate_;
 }
 inline void DfsState::set_cacstate(::google::protobuf::uint32 value) {
   
   cacstate_ = value;
-  // @@protoc_insertion_point(field_set:access_point.DfsState.CacState)
+  // @@protoc_insertion_point(field_set:cheetah.DfsState.CacState)
 }
 
 // optional bool RadarDetected = 2;
@@ -4293,13 +4293,13 @@ inline void DfsState::clear_radardetected() {
   radardetected_ = false;
 }
 inline bool DfsState::radardetected() const {
-  // @@protoc_insertion_point(field_get:access_point.DfsState.RadarDetected)
+  // @@protoc_insertion_point(field_get:cheetah.DfsState.RadarDetected)
   return radardetected_;
 }
 inline void DfsState::set_radardetected(bool value) {
   
   radardetected_ = value;
-  // @@protoc_insertion_point(field_set:access_point.DfsState.RadarDetected)
+  // @@protoc_insertion_point(field_set:cheetah.DfsState.RadarDetected)
 }
 
 inline const DfsState* DfsState::internal_default_instance() {
@@ -4314,32 +4314,32 @@ inline void RadioEntry::clear_dev() {
   dev_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& RadioEntry::dev() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Dev)
   return dev_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RadioEntry::set_dev(const ::std::string& value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.Dev)
 }
 inline void RadioEntry::set_dev(const char* value) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_set_char:cheetah.RadioEntry.Dev)
 }
 inline void RadioEntry::set_dev(const char* value, size_t size) {
   
   dev_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.RadioEntry.Dev)
 }
 inline ::std::string* RadioEntry::mutable_dev() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_mutable:cheetah.RadioEntry.Dev)
   return dev_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RadioEntry::release_dev() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_release:cheetah.RadioEntry.Dev)
   
   return dev_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4350,7 +4350,7 @@ inline void RadioEntry::set_allocated_dev(::std::string* dev) {
     
   }
   dev_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dev);
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Dev)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.RadioEntry.Dev)
 }
 
 // optional string Band = 2;
@@ -4358,32 +4358,32 @@ inline void RadioEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& RadioEntry::band() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Band)
   return band_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RadioEntry::set_band(const ::std::string& value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.Band)
 }
 inline void RadioEntry::set_band(const char* value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_set_char:cheetah.RadioEntry.Band)
 }
 inline void RadioEntry::set_band(const char* value, size_t size) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.RadioEntry.Band)
 }
 inline ::std::string* RadioEntry::mutable_band() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_mutable:cheetah.RadioEntry.Band)
   return band_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RadioEntry::release_band() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_release:cheetah.RadioEntry.Band)
   
   return band_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4394,7 +4394,7 @@ inline void RadioEntry::set_allocated_band(::std::string* band) {
     
   }
   band_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), band);
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Band)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.RadioEntry.Band)
 }
 
 // optional uint32 Channel = 3;
@@ -4402,13 +4402,13 @@ inline void RadioEntry::clear_channel() {
   channel_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioEntry::channel() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Channel)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Channel)
   return channel_;
 }
 inline void RadioEntry::set_channel(::google::protobuf::uint32 value) {
   
   channel_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.Channel)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.Channel)
 }
 
 // optional uint32 SecondaryChannel = 4;
@@ -4416,13 +4416,13 @@ inline void RadioEntry::clear_secondarychannel() {
   secondarychannel_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioEntry::secondarychannel() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.SecondaryChannel)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.SecondaryChannel)
   return secondarychannel_;
 }
 inline void RadioEntry::set_secondarychannel(::google::protobuf::uint32 value) {
   
   secondarychannel_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.SecondaryChannel)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.SecondaryChannel)
 }
 
 // optional uint32 Bandwidth = 5;
@@ -4430,13 +4430,13 @@ inline void RadioEntry::clear_bandwidth() {
   bandwidth_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioEntry::bandwidth() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Bandwidth)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Bandwidth)
   return bandwidth_;
 }
 inline void RadioEntry::set_bandwidth(::google::protobuf::uint32 value) {
   
   bandwidth_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.Bandwidth)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.Bandwidth)
 }
 
 // optional int32 NoiseFloor = 6;
@@ -4444,13 +4444,13 @@ inline void RadioEntry::clear_noisefloor() {
   noisefloor_ = 0;
 }
 inline ::google::protobuf::int32 RadioEntry::noisefloor() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.NoiseFloor)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.NoiseFloor)
   return noisefloor_;
 }
 inline void RadioEntry::set_noisefloor(::google::protobuf::int32 value) {
   
   noisefloor_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.NoiseFloor)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.NoiseFloor)
 }
 
 // optional uint32 MaxTxPower = 7;
@@ -4458,16 +4458,16 @@ inline void RadioEntry::clear_maxtxpower() {
   maxtxpower_ = 0u;
 }
 inline ::google::protobuf::uint32 RadioEntry::maxtxpower() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.MaxTxPower)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.MaxTxPower)
   return maxtxpower_;
 }
 inline void RadioEntry::set_maxtxpower(::google::protobuf::uint32 value) {
   
   maxtxpower_ = value;
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.MaxTxPower)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.MaxTxPower)
 }
 
-// optional .access_point.RadioUtilization Utilization = 8;
+// optional .cheetah.RadioUtilization Utilization = 8;
 inline bool RadioEntry::has_utilization() const {
   return this != internal_default_instance() && utilization_ != NULL;
 }
@@ -4475,27 +4475,27 @@ inline void RadioEntry::clear_utilization() {
   if (GetArenaNoVirtual() == NULL && utilization_ != NULL) delete utilization_;
   utilization_ = NULL;
 }
-inline const ::access_point::RadioUtilization& RadioEntry::utilization() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Utilization)
+inline const ::cheetah::RadioUtilization& RadioEntry::utilization() const {
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Utilization)
   return utilization_ != NULL ? *utilization_
-                         : *::access_point::RadioUtilization::internal_default_instance();
+                         : *::cheetah::RadioUtilization::internal_default_instance();
 }
-inline ::access_point::RadioUtilization* RadioEntry::mutable_utilization() {
+inline ::cheetah::RadioUtilization* RadioEntry::mutable_utilization() {
   
   if (utilization_ == NULL) {
-    utilization_ = new ::access_point::RadioUtilization;
+    utilization_ = new ::cheetah::RadioUtilization;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Utilization)
+  // @@protoc_insertion_point(field_mutable:cheetah.RadioEntry.Utilization)
   return utilization_;
 }
-inline ::access_point::RadioUtilization* RadioEntry::release_utilization() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.Utilization)
+inline ::cheetah::RadioUtilization* RadioEntry::release_utilization() {
+  // @@protoc_insertion_point(field_release:cheetah.RadioEntry.Utilization)
   
-  ::access_point::RadioUtilization* temp = utilization_;
+  ::cheetah::RadioUtilization* temp = utilization_;
   utilization_ = NULL;
   return temp;
 }
-inline void RadioEntry::set_allocated_utilization(::access_point::RadioUtilization* utilization) {
+inline void RadioEntry::set_allocated_utilization(::cheetah::RadioUtilization* utilization) {
   delete utilization_;
   utilization_ = utilization;
   if (utilization) {
@@ -4503,7 +4503,7 @@ inline void RadioEntry::set_allocated_utilization(::access_point::RadioUtilizati
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Utilization)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.RadioEntry.Utilization)
 }
 
 // repeated int32 AntennaRSSI = 9;
@@ -4514,29 +4514,29 @@ inline void RadioEntry::clear_antennarssi() {
   antennarssi_.Clear();
 }
 inline ::google::protobuf::int32 RadioEntry::antennarssi(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.AntennaRSSI)
   return antennarssi_.Get(index);
 }
 inline void RadioEntry::set_antennarssi(int index, ::google::protobuf::int32 value) {
   antennarssi_.Set(index, value);
-  // @@protoc_insertion_point(field_set:access_point.RadioEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_set:cheetah.RadioEntry.AntennaRSSI)
 }
 inline void RadioEntry::add_antennarssi(::google::protobuf::int32 value) {
   antennarssi_.Add(value);
-  // @@protoc_insertion_point(field_add:access_point.RadioEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_add:cheetah.RadioEntry.AntennaRSSI)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 RadioEntry::antennarssi() const {
-  // @@protoc_insertion_point(field_list:access_point.RadioEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_list:cheetah.RadioEntry.AntennaRSSI)
   return antennarssi_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 RadioEntry::mutable_antennarssi() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.RadioEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.RadioEntry.AntennaRSSI)
   return &antennarssi_;
 }
 
-// optional .access_point.RadioCounters Counter = 10;
+// optional .cheetah.RadioCounters Counter = 10;
 inline bool RadioEntry::has_counter() const {
   return this != internal_default_instance() && counter_ != NULL;
 }
@@ -4544,27 +4544,27 @@ inline void RadioEntry::clear_counter() {
   if (GetArenaNoVirtual() == NULL && counter_ != NULL) delete counter_;
   counter_ = NULL;
 }
-inline const ::access_point::RadioCounters& RadioEntry::counter() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.Counter)
+inline const ::cheetah::RadioCounters& RadioEntry::counter() const {
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.Counter)
   return counter_ != NULL ? *counter_
-                         : *::access_point::RadioCounters::internal_default_instance();
+                         : *::cheetah::RadioCounters::internal_default_instance();
 }
-inline ::access_point::RadioCounters* RadioEntry::mutable_counter() {
+inline ::cheetah::RadioCounters* RadioEntry::mutable_counter() {
   
   if (counter_ == NULL) {
-    counter_ = new ::access_point::RadioCounters;
+    counter_ = new ::cheetah::RadioCounters;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.Counter)
+  // @@protoc_insertion_point(field_mutable:cheetah.RadioEntry.Counter)
   return counter_;
 }
-inline ::access_point::RadioCounters* RadioEntry::release_counter() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.Counter)
+inline ::cheetah::RadioCounters* RadioEntry::release_counter() {
+  // @@protoc_insertion_point(field_release:cheetah.RadioEntry.Counter)
   
-  ::access_point::RadioCounters* temp = counter_;
+  ::cheetah::RadioCounters* temp = counter_;
   counter_ = NULL;
   return temp;
 }
-inline void RadioEntry::set_allocated_counter(::access_point::RadioCounters* counter) {
+inline void RadioEntry::set_allocated_counter(::cheetah::RadioCounters* counter) {
   delete counter_;
   counter_ = counter;
   if (counter) {
@@ -4572,10 +4572,10 @@ inline void RadioEntry::set_allocated_counter(::access_point::RadioCounters* cou
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.Counter)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.RadioEntry.Counter)
 }
 
-// optional .access_point.DfsState DFS = 11;
+// optional .cheetah.DfsState DFS = 11;
 inline bool RadioEntry::has_dfs() const {
   return this != internal_default_instance() && dfs_ != NULL;
 }
@@ -4583,27 +4583,27 @@ inline void RadioEntry::clear_dfs() {
   if (GetArenaNoVirtual() == NULL && dfs_ != NULL) delete dfs_;
   dfs_ = NULL;
 }
-inline const ::access_point::DfsState& RadioEntry::dfs() const {
-  // @@protoc_insertion_point(field_get:access_point.RadioEntry.DFS)
+inline const ::cheetah::DfsState& RadioEntry::dfs() const {
+  // @@protoc_insertion_point(field_get:cheetah.RadioEntry.DFS)
   return dfs_ != NULL ? *dfs_
-                         : *::access_point::DfsState::internal_default_instance();
+                         : *::cheetah::DfsState::internal_default_instance();
 }
-inline ::access_point::DfsState* RadioEntry::mutable_dfs() {
+inline ::cheetah::DfsState* RadioEntry::mutable_dfs() {
   
   if (dfs_ == NULL) {
-    dfs_ = new ::access_point::DfsState;
+    dfs_ = new ::cheetah::DfsState;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.RadioEntry.DFS)
+  // @@protoc_insertion_point(field_mutable:cheetah.RadioEntry.DFS)
   return dfs_;
 }
-inline ::access_point::DfsState* RadioEntry::release_dfs() {
-  // @@protoc_insertion_point(field_release:access_point.RadioEntry.DFS)
+inline ::cheetah::DfsState* RadioEntry::release_dfs() {
+  // @@protoc_insertion_point(field_release:cheetah.RadioEntry.DFS)
   
-  ::access_point::DfsState* temp = dfs_;
+  ::cheetah::DfsState* temp = dfs_;
   dfs_ = NULL;
   return temp;
 }
-inline void RadioEntry::set_allocated_dfs(::access_point::DfsState* dfs) {
+inline void RadioEntry::set_allocated_dfs(::cheetah::DfsState* dfs) {
   delete dfs_;
   dfs_ = dfs;
   if (dfs) {
@@ -4611,7 +4611,7 @@ inline void RadioEntry::set_allocated_dfs(::access_point::DfsState* dfs) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.RadioEntry.DFS)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.RadioEntry.DFS)
 }
 
 inline const RadioEntry* RadioEntry::internal_default_instance() {
@@ -4621,33 +4621,33 @@ inline const RadioEntry* RadioEntry::internal_default_instance() {
 
 // APRadioStatsMsgRsp
 
-// repeated .access_point.RadioEntry Radios = 1;
+// repeated .cheetah.RadioEntry Radios = 1;
 inline int APRadioStatsMsgRsp::radios_size() const {
   return radios_.size();
 }
 inline void APRadioStatsMsgRsp::clear_radios() {
   radios_.Clear();
 }
-inline const ::access_point::RadioEntry& APRadioStatsMsgRsp::radios(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APRadioStatsMsgRsp.Radios)
+inline const ::cheetah::RadioEntry& APRadioStatsMsgRsp::radios(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APRadioStatsMsgRsp.Radios)
   return radios_.Get(index);
 }
-inline ::access_point::RadioEntry* APRadioStatsMsgRsp::mutable_radios(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APRadioStatsMsgRsp.Radios)
+inline ::cheetah::RadioEntry* APRadioStatsMsgRsp::mutable_radios(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APRadioStatsMsgRsp.Radios)
   return radios_.Mutable(index);
 }
-inline ::access_point::RadioEntry* APRadioStatsMsgRsp::add_radios() {
-  // @@protoc_insertion_point(field_add:access_point.APRadioStatsMsgRsp.Radios)
+inline ::cheetah::RadioEntry* APRadioStatsMsgRsp::add_radios() {
+  // @@protoc_insertion_point(field_add:cheetah.APRadioStatsMsgRsp.Radios)
   return radios_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::RadioEntry >*
 APRadioStatsMsgRsp::mutable_radios() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APRadioStatsMsgRsp.Radios)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APRadioStatsMsgRsp.Radios)
   return &radios_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::RadioEntry >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::RadioEntry >&
 APRadioStatsMsgRsp::radios() const {
-  // @@protoc_insertion_point(field_list:access_point.APRadioStatsMsgRsp.Radios)
+  // @@protoc_insertion_point(field_list:cheetah.APRadioStatsMsgRsp.Radios)
   return radios_;
 }
 
@@ -4663,32 +4663,32 @@ inline void APClientEntry::clear_mac() {
   mac_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APClientEntry::mac() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.MAC)
   return mac_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APClientEntry::set_mac(const ::std::string& value) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.MAC)
 }
 inline void APClientEntry::set_mac(const char* value) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.MAC)
 }
 inline void APClientEntry::set_mac(const char* value, size_t size) {
   
   mac_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.MAC)
 }
 inline ::std::string* APClientEntry::mutable_mac() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.MAC)
   return mac_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APClientEntry::release_mac() {
-  // @@protoc_insertion_point(field_release:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_release:cheetah.APClientEntry.MAC)
   
   return mac_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4699,7 +4699,7 @@ inline void APClientEntry::set_allocated_mac(::std::string* mac) {
     
   }
   mac_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mac);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APClientEntry.MAC)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.MAC)
 }
 
 // optional uint32 RadioIndex = 3;
@@ -4707,13 +4707,13 @@ inline void APClientEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
 inline ::google::protobuf::uint32 APClientEntry::radioindex() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.RadioIndex)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RadioIndex)
   return radioindex_;
 }
 inline void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
   
   radioindex_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.RadioIndex)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RadioIndex)
 }
 
 // optional string Band = 4;
@@ -4721,32 +4721,32 @@ inline void APClientEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APClientEntry::band() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.Band)
   return band_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APClientEntry::set_band(const ::std::string& value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.Band)
 }
 inline void APClientEntry::set_band(const char* value) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.Band)
 }
 inline void APClientEntry::set_band(const char* value, size_t size) {
   
   band_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.Band)
 }
 inline ::std::string* APClientEntry::mutable_band() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.Band)
   return band_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APClientEntry::release_band() {
-  // @@protoc_insertion_point(field_release:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_release:cheetah.APClientEntry.Band)
   
   return band_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4757,10 +4757,10 @@ inline void APClientEntry::set_allocated_band(::std::string* band) {
     
   }
   band_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), band);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APClientEntry.Band)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.Band)
 }
 
-// optional .access_point.WLAN Wlan = 6;
+// optional .cheetah.WLAN Wlan = 6;
 inline bool APClientEntry::has_wlan() const {
   return this != internal_default_instance() && wlan_ != NULL;
 }
@@ -4768,27 +4768,27 @@ inline void APClientEntry::clear_wlan() {
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
   wlan_ = NULL;
 }
-inline const ::access_point::WLAN& APClientEntry::wlan() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.Wlan)
+inline const ::cheetah::WLAN& APClientEntry::wlan() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.Wlan)
   return wlan_ != NULL ? *wlan_
-                         : *::access_point::WLAN::internal_default_instance();
+                         : *::cheetah::WLAN::internal_default_instance();
 }
-inline ::access_point::WLAN* APClientEntry::mutable_wlan() {
+inline ::cheetah::WLAN* APClientEntry::mutable_wlan() {
   
   if (wlan_ == NULL) {
-    wlan_ = new ::access_point::WLAN;
+    wlan_ = new ::cheetah::WLAN;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APClientEntry.Wlan)
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.Wlan)
   return wlan_;
 }
-inline ::access_point::WLAN* APClientEntry::release_wlan() {
-  // @@protoc_insertion_point(field_release:access_point.APClientEntry.Wlan)
+inline ::cheetah::WLAN* APClientEntry::release_wlan() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientEntry.Wlan)
   
-  ::access_point::WLAN* temp = wlan_;
+  ::cheetah::WLAN* temp = wlan_;
   wlan_ = NULL;
   return temp;
 }
-inline void APClientEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
+inline void APClientEntry::set_allocated_wlan(::cheetah::WLAN* wlan) {
   delete wlan_;
   wlan_ = wlan;
   if (wlan) {
@@ -4796,7 +4796,7 @@ inline void APClientEntry::set_allocated_wlan(::access_point::WLAN* wlan) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APClientEntry.Wlan)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.Wlan)
 }
 
 // optional uint32 ConnectedTimeSec = 7;
@@ -4804,13 +4804,13 @@ inline void APClientEntry::clear_connectedtimesec() {
   connectedtimesec_ = 0u;
 }
 inline ::google::protobuf::uint32 APClientEntry::connectedtimesec() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.ConnectedTimeSec)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.ConnectedTimeSec)
   return connectedtimesec_;
 }
 inline void APClientEntry::set_connectedtimesec(::google::protobuf::uint32 value) {
   
   connectedtimesec_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.ConnectedTimeSec)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.ConnectedTimeSec)
 }
 
 // optional uint32 InactiveTimeMilliSec = 8;
@@ -4818,13 +4818,13 @@ inline void APClientEntry::clear_inactivetimemillisec() {
   inactivetimemillisec_ = 0u;
 }
 inline ::google::protobuf::uint32 APClientEntry::inactivetimemillisec() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.InactiveTimeMilliSec)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.InactiveTimeMilliSec)
   return inactivetimemillisec_;
 }
 inline void APClientEntry::set_inactivetimemillisec(::google::protobuf::uint32 value) {
   
   inactivetimemillisec_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.InactiveTimeMilliSec)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.InactiveTimeMilliSec)
 }
 
 // optional int32 RSSI = 9;
@@ -4832,13 +4832,13 @@ inline void APClientEntry::clear_rssi() {
   rssi_ = 0;
 }
 inline ::google::protobuf::int32 APClientEntry::rssi() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.RSSI)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RSSI)
   return rssi_;
 }
 inline void APClientEntry::set_rssi(::google::protobuf::int32 value) {
   
   rssi_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.RSSI)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RSSI)
 }
 
 // optional int32 NF = 10;
@@ -4846,13 +4846,13 @@ inline void APClientEntry::clear_nf() {
   nf_ = 0;
 }
 inline ::google::protobuf::int32 APClientEntry::nf() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.NF)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.NF)
   return nf_;
 }
 inline void APClientEntry::set_nf(::google::protobuf::int32 value) {
   
   nf_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.NF)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.NF)
 }
 
 // repeated int32 AntennaRSSI = 11;
@@ -4863,25 +4863,25 @@ inline void APClientEntry::clear_antennarssi() {
   antennarssi_.Clear();
 }
 inline ::google::protobuf::int32 APClientEntry::antennarssi(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.AntennaRSSI)
   return antennarssi_.Get(index);
 }
 inline void APClientEntry::set_antennarssi(int index, ::google::protobuf::int32 value) {
   antennarssi_.Set(index, value);
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.AntennaRSSI)
 }
 inline void APClientEntry::add_antennarssi(::google::protobuf::int32 value) {
   antennarssi_.Add(value);
-  // @@protoc_insertion_point(field_add:access_point.APClientEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.AntennaRSSI)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 APClientEntry::antennarssi() const {
-  // @@protoc_insertion_point(field_list:access_point.APClientEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.AntennaRSSI)
   return antennarssi_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 APClientEntry::mutable_antennarssi() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APClientEntry.AntennaRSSI)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.AntennaRSSI)
   return &antennarssi_;
 }
 
@@ -4890,13 +4890,13 @@ inline void APClientEntry::clear_txbitrate() {
   txbitrate_ = 0;
 }
 inline ::google::protobuf::int32 APClientEntry::txbitrate() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxBitRate)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxBitRate)
   return txbitrate_;
 }
 inline void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
   
   txbitrate_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxBitRate)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxBitRate)
 }
 
 // optional uint64 TxUnicastBytes = 13;
@@ -4904,13 +4904,13 @@ inline void APClientEntry::clear_txunicastbytes() {
   txunicastbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 APClientEntry::txunicastbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxUnicastBytes)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastBytes)
   return txunicastbytes_;
 }
 inline void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
   
   txunicastbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxUnicastBytes)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastBytes)
 }
 
 // optional uint32 TxUnicastPkts = 14;
@@ -4918,13 +4918,13 @@ inline void APClientEntry::clear_txunicastpkts() {
   txunicastpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 APClientEntry::txunicastpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.TxUnicastPkts)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastPkts)
   return txunicastpkts_;
 }
 inline void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
   
   txunicastpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.TxUnicastPkts)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastPkts)
 }
 
 // optional uint64 RxBytes = 15;
@@ -4932,13 +4932,13 @@ inline void APClientEntry::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 APClientEntry::rxbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.RxBytes)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxBytes)
   return rxbytes_;
 }
 inline void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.RxBytes)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxBytes)
 }
 
 // optional uint32 RxPkts = 16;
@@ -4946,13 +4946,13 @@ inline void APClientEntry::clear_rxpkts() {
   rxpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 APClientEntry::rxpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.APClientEntry.RxPkts)
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxPkts)
   return rxpkts_;
 }
 inline void APClientEntry::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APClientEntry.RxPkts)
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxPkts)
 }
 
 inline const APClientEntry* APClientEntry::internal_default_instance() {
@@ -4962,33 +4962,33 @@ inline const APClientEntry* APClientEntry::internal_default_instance() {
 
 // APClientStatsMsgRsp
 
-// repeated .access_point.APClientEntry Clients = 1;
+// repeated .cheetah.APClientEntry Clients = 1;
 inline int APClientStatsMsgRsp::clients_size() const {
   return clients_.size();
 }
 inline void APClientStatsMsgRsp::clear_clients() {
   clients_.Clear();
 }
-inline const ::access_point::APClientEntry& APClientStatsMsgRsp::clients(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APClientStatsMsgRsp.Clients)
+inline const ::cheetah::APClientEntry& APClientStatsMsgRsp::clients(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientStatsMsgRsp.Clients)
   return clients_.Get(index);
 }
-inline ::access_point::APClientEntry* APClientStatsMsgRsp::mutable_clients(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APClientStatsMsgRsp.Clients)
+inline ::cheetah::APClientEntry* APClientStatsMsgRsp::mutable_clients(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientStatsMsgRsp.Clients)
   return clients_.Mutable(index);
 }
-inline ::access_point::APClientEntry* APClientStatsMsgRsp::add_clients() {
-  // @@protoc_insertion_point(field_add:access_point.APClientStatsMsgRsp.Clients)
+inline ::cheetah::APClientEntry* APClientStatsMsgRsp::add_clients() {
+  // @@protoc_insertion_point(field_add:cheetah.APClientStatsMsgRsp.Clients)
   return clients_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APClientEntry >*
 APClientStatsMsgRsp::mutable_clients() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APClientStatsMsgRsp.Clients)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientStatsMsgRsp.Clients)
   return &clients_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::APClientEntry >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientEntry >&
 APClientStatsMsgRsp::clients() const {
-  // @@protoc_insertion_point(field_list:access_point.APClientStatsMsgRsp.Clients)
+  // @@protoc_insertion_point(field_list:cheetah.APClientStatsMsgRsp.Clients)
   return clients_;
 }
 
@@ -5004,32 +5004,32 @@ inline void APInterfaceEntry::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APInterfaceEntry::name() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APInterfaceEntry::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.Name)
 }
 inline void APInterfaceEntry::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.APInterfaceEntry.Name)
 }
 inline void APInterfaceEntry::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APInterfaceEntry.Name)
 }
 inline ::std::string* APInterfaceEntry::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.APInterfaceEntry.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APInterfaceEntry::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_release:cheetah.APInterfaceEntry.Name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -5040,7 +5040,7 @@ inline void APInterfaceEntry::set_allocated_name(::std::string* name) {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APInterfaceEntry.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APInterfaceEntry.Name)
 }
 
 // optional bool Link = 2;
@@ -5048,13 +5048,13 @@ inline void APInterfaceEntry::clear_link() {
   link_ = false;
 }
 inline bool APInterfaceEntry::link() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Link)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.Link)
   return link_;
 }
 inline void APInterfaceEntry::set_link(bool value) {
   
   link_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Link)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.Link)
 }
 
 // optional bool FullDuplex = 3;
@@ -5062,13 +5062,13 @@ inline void APInterfaceEntry::clear_fullduplex() {
   fullduplex_ = false;
 }
 inline bool APInterfaceEntry::fullduplex() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.FullDuplex)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.FullDuplex)
   return fullduplex_;
 }
 inline void APInterfaceEntry::set_fullduplex(bool value) {
   
   fullduplex_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.FullDuplex)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.FullDuplex)
 }
 
 // optional uint32 Speed = 4;
@@ -5076,13 +5076,13 @@ inline void APInterfaceEntry::clear_speed() {
   speed_ = 0u;
 }
 inline ::google::protobuf::uint32 APInterfaceEntry::speed() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.Speed)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.Speed)
   return speed_;
 }
 inline void APInterfaceEntry::set_speed(::google::protobuf::uint32 value) {
   
   speed_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.Speed)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.Speed)
 }
 
 // optional uint64 RxBytes = 5;
@@ -5090,13 +5090,13 @@ inline void APInterfaceEntry::clear_rxbytes() {
   rxbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 APInterfaceEntry::rxbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxBytes)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.RxBytes)
   return rxbytes_;
 }
 inline void APInterfaceEntry::set_rxbytes(::google::protobuf::uint64 value) {
   
   rxbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxBytes)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.RxBytes)
 }
 
 // optional uint32 RxPkts = 6;
@@ -5104,13 +5104,13 @@ inline void APInterfaceEntry::clear_rxpkts() {
   rxpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 APInterfaceEntry::rxpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxPkts)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.RxPkts)
   return rxpkts_;
 }
 inline void APInterfaceEntry::set_rxpkts(::google::protobuf::uint32 value) {
   
   rxpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxPkts)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.RxPkts)
 }
 
 // optional uint32 RxDiscards = 7;
@@ -5118,13 +5118,13 @@ inline void APInterfaceEntry::clear_rxdiscards() {
   rxdiscards_ = 0u;
 }
 inline ::google::protobuf::uint32 APInterfaceEntry::rxdiscards() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.RxDiscards)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.RxDiscards)
   return rxdiscards_;
 }
 inline void APInterfaceEntry::set_rxdiscards(::google::protobuf::uint32 value) {
   
   rxdiscards_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.RxDiscards)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.RxDiscards)
 }
 
 // optional uint64 TxBytes = 8;
@@ -5132,13 +5132,13 @@ inline void APInterfaceEntry::clear_txbytes() {
   txbytes_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 APInterfaceEntry::txbytes() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.TxBytes)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.TxBytes)
   return txbytes_;
 }
 inline void APInterfaceEntry::set_txbytes(::google::protobuf::uint64 value) {
   
   txbytes_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.TxBytes)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.TxBytes)
 }
 
 // optional uint32 TxPkts = 9;
@@ -5146,13 +5146,13 @@ inline void APInterfaceEntry::clear_txpkts() {
   txpkts_ = 0u;
 }
 inline ::google::protobuf::uint32 APInterfaceEntry::txpkts() const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceEntry.TxPkts)
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceEntry.TxPkts)
   return txpkts_;
 }
 inline void APInterfaceEntry::set_txpkts(::google::protobuf::uint32 value) {
   
   txpkts_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInterfaceEntry.TxPkts)
+  // @@protoc_insertion_point(field_set:cheetah.APInterfaceEntry.TxPkts)
 }
 
 inline const APInterfaceEntry* APInterfaceEntry::internal_default_instance() {
@@ -5162,33 +5162,33 @@ inline const APInterfaceEntry* APInterfaceEntry::internal_default_instance() {
 
 // APInterfaceStatsMsgRsp
 
-// repeated .access_point.APInterfaceEntry Interfaces = 1;
+// repeated .cheetah.APInterfaceEntry Interfaces = 1;
 inline int APInterfaceStatsMsgRsp::interfaces_size() const {
   return interfaces_.size();
 }
 inline void APInterfaceStatsMsgRsp::clear_interfaces() {
   interfaces_.Clear();
 }
-inline const ::access_point::APInterfaceEntry& APInterfaceStatsMsgRsp::interfaces(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APInterfaceStatsMsgRsp.Interfaces)
+inline const ::cheetah::APInterfaceEntry& APInterfaceStatsMsgRsp::interfaces(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APInterfaceStatsMsgRsp.Interfaces)
   return interfaces_.Get(index);
 }
-inline ::access_point::APInterfaceEntry* APInterfaceStatsMsgRsp::mutable_interfaces(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APInterfaceStatsMsgRsp.Interfaces)
+inline ::cheetah::APInterfaceEntry* APInterfaceStatsMsgRsp::mutable_interfaces(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APInterfaceStatsMsgRsp.Interfaces)
   return interfaces_.Mutable(index);
 }
-inline ::access_point::APInterfaceEntry* APInterfaceStatsMsgRsp::add_interfaces() {
-  // @@protoc_insertion_point(field_add:access_point.APInterfaceStatsMsgRsp.Interfaces)
+inline ::cheetah::APInterfaceEntry* APInterfaceStatsMsgRsp::add_interfaces() {
+  // @@protoc_insertion_point(field_add:cheetah.APInterfaceStatsMsgRsp.Interfaces)
   return interfaces_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APInterfaceEntry >*
 APInterfaceStatsMsgRsp::mutable_interfaces() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APInterfaceStatsMsgRsp.Interfaces)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APInterfaceStatsMsgRsp.Interfaces)
   return &interfaces_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::APInterfaceEntry >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APInterfaceEntry >&
 APInterfaceStatsMsgRsp::interfaces() const {
-  // @@protoc_insertion_point(field_list:access_point.APInterfaceStatsMsgRsp.Interfaces)
+  // @@protoc_insertion_point(field_list:cheetah.APInterfaceStatsMsgRsp.Interfaces)
   return interfaces_;
 }
 
@@ -5199,7 +5199,7 @@ inline const APInterfaceStatsMsgRsp* APInterfaceStatsMsgRsp::internal_default_in
 
 // APStatsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
+// optional .cheetah.APErrorStatus ErrStatus = 1;
 inline bool APStatsMsgRsp::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -5207,27 +5207,27 @@ inline void APStatsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-inline const ::access_point::APErrorStatus& APStatsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.ErrStatus)
+inline const ::cheetah::APErrorStatus& APStatsMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-inline ::access_point::APErrorStatus* APStatsMsgRsp::mutable_errstatus() {
+inline ::cheetah::APErrorStatus* APStatsMsgRsp::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.ErrStatus)
   return errstatus_;
 }
-inline ::access_point::APErrorStatus* APStatsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.ErrStatus)
+inline ::cheetah::APErrorStatus* APStatsMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-inline void APStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+inline void APStatsMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -5235,10 +5235,10 @@ inline void APStatsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.ErrStatus)
 }
 
-// optional .access_point.APSystemStatsMsgRsp SystemStats = 2;
+// optional .cheetah.APSystemStatsMsgRsp SystemStats = 2;
 inline bool APStatsMsgRsp::has_systemstats() const {
   return msg_rsp_case() == kSystemStats;
 }
@@ -5251,42 +5251,42 @@ inline void APStatsMsgRsp::clear_systemstats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APSystemStatsMsgRsp& APStatsMsgRsp::systemstats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.SystemStats)
+inline  const ::cheetah::APSystemStatsMsgRsp& APStatsMsgRsp::systemstats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.SystemStats)
   return has_systemstats()
       ? *msg_rsp_.systemstats_
-      : ::access_point::APSystemStatsMsgRsp::default_instance();
+      : ::cheetah::APSystemStatsMsgRsp::default_instance();
 }
-inline ::access_point::APSystemStatsMsgRsp* APStatsMsgRsp::mutable_systemstats() {
+inline ::cheetah::APSystemStatsMsgRsp* APStatsMsgRsp::mutable_systemstats() {
   if (!has_systemstats()) {
     clear_msg_rsp();
     set_has_systemstats();
-    msg_rsp_.systemstats_ = new ::access_point::APSystemStatsMsgRsp;
+    msg_rsp_.systemstats_ = new ::cheetah::APSystemStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.SystemStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.SystemStats)
   return msg_rsp_.systemstats_;
 }
-inline ::access_point::APSystemStatsMsgRsp* APStatsMsgRsp::release_systemstats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.SystemStats)
+inline ::cheetah::APSystemStatsMsgRsp* APStatsMsgRsp::release_systemstats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.SystemStats)
   if (has_systemstats()) {
     clear_has_msg_rsp();
-    ::access_point::APSystemStatsMsgRsp* temp = msg_rsp_.systemstats_;
+    ::cheetah::APSystemStatsMsgRsp* temp = msg_rsp_.systemstats_;
     msg_rsp_.systemstats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_systemstats(::access_point::APSystemStatsMsgRsp* systemstats) {
+inline void APStatsMsgRsp::set_allocated_systemstats(::cheetah::APSystemStatsMsgRsp* systemstats) {
   clear_msg_rsp();
   if (systemstats) {
     set_has_systemstats();
     msg_rsp_.systemstats_ = systemstats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.SystemStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.SystemStats)
 }
 
-// optional .access_point.APMemoryStatsMsgRsp MemoryStats = 3;
+// optional .cheetah.APMemoryStatsMsgRsp MemoryStats = 3;
 inline bool APStatsMsgRsp::has_memorystats() const {
   return msg_rsp_case() == kMemoryStats;
 }
@@ -5299,42 +5299,42 @@ inline void APStatsMsgRsp::clear_memorystats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APMemoryStatsMsgRsp& APStatsMsgRsp::memorystats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.MemoryStats)
+inline  const ::cheetah::APMemoryStatsMsgRsp& APStatsMsgRsp::memorystats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.MemoryStats)
   return has_memorystats()
       ? *msg_rsp_.memorystats_
-      : ::access_point::APMemoryStatsMsgRsp::default_instance();
+      : ::cheetah::APMemoryStatsMsgRsp::default_instance();
 }
-inline ::access_point::APMemoryStatsMsgRsp* APStatsMsgRsp::mutable_memorystats() {
+inline ::cheetah::APMemoryStatsMsgRsp* APStatsMsgRsp::mutable_memorystats() {
   if (!has_memorystats()) {
     clear_msg_rsp();
     set_has_memorystats();
-    msg_rsp_.memorystats_ = new ::access_point::APMemoryStatsMsgRsp;
+    msg_rsp_.memorystats_ = new ::cheetah::APMemoryStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.MemoryStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.MemoryStats)
   return msg_rsp_.memorystats_;
 }
-inline ::access_point::APMemoryStatsMsgRsp* APStatsMsgRsp::release_memorystats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.MemoryStats)
+inline ::cheetah::APMemoryStatsMsgRsp* APStatsMsgRsp::release_memorystats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.MemoryStats)
   if (has_memorystats()) {
     clear_has_msg_rsp();
-    ::access_point::APMemoryStatsMsgRsp* temp = msg_rsp_.memorystats_;
+    ::cheetah::APMemoryStatsMsgRsp* temp = msg_rsp_.memorystats_;
     msg_rsp_.memorystats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_memorystats(::access_point::APMemoryStatsMsgRsp* memorystats) {
+inline void APStatsMsgRsp::set_allocated_memorystats(::cheetah::APMemoryStatsMsgRsp* memorystats) {
   clear_msg_rsp();
   if (memorystats) {
     set_has_memorystats();
     msg_rsp_.memorystats_ = memorystats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.MemoryStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.MemoryStats)
 }
 
-// optional .access_point.APInterfaceStatsMsgRsp InterfaceStats = 4;
+// optional .cheetah.APInterfaceStatsMsgRsp InterfaceStats = 4;
 inline bool APStatsMsgRsp::has_interfacestats() const {
   return msg_rsp_case() == kInterfaceStats;
 }
@@ -5347,42 +5347,42 @@ inline void APStatsMsgRsp::clear_interfacestats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APInterfaceStatsMsgRsp& APStatsMsgRsp::interfacestats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.InterfaceStats)
+inline  const ::cheetah::APInterfaceStatsMsgRsp& APStatsMsgRsp::interfacestats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.InterfaceStats)
   return has_interfacestats()
       ? *msg_rsp_.interfacestats_
-      : ::access_point::APInterfaceStatsMsgRsp::default_instance();
+      : ::cheetah::APInterfaceStatsMsgRsp::default_instance();
 }
-inline ::access_point::APInterfaceStatsMsgRsp* APStatsMsgRsp::mutable_interfacestats() {
+inline ::cheetah::APInterfaceStatsMsgRsp* APStatsMsgRsp::mutable_interfacestats() {
   if (!has_interfacestats()) {
     clear_msg_rsp();
     set_has_interfacestats();
-    msg_rsp_.interfacestats_ = new ::access_point::APInterfaceStatsMsgRsp;
+    msg_rsp_.interfacestats_ = new ::cheetah::APInterfaceStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.InterfaceStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.InterfaceStats)
   return msg_rsp_.interfacestats_;
 }
-inline ::access_point::APInterfaceStatsMsgRsp* APStatsMsgRsp::release_interfacestats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.InterfaceStats)
+inline ::cheetah::APInterfaceStatsMsgRsp* APStatsMsgRsp::release_interfacestats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.InterfaceStats)
   if (has_interfacestats()) {
     clear_has_msg_rsp();
-    ::access_point::APInterfaceStatsMsgRsp* temp = msg_rsp_.interfacestats_;
+    ::cheetah::APInterfaceStatsMsgRsp* temp = msg_rsp_.interfacestats_;
     msg_rsp_.interfacestats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_interfacestats(::access_point::APInterfaceStatsMsgRsp* interfacestats) {
+inline void APStatsMsgRsp::set_allocated_interfacestats(::cheetah::APInterfaceStatsMsgRsp* interfacestats) {
   clear_msg_rsp();
   if (interfacestats) {
     set_has_interfacestats();
     msg_rsp_.interfacestats_ = interfacestats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.InterfaceStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.InterfaceStats)
 }
 
-// optional .access_point.APRoutingStatsMsgRsp RoutingStats = 5;
+// optional .cheetah.APRoutingStatsMsgRsp RoutingStats = 5;
 inline bool APStatsMsgRsp::has_routingstats() const {
   return msg_rsp_case() == kRoutingStats;
 }
@@ -5395,42 +5395,42 @@ inline void APStatsMsgRsp::clear_routingstats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APRoutingStatsMsgRsp& APStatsMsgRsp::routingstats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.RoutingStats)
+inline  const ::cheetah::APRoutingStatsMsgRsp& APStatsMsgRsp::routingstats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.RoutingStats)
   return has_routingstats()
       ? *msg_rsp_.routingstats_
-      : ::access_point::APRoutingStatsMsgRsp::default_instance();
+      : ::cheetah::APRoutingStatsMsgRsp::default_instance();
 }
-inline ::access_point::APRoutingStatsMsgRsp* APStatsMsgRsp::mutable_routingstats() {
+inline ::cheetah::APRoutingStatsMsgRsp* APStatsMsgRsp::mutable_routingstats() {
   if (!has_routingstats()) {
     clear_msg_rsp();
     set_has_routingstats();
-    msg_rsp_.routingstats_ = new ::access_point::APRoutingStatsMsgRsp;
+    msg_rsp_.routingstats_ = new ::cheetah::APRoutingStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.RoutingStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.RoutingStats)
   return msg_rsp_.routingstats_;
 }
-inline ::access_point::APRoutingStatsMsgRsp* APStatsMsgRsp::release_routingstats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.RoutingStats)
+inline ::cheetah::APRoutingStatsMsgRsp* APStatsMsgRsp::release_routingstats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.RoutingStats)
   if (has_routingstats()) {
     clear_has_msg_rsp();
-    ::access_point::APRoutingStatsMsgRsp* temp = msg_rsp_.routingstats_;
+    ::cheetah::APRoutingStatsMsgRsp* temp = msg_rsp_.routingstats_;
     msg_rsp_.routingstats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_routingstats(::access_point::APRoutingStatsMsgRsp* routingstats) {
+inline void APStatsMsgRsp::set_allocated_routingstats(::cheetah::APRoutingStatsMsgRsp* routingstats) {
   clear_msg_rsp();
   if (routingstats) {
     set_has_routingstats();
     msg_rsp_.routingstats_ = routingstats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.RoutingStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.RoutingStats)
 }
 
-// optional .access_point.APDNSStatsMsgRsp DNSStats = 6;
+// optional .cheetah.APDNSStatsMsgRsp DNSStats = 6;
 inline bool APStatsMsgRsp::has_dnsstats() const {
   return msg_rsp_case() == kDNSStats;
 }
@@ -5443,42 +5443,42 @@ inline void APStatsMsgRsp::clear_dnsstats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APDNSStatsMsgRsp& APStatsMsgRsp::dnsstats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.DNSStats)
+inline  const ::cheetah::APDNSStatsMsgRsp& APStatsMsgRsp::dnsstats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.DNSStats)
   return has_dnsstats()
       ? *msg_rsp_.dnsstats_
-      : ::access_point::APDNSStatsMsgRsp::default_instance();
+      : ::cheetah::APDNSStatsMsgRsp::default_instance();
 }
-inline ::access_point::APDNSStatsMsgRsp* APStatsMsgRsp::mutable_dnsstats() {
+inline ::cheetah::APDNSStatsMsgRsp* APStatsMsgRsp::mutable_dnsstats() {
   if (!has_dnsstats()) {
     clear_msg_rsp();
     set_has_dnsstats();
-    msg_rsp_.dnsstats_ = new ::access_point::APDNSStatsMsgRsp;
+    msg_rsp_.dnsstats_ = new ::cheetah::APDNSStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.DNSStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.DNSStats)
   return msg_rsp_.dnsstats_;
 }
-inline ::access_point::APDNSStatsMsgRsp* APStatsMsgRsp::release_dnsstats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.DNSStats)
+inline ::cheetah::APDNSStatsMsgRsp* APStatsMsgRsp::release_dnsstats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.DNSStats)
   if (has_dnsstats()) {
     clear_has_msg_rsp();
-    ::access_point::APDNSStatsMsgRsp* temp = msg_rsp_.dnsstats_;
+    ::cheetah::APDNSStatsMsgRsp* temp = msg_rsp_.dnsstats_;
     msg_rsp_.dnsstats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_dnsstats(::access_point::APDNSStatsMsgRsp* dnsstats) {
+inline void APStatsMsgRsp::set_allocated_dnsstats(::cheetah::APDNSStatsMsgRsp* dnsstats) {
   clear_msg_rsp();
   if (dnsstats) {
     set_has_dnsstats();
     msg_rsp_.dnsstats_ = dnsstats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.DNSStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.DNSStats)
 }
 
-// optional .access_point.APRadioStatsMsgRsp RadioStats = 7;
+// optional .cheetah.APRadioStatsMsgRsp RadioStats = 7;
 inline bool APStatsMsgRsp::has_radiostats() const {
   return msg_rsp_case() == kRadioStats;
 }
@@ -5491,42 +5491,42 @@ inline void APStatsMsgRsp::clear_radiostats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APRadioStatsMsgRsp& APStatsMsgRsp::radiostats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.RadioStats)
+inline  const ::cheetah::APRadioStatsMsgRsp& APStatsMsgRsp::radiostats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.RadioStats)
   return has_radiostats()
       ? *msg_rsp_.radiostats_
-      : ::access_point::APRadioStatsMsgRsp::default_instance();
+      : ::cheetah::APRadioStatsMsgRsp::default_instance();
 }
-inline ::access_point::APRadioStatsMsgRsp* APStatsMsgRsp::mutable_radiostats() {
+inline ::cheetah::APRadioStatsMsgRsp* APStatsMsgRsp::mutable_radiostats() {
   if (!has_radiostats()) {
     clear_msg_rsp();
     set_has_radiostats();
-    msg_rsp_.radiostats_ = new ::access_point::APRadioStatsMsgRsp;
+    msg_rsp_.radiostats_ = new ::cheetah::APRadioStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.RadioStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.RadioStats)
   return msg_rsp_.radiostats_;
 }
-inline ::access_point::APRadioStatsMsgRsp* APStatsMsgRsp::release_radiostats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.RadioStats)
+inline ::cheetah::APRadioStatsMsgRsp* APStatsMsgRsp::release_radiostats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.RadioStats)
   if (has_radiostats()) {
     clear_has_msg_rsp();
-    ::access_point::APRadioStatsMsgRsp* temp = msg_rsp_.radiostats_;
+    ::cheetah::APRadioStatsMsgRsp* temp = msg_rsp_.radiostats_;
     msg_rsp_.radiostats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_radiostats(::access_point::APRadioStatsMsgRsp* radiostats) {
+inline void APStatsMsgRsp::set_allocated_radiostats(::cheetah::APRadioStatsMsgRsp* radiostats) {
   clear_msg_rsp();
   if (radiostats) {
     set_has_radiostats();
     msg_rsp_.radiostats_ = radiostats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.RadioStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.RadioStats)
 }
 
-// optional .access_point.APWLANStatsMsgRsp WLANStats = 8;
+// optional .cheetah.APWLANStatsMsgRsp WLANStats = 8;
 inline bool APStatsMsgRsp::has_wlanstats() const {
   return msg_rsp_case() == kWLANStats;
 }
@@ -5539,42 +5539,42 @@ inline void APStatsMsgRsp::clear_wlanstats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APWLANStatsMsgRsp& APStatsMsgRsp::wlanstats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.WLANStats)
+inline  const ::cheetah::APWLANStatsMsgRsp& APStatsMsgRsp::wlanstats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.WLANStats)
   return has_wlanstats()
       ? *msg_rsp_.wlanstats_
-      : ::access_point::APWLANStatsMsgRsp::default_instance();
+      : ::cheetah::APWLANStatsMsgRsp::default_instance();
 }
-inline ::access_point::APWLANStatsMsgRsp* APStatsMsgRsp::mutable_wlanstats() {
+inline ::cheetah::APWLANStatsMsgRsp* APStatsMsgRsp::mutable_wlanstats() {
   if (!has_wlanstats()) {
     clear_msg_rsp();
     set_has_wlanstats();
-    msg_rsp_.wlanstats_ = new ::access_point::APWLANStatsMsgRsp;
+    msg_rsp_.wlanstats_ = new ::cheetah::APWLANStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.WLANStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.WLANStats)
   return msg_rsp_.wlanstats_;
 }
-inline ::access_point::APWLANStatsMsgRsp* APStatsMsgRsp::release_wlanstats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.WLANStats)
+inline ::cheetah::APWLANStatsMsgRsp* APStatsMsgRsp::release_wlanstats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.WLANStats)
   if (has_wlanstats()) {
     clear_has_msg_rsp();
-    ::access_point::APWLANStatsMsgRsp* temp = msg_rsp_.wlanstats_;
+    ::cheetah::APWLANStatsMsgRsp* temp = msg_rsp_.wlanstats_;
     msg_rsp_.wlanstats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_wlanstats(::access_point::APWLANStatsMsgRsp* wlanstats) {
+inline void APStatsMsgRsp::set_allocated_wlanstats(::cheetah::APWLANStatsMsgRsp* wlanstats) {
   clear_msg_rsp();
   if (wlanstats) {
     set_has_wlanstats();
     msg_rsp_.wlanstats_ = wlanstats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.WLANStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.WLANStats)
 }
 
-// optional .access_point.APClientStatsMsgRsp ClientStats = 9;
+// optional .cheetah.APClientStatsMsgRsp ClientStats = 9;
 inline bool APStatsMsgRsp::has_clientstats() const {
   return msg_rsp_case() == kClientStats;
 }
@@ -5587,39 +5587,39 @@ inline void APStatsMsgRsp::clear_clientstats() {
     clear_has_msg_rsp();
   }
 }
-inline  const ::access_point::APClientStatsMsgRsp& APStatsMsgRsp::clientstats() const {
-  // @@protoc_insertion_point(field_get:access_point.APStatsMsgRsp.ClientStats)
+inline  const ::cheetah::APClientStatsMsgRsp& APStatsMsgRsp::clientstats() const {
+  // @@protoc_insertion_point(field_get:cheetah.APStatsMsgRsp.ClientStats)
   return has_clientstats()
       ? *msg_rsp_.clientstats_
-      : ::access_point::APClientStatsMsgRsp::default_instance();
+      : ::cheetah::APClientStatsMsgRsp::default_instance();
 }
-inline ::access_point::APClientStatsMsgRsp* APStatsMsgRsp::mutable_clientstats() {
+inline ::cheetah::APClientStatsMsgRsp* APStatsMsgRsp::mutable_clientstats() {
   if (!has_clientstats()) {
     clear_msg_rsp();
     set_has_clientstats();
-    msg_rsp_.clientstats_ = new ::access_point::APClientStatsMsgRsp;
+    msg_rsp_.clientstats_ = new ::cheetah::APClientStatsMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APStatsMsgRsp.ClientStats)
+  // @@protoc_insertion_point(field_mutable:cheetah.APStatsMsgRsp.ClientStats)
   return msg_rsp_.clientstats_;
 }
-inline ::access_point::APClientStatsMsgRsp* APStatsMsgRsp::release_clientstats() {
-  // @@protoc_insertion_point(field_release:access_point.APStatsMsgRsp.ClientStats)
+inline ::cheetah::APClientStatsMsgRsp* APStatsMsgRsp::release_clientstats() {
+  // @@protoc_insertion_point(field_release:cheetah.APStatsMsgRsp.ClientStats)
   if (has_clientstats()) {
     clear_has_msg_rsp();
-    ::access_point::APClientStatsMsgRsp* temp = msg_rsp_.clientstats_;
+    ::cheetah::APClientStatsMsgRsp* temp = msg_rsp_.clientstats_;
     msg_rsp_.clientstats_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APStatsMsgRsp::set_allocated_clientstats(::access_point::APClientStatsMsgRsp* clientstats) {
+inline void APStatsMsgRsp::set_allocated_clientstats(::cheetah::APClientStatsMsgRsp* clientstats) {
   clear_msg_rsp();
   if (clientstats) {
     set_has_clientstats();
     msg_rsp_.clientstats_ = clientstats;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APStatsMsgRsp.ClientStats)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APStatsMsgRsp.ClientStats)
 }
 
 inline bool APStatsMsgRsp::has_msg_rsp() const {
@@ -5682,21 +5682,21 @@ inline const APStatsMsgRsp* APStatsMsgRsp::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::access_point::APStatsType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APStatsType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APStatsType>() {
-  return ::access_point::APStatsType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APStatsType>() {
+  return ::cheetah::APStatsType_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::StatsTimeInterval> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::StatsTimeInterval> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::StatsTimeInterval>() {
-  return ::access_point::StatsTimeInterval_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::StatsTimeInterval>() {
+  return ::cheetah::StatsTimeInterval_descriptor();
 }
 
 }  // namespace protobuf

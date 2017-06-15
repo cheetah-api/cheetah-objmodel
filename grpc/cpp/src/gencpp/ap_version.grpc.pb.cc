@@ -13,7 +13,7 @@
 #include <grpc++/impl/codegen/rpc_service_method.h>
 #include <grpc++/impl/codegen/service_type.h>
 #include <grpc++/impl/codegen/sync_stream.h>
-namespace access_point {
+namespace cheetah {
 
-}  // namespace access_point
+}  // namespace cheetah
 

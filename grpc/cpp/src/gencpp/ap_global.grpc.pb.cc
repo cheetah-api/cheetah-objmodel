@@ -13,11 +13,11 @@
 #include <grpc++/impl/codegen/rpc_service_method.h>
 #include <grpc++/impl/codegen/service_type.h>
 #include <grpc++/impl/codegen/sync_stream.h>
-namespace access_point {
+namespace cheetah {
 
 static const char* APGlobal_method_names[] = {
-  "/access_point.APGlobal/APGlobalInitNotif",
-  "/access_point.APGlobal/APGlobalsGet",
+  "/cheetah.APGlobal/APGlobalInitNotif",
+  "/cheetah.APGlobal/APGlobalsGet",
 };
 
 std::unique_ptr< APGlobal::Stub> APGlobal::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -30,20 +30,20 @@ APGlobal::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_APGlobalsGet_(APGlobal_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::ClientReader< ::access_point::APGlobalNotif>* APGlobal::Stub::APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request) {
-  return new ::grpc::ClientReader< ::access_point::APGlobalNotif>(channel_.get(), rpcmethod_APGlobalInitNotif_, context, request);
+::grpc::ClientReader< ::cheetah::APGlobalNotif>* APGlobal::Stub::APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request) {
+  return new ::grpc::ClientReader< ::cheetah::APGlobalNotif>(channel_.get(), rpcmethod_APGlobalInitNotif_, context, request);
 }
 
-::grpc::ClientAsyncReader< ::access_point::APGlobalNotif>* APGlobal::Stub::AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return new ::grpc::ClientAsyncReader< ::access_point::APGlobalNotif>(channel_.get(), cq, rpcmethod_APGlobalInitNotif_, context, request, tag);
+::grpc::ClientAsyncReader< ::cheetah::APGlobalNotif>* APGlobal::Stub::AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::cheetah::APGlobalNotif>(channel_.get(), cq, rpcmethod_APGlobalInitNotif_, context, request, tag);
 }
 
-::grpc::Status APGlobal::Stub::APGlobalsGet(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::access_point::APGlobalsGetMsgRsp* response) {
+::grpc::Status APGlobal::Stub::APGlobalsGet(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::cheetah::APGlobalsGetMsgRsp* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APGlobalsGet_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::access_point::APGlobalsGetMsgRsp>* APGlobal::Stub::AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::access_point::APGlobalsGetMsgRsp>(channel_.get(), cq, rpcmethod_APGlobalsGet_, context, request);
+::grpc::ClientAsyncResponseReader< ::cheetah::APGlobalsGetMsgRsp>* APGlobal::Stub::AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::cheetah::APGlobalsGetMsgRsp>(channel_.get(), cq, rpcmethod_APGlobalsGet_, context, request);
 }
 
 APGlobal::Service::Service() {
@@ -51,26 +51,26 @@ APGlobal::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       APGlobal_method_names[0],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< APGlobal::Service, ::access_point::APInitMsg, ::access_point::APGlobalNotif>(
+      new ::grpc::ServerStreamingHandler< APGlobal::Service, ::cheetah::APInitMsg, ::cheetah::APGlobalNotif>(
           std::mem_fn(&APGlobal::Service::APGlobalInitNotif), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       APGlobal_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< APGlobal::Service, ::access_point::APGlobalsGetMsg, ::access_point::APGlobalsGetMsgRsp>(
+      new ::grpc::RpcMethodHandler< APGlobal::Service, ::cheetah::APGlobalsGetMsg, ::cheetah::APGlobalsGetMsgRsp>(
           std::mem_fn(&APGlobal::Service::APGlobalsGet), this)));
 }
 
 APGlobal::Service::~Service() {
 }
 
-::grpc::Status APGlobal::Service::APGlobalInitNotif(::grpc::ServerContext* context, const ::access_point::APInitMsg* request, ::grpc::ServerWriter< ::access_point::APGlobalNotif>* writer) {
+::grpc::Status APGlobal::Service::APGlobalInitNotif(::grpc::ServerContext* context, const ::cheetah::APInitMsg* request, ::grpc::ServerWriter< ::cheetah::APGlobalNotif>* writer) {
   (void) context;
   (void) request;
   (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status APGlobal::Service::APGlobalsGet(::grpc::ServerContext* context, const ::access_point::APGlobalsGetMsg* request, ::access_point::APGlobalsGetMsgRsp* response) {
+::grpc::Status APGlobal::Service::APGlobalsGet(::grpc::ServerContext* context, const ::cheetah::APGlobalsGetMsg* request, ::cheetah::APGlobalsGetMsgRsp* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -78,5 +78,5 @@ APGlobal::Service::~Service() {
 }
 
 
-}  // namespace access_point
+}  // namespace cheetah
 

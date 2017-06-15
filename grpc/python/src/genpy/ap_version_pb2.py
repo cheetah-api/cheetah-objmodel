@@ -18,15 +18,15 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_version.proto',
-  package='access_point',
+  package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x10\x61p_version.proto\x12\x0c\x61\x63\x63\x65ss_point*f\n\tAPVersion\x12\x15\n\x11\x41P_VERSION_UNUSED\x10\x00\x12\x14\n\x10\x41P_MAJOR_VERSION\x10\x00\x12\x14\n\x10\x41P_MINOR_VERSION\x10\x00\x12\x12\n\x0e\x41P_SUB_VERSION\x10\x01\x1a\x02\x10\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x61p_version.proto\x12\x07\x63heetah*f\n\tAPVersion\x12\x15\n\x11\x41P_VERSION_UNUSED\x10\x00\x12\x14\n\x10\x41P_MAJOR_VERSION\x10\x00\x12\x14\n\x10\x41P_MINOR_VERSION\x10\x00\x12\x12\n\x0e\x41P_SUB_VERSION\x10\x01\x1a\x02\x10\x01\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _APVERSION = _descriptor.EnumDescriptor(
   name='APVersion',
-  full_name='access_point.APVersion',
+  full_name='cheetah.APVersion',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -49,8 +49,8 @@ _APVERSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=_descriptor._ParseOptions(descriptor_pb2.EnumOptions(), _b('\020\001')),
-  serialized_start=34,
-  serialized_end=136,
+  serialized_start=29,
+  serialized_end=131,
 )
 _sym_db.RegisterEnumDescriptor(_APVERSION)
 

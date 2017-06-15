@@ -12,7 +12,7 @@
 //@brief System AP definitions and Global initializations.
 
 syntax = "proto3";
-package access_point;
+package cheetah;
 
 // @defgroup APCommonTypes
 // @ingroup System

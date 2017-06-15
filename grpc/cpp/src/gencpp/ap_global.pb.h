@@ -31,7 +31,7 @@
 #include "ap_common_types.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_ap_5fglobal_2eproto();
@@ -70,7 +70,7 @@ inline bool APGlobalNotifType_Parse(
 }
 // ===================================================================
 
-class APInitMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APInitMsg) */ {
+class APInitMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APInitMsg) */ {
  public:
   APInitMsg();
   virtual ~APInitMsg();
@@ -151,7 +151,7 @@ class APInitMsg : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint32 subver() const;
   void set_subver(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APInitMsg)
+  // @@protoc_insertion_point(class_scope:cheetah.APInitMsg)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -170,7 +170,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APInitMsg> APInitMsg_
 
 // -------------------------------------------------------------------
 
-class APInitMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APInitMsgRsp) */ {
+class APInitMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APInitMsgRsp) */ {
  public:
   APInitMsgRsp();
   virtual ~APInitMsgRsp();
@@ -251,7 +251,7 @@ class APInitMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::uint32 subver() const;
   void set_subver(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APInitMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -270,7 +270,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APInitMsgRsp> APInitM
 
 // -------------------------------------------------------------------
 
-class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APGlobalNotif) */ {
+class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APGlobalNotif) */ {
  public:
   APGlobalNotif();
   virtual ~APGlobalNotif();
@@ -338,32 +338,32 @@ class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APGlobalNotifType EventType = 1;
+  // optional .cheetah.APGlobalNotifType EventType = 1;
   void clear_eventtype();
   static const int kEventTypeFieldNumber = 1;
-  ::access_point::APGlobalNotifType eventtype() const;
-  void set_eventtype(::access_point::APGlobalNotifType value);
+  ::cheetah::APGlobalNotifType eventtype() const;
+  void set_eventtype(::cheetah::APGlobalNotifType value);
 
-  // optional .access_point.APErrorStatus ErrStatus = 2;
+  // optional .cheetah.APErrorStatus ErrStatus = 2;
   bool has_errstatus() const;
   void clear_errstatus();
   static const int kErrStatusFieldNumber = 2;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
+  const ::cheetah::APErrorStatus& errstatus() const;
+  ::cheetah::APErrorStatus* mutable_errstatus();
+  ::cheetah::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::cheetah::APErrorStatus* errstatus);
 
-  // optional .access_point.APInitMsgRsp InitRspMsg = 3;
+  // optional .cheetah.APInitMsgRsp InitRspMsg = 3;
   bool has_initrspmsg() const;
   void clear_initrspmsg();
   static const int kInitRspMsgFieldNumber = 3;
-  const ::access_point::APInitMsgRsp& initrspmsg() const;
-  ::access_point::APInitMsgRsp* mutable_initrspmsg();
-  ::access_point::APInitMsgRsp* release_initrspmsg();
-  void set_allocated_initrspmsg(::access_point::APInitMsgRsp* initrspmsg);
+  const ::cheetah::APInitMsgRsp& initrspmsg() const;
+  ::cheetah::APInitMsgRsp* mutable_initrspmsg();
+  ::cheetah::APInitMsgRsp* release_initrspmsg();
+  void set_allocated_initrspmsg(::cheetah::APInitMsgRsp* initrspmsg);
 
   EventCase Event_case() const;
-  // @@protoc_insertion_point(class_scope:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(class_scope:cheetah.APGlobalNotif)
  private:
   inline void set_has_initrspmsg();
 
@@ -372,11 +372,11 @@ class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline void clear_has_Event();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::access_point::APErrorStatus* errstatus_;
+  ::cheetah::APErrorStatus* errstatus_;
   int eventtype_;
   union EventUnion {
     EventUnion() {}
-    ::access_point::APInitMsgRsp* initrspmsg_;
+    ::cheetah::APInitMsgRsp* initrspmsg_;
   } Event_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -392,7 +392,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APGlobalNotif> APGlob
 
 // -------------------------------------------------------------------
 
-class APGlobalsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APGlobalsGetMsg) */ {
+class APGlobalsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APGlobalsGetMsg) */ {
  public:
   APGlobalsGetMsg();
   virtual ~APGlobalsGetMsg();
@@ -455,7 +455,7 @@ class APGlobalsGetMsg : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(class_scope:cheetah.APGlobalsGetMsg)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -471,7 +471,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APGlobalsGetMsg> APGl
 
 // -------------------------------------------------------------------
 
-class APGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APGlobalsGetMsgRsp) */ {
+class APGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APGlobalsGetMsgRsp) */ {
  public:
   APGlobalsGetMsgRsp();
   virtual ~APGlobalsGetMsgRsp();
@@ -534,14 +534,14 @@ class APGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
   void clear_errstatus();
   static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
+  const ::cheetah::APErrorStatus& errstatus() const;
+  ::cheetah::APErrorStatus* mutable_errstatus();
+  ::cheetah::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::cheetah::APErrorStatus* errstatus);
 
   // optional uint32 MaxRadioNameLength = 2;
   void clear_maxradionamelength();
@@ -555,11 +555,11 @@ class APGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::uint32 maxssidnamelength() const;
   void set_maxssidnamelength(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APGlobalsGetMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::access_point::APErrorStatus* errstatus_;
+  ::cheetah::APErrorStatus* errstatus_;
   ::google::protobuf::uint32 maxradionamelength_;
   ::google::protobuf::uint32 maxssidnamelength_;
   mutable int _cached_size_;
@@ -585,13 +585,13 @@ inline void APInitMsg::clear_majorver() {
   majorver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsg::majorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.MajorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.MajorVer)
   return majorver_;
 }
 inline void APInitMsg::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.MajorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.MajorVer)
 }
 
 // optional uint32 MinorVer = 2;
@@ -599,13 +599,13 @@ inline void APInitMsg::clear_minorver() {
   minorver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsg::minorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.MinorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.MinorVer)
   return minorver_;
 }
 inline void APInitMsg::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.MinorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.MinorVer)
 }
 
 // optional uint32 SubVer = 3;
@@ -613,13 +613,13 @@ inline void APInitMsg::clear_subver() {
   subver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsg::subver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.SubVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.SubVer)
   return subver_;
 }
 inline void APInitMsg::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.SubVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.SubVer)
 }
 
 inline const APInitMsg* APInitMsg::internal_default_instance() {
@@ -634,13 +634,13 @@ inline void APInitMsgRsp::clear_majorver() {
   majorver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsgRsp::majorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MajorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.MajorVer)
   return majorver_;
 }
 inline void APInitMsgRsp::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MajorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.MajorVer)
 }
 
 // optional uint32 MinorVer = 2;
@@ -648,13 +648,13 @@ inline void APInitMsgRsp::clear_minorver() {
   minorver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsgRsp::minorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MinorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.MinorVer)
   return minorver_;
 }
 inline void APInitMsgRsp::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MinorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.MinorVer)
 }
 
 // optional uint32 SubVer = 3;
@@ -662,13 +662,13 @@ inline void APInitMsgRsp::clear_subver() {
   subver_ = 0u;
 }
 inline ::google::protobuf::uint32 APInitMsgRsp::subver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.SubVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.SubVer)
   return subver_;
 }
 inline void APInitMsgRsp::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.SubVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.SubVer)
 }
 
 inline const APInitMsgRsp* APInitMsgRsp::internal_default_instance() {
@@ -678,21 +678,21 @@ inline const APInitMsgRsp* APInitMsgRsp::internal_default_instance() {
 
 // APGlobalNotif
 
-// optional .access_point.APGlobalNotifType EventType = 1;
+// optional .cheetah.APGlobalNotifType EventType = 1;
 inline void APGlobalNotif::clear_eventtype() {
   eventtype_ = 0;
 }
-inline ::access_point::APGlobalNotifType APGlobalNotif::eventtype() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.EventType)
-  return static_cast< ::access_point::APGlobalNotifType >(eventtype_);
+inline ::cheetah::APGlobalNotifType APGlobalNotif::eventtype() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.EventType)
+  return static_cast< ::cheetah::APGlobalNotifType >(eventtype_);
 }
-inline void APGlobalNotif::set_eventtype(::access_point::APGlobalNotifType value) {
+inline void APGlobalNotif::set_eventtype(::cheetah::APGlobalNotifType value) {
   
   eventtype_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalNotif.EventType)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalNotif.EventType)
 }
 
-// optional .access_point.APErrorStatus ErrStatus = 2;
+// optional .cheetah.APErrorStatus ErrStatus = 2;
 inline bool APGlobalNotif::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -700,27 +700,27 @@ inline void APGlobalNotif::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-inline const ::access_point::APErrorStatus& APGlobalNotif::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.ErrStatus)
+inline const ::cheetah::APErrorStatus& APGlobalNotif::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-inline ::access_point::APErrorStatus* APGlobalNotif::mutable_errstatus() {
+inline ::cheetah::APErrorStatus* APGlobalNotif::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalNotif.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalNotif.ErrStatus)
   return errstatus_;
 }
-inline ::access_point::APErrorStatus* APGlobalNotif::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalNotif.ErrStatus)
+inline ::cheetah::APErrorStatus* APGlobalNotif::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalNotif.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-inline void APGlobalNotif::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+inline void APGlobalNotif::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -728,10 +728,10 @@ inline void APGlobalNotif::set_allocated_errstatus(::access_point::APErrorStatus
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalNotif.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.ErrStatus)
 }
 
-// optional .access_point.APInitMsgRsp InitRspMsg = 3;
+// optional .cheetah.APInitMsgRsp InitRspMsg = 3;
 inline bool APGlobalNotif::has_initrspmsg() const {
   return Event_case() == kInitRspMsg;
 }
@@ -744,39 +744,39 @@ inline void APGlobalNotif::clear_initrspmsg() {
     clear_has_Event();
   }
 }
-inline  const ::access_point::APInitMsgRsp& APGlobalNotif::initrspmsg() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.InitRspMsg)
+inline  const ::cheetah::APInitMsgRsp& APGlobalNotif::initrspmsg() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.InitRspMsg)
   return has_initrspmsg()
       ? *Event_.initrspmsg_
-      : ::access_point::APInitMsgRsp::default_instance();
+      : ::cheetah::APInitMsgRsp::default_instance();
 }
-inline ::access_point::APInitMsgRsp* APGlobalNotif::mutable_initrspmsg() {
+inline ::cheetah::APInitMsgRsp* APGlobalNotif::mutable_initrspmsg() {
   if (!has_initrspmsg()) {
     clear_Event();
     set_has_initrspmsg();
-    Event_.initrspmsg_ = new ::access_point::APInitMsgRsp;
+    Event_.initrspmsg_ = new ::cheetah::APInitMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalNotif.InitRspMsg)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalNotif.InitRspMsg)
   return Event_.initrspmsg_;
 }
-inline ::access_point::APInitMsgRsp* APGlobalNotif::release_initrspmsg() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalNotif.InitRspMsg)
+inline ::cheetah::APInitMsgRsp* APGlobalNotif::release_initrspmsg() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalNotif.InitRspMsg)
   if (has_initrspmsg()) {
     clear_has_Event();
-    ::access_point::APInitMsgRsp* temp = Event_.initrspmsg_;
+    ::cheetah::APInitMsgRsp* temp = Event_.initrspmsg_;
     Event_.initrspmsg_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void APGlobalNotif::set_allocated_initrspmsg(::access_point::APInitMsgRsp* initrspmsg) {
+inline void APGlobalNotif::set_allocated_initrspmsg(::cheetah::APInitMsgRsp* initrspmsg) {
   clear_Event();
   if (initrspmsg) {
     set_has_initrspmsg();
     Event_.initrspmsg_ = initrspmsg;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalNotif.InitRspMsg)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.InitRspMsg)
 }
 
 inline bool APGlobalNotif::has_Event() const {
@@ -802,7 +802,7 @@ inline const APGlobalsGetMsg* APGlobalsGetMsg::internal_default_instance() {
 
 // APGlobalsGetMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
+// optional .cheetah.APErrorStatus ErrStatus = 1;
 inline bool APGlobalsGetMsgRsp::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -810,27 +810,27 @@ inline void APGlobalsGetMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-inline const ::access_point::APErrorStatus& APGlobalsGetMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.ErrStatus)
+inline const ::cheetah::APErrorStatus& APGlobalsGetMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-inline ::access_point::APErrorStatus* APGlobalsGetMsgRsp::mutable_errstatus() {
+inline ::cheetah::APErrorStatus* APGlobalsGetMsgRsp::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalsGetMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   return errstatus_;
 }
-inline ::access_point::APErrorStatus* APGlobalsGetMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalsGetMsgRsp.ErrStatus)
+inline ::cheetah::APErrorStatus* APGlobalsGetMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-inline void APGlobalsGetMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+inline void APGlobalsGetMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -838,7 +838,7 @@ inline void APGlobalsGetMsgRsp::set_allocated_errstatus(::access_point::APErrorS
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalsGetMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalsGetMsgRsp.ErrStatus)
 }
 
 // optional uint32 MaxRadioNameLength = 2;
@@ -846,13 +846,13 @@ inline void APGlobalsGetMsgRsp::clear_maxradionamelength() {
   maxradionamelength_ = 0u;
 }
 inline ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxradionamelength() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.MaxRadioNameLength)
   return maxradionamelength_;
 }
 inline void APGlobalsGetMsgRsp::set_maxradionamelength(::google::protobuf::uint32 value) {
   
   maxradionamelength_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalsGetMsgRsp.MaxRadioNameLength)
 }
 
 // optional uint32 MaxSsidNameLength = 3;
@@ -860,13 +860,13 @@ inline void APGlobalsGetMsgRsp::clear_maxssidnamelength() {
   maxssidnamelength_ = 0u;
 }
 inline ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxssidnamelength() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.MaxSsidNameLength)
   return maxssidnamelength_;
 }
 inline void APGlobalsGetMsgRsp::set_maxssidnamelength(::google::protobuf::uint32 value) {
   
   maxssidnamelength_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalsGetMsgRsp.MaxSsidNameLength)
 }
 
 inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance() {
@@ -884,16 +884,16 @@ inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance()
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::access_point::APGlobalNotifType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APGlobalNotifType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APGlobalNotifType>() {
-  return ::access_point::APGlobalNotifType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APGlobalNotifType>() {
+  return ::cheetah::APGlobalNotifType_descriptor();
 }
 
 }  // namespace protobuf

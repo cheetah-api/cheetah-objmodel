@@ -34,7 +34,7 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-namespace access_point {
+namespace cheetah {
 
 // @defgroup APStatistics
 // @ingroup System
@@ -46,30 +46,30 @@ class APStatistics GRPC_FINAL {
    public:
     virtual ~StubInterface() {}
     // Get statistics
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>>(APStatsGetRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APStatsMsgRsp>>(APStatsGetRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
     }
   private:
-    virtual ::grpc::ClientReaderInterface< ::access_point::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::access_point::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientReaderInterface< ::cheetah::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::cheetah::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    std::unique_ptr< ::grpc::ClientReader< ::access_point::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::access_point::APStatsMsgRsp>>(APStatsGetRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::cheetah::APStatsMsgRsp>> APStatsGet(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::cheetah::APStatsMsgRsp>>(APStatsGetRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APStatsMsgRsp>> AsyncAPStatsGet(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APStatsMsgRsp>>(AsyncAPStatsGetRaw(context, request, cq, tag));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientReader< ::access_point::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    ::grpc::ClientReader< ::cheetah::APStatsMsgRsp>* APStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::cheetah::APStatsMsgRsp>* AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_APStatsGet_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -79,7 +79,7 @@ class APStatistics GRPC_FINAL {
     Service();
     virtual ~Service();
     // Get statistics
-    virtual ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer);
+    virtual ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::cheetah::APStatsMsg* request, ::grpc::ServerWriter< ::cheetah::APStatsMsgRsp>* writer);
   };
   template <class BaseClass>
   class WithAsyncMethod_APStatsGet : public BaseClass {
@@ -93,11 +93,11 @@ class APStatistics GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::cheetah::APStatsMsg* request, ::grpc::ServerWriter< ::cheetah::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPStatsGet(::grpc::ServerContext* context, ::access_point::APStatsMsg* request, ::grpc::ServerAsyncWriter< ::access_point::APStatsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAPStatsGet(::grpc::ServerContext* context, ::cheetah::APStatsMsg* request, ::grpc::ServerAsyncWriter< ::cheetah::APStatsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
@@ -114,7 +114,7 @@ class APStatistics GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APStatsGet(::grpc::ServerContext* context, const ::cheetah::APStatsMsg* request, ::grpc::ServerWriter< ::cheetah::APStatsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -125,7 +125,7 @@ class APStatistics GRPC_FINAL {
 // Various RPC calls to get statistics for system, wlan, radio, etc
 // /;
 
-}  // namespace access_point
+}  // namespace cheetah
 
 
 #endif  // GRPC_ap_5fstats_2eproto__INCLUDED

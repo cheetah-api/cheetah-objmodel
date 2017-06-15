@@ -19,16 +19,16 @@ import ap_common_types_pb2 as ap__common__types__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_stats.proto',
-  package='access_point',
+  package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x61p_stats.proto\x12\x0c\x61\x63\x63\x65ss_point\x1a\x15\x61p_common_types.proto\"T\n\x0e\x41PStatsRequest\x12,\n\tStatsType\x18\x01 \x01(\x0e\x32\x19.access_point.APStatsType\x12\x14\n\x0cTimeInterval\x18\x02 \x01(\r\"@\n\nAPStatsMsg\x12\x32\n\x0cStatsRequest\x18\x01 \x03(\x0b\x32\x1c.access_point.APStatsRequest\"h\n\x13\x41PSystemStatsMsgRsp\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0e\n\x06Uptime\x18\x02 \x01(\r\x12\x0c\n\x04When\x18\x03 \x01(\t\x12\x14\n\x0cSerialNumber\x18\x04 \x01(\t\x12\x11\n\tProductId\x18\x05 \x01(\t\"1\n\x07MemInfo\x12\x10\n\x08Total_kB\x18\x01 \x01(\r\x12\x14\n\x0c\x41vailable_kB\x18\x02 \x01(\r\"N\n\x08SlabInfo\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x12\n\nActiveObjs\x18\x02 \x01(\x05\x12\x0f\n\x07NumObjs\x18\x03 \x01(\x05\x12\x0f\n\x07ObjSize\x18\x04 \x01(\x05\"r\n\x13\x41PMemoryStatsMsgRsp\x12*\n\x0bProcMemInfo\x18\x01 \x01(\x0b\x32\x15.access_point.MemInfo\x12/\n\x0fTopProcSlabInfo\x18\x02 \x01(\x0b\x32\x16.access_point.SlabInfo\"\x1e\n\x10\x41PDNSStatsMsgRsp\x12\n\n\x02IP\x18\x01 \x03(\t\"\x8a\x01\n\tIPv4Route\x12\x13\n\x0b\x44\x65stination\x18\x01 \x01(\t\x12\x0f\n\x07Gateway\x18\x02 \x01(\t\x12\x0f\n\x07Genmask\x18\x03 \x01(\t\x12\r\n\x05\x46lags\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0b\n\x03Ref\x18\x06 \x01(\r\x12\x0b\n\x03Use\x18\x07 \x01(\r\x12\r\n\x05Iface\x18\x08 \x01(\t\"C\n\x14\x41PRoutingStatsMsgRsp\x12+\n\nIPv4Routes\x18\x01 \x03(\x0b\x32\x17.access_point.IPv4Route\"=\n\x10MulticastCounter\x12\x13\n\x0bTxMcastPkts\x18\x01 \x01(\r\x12\x14\n\x0cTxMcastBytes\x18\x02 \x01(\x04\" \n\x04WLAN\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0c\n\x04SSID\x18\x02 \x01(\t\"\xa2\x01\n\tWLANEntry\x12 \n\x04Wlan\x18\x01 \x01(\x0b\x32\x12.access_point.WLAN\x12\x12\n\nRadioIndex\x18\x02 \x01(\r\x12\r\n\x05\x42SSID\x18\x03 \x01(\t\x12\x0b\n\x03\x44\x65v\x18\x04 \x01(\t\x12\x12\n\nNumClients\x18\x05 \x01(\x05\x12/\n\x07\x43ounter\x18\x06 \x01(\x0b\x32\x1e.access_point.MulticastCounter\"A\n\x11\x41PWLANStatsMsgRsp\x12,\n\x0bWLANEntries\x18\x01 \x03(\x0b\x32\x17.access_point.WLANEntry\"a\n\x10RadioUtilization\x12\x0b\n\x03\x41ll\x18\x01 \x01(\x02\x12\n\n\x02Tx\x18\x02 \x01(\x02\x12\x0f\n\x07RxInBSS\x18\x03 \x01(\x02\x12\x12\n\nRxOtherBSS\x18\x04 \x01(\x02\x12\x0f\n\x07NonWifi\x18\x05 \x01(\x02\"\x95\x01\n\rRadioCounters\x12\x0f\n\x07TxBytes\x18\x01 \x01(\x04\x12\x0e\n\x06TxPkts\x18\x02 \x01(\r\x12\x0e\n\x06TxMgmt\x18\x03 \x01(\r\x12\x10\n\x08TxErrors\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x0e\n\x06RxMgmt\x18\x07 \x01(\r\x12\x10\n\x08RxErrors\x18\x08 \x01(\r\"3\n\x08\x44\x66sState\x12\x10\n\x08\x43\x61\x63State\x18\x01 \x01(\r\x12\x15\n\rRadarDetected\x18\x02 \x01(\x08\"\xaa\x02\n\nRadioEntry\x12\x0b\n\x03\x44\x65v\x18\x01 \x01(\t\x12\x0c\n\x04\x42\x61nd\x18\x02 \x01(\t\x12\x0f\n\x07\x43hannel\x18\x03 \x01(\r\x12\x18\n\x10SecondaryChannel\x18\x04 \x01(\r\x12\x11\n\tBandwidth\x18\x05 \x01(\r\x12\x12\n\nNoiseFloor\x18\x06 \x01(\x05\x12\x12\n\nMaxTxPower\x18\x07 \x01(\r\x12\x33\n\x0bUtilization\x18\x08 \x01(\x0b\x32\x1e.access_point.RadioUtilization\x12\x13\n\x0b\x41ntennaRSSI\x18\t \x03(\x05\x12,\n\x07\x43ounter\x18\n \x01(\x0b\x32\x1b.access_point.RadioCounters\x12#\n\x03\x44\x46S\x18\x0b \x01(\x0b\x32\x16.access_point.DfsState\">\n\x12\x41PRadioStatsMsgRsp\x12(\n\x06Radios\x18\x01 \x03(\x0b\x32\x18.access_point.RadioEntry\"\xaa\x02\n\rAPClientEntry\x12\x0b\n\x03MAC\x18\x02 \x01(\t\x12\x12\n\nRadioIndex\x18\x03 \x01(\r\x12\x0c\n\x04\x42\x61nd\x18\x04 \x01(\t\x12 \n\x04Wlan\x18\x06 \x01(\x0b\x32\x12.access_point.WLAN\x12\x18\n\x10\x43onnectedTimeSec\x18\x07 \x01(\r\x12\x1c\n\x14InactiveTimeMilliSec\x18\x08 \x01(\r\x12\x0c\n\x04RSSI\x18\t \x01(\x05\x12\n\n\x02NF\x18\n \x01(\x05\x12\x13\n\x0b\x41ntennaRSSI\x18\x0b \x03(\x05\x12\x11\n\tTxBitRate\x18\x0c \x01(\x05\x12\x16\n\x0eTxUnicastBytes\x18\r \x01(\x04\x12\x15\n\rTxUnicastPkts\x18\x0e \x01(\r\x12\x0f\n\x07RxBytes\x18\x0f \x01(\x04\x12\x0e\n\x06RxPkts\x18\x10 \x01(\r\"C\n\x13\x41PClientStatsMsgRsp\x12,\n\x07\x43lients\x18\x01 \x03(\x0b\x32\x1b.access_point.APClientEntry\"\xa7\x01\n\x10\x41PInterfaceEntry\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0c\n\x04Link\x18\x02 \x01(\x08\x12\x12\n\nFullDuplex\x18\x03 \x01(\x08\x12\r\n\x05Speed\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x12\n\nRxDiscards\x18\x07 \x01(\r\x12\x0f\n\x07TxBytes\x18\x08 \x01(\x04\x12\x0e\n\x06TxPkts\x18\t \x01(\r\"L\n\x16\x41PInterfaceStatsMsgRsp\x12\x32\n\nInterfaces\x18\x01 \x03(\x0b\x32\x1e.access_point.APInterfaceEntry\"\x96\x04\n\rAPStatsMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\x38\n\x0bSystemStats\x18\x02 \x01(\x0b\x32!.access_point.APSystemStatsMsgRspH\x00\x12\x38\n\x0bMemoryStats\x18\x03 \x01(\x0b\x32!.access_point.APMemoryStatsMsgRspH\x00\x12>\n\x0eInterfaceStats\x18\x04 \x01(\x0b\x32$.access_point.APInterfaceStatsMsgRspH\x00\x12:\n\x0cRoutingStats\x18\x05 \x01(\x0b\x32\".access_point.APRoutingStatsMsgRspH\x00\x12\x32\n\x08\x44NSStats\x18\x06 \x01(\x0b\x32\x1e.access_point.APDNSStatsMsgRspH\x00\x12\x36\n\nRadioStats\x18\x07 \x01(\x0b\x32 .access_point.APRadioStatsMsgRspH\x00\x12\x34\n\tWLANStats\x18\x08 \x01(\x0b\x32\x1f.access_point.APWLANStatsMsgRspH\x00\x12\x38\n\x0b\x43lientStats\x18\t \x01(\x0b\x32!.access_point.APClientStatsMsgRspH\x00\x42\t\n\x07msg_rsp*\xc4\x01\n\x0b\x41PStatsType\x12\x0f\n\x0b\x41P_RESERVED\x10\x00\x12\x13\n\x0f\x41P_SYSTEM_STATS\x10\x01\x12\x13\n\x0f\x41P_MEMORY_STATS\x10\x02\x12\x16\n\x12\x41P_INTERFACE_STATS\x10\x03\x12\x14\n\x10\x41P_ROUTING_STATS\x10\x04\x12\x10\n\x0c\x41P_DNS_STATS\x10\x05\x12\x12\n\x0e\x41P_RADIO_STATS\x10\x06\x12\x11\n\rAP_WLAN_STATS\x10\x07\x12\x13\n\x0f\x41P_CLIENT_STATS\x10\x08*v\n\x11StatsTimeInterval\x12\x1c\n\x18\x41P_STATS_UNARY_OPERATION\x10\x00\x12\x1f\n\x1b\x41P_STATS_ZERO_TIME_INTERVAL\x10\x00\x12\x1e\n\x1a\x41P_STATS_MIN_TIME_INTERVAL\x10\x05\x1a\x02\x10\x01\x32U\n\x0c\x41PStatistics\x12\x45\n\nAPStatsGet\x12\x18.access_point.APStatsMsg\x1a\x1b.access_point.APStatsMsgRsp0\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x61p_stats.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"O\n\x0e\x41PStatsRequest\x12\'\n\tStatsType\x18\x01 \x01(\x0e\x32\x14.cheetah.APStatsType\x12\x14\n\x0cTimeInterval\x18\x02 \x01(\r\";\n\nAPStatsMsg\x12-\n\x0cStatsRequest\x18\x01 \x03(\x0b\x32\x17.cheetah.APStatsRequest\"h\n\x13\x41PSystemStatsMsgRsp\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0e\n\x06Uptime\x18\x02 \x01(\r\x12\x0c\n\x04When\x18\x03 \x01(\t\x12\x14\n\x0cSerialNumber\x18\x04 \x01(\t\x12\x11\n\tProductId\x18\x05 \x01(\t\"1\n\x07MemInfo\x12\x10\n\x08Total_kB\x18\x01 \x01(\r\x12\x14\n\x0c\x41vailable_kB\x18\x02 \x01(\r\"N\n\x08SlabInfo\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x12\n\nActiveObjs\x18\x02 \x01(\x05\x12\x0f\n\x07NumObjs\x18\x03 \x01(\x05\x12\x0f\n\x07ObjSize\x18\x04 \x01(\x05\"h\n\x13\x41PMemoryStatsMsgRsp\x12%\n\x0bProcMemInfo\x18\x01 \x01(\x0b\x32\x10.cheetah.MemInfo\x12*\n\x0fTopProcSlabInfo\x18\x02 \x01(\x0b\x32\x11.cheetah.SlabInfo\"\x1e\n\x10\x41PDNSStatsMsgRsp\x12\n\n\x02IP\x18\x01 \x03(\t\"\x8a\x01\n\tIPv4Route\x12\x13\n\x0b\x44\x65stination\x18\x01 \x01(\t\x12\x0f\n\x07Gateway\x18\x02 \x01(\t\x12\x0f\n\x07Genmask\x18\x03 \x01(\t\x12\r\n\x05\x46lags\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0b\n\x03Ref\x18\x06 \x01(\r\x12\x0b\n\x03Use\x18\x07 \x01(\r\x12\r\n\x05Iface\x18\x08 \x01(\t\">\n\x14\x41PRoutingStatsMsgRsp\x12&\n\nIPv4Routes\x18\x01 \x03(\x0b\x32\x12.cheetah.IPv4Route\"=\n\x10MulticastCounter\x12\x13\n\x0bTxMcastPkts\x18\x01 \x01(\r\x12\x14\n\x0cTxMcastBytes\x18\x02 \x01(\x04\" \n\x04WLAN\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0c\n\x04SSID\x18\x02 \x01(\t\"\x98\x01\n\tWLANEntry\x12\x1b\n\x04Wlan\x18\x01 \x01(\x0b\x32\r.cheetah.WLAN\x12\x12\n\nRadioIndex\x18\x02 \x01(\r\x12\r\n\x05\x42SSID\x18\x03 \x01(\t\x12\x0b\n\x03\x44\x65v\x18\x04 \x01(\t\x12\x12\n\nNumClients\x18\x05 \x01(\x05\x12*\n\x07\x43ounter\x18\x06 \x01(\x0b\x32\x19.cheetah.MulticastCounter\"<\n\x11\x41PWLANStatsMsgRsp\x12\'\n\x0bWLANEntries\x18\x01 \x03(\x0b\x32\x12.cheetah.WLANEntry\"a\n\x10RadioUtilization\x12\x0b\n\x03\x41ll\x18\x01 \x01(\x02\x12\n\n\x02Tx\x18\x02 \x01(\x02\x12\x0f\n\x07RxInBSS\x18\x03 \x01(\x02\x12\x12\n\nRxOtherBSS\x18\x04 \x01(\x02\x12\x0f\n\x07NonWifi\x18\x05 \x01(\x02\"\x95\x01\n\rRadioCounters\x12\x0f\n\x07TxBytes\x18\x01 \x01(\x04\x12\x0e\n\x06TxPkts\x18\x02 \x01(\r\x12\x0e\n\x06TxMgmt\x18\x03 \x01(\r\x12\x10\n\x08TxErrors\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x0e\n\x06RxMgmt\x18\x07 \x01(\r\x12\x10\n\x08RxErrors\x18\x08 \x01(\r\"3\n\x08\x44\x66sState\x12\x10\n\x08\x43\x61\x63State\x18\x01 \x01(\r\x12\x15\n\rRadarDetected\x18\x02 \x01(\x08\"\x9b\x02\n\nRadioEntry\x12\x0b\n\x03\x44\x65v\x18\x01 \x01(\t\x12\x0c\n\x04\x42\x61nd\x18\x02 \x01(\t\x12\x0f\n\x07\x43hannel\x18\x03 \x01(\r\x12\x18\n\x10SecondaryChannel\x18\x04 \x01(\r\x12\x11\n\tBandwidth\x18\x05 \x01(\r\x12\x12\n\nNoiseFloor\x18\x06 \x01(\x05\x12\x12\n\nMaxTxPower\x18\x07 \x01(\r\x12.\n\x0bUtilization\x18\x08 \x01(\x0b\x32\x19.cheetah.RadioUtilization\x12\x13\n\x0b\x41ntennaRSSI\x18\t \x03(\x05\x12\'\n\x07\x43ounter\x18\n \x01(\x0b\x32\x16.cheetah.RadioCounters\x12\x1e\n\x03\x44\x46S\x18\x0b \x01(\x0b\x32\x11.cheetah.DfsState\"9\n\x12\x41PRadioStatsMsgRsp\x12#\n\x06Radios\x18\x01 \x03(\x0b\x32\x13.cheetah.RadioEntry\"\xa5\x02\n\rAPClientEntry\x12\x0b\n\x03MAC\x18\x02 \x01(\t\x12\x12\n\nRadioIndex\x18\x03 \x01(\r\x12\x0c\n\x04\x42\x61nd\x18\x04 \x01(\t\x12\x1b\n\x04Wlan\x18\x06 \x01(\x0b\x32\r.cheetah.WLAN\x12\x18\n\x10\x43onnectedTimeSec\x18\x07 \x01(\r\x12\x1c\n\x14InactiveTimeMilliSec\x18\x08 \x01(\r\x12\x0c\n\x04RSSI\x18\t \x01(\x05\x12\n\n\x02NF\x18\n \x01(\x05\x12\x13\n\x0b\x41ntennaRSSI\x18\x0b \x03(\x05\x12\x11\n\tTxBitRate\x18\x0c \x01(\x05\x12\x16\n\x0eTxUnicastBytes\x18\r \x01(\x04\x12\x15\n\rTxUnicastPkts\x18\x0e \x01(\r\x12\x0f\n\x07RxBytes\x18\x0f \x01(\x04\x12\x0e\n\x06RxPkts\x18\x10 \x01(\r\">\n\x13\x41PClientStatsMsgRsp\x12\'\n\x07\x43lients\x18\x01 \x03(\x0b\x32\x16.cheetah.APClientEntry\"\xa7\x01\n\x10\x41PInterfaceEntry\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0c\n\x04Link\x18\x02 \x01(\x08\x12\x12\n\nFullDuplex\x18\x03 \x01(\x08\x12\r\n\x05Speed\x18\x04 \x01(\r\x12\x0f\n\x07RxBytes\x18\x05 \x01(\x04\x12\x0e\n\x06RxPkts\x18\x06 \x01(\r\x12\x12\n\nRxDiscards\x18\x07 \x01(\r\x12\x0f\n\x07TxBytes\x18\x08 \x01(\x04\x12\x0e\n\x06TxPkts\x18\t \x01(\r\"G\n\x16\x41PInterfaceStatsMsgRsp\x12-\n\nInterfaces\x18\x01 \x03(\x0b\x32\x19.cheetah.APInterfaceEntry\"\xe9\x03\n\rAPStatsMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\x33\n\x0bSystemStats\x18\x02 \x01(\x0b\x32\x1c.cheetah.APSystemStatsMsgRspH\x00\x12\x33\n\x0bMemoryStats\x18\x03 \x01(\x0b\x32\x1c.cheetah.APMemoryStatsMsgRspH\x00\x12\x39\n\x0eInterfaceStats\x18\x04 \x01(\x0b\x32\x1f.cheetah.APInterfaceStatsMsgRspH\x00\x12\x35\n\x0cRoutingStats\x18\x05 \x01(\x0b\x32\x1d.cheetah.APRoutingStatsMsgRspH\x00\x12-\n\x08\x44NSStats\x18\x06 \x01(\x0b\x32\x19.cheetah.APDNSStatsMsgRspH\x00\x12\x31\n\nRadioStats\x18\x07 \x01(\x0b\x32\x1b.cheetah.APRadioStatsMsgRspH\x00\x12/\n\tWLANStats\x18\x08 \x01(\x0b\x32\x1a.cheetah.APWLANStatsMsgRspH\x00\x12\x33\n\x0b\x43lientStats\x18\t \x01(\x0b\x32\x1c.cheetah.APClientStatsMsgRspH\x00\x42\t\n\x07msg_rsp*\xc4\x01\n\x0b\x41PStatsType\x12\x0f\n\x0b\x41P_RESERVED\x10\x00\x12\x13\n\x0f\x41P_SYSTEM_STATS\x10\x01\x12\x13\n\x0f\x41P_MEMORY_STATS\x10\x02\x12\x16\n\x12\x41P_INTERFACE_STATS\x10\x03\x12\x14\n\x10\x41P_ROUTING_STATS\x10\x04\x12\x10\n\x0c\x41P_DNS_STATS\x10\x05\x12\x12\n\x0e\x41P_RADIO_STATS\x10\x06\x12\x11\n\rAP_WLAN_STATS\x10\x07\x12\x13\n\x0f\x41P_CLIENT_STATS\x10\x08*v\n\x11StatsTimeInterval\x12\x1c\n\x18\x41P_STATS_UNARY_OPERATION\x10\x00\x12\x1f\n\x1b\x41P_STATS_ZERO_TIME_INTERVAL\x10\x00\x12\x1e\n\x1a\x41P_STATS_MIN_TIME_INTERVAL\x10\x05\x1a\x02\x10\x01\x32K\n\x0c\x41PStatistics\x12;\n\nAPStatsGet\x12\x13.cheetah.APStatsMsg\x1a\x16.cheetah.APStatsMsgRsp0\x01\x62\x06proto3')
   ,
   dependencies=[ap__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _APSTATSTYPE = _descriptor.EnumDescriptor(
   name='APStatsType',
-  full_name='access_point.APStatsType',
+  full_name='cheetah.APStatsType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -71,15 +71,15 @@ _APSTATSTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2956,
-  serialized_end=3152,
+  serialized_start=2831,
+  serialized_end=3027,
 )
 _sym_db.RegisterEnumDescriptor(_APSTATSTYPE)
 
 APStatsType = enum_type_wrapper.EnumTypeWrapper(_APSTATSTYPE)
 _STATSTIMEINTERVAL = _descriptor.EnumDescriptor(
   name='StatsTimeInterval',
-  full_name='access_point.StatsTimeInterval',
+  full_name='cheetah.StatsTimeInterval',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -98,8 +98,8 @@ _STATSTIMEINTERVAL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=_descriptor._ParseOptions(descriptor_pb2.EnumOptions(), _b('\020\001')),
-  serialized_start=3154,
-  serialized_end=3272,
+  serialized_start=3029,
+  serialized_end=3147,
 )
 _sym_db.RegisterEnumDescriptor(_STATSTIMEINTERVAL)
 
@@ -121,20 +121,20 @@ AP_STATS_MIN_TIME_INTERVAL = 5
 
 _APSTATSREQUEST = _descriptor.Descriptor(
   name='APStatsRequest',
-  full_name='access_point.APStatsRequest',
+  full_name='cheetah.APStatsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='StatsType', full_name='access_point.APStatsRequest.StatsType', index=0,
+      name='StatsType', full_name='cheetah.APStatsRequest.StatsType', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TimeInterval', full_name='access_point.APStatsRequest.TimeInterval', index=1,
+      name='TimeInterval', full_name='cheetah.APStatsRequest.TimeInterval', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -152,20 +152,20 @@ _APSTATSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=55,
-  serialized_end=139,
+  serialized_start=50,
+  serialized_end=129,
 )
 
 
 _APSTATSMSG = _descriptor.Descriptor(
   name='APStatsMsg',
-  full_name='access_point.APStatsMsg',
+  full_name='cheetah.APStatsMsg',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='StatsRequest', full_name='access_point.APStatsMsg.StatsRequest', index=0,
+      name='StatsRequest', full_name='cheetah.APStatsMsg.StatsRequest', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -183,48 +183,48 @@ _APSTATSMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=141,
-  serialized_end=205,
+  serialized_start=131,
+  serialized_end=190,
 )
 
 
 _APSYSTEMSTATSMSGRSP = _descriptor.Descriptor(
   name='APSystemStatsMsgRsp',
-  full_name='access_point.APSystemStatsMsgRsp',
+  full_name='cheetah.APSystemStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ID', full_name='access_point.APSystemStatsMsgRsp.ID', index=0,
+      name='ID', full_name='cheetah.APSystemStatsMsgRsp.ID', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Uptime', full_name='access_point.APSystemStatsMsgRsp.Uptime', index=1,
+      name='Uptime', full_name='cheetah.APSystemStatsMsgRsp.Uptime', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='When', full_name='access_point.APSystemStatsMsgRsp.When', index=2,
+      name='When', full_name='cheetah.APSystemStatsMsgRsp.When', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SerialNumber', full_name='access_point.APSystemStatsMsgRsp.SerialNumber', index=3,
+      name='SerialNumber', full_name='cheetah.APSystemStatsMsgRsp.SerialNumber', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ProductId', full_name='access_point.APSystemStatsMsgRsp.ProductId', index=4,
+      name='ProductId', full_name='cheetah.APSystemStatsMsgRsp.ProductId', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -242,27 +242,27 @@ _APSYSTEMSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=311,
+  serialized_start=192,
+  serialized_end=296,
 )
 
 
 _MEMINFO = _descriptor.Descriptor(
   name='MemInfo',
-  full_name='access_point.MemInfo',
+  full_name='cheetah.MemInfo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Total_kB', full_name='access_point.MemInfo.Total_kB', index=0,
+      name='Total_kB', full_name='cheetah.MemInfo.Total_kB', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Available_kB', full_name='access_point.MemInfo.Available_kB', index=1,
+      name='Available_kB', full_name='cheetah.MemInfo.Available_kB', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -280,41 +280,41 @@ _MEMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=313,
-  serialized_end=362,
+  serialized_start=298,
+  serialized_end=347,
 )
 
 
 _SLABINFO = _descriptor.Descriptor(
   name='SlabInfo',
-  full_name='access_point.SlabInfo',
+  full_name='cheetah.SlabInfo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='access_point.SlabInfo.Name', index=0,
+      name='Name', full_name='cheetah.SlabInfo.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ActiveObjs', full_name='access_point.SlabInfo.ActiveObjs', index=1,
+      name='ActiveObjs', full_name='cheetah.SlabInfo.ActiveObjs', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='NumObjs', full_name='access_point.SlabInfo.NumObjs', index=2,
+      name='NumObjs', full_name='cheetah.SlabInfo.NumObjs', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ObjSize', full_name='access_point.SlabInfo.ObjSize', index=3,
+      name='ObjSize', full_name='cheetah.SlabInfo.ObjSize', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -332,27 +332,27 @@ _SLABINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=364,
-  serialized_end=442,
+  serialized_start=349,
+  serialized_end=427,
 )
 
 
 _APMEMORYSTATSMSGRSP = _descriptor.Descriptor(
   name='APMemoryStatsMsgRsp',
-  full_name='access_point.APMemoryStatsMsgRsp',
+  full_name='cheetah.APMemoryStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ProcMemInfo', full_name='access_point.APMemoryStatsMsgRsp.ProcMemInfo', index=0,
+      name='ProcMemInfo', full_name='cheetah.APMemoryStatsMsgRsp.ProcMemInfo', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TopProcSlabInfo', full_name='access_point.APMemoryStatsMsgRsp.TopProcSlabInfo', index=1,
+      name='TopProcSlabInfo', full_name='cheetah.APMemoryStatsMsgRsp.TopProcSlabInfo', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -370,20 +370,20 @@ _APMEMORYSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=444,
-  serialized_end=558,
+  serialized_start=429,
+  serialized_end=533,
 )
 
 
 _APDNSSTATSMSGRSP = _descriptor.Descriptor(
   name='APDNSStatsMsgRsp',
-  full_name='access_point.APDNSStatsMsgRsp',
+  full_name='cheetah.APDNSStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='IP', full_name='access_point.APDNSStatsMsgRsp.IP', index=0,
+      name='IP', full_name='cheetah.APDNSStatsMsgRsp.IP', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -401,69 +401,69 @@ _APDNSSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=560,
-  serialized_end=590,
+  serialized_start=535,
+  serialized_end=565,
 )
 
 
 _IPV4ROUTE = _descriptor.Descriptor(
   name='IPv4Route',
-  full_name='access_point.IPv4Route',
+  full_name='cheetah.IPv4Route',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Destination', full_name='access_point.IPv4Route.Destination', index=0,
+      name='Destination', full_name='cheetah.IPv4Route.Destination', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Gateway', full_name='access_point.IPv4Route.Gateway', index=1,
+      name='Gateway', full_name='cheetah.IPv4Route.Gateway', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Genmask', full_name='access_point.IPv4Route.Genmask', index=2,
+      name='Genmask', full_name='cheetah.IPv4Route.Genmask', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Flags', full_name='access_point.IPv4Route.Flags', index=3,
+      name='Flags', full_name='cheetah.IPv4Route.Flags', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Metric', full_name='access_point.IPv4Route.Metric', index=4,
+      name='Metric', full_name='cheetah.IPv4Route.Metric', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Ref', full_name='access_point.IPv4Route.Ref', index=5,
+      name='Ref', full_name='cheetah.IPv4Route.Ref', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Use', full_name='access_point.IPv4Route.Use', index=6,
+      name='Use', full_name='cheetah.IPv4Route.Use', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Iface', full_name='access_point.IPv4Route.Iface', index=7,
+      name='Iface', full_name='cheetah.IPv4Route.Iface', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -481,20 +481,20 @@ _IPV4ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=593,
-  serialized_end=731,
+  serialized_start=568,
+  serialized_end=706,
 )
 
 
 _APROUTINGSTATSMSGRSP = _descriptor.Descriptor(
   name='APRoutingStatsMsgRsp',
-  full_name='access_point.APRoutingStatsMsgRsp',
+  full_name='cheetah.APRoutingStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='IPv4Routes', full_name='access_point.APRoutingStatsMsgRsp.IPv4Routes', index=0,
+      name='IPv4Routes', full_name='cheetah.APRoutingStatsMsgRsp.IPv4Routes', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -512,27 +512,27 @@ _APROUTINGSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=733,
-  serialized_end=800,
+  serialized_start=708,
+  serialized_end=770,
 )
 
 
 _MULTICASTCOUNTER = _descriptor.Descriptor(
   name='MulticastCounter',
-  full_name='access_point.MulticastCounter',
+  full_name='cheetah.MulticastCounter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='TxMcastPkts', full_name='access_point.MulticastCounter.TxMcastPkts', index=0,
+      name='TxMcastPkts', full_name='cheetah.MulticastCounter.TxMcastPkts', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxMcastBytes', full_name='access_point.MulticastCounter.TxMcastBytes', index=1,
+      name='TxMcastBytes', full_name='cheetah.MulticastCounter.TxMcastBytes', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -550,27 +550,27 @@ _MULTICASTCOUNTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=802,
-  serialized_end=863,
+  serialized_start=772,
+  serialized_end=833,
 )
 
 
 _WLAN = _descriptor.Descriptor(
   name='WLAN',
-  full_name='access_point.WLAN',
+  full_name='cheetah.WLAN',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ID', full_name='access_point.WLAN.ID', index=0,
+      name='ID', full_name='cheetah.WLAN.ID', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SSID', full_name='access_point.WLAN.SSID', index=1,
+      name='SSID', full_name='cheetah.WLAN.SSID', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -588,55 +588,55 @@ _WLAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=865,
-  serialized_end=897,
+  serialized_start=835,
+  serialized_end=867,
 )
 
 
 _WLANENTRY = _descriptor.Descriptor(
   name='WLANEntry',
-  full_name='access_point.WLANEntry',
+  full_name='cheetah.WLANEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Wlan', full_name='access_point.WLANEntry.Wlan', index=0,
+      name='Wlan', full_name='cheetah.WLANEntry.Wlan', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RadioIndex', full_name='access_point.WLANEntry.RadioIndex', index=1,
+      name='RadioIndex', full_name='cheetah.WLANEntry.RadioIndex', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='BSSID', full_name='access_point.WLANEntry.BSSID', index=2,
+      name='BSSID', full_name='cheetah.WLANEntry.BSSID', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Dev', full_name='access_point.WLANEntry.Dev', index=3,
+      name='Dev', full_name='cheetah.WLANEntry.Dev', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='NumClients', full_name='access_point.WLANEntry.NumClients', index=4,
+      name='NumClients', full_name='cheetah.WLANEntry.NumClients', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Counter', full_name='access_point.WLANEntry.Counter', index=5,
+      name='Counter', full_name='cheetah.WLANEntry.Counter', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -654,20 +654,20 @@ _WLANENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=900,
-  serialized_end=1062,
+  serialized_start=870,
+  serialized_end=1022,
 )
 
 
 _APWLANSTATSMSGRSP = _descriptor.Descriptor(
   name='APWLANStatsMsgRsp',
-  full_name='access_point.APWLANStatsMsgRsp',
+  full_name='cheetah.APWLANStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='WLANEntries', full_name='access_point.APWLANStatsMsgRsp.WLANEntries', index=0,
+      name='WLANEntries', full_name='cheetah.APWLANStatsMsgRsp.WLANEntries', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -685,48 +685,48 @@ _APWLANSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1064,
-  serialized_end=1129,
+  serialized_start=1024,
+  serialized_end=1084,
 )
 
 
 _RADIOUTILIZATION = _descriptor.Descriptor(
   name='RadioUtilization',
-  full_name='access_point.RadioUtilization',
+  full_name='cheetah.RadioUtilization',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='All', full_name='access_point.RadioUtilization.All', index=0,
+      name='All', full_name='cheetah.RadioUtilization.All', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Tx', full_name='access_point.RadioUtilization.Tx', index=1,
+      name='Tx', full_name='cheetah.RadioUtilization.Tx', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxInBSS', full_name='access_point.RadioUtilization.RxInBSS', index=2,
+      name='RxInBSS', full_name='cheetah.RadioUtilization.RxInBSS', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxOtherBSS', full_name='access_point.RadioUtilization.RxOtherBSS', index=3,
+      name='RxOtherBSS', full_name='cheetah.RadioUtilization.RxOtherBSS', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='NonWifi', full_name='access_point.RadioUtilization.NonWifi', index=4,
+      name='NonWifi', full_name='cheetah.RadioUtilization.NonWifi', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -744,69 +744,69 @@ _RADIOUTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1131,
-  serialized_end=1228,
+  serialized_start=1086,
+  serialized_end=1183,
 )
 
 
 _RADIOCOUNTERS = _descriptor.Descriptor(
   name='RadioCounters',
-  full_name='access_point.RadioCounters',
+  full_name='cheetah.RadioCounters',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='TxBytes', full_name='access_point.RadioCounters.TxBytes', index=0,
+      name='TxBytes', full_name='cheetah.RadioCounters.TxBytes', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxPkts', full_name='access_point.RadioCounters.TxPkts', index=1,
+      name='TxPkts', full_name='cheetah.RadioCounters.TxPkts', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxMgmt', full_name='access_point.RadioCounters.TxMgmt', index=2,
+      name='TxMgmt', full_name='cheetah.RadioCounters.TxMgmt', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxErrors', full_name='access_point.RadioCounters.TxErrors', index=3,
+      name='TxErrors', full_name='cheetah.RadioCounters.TxErrors', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxBytes', full_name='access_point.RadioCounters.RxBytes', index=4,
+      name='RxBytes', full_name='cheetah.RadioCounters.RxBytes', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxPkts', full_name='access_point.RadioCounters.RxPkts', index=5,
+      name='RxPkts', full_name='cheetah.RadioCounters.RxPkts', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxMgmt', full_name='access_point.RadioCounters.RxMgmt', index=6,
+      name='RxMgmt', full_name='cheetah.RadioCounters.RxMgmt', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxErrors', full_name='access_point.RadioCounters.RxErrors', index=7,
+      name='RxErrors', full_name='cheetah.RadioCounters.RxErrors', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -824,27 +824,27 @@ _RADIOCOUNTERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1231,
-  serialized_end=1380,
+  serialized_start=1186,
+  serialized_end=1335,
 )
 
 
 _DFSSTATE = _descriptor.Descriptor(
   name='DfsState',
-  full_name='access_point.DfsState',
+  full_name='cheetah.DfsState',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='CacState', full_name='access_point.DfsState.CacState', index=0,
+      name='CacState', full_name='cheetah.DfsState.CacState', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RadarDetected', full_name='access_point.DfsState.RadarDetected', index=1,
+      name='RadarDetected', full_name='cheetah.DfsState.RadarDetected', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -862,90 +862,90 @@ _DFSSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1382,
-  serialized_end=1433,
+  serialized_start=1337,
+  serialized_end=1388,
 )
 
 
 _RADIOENTRY = _descriptor.Descriptor(
   name='RadioEntry',
-  full_name='access_point.RadioEntry',
+  full_name='cheetah.RadioEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Dev', full_name='access_point.RadioEntry.Dev', index=0,
+      name='Dev', full_name='cheetah.RadioEntry.Dev', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Band', full_name='access_point.RadioEntry.Band', index=1,
+      name='Band', full_name='cheetah.RadioEntry.Band', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Channel', full_name='access_point.RadioEntry.Channel', index=2,
+      name='Channel', full_name='cheetah.RadioEntry.Channel', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SecondaryChannel', full_name='access_point.RadioEntry.SecondaryChannel', index=3,
+      name='SecondaryChannel', full_name='cheetah.RadioEntry.SecondaryChannel', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Bandwidth', full_name='access_point.RadioEntry.Bandwidth', index=4,
+      name='Bandwidth', full_name='cheetah.RadioEntry.Bandwidth', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='NoiseFloor', full_name='access_point.RadioEntry.NoiseFloor', index=5,
+      name='NoiseFloor', full_name='cheetah.RadioEntry.NoiseFloor', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MaxTxPower', full_name='access_point.RadioEntry.MaxTxPower', index=6,
+      name='MaxTxPower', full_name='cheetah.RadioEntry.MaxTxPower', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Utilization', full_name='access_point.RadioEntry.Utilization', index=7,
+      name='Utilization', full_name='cheetah.RadioEntry.Utilization', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='AntennaRSSI', full_name='access_point.RadioEntry.AntennaRSSI', index=8,
+      name='AntennaRSSI', full_name='cheetah.RadioEntry.AntennaRSSI', index=8,
       number=9, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Counter', full_name='access_point.RadioEntry.Counter', index=9,
+      name='Counter', full_name='cheetah.RadioEntry.Counter', index=9,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='DFS', full_name='access_point.RadioEntry.DFS', index=10,
+      name='DFS', full_name='cheetah.RadioEntry.DFS', index=10,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -963,20 +963,20 @@ _RADIOENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1436,
-  serialized_end=1734,
+  serialized_start=1391,
+  serialized_end=1674,
 )
 
 
 _APRADIOSTATSMSGRSP = _descriptor.Descriptor(
   name='APRadioStatsMsgRsp',
-  full_name='access_point.APRadioStatsMsgRsp',
+  full_name='cheetah.APRadioStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Radios', full_name='access_point.APRadioStatsMsgRsp.Radios', index=0,
+      name='Radios', full_name='cheetah.APRadioStatsMsgRsp.Radios', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -994,111 +994,111 @@ _APRADIOSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1736,
-  serialized_end=1798,
+  serialized_start=1676,
+  serialized_end=1733,
 )
 
 
 _APCLIENTENTRY = _descriptor.Descriptor(
   name='APClientEntry',
-  full_name='access_point.APClientEntry',
+  full_name='cheetah.APClientEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='MAC', full_name='access_point.APClientEntry.MAC', index=0,
+      name='MAC', full_name='cheetah.APClientEntry.MAC', index=0,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RadioIndex', full_name='access_point.APClientEntry.RadioIndex', index=1,
+      name='RadioIndex', full_name='cheetah.APClientEntry.RadioIndex', index=1,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Band', full_name='access_point.APClientEntry.Band', index=2,
+      name='Band', full_name='cheetah.APClientEntry.Band', index=2,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Wlan', full_name='access_point.APClientEntry.Wlan', index=3,
+      name='Wlan', full_name='cheetah.APClientEntry.Wlan', index=3,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ConnectedTimeSec', full_name='access_point.APClientEntry.ConnectedTimeSec', index=4,
+      name='ConnectedTimeSec', full_name='cheetah.APClientEntry.ConnectedTimeSec', index=4,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='InactiveTimeMilliSec', full_name='access_point.APClientEntry.InactiveTimeMilliSec', index=5,
+      name='InactiveTimeMilliSec', full_name='cheetah.APClientEntry.InactiveTimeMilliSec', index=5,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RSSI', full_name='access_point.APClientEntry.RSSI', index=6,
+      name='RSSI', full_name='cheetah.APClientEntry.RSSI', index=6,
       number=9, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='NF', full_name='access_point.APClientEntry.NF', index=7,
+      name='NF', full_name='cheetah.APClientEntry.NF', index=7,
       number=10, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='AntennaRSSI', full_name='access_point.APClientEntry.AntennaRSSI', index=8,
+      name='AntennaRSSI', full_name='cheetah.APClientEntry.AntennaRSSI', index=8,
       number=11, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxBitRate', full_name='access_point.APClientEntry.TxBitRate', index=9,
+      name='TxBitRate', full_name='cheetah.APClientEntry.TxBitRate', index=9,
       number=12, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxUnicastBytes', full_name='access_point.APClientEntry.TxUnicastBytes', index=10,
+      name='TxUnicastBytes', full_name='cheetah.APClientEntry.TxUnicastBytes', index=10,
       number=13, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxUnicastPkts', full_name='access_point.APClientEntry.TxUnicastPkts', index=11,
+      name='TxUnicastPkts', full_name='cheetah.APClientEntry.TxUnicastPkts', index=11,
       number=14, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxBytes', full_name='access_point.APClientEntry.RxBytes', index=12,
+      name='RxBytes', full_name='cheetah.APClientEntry.RxBytes', index=12,
       number=15, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxPkts', full_name='access_point.APClientEntry.RxPkts', index=13,
+      name='RxPkts', full_name='cheetah.APClientEntry.RxPkts', index=13,
       number=16, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1116,20 +1116,20 @@ _APCLIENTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1801,
-  serialized_end=2099,
+  serialized_start=1736,
+  serialized_end=2029,
 )
 
 
 _APCLIENTSTATSMSGRSP = _descriptor.Descriptor(
   name='APClientStatsMsgRsp',
-  full_name='access_point.APClientStatsMsgRsp',
+  full_name='cheetah.APClientStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Clients', full_name='access_point.APClientStatsMsgRsp.Clients', index=0,
+      name='Clients', full_name='cheetah.APClientStatsMsgRsp.Clients', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1147,76 +1147,76 @@ _APCLIENTSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2101,
-  serialized_end=2168,
+  serialized_start=2031,
+  serialized_end=2093,
 )
 
 
 _APINTERFACEENTRY = _descriptor.Descriptor(
   name='APInterfaceEntry',
-  full_name='access_point.APInterfaceEntry',
+  full_name='cheetah.APInterfaceEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='access_point.APInterfaceEntry.Name', index=0,
+      name='Name', full_name='cheetah.APInterfaceEntry.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Link', full_name='access_point.APInterfaceEntry.Link', index=1,
+      name='Link', full_name='cheetah.APInterfaceEntry.Link', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='FullDuplex', full_name='access_point.APInterfaceEntry.FullDuplex', index=2,
+      name='FullDuplex', full_name='cheetah.APInterfaceEntry.FullDuplex', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Speed', full_name='access_point.APInterfaceEntry.Speed', index=3,
+      name='Speed', full_name='cheetah.APInterfaceEntry.Speed', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxBytes', full_name='access_point.APInterfaceEntry.RxBytes', index=4,
+      name='RxBytes', full_name='cheetah.APInterfaceEntry.RxBytes', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxPkts', full_name='access_point.APInterfaceEntry.RxPkts', index=5,
+      name='RxPkts', full_name='cheetah.APInterfaceEntry.RxPkts', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RxDiscards', full_name='access_point.APInterfaceEntry.RxDiscards', index=6,
+      name='RxDiscards', full_name='cheetah.APInterfaceEntry.RxDiscards', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxBytes', full_name='access_point.APInterfaceEntry.TxBytes', index=7,
+      name='TxBytes', full_name='cheetah.APInterfaceEntry.TxBytes', index=7,
       number=8, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TxPkts', full_name='access_point.APInterfaceEntry.TxPkts', index=8,
+      name='TxPkts', full_name='cheetah.APInterfaceEntry.TxPkts', index=8,
       number=9, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1234,20 +1234,20 @@ _APINTERFACEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2171,
-  serialized_end=2338,
+  serialized_start=2096,
+  serialized_end=2263,
 )
 
 
 _APINTERFACESTATSMSGRSP = _descriptor.Descriptor(
   name='APInterfaceStatsMsgRsp',
-  full_name='access_point.APInterfaceStatsMsgRsp',
+  full_name='cheetah.APInterfaceStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Interfaces', full_name='access_point.APInterfaceStatsMsgRsp.Interfaces', index=0,
+      name='Interfaces', full_name='cheetah.APInterfaceStatsMsgRsp.Interfaces', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1265,76 +1265,76 @@ _APINTERFACESTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2340,
-  serialized_end=2416,
+  serialized_start=2265,
+  serialized_end=2336,
 )
 
 
 _APSTATSMSGRSP = _descriptor.Descriptor(
   name='APStatsMsgRsp',
-  full_name='access_point.APStatsMsgRsp',
+  full_name='cheetah.APStatsMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APStatsMsgRsp.ErrStatus', index=0,
+      name='ErrStatus', full_name='cheetah.APStatsMsgRsp.ErrStatus', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SystemStats', full_name='access_point.APStatsMsgRsp.SystemStats', index=1,
+      name='SystemStats', full_name='cheetah.APStatsMsgRsp.SystemStats', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MemoryStats', full_name='access_point.APStatsMsgRsp.MemoryStats', index=2,
+      name='MemoryStats', full_name='cheetah.APStatsMsgRsp.MemoryStats', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='InterfaceStats', full_name='access_point.APStatsMsgRsp.InterfaceStats', index=3,
+      name='InterfaceStats', full_name='cheetah.APStatsMsgRsp.InterfaceStats', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RoutingStats', full_name='access_point.APStatsMsgRsp.RoutingStats', index=4,
+      name='RoutingStats', full_name='cheetah.APStatsMsgRsp.RoutingStats', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='DNSStats', full_name='access_point.APStatsMsgRsp.DNSStats', index=5,
+      name='DNSStats', full_name='cheetah.APStatsMsgRsp.DNSStats', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='RadioStats', full_name='access_point.APStatsMsgRsp.RadioStats', index=6,
+      name='RadioStats', full_name='cheetah.APStatsMsgRsp.RadioStats', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='WLANStats', full_name='access_point.APStatsMsgRsp.WLANStats', index=7,
+      name='WLANStats', full_name='cheetah.APStatsMsgRsp.WLANStats', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ClientStats', full_name='access_point.APStatsMsgRsp.ClientStats', index=8,
+      name='ClientStats', full_name='cheetah.APStatsMsgRsp.ClientStats', index=8,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1352,11 +1352,11 @@ _APSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='msg_rsp', full_name='access_point.APStatsMsgRsp.msg_rsp',
+      name='msg_rsp', full_name='cheetah.APStatsMsgRsp.msg_rsp',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=2419,
-  serialized_end=2953,
+  serialized_start=2339,
+  serialized_end=2828,
 )
 
 _APSTATSREQUEST.fields_by_name['StatsType'].enum_type = _APSTATSTYPE
@@ -1436,161 +1436,161 @@ DESCRIPTOR.enum_types_by_name['StatsTimeInterval'] = _STATSTIMEINTERVAL
 APStatsRequest = _reflection.GeneratedProtocolMessageType('APStatsRequest', (_message.Message,), dict(
   DESCRIPTOR = _APSTATSREQUEST,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APStatsRequest)
+  # @@protoc_insertion_point(class_scope:cheetah.APStatsRequest)
   ))
 _sym_db.RegisterMessage(APStatsRequest)
 
 APStatsMsg = _reflection.GeneratedProtocolMessageType('APStatsMsg', (_message.Message,), dict(
   DESCRIPTOR = _APSTATSMSG,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APStatsMsg)
+  # @@protoc_insertion_point(class_scope:cheetah.APStatsMsg)
   ))
 _sym_db.RegisterMessage(APStatsMsg)
 
 APSystemStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APSystemStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APSYSTEMSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APSystemStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APSystemStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APSystemStatsMsgRsp)
 
 MemInfo = _reflection.GeneratedProtocolMessageType('MemInfo', (_message.Message,), dict(
   DESCRIPTOR = _MEMINFO,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.MemInfo)
+  # @@protoc_insertion_point(class_scope:cheetah.MemInfo)
   ))
 _sym_db.RegisterMessage(MemInfo)
 
 SlabInfo = _reflection.GeneratedProtocolMessageType('SlabInfo', (_message.Message,), dict(
   DESCRIPTOR = _SLABINFO,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.SlabInfo)
+  # @@protoc_insertion_point(class_scope:cheetah.SlabInfo)
   ))
 _sym_db.RegisterMessage(SlabInfo)
 
 APMemoryStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APMemoryStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APMEMORYSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APMemoryStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APMemoryStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APMemoryStatsMsgRsp)
 
 APDNSStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APDNSStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APDNSSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APDNSStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APDNSStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APDNSStatsMsgRsp)
 
 IPv4Route = _reflection.GeneratedProtocolMessageType('IPv4Route', (_message.Message,), dict(
   DESCRIPTOR = _IPV4ROUTE,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.IPv4Route)
+  # @@protoc_insertion_point(class_scope:cheetah.IPv4Route)
   ))
 _sym_db.RegisterMessage(IPv4Route)
 
 APRoutingStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APRoutingStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APROUTINGSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APRoutingStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APRoutingStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APRoutingStatsMsgRsp)
 
 MulticastCounter = _reflection.GeneratedProtocolMessageType('MulticastCounter', (_message.Message,), dict(
   DESCRIPTOR = _MULTICASTCOUNTER,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.MulticastCounter)
+  # @@protoc_insertion_point(class_scope:cheetah.MulticastCounter)
   ))
 _sym_db.RegisterMessage(MulticastCounter)
 
 WLAN = _reflection.GeneratedProtocolMessageType('WLAN', (_message.Message,), dict(
   DESCRIPTOR = _WLAN,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.WLAN)
+  # @@protoc_insertion_point(class_scope:cheetah.WLAN)
   ))
 _sym_db.RegisterMessage(WLAN)
 
 WLANEntry = _reflection.GeneratedProtocolMessageType('WLANEntry', (_message.Message,), dict(
   DESCRIPTOR = _WLANENTRY,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.WLANEntry)
+  # @@protoc_insertion_point(class_scope:cheetah.WLANEntry)
   ))
 _sym_db.RegisterMessage(WLANEntry)
 
 APWLANStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APWLANStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APWLANSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APWLANStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APWLANStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APWLANStatsMsgRsp)
 
 RadioUtilization = _reflection.GeneratedProtocolMessageType('RadioUtilization', (_message.Message,), dict(
   DESCRIPTOR = _RADIOUTILIZATION,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.RadioUtilization)
+  # @@protoc_insertion_point(class_scope:cheetah.RadioUtilization)
   ))
 _sym_db.RegisterMessage(RadioUtilization)
 
 RadioCounters = _reflection.GeneratedProtocolMessageType('RadioCounters', (_message.Message,), dict(
   DESCRIPTOR = _RADIOCOUNTERS,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.RadioCounters)
+  # @@protoc_insertion_point(class_scope:cheetah.RadioCounters)
   ))
 _sym_db.RegisterMessage(RadioCounters)
 
 DfsState = _reflection.GeneratedProtocolMessageType('DfsState', (_message.Message,), dict(
   DESCRIPTOR = _DFSSTATE,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.DfsState)
+  # @@protoc_insertion_point(class_scope:cheetah.DfsState)
   ))
 _sym_db.RegisterMessage(DfsState)
 
 RadioEntry = _reflection.GeneratedProtocolMessageType('RadioEntry', (_message.Message,), dict(
   DESCRIPTOR = _RADIOENTRY,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.RadioEntry)
+  # @@protoc_insertion_point(class_scope:cheetah.RadioEntry)
   ))
 _sym_db.RegisterMessage(RadioEntry)
 
 APRadioStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APRadioStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APRADIOSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APRadioStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APRadioStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APRadioStatsMsgRsp)
 
 APClientEntry = _reflection.GeneratedProtocolMessageType('APClientEntry', (_message.Message,), dict(
   DESCRIPTOR = _APCLIENTENTRY,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APClientEntry)
+  # @@protoc_insertion_point(class_scope:cheetah.APClientEntry)
   ))
 _sym_db.RegisterMessage(APClientEntry)
 
 APClientStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APClientStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APCLIENTSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APClientStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APClientStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APClientStatsMsgRsp)
 
 APInterfaceEntry = _reflection.GeneratedProtocolMessageType('APInterfaceEntry', (_message.Message,), dict(
   DESCRIPTOR = _APINTERFACEENTRY,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APInterfaceEntry)
+  # @@protoc_insertion_point(class_scope:cheetah.APInterfaceEntry)
   ))
 _sym_db.RegisterMessage(APInterfaceEntry)
 
 APInterfaceStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APInterfaceStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APINTERFACESTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APInterfaceStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APInterfaceStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APInterfaceStatsMsgRsp)
 
 APStatsMsgRsp = _reflection.GeneratedProtocolMessageType('APStatsMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APSTATSMSGRSP,
   __module__ = 'ap_stats_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APStatsMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APStatsMsgRsp)
   ))
 _sym_db.RegisterMessage(APStatsMsgRsp)
 
@@ -1622,7 +1622,7 @@ class APStatisticsStub(object):
       channel: A grpc.Channel.
     """
     self.APStatsGet = channel.unary_stream(
-        '/access_point.APStatistics/APStatsGet',
+        '/cheetah.APStatistics/APStatsGet',
         request_serializer=APStatsMsg.SerializeToString,
         response_deserializer=APStatsMsgRsp.FromString,
         )
@@ -1656,7 +1656,7 @@ def add_APStatisticsServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'access_point.APStatistics', rpc_method_handlers)
+      'cheetah.APStatistics', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -1694,13 +1694,13 @@ class BetaAPStatisticsStub(object):
 
 def beta_create_APStatistics_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
   request_deserializers = {
-    ('access_point.APStatistics', 'APStatsGet'): APStatsMsg.FromString,
+    ('cheetah.APStatistics', 'APStatsGet'): APStatsMsg.FromString,
   }
   response_serializers = {
-    ('access_point.APStatistics', 'APStatsGet'): APStatsMsgRsp.SerializeToString,
+    ('cheetah.APStatistics', 'APStatsGet'): APStatsMsgRsp.SerializeToString,
   }
   method_implementations = {
-    ('access_point.APStatistics', 'APStatsGet'): face_utilities.unary_stream_inline(servicer.APStatsGet),
+    ('cheetah.APStatistics', 'APStatsGet'): face_utilities.unary_stream_inline(servicer.APStatsGet),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -1708,14 +1708,14 @@ def beta_create_APStatistics_server(servicer, pool=None, pool_size=None, default
 
 def beta_create_APStatistics_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
   request_serializers = {
-    ('access_point.APStatistics', 'APStatsGet'): APStatsMsg.SerializeToString,
+    ('cheetah.APStatistics', 'APStatsGet'): APStatsMsg.SerializeToString,
   }
   response_deserializers = {
-    ('access_point.APStatistics', 'APStatsGet'): APStatsMsgRsp.FromString,
+    ('cheetah.APStatistics', 'APStatsGet'): APStatsMsgRsp.FromString,
   }
   cardinalities = {
     'APStatsGet': cardinality.Cardinality.UNARY_STREAM,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'access_point.APStatistics', cardinalities, options=stub_options)
+  return beta_implementations.dynamic_stub(channel, 'cheetah.APStatistics', cardinalities, options=stub_options)
 # @@protoc_insertion_point(module_scope)

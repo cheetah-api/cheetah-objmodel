@@ -13,10 +13,10 @@
 #include <grpc++/impl/codegen/rpc_service_method.h>
 #include <grpc++/impl/codegen/service_type.h>
 #include <grpc++/impl/codegen/sync_stream.h>
-namespace access_point {
+namespace cheetah {
 
 static const char* APStatistics_method_names[] = {
-  "/access_point.APStatistics/APStatsGet",
+  "/cheetah.APStatistics/APStatsGet",
 };
 
 std::unique_ptr< APStatistics::Stub> APStatistics::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -28,12 +28,12 @@ APStatistics::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   : channel_(channel), rpcmethod_APStatsGet_(APStatistics_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::ClientReader< ::access_point::APStatsMsgRsp>* APStatistics::Stub::APStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request) {
-  return new ::grpc::ClientReader< ::access_point::APStatsMsgRsp>(channel_.get(), rpcmethod_APStatsGet_, context, request);
+::grpc::ClientReader< ::cheetah::APStatsMsgRsp>* APStatistics::Stub::APStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request) {
+  return new ::grpc::ClientReader< ::cheetah::APStatsMsgRsp>(channel_.get(), rpcmethod_APStatsGet_, context, request);
 }
 
-::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>* APStatistics::Stub::AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::access_point::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return new ::grpc::ClientAsyncReader< ::access_point::APStatsMsgRsp>(channel_.get(), cq, rpcmethod_APStatsGet_, context, request, tag);
+::grpc::ClientAsyncReader< ::cheetah::APStatsMsgRsp>* APStatistics::Stub::AsyncAPStatsGetRaw(::grpc::ClientContext* context, const ::cheetah::APStatsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::cheetah::APStatsMsgRsp>(channel_.get(), cq, rpcmethod_APStatsGet_, context, request, tag);
 }
 
 APStatistics::Service::Service() {
@@ -41,14 +41,14 @@ APStatistics::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       APStatistics_method_names[0],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< APStatistics::Service, ::access_point::APStatsMsg, ::access_point::APStatsMsgRsp>(
+      new ::grpc::ServerStreamingHandler< APStatistics::Service, ::cheetah::APStatsMsg, ::cheetah::APStatsMsgRsp>(
           std::mem_fn(&APStatistics::Service::APStatsGet), this)));
 }
 
 APStatistics::Service::~Service() {
 }
 
-::grpc::Status APStatistics::Service::APStatsGet(::grpc::ServerContext* context, const ::access_point::APStatsMsg* request, ::grpc::ServerWriter< ::access_point::APStatsMsgRsp>* writer) {
+::grpc::Status APStatistics::Service::APStatsGet(::grpc::ServerContext* context, const ::cheetah::APStatsMsg* request, ::grpc::ServerWriter< ::cheetah::APStatsMsgRsp>* writer) {
   (void) context;
   (void) request;
   (void) writer;
@@ -56,5 +56,5 @@ APStatistics::Service::~Service() {
 }
 
 
-}  // namespace access_point
+}  // namespace cheetah
 
