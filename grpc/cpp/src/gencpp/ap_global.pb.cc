@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 namespace {
 
@@ -31,7 +31,7 @@ const ::google::protobuf::Descriptor* APGlobalNotif_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   APGlobalNotif_reflection_ = NULL;
 struct APGlobalNotifOneofInstance {
-  const ::access_point::APInitMsgRsp* initrspmsg_;
+  const ::cheetah::APInitMsgRsp* initrspmsg_;
 }* APGlobalNotif_default_oneof_instance_ = NULL;
 const ::google::protobuf::Descriptor* APGlobalsGetMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
@@ -176,7 +176,7 @@ void protobuf_ShutdownFile_ap_5fglobal_2eproto() {
 void protobuf_InitDefaults_ap_5fglobal_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::access_point::protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
+  ::cheetah::protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   APInitMsg_default_instance_.DefaultConstruct();
   APInitMsgRsp_default_instance_.DefaultConstruct();
   APGlobalNotif_default_instance_.DefaultConstruct();
@@ -200,31 +200,30 @@ void protobuf_AddDesc_ap_5fglobal_2eproto_impl() {
 
   protobuf_InitDefaults_ap_5fglobal_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017ap_global.proto\022\014access_point\032\025ap_comm"
-    "on_types.proto\"\?\n\tAPInitMsg\022\020\n\010MajorVer\030"
-    "\001 \001(\r\022\020\n\010MinorVer\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r\""
-    "B\n\014APInitMsgRsp\022\020\n\010MajorVer\030\001 \001(\r\022\020\n\010Min"
-    "orVer\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r\"\256\001\n\rAPGlobal"
-    "Notif\0222\n\tEventType\030\001 \001(\0162\037.access_point."
-    "APGlobalNotifType\022.\n\tErrStatus\030\002 \001(\0132\033.a"
-    "ccess_point.APErrorStatus\0220\n\nInitRspMsg\030"
-    "\003 \001(\0132\032.access_point.APInitMsgRspH\000B\007\n\005E"
-    "vent\"\021\n\017APGlobalsGetMsg\"{\n\022APGlobalsGetM"
-    "sgRsp\022.\n\tErrStatus\030\001 \001(\0132\033.access_point."
-    "APErrorStatus\022\032\n\022MaxRadioNameLength\030\002 \001("
-    "\r\022\031\n\021MaxSsidNameLength\030\003 \001(\r*\234\001\n\021APGloba"
-    "lNotifType\022!\n\035AP_GLOBAL_EVENT_TYPE_RESER"
-    "VED\020\000\022\036\n\032AP_GLOBAL_EVENT_TYPE_ERROR\020\001\022\"\n"
-    "\036AP_GLOBAL_EVENT_TYPE_HEARTBEAT\020\002\022 \n\034AP_"
-    "GLOBAL_EVENT_TYPE_VERSION\020\0032\250\001\n\010APGlobal"
-    "\022K\n\021APGlobalInitNotif\022\027.access_point.API"
-    "nitMsg\032\033.access_point.APGlobalNotif0\001\022O\n"
-    "\014APGlobalsGet\022\035.access_point.APGlobalsGe"
-    "tMsg\032 .access_point.APGlobalsGetMsgRspb\006"
-    "proto3", 846);
+    "\n\017ap_global.proto\022\007cheetah\032\025ap_common_ty"
+    "pes.proto\"\?\n\tAPInitMsg\022\020\n\010MajorVer\030\001 \001(\r"
+    "\022\020\n\010MinorVer\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r\"B\n\014AP"
+    "InitMsgRsp\022\020\n\010MajorVer\030\001 \001(\r\022\020\n\010MinorVer"
+    "\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r\"\237\001\n\rAPGlobalNotif"
+    "\022-\n\tEventType\030\001 \001(\0162\032.cheetah.APGlobalNo"
+    "tifType\022)\n\tErrStatus\030\002 \001(\0132\026.cheetah.APE"
+    "rrorStatus\022+\n\nInitRspMsg\030\003 \001(\0132\025.cheetah"
+    ".APInitMsgRspH\000B\007\n\005Event\"\021\n\017APGlobalsGet"
+    "Msg\"v\n\022APGlobalsGetMsgRsp\022)\n\tErrStatus\030\001"
+    " \001(\0132\026.cheetah.APErrorStatus\022\032\n\022MaxRadio"
+    "NameLength\030\002 \001(\r\022\031\n\021MaxSsidNameLength\030\003 "
+    "\001(\r*\234\001\n\021APGlobalNotifType\022!\n\035AP_GLOBAL_E"
+    "VENT_TYPE_RESERVED\020\000\022\036\n\032AP_GLOBAL_EVENT_"
+    "TYPE_ERROR\020\001\022\"\n\036AP_GLOBAL_EVENT_TYPE_HEA"
+    "RTBEAT\020\002\022 \n\034AP_GLOBAL_EVENT_TYPE_VERSION"
+    "\020\0032\224\001\n\010APGlobal\022A\n\021APGlobalInitNotif\022\022.c"
+    "heetah.APInitMsg\032\026.cheetah.APGlobalNotif"
+    "0\001\022E\n\014APGlobalsGet\022\030.cheetah.APGlobalsGe"
+    "tMsg\032\033.cheetah.APGlobalsGetMsgRspb\006proto"
+    "3", 801);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_global.proto", &protobuf_RegisterTypes);
-  ::access_point::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
+  ::cheetah::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fglobal_2eproto);
 }
 
@@ -278,7 +277,7 @@ APInitMsg::APInitMsg()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APInitMsg)
+  // @@protoc_insertion_point(constructor:cheetah.APInitMsg)
 }
 
 void APInitMsg::InitAsDefaultInstance() {
@@ -289,7 +288,7 @@ APInitMsg::APInitMsg(const APInitMsg& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APInitMsg)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APInitMsg)
 }
 
 void APInitMsg::SharedCtor() {
@@ -299,7 +298,7 @@ void APInitMsg::SharedCtor() {
 }
 
 APInitMsg::~APInitMsg() {
-  // @@protoc_insertion_point(destructor:access_point.APInitMsg)
+  // @@protoc_insertion_point(destructor:cheetah.APInitMsg)
   SharedDtor();
 }
 
@@ -332,7 +331,7 @@ APInitMsg* APInitMsg::New(::google::protobuf::Arena* arena) const {
 }
 
 void APInitMsg::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APInitMsg)
+// @@protoc_insertion_point(message_clear_start:cheetah.APInitMsg)
 #if defined(__clang__)
 #define ZR_HELPER_(f) \
   _Pragma("clang diagnostic push") \
@@ -360,7 +359,7 @@ bool APInitMsg::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APInitMsg)
+  // @@protoc_insertion_point(parse_start:cheetah.APInitMsg)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -423,17 +422,17 @@ bool APInitMsg::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APInitMsg)
+  // @@protoc_insertion_point(parse_success:cheetah.APInitMsg)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APInitMsg)
+  // @@protoc_insertion_point(parse_failure:cheetah.APInitMsg)
   return false;
 #undef DO_
 }
 
 void APInitMsg::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APInitMsg)
+  // @@protoc_insertion_point(serialize_start:cheetah.APInitMsg)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->majorver(), output);
@@ -449,13 +448,13 @@ void APInitMsg::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->subver(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APInitMsg)
+  // @@protoc_insertion_point(serialize_end:cheetah.APInitMsg)
 }
 
 ::google::protobuf::uint8* APInitMsg::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APInitMsg)
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APInitMsg)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->majorver(), target);
@@ -471,12 +470,12 @@ void APInitMsg::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->subver(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APInitMsg)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APInitMsg)
   return target;
 }
 
 size_t APInitMsg::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APInitMsg)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APInitMsg)
   size_t total_size = 0;
 
   // optional uint32 MajorVer = 1;
@@ -508,22 +507,22 @@ size_t APInitMsg::ByteSizeLong() const {
 }
 
 void APInitMsg::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APInitMsg)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APInitMsg)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APInitMsg* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APInitMsg>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APInitMsg)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APInitMsg)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInitMsg)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APInitMsg)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APInitMsg::MergeFrom(const APInitMsg& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInitMsg)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APInitMsg)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -545,14 +544,14 @@ void APInitMsg::UnsafeMergeFrom(const APInitMsg& from) {
 }
 
 void APInitMsg::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APInitMsg)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APInitMsg)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APInitMsg::CopyFrom(const APInitMsg& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInitMsg)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APInitMsg)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -591,13 +590,13 @@ void APInitMsg::clear_majorver() {
   majorver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsg::majorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.MajorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.MajorVer)
   return majorver_;
 }
 void APInitMsg::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.MajorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.MajorVer)
 }
 
 // optional uint32 MinorVer = 2;
@@ -605,13 +604,13 @@ void APInitMsg::clear_minorver() {
   minorver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsg::minorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.MinorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.MinorVer)
   return minorver_;
 }
 void APInitMsg::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.MinorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.MinorVer)
 }
 
 // optional uint32 SubVer = 3;
@@ -619,13 +618,13 @@ void APInitMsg::clear_subver() {
   subver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsg::subver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsg.SubVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsg.SubVer)
   return subver_;
 }
 void APInitMsg::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsg.SubVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsg.SubVer)
 }
 
 inline const APInitMsg* APInitMsg::internal_default_instance() {
@@ -645,7 +644,7 @@ APInitMsgRsp::APInitMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(constructor:cheetah.APInitMsgRsp)
 }
 
 void APInitMsgRsp::InitAsDefaultInstance() {
@@ -656,7 +655,7 @@ APInitMsgRsp::APInitMsgRsp(const APInitMsgRsp& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APInitMsgRsp)
 }
 
 void APInitMsgRsp::SharedCtor() {
@@ -666,7 +665,7 @@ void APInitMsgRsp::SharedCtor() {
 }
 
 APInitMsgRsp::~APInitMsgRsp() {
-  // @@protoc_insertion_point(destructor:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(destructor:cheetah.APInitMsgRsp)
   SharedDtor();
 }
 
@@ -699,7 +698,7 @@ APInitMsgRsp* APInitMsgRsp::New(::google::protobuf::Arena* arena) const {
 }
 
 void APInitMsgRsp::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(message_clear_start:cheetah.APInitMsgRsp)
 #if defined(__clang__)
 #define ZR_HELPER_(f) \
   _Pragma("clang diagnostic push") \
@@ -727,7 +726,7 @@ bool APInitMsgRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(parse_start:cheetah.APInitMsgRsp)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -790,17 +789,17 @@ bool APInitMsgRsp::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(parse_success:cheetah.APInitMsgRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(parse_failure:cheetah.APInitMsgRsp)
   return false;
 #undef DO_
 }
 
 void APInitMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(serialize_start:cheetah.APInitMsgRsp)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->majorver(), output);
@@ -816,13 +815,13 @@ void APInitMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->subver(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(serialize_end:cheetah.APInitMsgRsp)
 }
 
 ::google::protobuf::uint8* APInitMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APInitMsgRsp)
   // optional uint32 MajorVer = 1;
   if (this->majorver() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->majorver(), target);
@@ -838,12 +837,12 @@ void APInitMsgRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->subver(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APInitMsgRsp)
   return target;
 }
 
 size_t APInitMsgRsp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APInitMsgRsp)
   size_t total_size = 0;
 
   // optional uint32 MajorVer = 1;
@@ -875,22 +874,22 @@ size_t APInitMsgRsp::ByteSizeLong() const {
 }
 
 void APInitMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APInitMsgRsp)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APInitMsgRsp* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APInitMsgRsp>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APInitMsgRsp)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APInitMsgRsp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APInitMsgRsp)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APInitMsgRsp::MergeFrom(const APInitMsgRsp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APInitMsgRsp)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -912,14 +911,14 @@ void APInitMsgRsp::UnsafeMergeFrom(const APInitMsgRsp& from) {
 }
 
 void APInitMsgRsp::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APInitMsgRsp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APInitMsgRsp::CopyFrom(const APInitMsgRsp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APInitMsgRsp)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APInitMsgRsp)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -958,13 +957,13 @@ void APInitMsgRsp::clear_majorver() {
   majorver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsgRsp::majorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MajorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.MajorVer)
   return majorver_;
 }
 void APInitMsgRsp::set_majorver(::google::protobuf::uint32 value) {
   
   majorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MajorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.MajorVer)
 }
 
 // optional uint32 MinorVer = 2;
@@ -972,13 +971,13 @@ void APInitMsgRsp::clear_minorver() {
   minorver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsgRsp::minorver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.MinorVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.MinorVer)
   return minorver_;
 }
 void APInitMsgRsp::set_minorver(::google::protobuf::uint32 value) {
   
   minorver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.MinorVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.MinorVer)
 }
 
 // optional uint32 SubVer = 3;
@@ -986,13 +985,13 @@ void APInitMsgRsp::clear_subver() {
   subver_ = 0u;
 }
 ::google::protobuf::uint32 APInitMsgRsp::subver() const {
-  // @@protoc_insertion_point(field_get:access_point.APInitMsgRsp.SubVer)
+  // @@protoc_insertion_point(field_get:cheetah.APInitMsgRsp.SubVer)
   return subver_;
 }
 void APInitMsgRsp::set_subver(::google::protobuf::uint32 value) {
   
   subver_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APInitMsgRsp.SubVer)
+  // @@protoc_insertion_point(field_set:cheetah.APInitMsgRsp.SubVer)
 }
 
 inline const APInitMsgRsp* APInitMsgRsp::internal_default_instance() {
@@ -1012,14 +1011,14 @@ APGlobalNotif::APGlobalNotif()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(constructor:cheetah.APGlobalNotif)
 }
 
 void APGlobalNotif::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
-  APGlobalNotif_default_oneof_instance_->initrspmsg_ = const_cast< ::access_point::APInitMsgRsp*>(
-      ::access_point::APInitMsgRsp::internal_default_instance());
+  errstatus_ = const_cast< ::cheetah::APErrorStatus*>(
+      ::cheetah::APErrorStatus::internal_default_instance());
+  APGlobalNotif_default_oneof_instance_->initrspmsg_ = const_cast< ::cheetah::APInitMsgRsp*>(
+      ::cheetah::APInitMsgRsp::internal_default_instance());
 }
 
 APGlobalNotif::APGlobalNotif(const APGlobalNotif& from)
@@ -1027,7 +1026,7 @@ APGlobalNotif::APGlobalNotif(const APGlobalNotif& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APGlobalNotif)
 }
 
 void APGlobalNotif::SharedCtor() {
@@ -1038,7 +1037,7 @@ void APGlobalNotif::SharedCtor() {
 }
 
 APGlobalNotif::~APGlobalNotif() {
-  // @@protoc_insertion_point(destructor:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(destructor:cheetah.APGlobalNotif)
   SharedDtor();
 }
 
@@ -1077,7 +1076,7 @@ APGlobalNotif* APGlobalNotif::New(::google::protobuf::Arena* arena) const {
 }
 
 void APGlobalNotif::clear_Event() {
-// @@protoc_insertion_point(one_of_clear_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(one_of_clear_start:cheetah.APGlobalNotif)
   switch (Event_case()) {
     case kInitRspMsg: {
       delete Event_.initrspmsg_;
@@ -1092,7 +1091,7 @@ void APGlobalNotif::clear_Event() {
 
 
 void APGlobalNotif::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(message_clear_start:cheetah.APGlobalNotif)
   eventtype_ = 0;
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
@@ -1103,20 +1102,20 @@ bool APGlobalNotif::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(parse_start:cheetah.APGlobalNotif)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .access_point.APGlobalNotifType EventType = 1;
+      // optional .cheetah.APGlobalNotifType EventType = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_eventtype(static_cast< ::access_point::APGlobalNotifType >(value));
+          set_eventtype(static_cast< ::cheetah::APGlobalNotifType >(value));
         } else {
           goto handle_unusual;
         }
@@ -1124,7 +1123,7 @@ bool APGlobalNotif::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .access_point.APErrorStatus ErrStatus = 2;
+      // optional .cheetah.APErrorStatus ErrStatus = 2;
       case 2: {
         if (tag == 18) {
          parse_ErrStatus:
@@ -1137,7 +1136,7 @@ bool APGlobalNotif::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .access_point.APInitMsgRsp InitRspMsg = 3;
+      // optional .cheetah.APInitMsgRsp InitRspMsg = 3;
       case 3: {
         if (tag == 26) {
          parse_InitRspMsg:
@@ -1163,77 +1162,77 @@ bool APGlobalNotif::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(parse_success:cheetah.APGlobalNotif)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(parse_failure:cheetah.APGlobalNotif)
   return false;
 #undef DO_
 }
 
 void APGlobalNotif::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APGlobalNotif)
-  // optional .access_point.APGlobalNotifType EventType = 1;
+  // @@protoc_insertion_point(serialize_start:cheetah.APGlobalNotif)
+  // optional .cheetah.APGlobalNotifType EventType = 1;
   if (this->eventtype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->eventtype(), output);
   }
 
-  // optional .access_point.APErrorStatus ErrStatus = 2;
+  // optional .cheetah.APErrorStatus ErrStatus = 2;
   if (this->has_errstatus()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->errstatus_, output);
   }
 
-  // optional .access_point.APInitMsgRsp InitRspMsg = 3;
+  // optional .cheetah.APInitMsgRsp InitRspMsg = 3;
   if (has_initrspmsg()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *Event_.initrspmsg_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(serialize_end:cheetah.APGlobalNotif)
 }
 
 ::google::protobuf::uint8* APGlobalNotif::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalNotif)
-  // optional .access_point.APGlobalNotifType EventType = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APGlobalNotif)
+  // optional .cheetah.APGlobalNotifType EventType = 1;
   if (this->eventtype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->eventtype(), target);
   }
 
-  // optional .access_point.APErrorStatus ErrStatus = 2;
+  // optional .cheetah.APErrorStatus ErrStatus = 2;
   if (this->has_errstatus()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->errstatus_, false, target);
   }
 
-  // optional .access_point.APInitMsgRsp InitRspMsg = 3;
+  // optional .cheetah.APInitMsgRsp InitRspMsg = 3;
   if (has_initrspmsg()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, *Event_.initrspmsg_, false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APGlobalNotif)
   return target;
 }
 
 size_t APGlobalNotif::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APGlobalNotif)
   size_t total_size = 0;
 
-  // optional .access_point.APGlobalNotifType EventType = 1;
+  // optional .cheetah.APGlobalNotifType EventType = 1;
   if (this->eventtype() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->eventtype());
   }
 
-  // optional .access_point.APErrorStatus ErrStatus = 2;
+  // optional .cheetah.APErrorStatus ErrStatus = 2;
   if (this->has_errstatus()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1241,7 +1240,7 @@ size_t APGlobalNotif::ByteSizeLong() const {
   }
 
   switch (Event_case()) {
-    // optional .access_point.APInitMsgRsp InitRspMsg = 3;
+    // optional .cheetah.APInitMsgRsp InitRspMsg = 3;
     case kInitRspMsg: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1260,22 +1259,22 @@ size_t APGlobalNotif::ByteSizeLong() const {
 }
 
 void APGlobalNotif::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APGlobalNotif)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APGlobalNotif* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalNotif>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APGlobalNotif)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalNotif)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APGlobalNotif)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APGlobalNotif::MergeFrom(const APGlobalNotif& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APGlobalNotif)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1287,7 +1286,7 @@ void APGlobalNotif::UnsafeMergeFrom(const APGlobalNotif& from) {
   GOOGLE_DCHECK(&from != this);
   switch (from.Event_case()) {
     case kInitRspMsg: {
-      mutable_initrspmsg()->::access_point::APInitMsgRsp::MergeFrom(from.initrspmsg());
+      mutable_initrspmsg()->::cheetah::APInitMsgRsp::MergeFrom(from.initrspmsg());
       break;
     }
     case EVENT_NOT_SET: {
@@ -1298,19 +1297,19 @@ void APGlobalNotif::UnsafeMergeFrom(const APGlobalNotif& from) {
     set_eventtype(from.eventtype());
   }
   if (from.has_errstatus()) {
-    mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
+    mutable_errstatus()->::cheetah::APErrorStatus::MergeFrom(from.errstatus());
   }
 }
 
 void APGlobalNotif::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APGlobalNotif)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APGlobalNotif::CopyFrom(const APGlobalNotif& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalNotif)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APGlobalNotif)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1345,21 +1344,21 @@ void APGlobalNotif::InternalSwap(APGlobalNotif* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // APGlobalNotif
 
-// optional .access_point.APGlobalNotifType EventType = 1;
+// optional .cheetah.APGlobalNotifType EventType = 1;
 void APGlobalNotif::clear_eventtype() {
   eventtype_ = 0;
 }
-::access_point::APGlobalNotifType APGlobalNotif::eventtype() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.EventType)
-  return static_cast< ::access_point::APGlobalNotifType >(eventtype_);
+::cheetah::APGlobalNotifType APGlobalNotif::eventtype() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.EventType)
+  return static_cast< ::cheetah::APGlobalNotifType >(eventtype_);
 }
-void APGlobalNotif::set_eventtype(::access_point::APGlobalNotifType value) {
+void APGlobalNotif::set_eventtype(::cheetah::APGlobalNotifType value) {
   
   eventtype_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalNotif.EventType)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalNotif.EventType)
 }
 
-// optional .access_point.APErrorStatus ErrStatus = 2;
+// optional .cheetah.APErrorStatus ErrStatus = 2;
 bool APGlobalNotif::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -1367,27 +1366,27 @@ void APGlobalNotif::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-const ::access_point::APErrorStatus& APGlobalNotif::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.ErrStatus)
+const ::cheetah::APErrorStatus& APGlobalNotif::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-::access_point::APErrorStatus* APGlobalNotif::mutable_errstatus() {
+::cheetah::APErrorStatus* APGlobalNotif::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalNotif.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalNotif.ErrStatus)
   return errstatus_;
 }
-::access_point::APErrorStatus* APGlobalNotif::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalNotif.ErrStatus)
+::cheetah::APErrorStatus* APGlobalNotif::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalNotif.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-void APGlobalNotif::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+void APGlobalNotif::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -1395,10 +1394,10 @@ void APGlobalNotif::set_allocated_errstatus(::access_point::APErrorStatus* errst
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalNotif.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.ErrStatus)
 }
 
-// optional .access_point.APInitMsgRsp InitRspMsg = 3;
+// optional .cheetah.APInitMsgRsp InitRspMsg = 3;
 bool APGlobalNotif::has_initrspmsg() const {
   return Event_case() == kInitRspMsg;
 }
@@ -1411,39 +1410,39 @@ void APGlobalNotif::clear_initrspmsg() {
     clear_has_Event();
   }
 }
- const ::access_point::APInitMsgRsp& APGlobalNotif::initrspmsg() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalNotif.InitRspMsg)
+ const ::cheetah::APInitMsgRsp& APGlobalNotif::initrspmsg() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.InitRspMsg)
   return has_initrspmsg()
       ? *Event_.initrspmsg_
-      : ::access_point::APInitMsgRsp::default_instance();
+      : ::cheetah::APInitMsgRsp::default_instance();
 }
-::access_point::APInitMsgRsp* APGlobalNotif::mutable_initrspmsg() {
+::cheetah::APInitMsgRsp* APGlobalNotif::mutable_initrspmsg() {
   if (!has_initrspmsg()) {
     clear_Event();
     set_has_initrspmsg();
-    Event_.initrspmsg_ = new ::access_point::APInitMsgRsp;
+    Event_.initrspmsg_ = new ::cheetah::APInitMsgRsp;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalNotif.InitRspMsg)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalNotif.InitRspMsg)
   return Event_.initrspmsg_;
 }
-::access_point::APInitMsgRsp* APGlobalNotif::release_initrspmsg() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalNotif.InitRspMsg)
+::cheetah::APInitMsgRsp* APGlobalNotif::release_initrspmsg() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalNotif.InitRspMsg)
   if (has_initrspmsg()) {
     clear_has_Event();
-    ::access_point::APInitMsgRsp* temp = Event_.initrspmsg_;
+    ::cheetah::APInitMsgRsp* temp = Event_.initrspmsg_;
     Event_.initrspmsg_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-void APGlobalNotif::set_allocated_initrspmsg(::access_point::APInitMsgRsp* initrspmsg) {
+void APGlobalNotif::set_allocated_initrspmsg(::cheetah::APInitMsgRsp* initrspmsg) {
   clear_Event();
   if (initrspmsg) {
     set_has_initrspmsg();
     Event_.initrspmsg_ = initrspmsg;
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalNotif.InitRspMsg)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.InitRspMsg)
 }
 
 bool APGlobalNotif::has_Event() const {
@@ -1469,7 +1468,7 @@ APGlobalsGetMsg::APGlobalsGetMsg()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(constructor:cheetah.APGlobalsGetMsg)
 }
 
 void APGlobalsGetMsg::InitAsDefaultInstance() {
@@ -1480,7 +1479,7 @@ APGlobalsGetMsg::APGlobalsGetMsg(const APGlobalsGetMsg& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APGlobalsGetMsg)
 }
 
 void APGlobalsGetMsg::SharedCtor() {
@@ -1488,7 +1487,7 @@ void APGlobalsGetMsg::SharedCtor() {
 }
 
 APGlobalsGetMsg::~APGlobalsGetMsg() {
-  // @@protoc_insertion_point(destructor:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(destructor:cheetah.APGlobalsGetMsg)
   SharedDtor();
 }
 
@@ -1521,14 +1520,14 @@ APGlobalsGetMsg* APGlobalsGetMsg::New(::google::protobuf::Arena* arena) const {
 }
 
 void APGlobalsGetMsg::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(message_clear_start:cheetah.APGlobalsGetMsg)
 }
 
 bool APGlobalsGetMsg::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(parse_start:cheetah.APGlobalsGetMsg)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1542,30 +1541,30 @@ bool APGlobalsGetMsg::MergePartialFromCodedStream(
     DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(parse_success:cheetah.APGlobalsGetMsg)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(parse_failure:cheetah.APGlobalsGetMsg)
   return false;
 #undef DO_
 }
 
 void APGlobalsGetMsg::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APGlobalsGetMsg)
-  // @@protoc_insertion_point(serialize_end:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(serialize_start:cheetah.APGlobalsGetMsg)
+  // @@protoc_insertion_point(serialize_end:cheetah.APGlobalsGetMsg)
 }
 
 ::google::protobuf::uint8* APGlobalsGetMsg::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalsGetMsg)
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APGlobalsGetMsg)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APGlobalsGetMsg)
   return target;
 }
 
 size_t APGlobalsGetMsg::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APGlobalsGetMsg)
   size_t total_size = 0;
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1576,22 +1575,22 @@ size_t APGlobalsGetMsg::ByteSizeLong() const {
 }
 
 void APGlobalsGetMsg::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APGlobalsGetMsg)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APGlobalsGetMsg* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalsGetMsg>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APGlobalsGetMsg)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalsGetMsg)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APGlobalsGetMsg)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APGlobalsGetMsg::MergeFrom(const APGlobalsGetMsg& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APGlobalsGetMsg)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1604,14 +1603,14 @@ void APGlobalsGetMsg::UnsafeMergeFrom(const APGlobalsGetMsg& from) {
 }
 
 void APGlobalsGetMsg::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APGlobalsGetMsg)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APGlobalsGetMsg::CopyFrom(const APGlobalsGetMsg& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalsGetMsg)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APGlobalsGetMsg)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1659,12 +1658,12 @@ APGlobalsGetMsgRsp::APGlobalsGetMsgRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fglobal_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(constructor:cheetah.APGlobalsGetMsgRsp)
 }
 
 void APGlobalsGetMsgRsp::InitAsDefaultInstance() {
-  errstatus_ = const_cast< ::access_point::APErrorStatus*>(
-      ::access_point::APErrorStatus::internal_default_instance());
+  errstatus_ = const_cast< ::cheetah::APErrorStatus*>(
+      ::cheetah::APErrorStatus::internal_default_instance());
 }
 
 APGlobalsGetMsgRsp::APGlobalsGetMsgRsp(const APGlobalsGetMsgRsp& from)
@@ -1672,7 +1671,7 @@ APGlobalsGetMsgRsp::APGlobalsGetMsgRsp(const APGlobalsGetMsgRsp& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APGlobalsGetMsgRsp)
 }
 
 void APGlobalsGetMsgRsp::SharedCtor() {
@@ -1683,7 +1682,7 @@ void APGlobalsGetMsgRsp::SharedCtor() {
 }
 
 APGlobalsGetMsgRsp::~APGlobalsGetMsgRsp() {
-  // @@protoc_insertion_point(destructor:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(destructor:cheetah.APGlobalsGetMsgRsp)
   SharedDtor();
 }
 
@@ -1719,7 +1718,7 @@ APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::New(::google::protobuf::Arena* arena) co
 }
 
 void APGlobalsGetMsgRsp::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(message_clear_start:cheetah.APGlobalsGetMsgRsp)
 #if defined(__clang__)
 #define ZR_HELPER_(f) \
   _Pragma("clang diagnostic push") \
@@ -1749,13 +1748,13 @@ bool APGlobalsGetMsgRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(parse_start:cheetah.APGlobalsGetMsgRsp)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .access_point.APErrorStatus ErrStatus = 1;
+      // optional .cheetah.APErrorStatus ErrStatus = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -1810,18 +1809,18 @@ bool APGlobalsGetMsgRsp::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(parse_success:cheetah.APGlobalsGetMsgRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(parse_failure:cheetah.APGlobalsGetMsgRsp)
   return false;
 #undef DO_
 }
 
 void APGlobalsGetMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APGlobalsGetMsgRsp)
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // @@protoc_insertion_point(serialize_start:cheetah.APGlobalsGetMsgRsp)
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->errstatus_, output);
@@ -1837,14 +1836,14 @@ void APGlobalsGetMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->maxssidnamelength(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(serialize_end:cheetah.APGlobalsGetMsgRsp)
 }
 
 ::google::protobuf::uint8* APGlobalsGetMsgRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APGlobalsGetMsgRsp)
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APGlobalsGetMsgRsp)
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -1861,15 +1860,15 @@ void APGlobalsGetMsgRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->maxssidnamelength(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APGlobalsGetMsgRsp)
   return target;
 }
 
 size_t APGlobalsGetMsgRsp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APGlobalsGetMsgRsp)
   size_t total_size = 0;
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   if (this->has_errstatus()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1898,22 +1897,22 @@ size_t APGlobalsGetMsgRsp::ByteSizeLong() const {
 }
 
 void APGlobalsGetMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APGlobalsGetMsgRsp)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APGlobalsGetMsgRsp* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APGlobalsGetMsgRsp>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APGlobalsGetMsgRsp)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APGlobalsGetMsgRsp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APGlobalsGetMsgRsp)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APGlobalsGetMsgRsp::MergeFrom(const APGlobalsGetMsgRsp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APGlobalsGetMsgRsp)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1924,7 +1923,7 @@ void APGlobalsGetMsgRsp::MergeFrom(const APGlobalsGetMsgRsp& from) {
 void APGlobalsGetMsgRsp::UnsafeMergeFrom(const APGlobalsGetMsgRsp& from) {
   GOOGLE_DCHECK(&from != this);
   if (from.has_errstatus()) {
-    mutable_errstatus()->::access_point::APErrorStatus::MergeFrom(from.errstatus());
+    mutable_errstatus()->::cheetah::APErrorStatus::MergeFrom(from.errstatus());
   }
   if (from.maxradionamelength() != 0) {
     set_maxradionamelength(from.maxradionamelength());
@@ -1935,14 +1934,14 @@ void APGlobalsGetMsgRsp::UnsafeMergeFrom(const APGlobalsGetMsgRsp& from) {
 }
 
 void APGlobalsGetMsgRsp::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APGlobalsGetMsgRsp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APGlobalsGetMsgRsp::CopyFrom(const APGlobalsGetMsgRsp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APGlobalsGetMsgRsp)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APGlobalsGetMsgRsp)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1976,7 +1975,7 @@ void APGlobalsGetMsgRsp::InternalSwap(APGlobalsGetMsgRsp* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // APGlobalsGetMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
+// optional .cheetah.APErrorStatus ErrStatus = 1;
 bool APGlobalsGetMsgRsp::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -1984,27 +1983,27 @@ void APGlobalsGetMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-const ::access_point::APErrorStatus& APGlobalsGetMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.ErrStatus)
+const ::cheetah::APErrorStatus& APGlobalsGetMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-::access_point::APErrorStatus* APGlobalsGetMsgRsp::mutable_errstatus() {
+::cheetah::APErrorStatus* APGlobalsGetMsgRsp::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APGlobalsGetMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   return errstatus_;
 }
-::access_point::APErrorStatus* APGlobalsGetMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APGlobalsGetMsgRsp.ErrStatus)
+::cheetah::APErrorStatus* APGlobalsGetMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalsGetMsgRsp.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-void APGlobalsGetMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+void APGlobalsGetMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -2012,7 +2011,7 @@ void APGlobalsGetMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* 
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APGlobalsGetMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalsGetMsgRsp.ErrStatus)
 }
 
 // optional uint32 MaxRadioNameLength = 2;
@@ -2020,13 +2019,13 @@ void APGlobalsGetMsgRsp::clear_maxradionamelength() {
   maxradionamelength_ = 0u;
 }
 ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxradionamelength() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.MaxRadioNameLength)
   return maxradionamelength_;
 }
 void APGlobalsGetMsgRsp::set_maxradionamelength(::google::protobuf::uint32 value) {
   
   maxradionamelength_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxRadioNameLength)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalsGetMsgRsp.MaxRadioNameLength)
 }
 
 // optional uint32 MaxSsidNameLength = 3;
@@ -2034,13 +2033,13 @@ void APGlobalsGetMsgRsp::clear_maxssidnamelength() {
   maxssidnamelength_ = 0u;
 }
 ::google::protobuf::uint32 APGlobalsGetMsgRsp::maxssidnamelength() const {
-  // @@protoc_insertion_point(field_get:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalsGetMsgRsp.MaxSsidNameLength)
   return maxssidnamelength_;
 }
 void APGlobalsGetMsgRsp::set_maxssidnamelength(::google::protobuf::uint32 value) {
   
   maxssidnamelength_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APGlobalsGetMsgRsp.MaxSsidNameLength)
+  // @@protoc_insertion_point(field_set:cheetah.APGlobalsGetMsgRsp.MaxSsidNameLength)
 }
 
 inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance() {
@@ -2050,6 +2049,6 @@ inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance()
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 // @@protoc_insertion_point(global_scope)

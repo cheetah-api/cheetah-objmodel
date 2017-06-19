@@ -31,7 +31,7 @@
 #include "ap_common_types.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_ap_5fpacket_2eproto();
@@ -161,7 +161,7 @@ inline bool APCiscoMsgSubtype_Parse(
 }
 // ===================================================================
 
-class APPacketHdr : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APPacketHdr) */ {
+class APPacketHdr : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketHdr) */ {
  public:
   APPacketHdr();
   virtual ~APPacketHdr();
@@ -232,50 +232,50 @@ class APPacketHdr : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APMsgType MsgType = 1;
+  // optional .cheetah.APMsgType MsgType = 1;
   void clear_msgtype();
   static const int kMsgTypeFieldNumber = 1;
-  ::access_point::APMsgType msgtype() const;
-  void set_msgtype(::access_point::APMsgType value);
+  ::cheetah::APMsgType msgtype() const;
+  void set_msgtype(::cheetah::APMsgType value);
 
-  // optional .access_point.APMgmtMsgSubtype mgmt = 2;
+  // optional .cheetah.APMgmtMsgSubtype mgmt = 2;
   private:
   bool has_mgmt() const;
   public:
   void clear_mgmt();
   static const int kMgmtFieldNumber = 2;
-  ::access_point::APMgmtMsgSubtype mgmt() const;
-  void set_mgmt(::access_point::APMgmtMsgSubtype value);
+  ::cheetah::APMgmtMsgSubtype mgmt() const;
+  void set_mgmt(::cheetah::APMgmtMsgSubtype value);
 
-  // optional .access_point.APCtrlMsgSubtype ctrl = 3;
+  // optional .cheetah.APCtrlMsgSubtype ctrl = 3;
   private:
   bool has_ctrl() const;
   public:
   void clear_ctrl();
   static const int kCtrlFieldNumber = 3;
-  ::access_point::APCtrlMsgSubtype ctrl() const;
-  void set_ctrl(::access_point::APCtrlMsgSubtype value);
+  ::cheetah::APCtrlMsgSubtype ctrl() const;
+  void set_ctrl(::cheetah::APCtrlMsgSubtype value);
 
-  // optional .access_point.APDataMsgSubtype data = 4;
+  // optional .cheetah.APDataMsgSubtype data = 4;
   private:
   bool has_data() const;
   public:
   void clear_data();
   static const int kDataFieldNumber = 4;
-  ::access_point::APDataMsgSubtype data() const;
-  void set_data(::access_point::APDataMsgSubtype value);
+  ::cheetah::APDataMsgSubtype data() const;
+  void set_data(::cheetah::APDataMsgSubtype value);
 
-  // optional .access_point.APCiscoMsgSubtype cisco = 5;
+  // optional .cheetah.APCiscoMsgSubtype cisco = 5;
   private:
   bool has_cisco() const;
   public:
   void clear_cisco();
   static const int kCiscoFieldNumber = 5;
-  ::access_point::APCiscoMsgSubtype cisco() const;
-  void set_cisco(::access_point::APCiscoMsgSubtype value);
+  ::cheetah::APCiscoMsgSubtype cisco() const;
+  void set_cisco(::cheetah::APCiscoMsgSubtype value);
 
   SubtypeCase Subtype_case() const;
-  // @@protoc_insertion_point(class_scope:access_point.APPacketHdr)
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketHdr)
  private:
   inline void set_has_mgmt();
   inline void set_has_ctrl();
@@ -309,7 +309,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketHdr> APPacket
 
 // -------------------------------------------------------------------
 
-class APPacketsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APPacketsMsg) */ {
+class APPacketsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsMsg) */ {
  public:
   APPacketsMsg();
   virtual ~APPacketsMsg();
@@ -372,23 +372,23 @@ class APPacketsMsg : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // repeated .access_point.APPacketHdr PacketHdr = 1;
+  // repeated .cheetah.APPacketHdr PacketHdr = 1;
   int packethdr_size() const;
   void clear_packethdr();
   static const int kPacketHdrFieldNumber = 1;
-  const ::access_point::APPacketHdr& packethdr(int index) const;
-  ::access_point::APPacketHdr* mutable_packethdr(int index);
-  ::access_point::APPacketHdr* add_packethdr();
-  ::google::protobuf::RepeatedPtrField< ::access_point::APPacketHdr >*
+  const ::cheetah::APPacketHdr& packethdr(int index) const;
+  ::cheetah::APPacketHdr* mutable_packethdr(int index);
+  ::cheetah::APPacketHdr* add_packethdr();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
       mutable_packethdr();
-  const ::google::protobuf::RepeatedPtrField< ::access_point::APPacketHdr >&
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
       packethdr() const;
 
-  // @@protoc_insertion_point(class_scope:access_point.APPacketsMsg)
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketsMsg)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::access_point::APPacketHdr > packethdr_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr > packethdr_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fpacket_2eproto_impl();
@@ -401,7 +401,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsMsg> APPacke
 
 // -------------------------------------------------------------------
 
-class APPacketsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APPacketsMsgRsp) */ {
+class APPacketsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsMsgRsp) */ {
  public:
   APPacketsMsgRsp();
   virtual ~APPacketsMsgRsp();
@@ -464,23 +464,23 @@ class APPacketsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus ErrStatus = 1;
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
   void clear_errstatus();
   static const int kErrStatusFieldNumber = 1;
-  const ::access_point::APErrorStatus& errstatus() const;
-  ::access_point::APErrorStatus* mutable_errstatus();
-  ::access_point::APErrorStatus* release_errstatus();
-  void set_allocated_errstatus(::access_point::APErrorStatus* errstatus);
+  const ::cheetah::APErrorStatus& errstatus() const;
+  ::cheetah::APErrorStatus* mutable_errstatus();
+  ::cheetah::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::cheetah::APErrorStatus* errstatus);
 
-  // optional .access_point.APPacketHdr PacketHdr = 2;
+  // optional .cheetah.APPacketHdr PacketHdr = 2;
   bool has_packethdr() const;
   void clear_packethdr();
   static const int kPacketHdrFieldNumber = 2;
-  const ::access_point::APPacketHdr& packethdr() const;
-  ::access_point::APPacketHdr* mutable_packethdr();
-  ::access_point::APPacketHdr* release_packethdr();
-  void set_allocated_packethdr(::access_point::APPacketHdr* packethdr);
+  const ::cheetah::APPacketHdr& packethdr() const;
+  ::cheetah::APPacketHdr* mutable_packethdr();
+  ::cheetah::APPacketHdr* release_packethdr();
+  void set_allocated_packethdr(::cheetah::APPacketHdr* packethdr);
 
   // optional uint32 PacketLen = 3;
   void clear_packetlen();
@@ -499,13 +499,13 @@ class APPacketsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion
   ::std::string* release_packetbuf();
   void set_allocated_packetbuf(::std::string* packetbuf);
 
-  // @@protoc_insertion_point(class_scope:access_point.APPacketsMsgRsp)
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr packetbuf_;
-  ::access_point::APErrorStatus* errstatus_;
-  ::access_point::APPacketHdr* packethdr_;
+  ::cheetah::APErrorStatus* errstatus_;
+  ::cheetah::APPacketHdr* packethdr_;
   ::google::protobuf::uint32 packetlen_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
@@ -525,21 +525,21 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsMsgRsp> APPa
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // APPacketHdr
 
-// optional .access_point.APMsgType MsgType = 1;
+// optional .cheetah.APMsgType MsgType = 1;
 inline void APPacketHdr::clear_msgtype() {
   msgtype_ = 0;
 }
-inline ::access_point::APMsgType APPacketHdr::msgtype() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketHdr.MsgType)
-  return static_cast< ::access_point::APMsgType >(msgtype_);
+inline ::cheetah::APMsgType APPacketHdr::msgtype() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketHdr.MsgType)
+  return static_cast< ::cheetah::APMsgType >(msgtype_);
 }
-inline void APPacketHdr::set_msgtype(::access_point::APMsgType value) {
+inline void APPacketHdr::set_msgtype(::cheetah::APMsgType value) {
   
   msgtype_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketHdr.MsgType)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketHdr.MsgType)
 }
 
-// optional .access_point.APMgmtMsgSubtype mgmt = 2;
+// optional .cheetah.APMgmtMsgSubtype mgmt = 2;
 inline bool APPacketHdr::has_mgmt() const {
   return Subtype_case() == kMgmt;
 }
@@ -552,23 +552,23 @@ inline void APPacketHdr::clear_mgmt() {
     clear_has_Subtype();
   }
 }
-inline ::access_point::APMgmtMsgSubtype APPacketHdr::mgmt() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketHdr.mgmt)
+inline ::cheetah::APMgmtMsgSubtype APPacketHdr::mgmt() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketHdr.mgmt)
   if (has_mgmt()) {
-    return static_cast< ::access_point::APMgmtMsgSubtype >(Subtype_.mgmt_);
+    return static_cast< ::cheetah::APMgmtMsgSubtype >(Subtype_.mgmt_);
   }
-  return static_cast< ::access_point::APMgmtMsgSubtype >(0);
+  return static_cast< ::cheetah::APMgmtMsgSubtype >(0);
 }
-inline void APPacketHdr::set_mgmt(::access_point::APMgmtMsgSubtype value) {
+inline void APPacketHdr::set_mgmt(::cheetah::APMgmtMsgSubtype value) {
   if (!has_mgmt()) {
     clear_Subtype();
     set_has_mgmt();
   }
   Subtype_.mgmt_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketHdr.mgmt)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketHdr.mgmt)
 }
 
-// optional .access_point.APCtrlMsgSubtype ctrl = 3;
+// optional .cheetah.APCtrlMsgSubtype ctrl = 3;
 inline bool APPacketHdr::has_ctrl() const {
   return Subtype_case() == kCtrl;
 }
@@ -581,23 +581,23 @@ inline void APPacketHdr::clear_ctrl() {
     clear_has_Subtype();
   }
 }
-inline ::access_point::APCtrlMsgSubtype APPacketHdr::ctrl() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketHdr.ctrl)
+inline ::cheetah::APCtrlMsgSubtype APPacketHdr::ctrl() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketHdr.ctrl)
   if (has_ctrl()) {
-    return static_cast< ::access_point::APCtrlMsgSubtype >(Subtype_.ctrl_);
+    return static_cast< ::cheetah::APCtrlMsgSubtype >(Subtype_.ctrl_);
   }
-  return static_cast< ::access_point::APCtrlMsgSubtype >(0);
+  return static_cast< ::cheetah::APCtrlMsgSubtype >(0);
 }
-inline void APPacketHdr::set_ctrl(::access_point::APCtrlMsgSubtype value) {
+inline void APPacketHdr::set_ctrl(::cheetah::APCtrlMsgSubtype value) {
   if (!has_ctrl()) {
     clear_Subtype();
     set_has_ctrl();
   }
   Subtype_.ctrl_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketHdr.ctrl)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketHdr.ctrl)
 }
 
-// optional .access_point.APDataMsgSubtype data = 4;
+// optional .cheetah.APDataMsgSubtype data = 4;
 inline bool APPacketHdr::has_data() const {
   return Subtype_case() == kData;
 }
@@ -610,23 +610,23 @@ inline void APPacketHdr::clear_data() {
     clear_has_Subtype();
   }
 }
-inline ::access_point::APDataMsgSubtype APPacketHdr::data() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketHdr.data)
+inline ::cheetah::APDataMsgSubtype APPacketHdr::data() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketHdr.data)
   if (has_data()) {
-    return static_cast< ::access_point::APDataMsgSubtype >(Subtype_.data_);
+    return static_cast< ::cheetah::APDataMsgSubtype >(Subtype_.data_);
   }
-  return static_cast< ::access_point::APDataMsgSubtype >(0);
+  return static_cast< ::cheetah::APDataMsgSubtype >(0);
 }
-inline void APPacketHdr::set_data(::access_point::APDataMsgSubtype value) {
+inline void APPacketHdr::set_data(::cheetah::APDataMsgSubtype value) {
   if (!has_data()) {
     clear_Subtype();
     set_has_data();
   }
   Subtype_.data_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketHdr.data)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketHdr.data)
 }
 
-// optional .access_point.APCiscoMsgSubtype cisco = 5;
+// optional .cheetah.APCiscoMsgSubtype cisco = 5;
 inline bool APPacketHdr::has_cisco() const {
   return Subtype_case() == kCisco;
 }
@@ -639,20 +639,20 @@ inline void APPacketHdr::clear_cisco() {
     clear_has_Subtype();
   }
 }
-inline ::access_point::APCiscoMsgSubtype APPacketHdr::cisco() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketHdr.cisco)
+inline ::cheetah::APCiscoMsgSubtype APPacketHdr::cisco() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketHdr.cisco)
   if (has_cisco()) {
-    return static_cast< ::access_point::APCiscoMsgSubtype >(Subtype_.cisco_);
+    return static_cast< ::cheetah::APCiscoMsgSubtype >(Subtype_.cisco_);
   }
-  return static_cast< ::access_point::APCiscoMsgSubtype >(0);
+  return static_cast< ::cheetah::APCiscoMsgSubtype >(0);
 }
-inline void APPacketHdr::set_cisco(::access_point::APCiscoMsgSubtype value) {
+inline void APPacketHdr::set_cisco(::cheetah::APCiscoMsgSubtype value) {
   if (!has_cisco()) {
     clear_Subtype();
     set_has_cisco();
   }
   Subtype_.cisco_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketHdr.cisco)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketHdr.cisco)
 }
 
 inline bool APPacketHdr::has_Subtype() const {
@@ -671,33 +671,33 @@ inline const APPacketHdr* APPacketHdr::internal_default_instance() {
 
 // APPacketsMsg
 
-// repeated .access_point.APPacketHdr PacketHdr = 1;
+// repeated .cheetah.APPacketHdr PacketHdr = 1;
 inline int APPacketsMsg::packethdr_size() const {
   return packethdr_.size();
 }
 inline void APPacketsMsg::clear_packethdr() {
   packethdr_.Clear();
 }
-inline const ::access_point::APPacketHdr& APPacketsMsg::packethdr(int index) const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketsMsg.PacketHdr)
+inline const ::cheetah::APPacketHdr& APPacketsMsg::packethdr(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsg.PacketHdr)
   return packethdr_.Get(index);
 }
-inline ::access_point::APPacketHdr* APPacketsMsg::mutable_packethdr(int index) {
-  // @@protoc_insertion_point(field_mutable:access_point.APPacketsMsg.PacketHdr)
+inline ::cheetah::APPacketHdr* APPacketsMsg::mutable_packethdr(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsg.PacketHdr)
   return packethdr_.Mutable(index);
 }
-inline ::access_point::APPacketHdr* APPacketsMsg::add_packethdr() {
-  // @@protoc_insertion_point(field_add:access_point.APPacketsMsg.PacketHdr)
+inline ::cheetah::APPacketHdr* APPacketsMsg::add_packethdr() {
+  // @@protoc_insertion_point(field_add:cheetah.APPacketsMsg.PacketHdr)
   return packethdr_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::access_point::APPacketHdr >*
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
 APPacketsMsg::mutable_packethdr() {
-  // @@protoc_insertion_point(field_mutable_list:access_point.APPacketsMsg.PacketHdr)
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APPacketsMsg.PacketHdr)
   return &packethdr_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::access_point::APPacketHdr >&
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
 APPacketsMsg::packethdr() const {
-  // @@protoc_insertion_point(field_list:access_point.APPacketsMsg.PacketHdr)
+  // @@protoc_insertion_point(field_list:cheetah.APPacketsMsg.PacketHdr)
   return packethdr_;
 }
 
@@ -708,7 +708,7 @@ inline const APPacketsMsg* APPacketsMsg::internal_default_instance() {
 
 // APPacketsMsgRsp
 
-// optional .access_point.APErrorStatus ErrStatus = 1;
+// optional .cheetah.APErrorStatus ErrStatus = 1;
 inline bool APPacketsMsgRsp::has_errstatus() const {
   return this != internal_default_instance() && errstatus_ != NULL;
 }
@@ -716,27 +716,27 @@ inline void APPacketsMsgRsp::clear_errstatus() {
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
 }
-inline const ::access_point::APErrorStatus& APPacketsMsgRsp::errstatus() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketsMsgRsp.ErrStatus)
+inline const ::cheetah::APErrorStatus& APPacketsMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsgRsp.ErrStatus)
   return errstatus_ != NULL ? *errstatus_
-                         : *::access_point::APErrorStatus::internal_default_instance();
+                         : *::cheetah::APErrorStatus::internal_default_instance();
 }
-inline ::access_point::APErrorStatus* APPacketsMsgRsp::mutable_errstatus() {
+inline ::cheetah::APErrorStatus* APPacketsMsgRsp::mutable_errstatus() {
   
   if (errstatus_ == NULL) {
-    errstatus_ = new ::access_point::APErrorStatus;
+    errstatus_ = new ::cheetah::APErrorStatus;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APPacketsMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsgRsp.ErrStatus)
   return errstatus_;
 }
-inline ::access_point::APErrorStatus* APPacketsMsgRsp::release_errstatus() {
-  // @@protoc_insertion_point(field_release:access_point.APPacketsMsgRsp.ErrStatus)
+inline ::cheetah::APErrorStatus* APPacketsMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsMsgRsp.ErrStatus)
   
-  ::access_point::APErrorStatus* temp = errstatus_;
+  ::cheetah::APErrorStatus* temp = errstatus_;
   errstatus_ = NULL;
   return temp;
 }
-inline void APPacketsMsgRsp::set_allocated_errstatus(::access_point::APErrorStatus* errstatus) {
+inline void APPacketsMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
   delete errstatus_;
   errstatus_ = errstatus;
   if (errstatus) {
@@ -744,10 +744,10 @@ inline void APPacketsMsgRsp::set_allocated_errstatus(::access_point::APErrorStat
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APPacketsMsgRsp.ErrStatus)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsMsgRsp.ErrStatus)
 }
 
-// optional .access_point.APPacketHdr PacketHdr = 2;
+// optional .cheetah.APPacketHdr PacketHdr = 2;
 inline bool APPacketsMsgRsp::has_packethdr() const {
   return this != internal_default_instance() && packethdr_ != NULL;
 }
@@ -755,27 +755,27 @@ inline void APPacketsMsgRsp::clear_packethdr() {
   if (GetArenaNoVirtual() == NULL && packethdr_ != NULL) delete packethdr_;
   packethdr_ = NULL;
 }
-inline const ::access_point::APPacketHdr& APPacketsMsgRsp::packethdr() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketsMsgRsp.PacketHdr)
+inline const ::cheetah::APPacketHdr& APPacketsMsgRsp::packethdr() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsgRsp.PacketHdr)
   return packethdr_ != NULL ? *packethdr_
-                         : *::access_point::APPacketHdr::internal_default_instance();
+                         : *::cheetah::APPacketHdr::internal_default_instance();
 }
-inline ::access_point::APPacketHdr* APPacketsMsgRsp::mutable_packethdr() {
+inline ::cheetah::APPacketHdr* APPacketsMsgRsp::mutable_packethdr() {
   
   if (packethdr_ == NULL) {
-    packethdr_ = new ::access_point::APPacketHdr;
+    packethdr_ = new ::cheetah::APPacketHdr;
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APPacketsMsgRsp.PacketHdr)
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsgRsp.PacketHdr)
   return packethdr_;
 }
-inline ::access_point::APPacketHdr* APPacketsMsgRsp::release_packethdr() {
-  // @@protoc_insertion_point(field_release:access_point.APPacketsMsgRsp.PacketHdr)
+inline ::cheetah::APPacketHdr* APPacketsMsgRsp::release_packethdr() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsMsgRsp.PacketHdr)
   
-  ::access_point::APPacketHdr* temp = packethdr_;
+  ::cheetah::APPacketHdr* temp = packethdr_;
   packethdr_ = NULL;
   return temp;
 }
-inline void APPacketsMsgRsp::set_allocated_packethdr(::access_point::APPacketHdr* packethdr) {
+inline void APPacketsMsgRsp::set_allocated_packethdr(::cheetah::APPacketHdr* packethdr) {
   delete packethdr_;
   packethdr_ = packethdr;
   if (packethdr) {
@@ -783,7 +783,7 @@ inline void APPacketsMsgRsp::set_allocated_packethdr(::access_point::APPacketHdr
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APPacketsMsgRsp.PacketHdr)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsMsgRsp.PacketHdr)
 }
 
 // optional uint32 PacketLen = 3;
@@ -791,13 +791,13 @@ inline void APPacketsMsgRsp::clear_packetlen() {
   packetlen_ = 0u;
 }
 inline ::google::protobuf::uint32 APPacketsMsgRsp::packetlen() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketsMsgRsp.PacketLen)
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsgRsp.PacketLen)
   return packetlen_;
 }
 inline void APPacketsMsgRsp::set_packetlen(::google::protobuf::uint32 value) {
   
   packetlen_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APPacketsMsgRsp.PacketLen)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketsMsgRsp.PacketLen)
 }
 
 // optional bytes PacketBuf = 4;
@@ -805,32 +805,32 @@ inline void APPacketsMsgRsp::clear_packetbuf() {
   packetbuf_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& APPacketsMsgRsp::packetbuf() const {
-  // @@protoc_insertion_point(field_get:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsgRsp.PacketBuf)
   return packetbuf_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void APPacketsMsgRsp::set_packetbuf(const ::std::string& value) {
   
   packetbuf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_set:cheetah.APPacketsMsgRsp.PacketBuf)
 }
 inline void APPacketsMsgRsp::set_packetbuf(const char* value) {
   
   packetbuf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_set_char:cheetah.APPacketsMsgRsp.PacketBuf)
 }
 inline void APPacketsMsgRsp::set_packetbuf(const void* value, size_t size) {
   
   packetbuf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APPacketsMsgRsp.PacketBuf)
 }
 inline ::std::string* APPacketsMsgRsp::mutable_packetbuf() {
   
-  // @@protoc_insertion_point(field_mutable:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsgRsp.PacketBuf)
   return packetbuf_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APPacketsMsgRsp::release_packetbuf() {
-  // @@protoc_insertion_point(field_release:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsMsgRsp.PacketBuf)
   
   return packetbuf_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -841,7 +841,7 @@ inline void APPacketsMsgRsp::set_allocated_packetbuf(::std::string* packetbuf) {
     
   }
   packetbuf_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), packetbuf);
-  // @@protoc_insertion_point(field_set_allocated:access_point.APPacketsMsgRsp.PacketBuf)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsMsgRsp.PacketBuf)
 }
 
 inline const APPacketsMsgRsp* APPacketsMsgRsp::internal_default_instance() {
@@ -855,36 +855,36 @@ inline const APPacketsMsgRsp* APPacketsMsgRsp::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::access_point::APMsgType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APMsgType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APMsgType>() {
-  return ::access_point::APMsgType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APMsgType>() {
+  return ::cheetah::APMsgType_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APMgmtMsgSubtype> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APMgmtMsgSubtype> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APMgmtMsgSubtype>() {
-  return ::access_point::APMgmtMsgSubtype_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APMgmtMsgSubtype>() {
+  return ::cheetah::APMgmtMsgSubtype_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APCtrlMsgSubtype> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APCtrlMsgSubtype> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APCtrlMsgSubtype>() {
-  return ::access_point::APCtrlMsgSubtype_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APCtrlMsgSubtype>() {
+  return ::cheetah::APCtrlMsgSubtype_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APDataMsgSubtype> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APDataMsgSubtype> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APDataMsgSubtype>() {
-  return ::access_point::APDataMsgSubtype_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APDataMsgSubtype>() {
+  return ::cheetah::APDataMsgSubtype_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APCiscoMsgSubtype> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APCiscoMsgSubtype> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APCiscoMsgSubtype>() {
-  return ::access_point::APCiscoMsgSubtype_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APCiscoMsgSubtype>() {
+  return ::cheetah::APCiscoMsgSubtype_descriptor();
 }
 
 }  // namespace protobuf

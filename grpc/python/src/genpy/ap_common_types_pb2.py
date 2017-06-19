@@ -18,15 +18,15 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_common_types.proto',
-  package='access_point',
+  package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x15\x61p_common_types.proto\x12\x0c\x61\x63\x63\x65ss_point\"\xfa\x03\n\rAPErrorStatus\x12\x33\n\x06Status\x18\x01 \x01(\x0e\x32#.access_point.APErrorStatus.APErrno\"\xb3\x03\n\x07\x41PErrno\x12\x0e\n\nAP_SUCCESS\x10\x00\x12\x14\n\x10\x41P_NOT_CONNECTED\x10\x01\x12\r\n\tAP_EAGAIN\x10\x02\x12\r\n\tAP_ENOMEM\x10\x03\x12\x0c\n\x08\x41P_EBUSY\x10\x04\x12\r\n\tAP_EINVAL\x10\x05\x12\x16\n\x12\x41P_UNSUPPORTED_VER\x10\x06\x12\x14\n\x10\x41P_NOT_AVAILABLE\x10\x07\x12\x1b\n\x17\x41P_STREAM_NOT_SUPPORTED\x10\x08\x12\x0e\n\nAP_ENOTSUP\x10\t\x12\x0f\n\x0b\x41P_SOME_ERR\x10\n\x12\x0e\n\nAP_TIMEOUT\x10\x0b\x12\x11\n\rAP_NOTIF_TERM\x10\x0c\x12\x19\n\x14\x41P_INIT_START_OFFSET\x10\x80\n\x12\x18\n\x13\x41P_INIT_STATE_CLEAR\x10\x81\n\x12\x18\n\x13\x41P_INIT_STATE_READY\x10\x82\n\x12\x1c\n\x17\x41P_INIT_UNSUPPORTED_VER\x10\x83\n\x12#\n\x1e\x41P_INIT_SERVER_NOT_INITIALIZED\x10\x84\n\x12&\n!AP_INIT_SERVER_MODE_CHANGE_FAILED\x10\x85\n\"4\n\x07\x41PRadio\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x07\n\x05Radio\"2\n\x06\x41PSsid\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x06\n\x04Ssid*b\n\x07\x41PRegOp\x12\x15\n\x11\x41P_REGOP_RESERVED\x10\x00\x12\x15\n\x11\x41P_REGOP_REGISTER\x10\x01\x12\x17\n\x13\x41P_REGOP_UNREGISTER\x10\x02\x12\x10\n\x0c\x41P_REGOP_EOF\x10\x03*_\n\nAPObjectOp\x12\x15\n\x11\x41P_OBJOP_RESERVED\x10\x00\x12\x10\n\x0c\x41P_OBJOP_ADD\x10\x01\x12\x13\n\x0f\x41P_OBJOP_UPDATE\x10\x02\x12\x13\n\x0f\x41P_OBJOP_DELETE\x10\x03*S\n\tAPNotifOp\x12\x17\n\x13\x41P_NOTIFOP_RESERVED\x10\x00\x12\x15\n\x11\x41P_NOTIFOP_ENABLE\x10\x01\x12\x16\n\x12\x41P_NOTIFOP_DISABLE\x10\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x15\x61p_common_types.proto\x12\x07\x63heetah\"\xf5\x03\n\rAPErrorStatus\x12.\n\x06Status\x18\x01 \x01(\x0e\x32\x1e.cheetah.APErrorStatus.APErrno\"\xb3\x03\n\x07\x41PErrno\x12\x0e\n\nAP_SUCCESS\x10\x00\x12\x14\n\x10\x41P_NOT_CONNECTED\x10\x01\x12\r\n\tAP_EAGAIN\x10\x02\x12\r\n\tAP_ENOMEM\x10\x03\x12\x0c\n\x08\x41P_EBUSY\x10\x04\x12\r\n\tAP_EINVAL\x10\x05\x12\x16\n\x12\x41P_UNSUPPORTED_VER\x10\x06\x12\x14\n\x10\x41P_NOT_AVAILABLE\x10\x07\x12\x1b\n\x17\x41P_STREAM_NOT_SUPPORTED\x10\x08\x12\x0e\n\nAP_ENOTSUP\x10\t\x12\x0f\n\x0b\x41P_SOME_ERR\x10\n\x12\x0e\n\nAP_TIMEOUT\x10\x0b\x12\x11\n\rAP_NOTIF_TERM\x10\x0c\x12\x19\n\x14\x41P_INIT_START_OFFSET\x10\x80\n\x12\x18\n\x13\x41P_INIT_STATE_CLEAR\x10\x81\n\x12\x18\n\x13\x41P_INIT_STATE_READY\x10\x82\n\x12\x1c\n\x17\x41P_INIT_UNSUPPORTED_VER\x10\x83\n\x12#\n\x1e\x41P_INIT_SERVER_NOT_INITIALIZED\x10\x84\n\x12&\n!AP_INIT_SERVER_MODE_CHANGE_FAILED\x10\x85\n\"4\n\x07\x41PRadio\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x07\n\x05Radio\"2\n\x06\x41PSsid\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x06\n\x04Ssid*b\n\x07\x41PRegOp\x12\x15\n\x11\x41P_REGOP_RESERVED\x10\x00\x12\x15\n\x11\x41P_REGOP_REGISTER\x10\x01\x12\x17\n\x13\x41P_REGOP_UNREGISTER\x10\x02\x12\x10\n\x0c\x41P_REGOP_EOF\x10\x03*_\n\nAPObjectOp\x12\x15\n\x11\x41P_OBJOP_RESERVED\x10\x00\x12\x10\n\x0c\x41P_OBJOP_ADD\x10\x01\x12\x13\n\x0f\x41P_OBJOP_UPDATE\x10\x02\x12\x13\n\x0f\x41P_OBJOP_DELETE\x10\x03*S\n\tAPNotifOp\x12\x17\n\x13\x41P_NOTIFOP_RESERVED\x10\x00\x12\x15\n\x11\x41P_NOTIFOP_ENABLE\x10\x01\x12\x16\n\x12\x41P_NOTIFOP_DISABLE\x10\x02\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _APREGOP = _descriptor.EnumDescriptor(
   name='APRegOp',
-  full_name='access_point.APRegOp',
+  full_name='cheetah.APRegOp',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -49,15 +49,15 @@ _APREGOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=654,
-  serialized_end=752,
+  serialized_start=644,
+  serialized_end=742,
 )
 _sym_db.RegisterEnumDescriptor(_APREGOP)
 
 APRegOp = enum_type_wrapper.EnumTypeWrapper(_APREGOP)
 _APOBJECTOP = _descriptor.EnumDescriptor(
   name='APObjectOp',
-  full_name='access_point.APObjectOp',
+  full_name='cheetah.APObjectOp',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -80,15 +80,15 @@ _APOBJECTOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=754,
-  serialized_end=849,
+  serialized_start=744,
+  serialized_end=839,
 )
 _sym_db.RegisterEnumDescriptor(_APOBJECTOP)
 
 APObjectOp = enum_type_wrapper.EnumTypeWrapper(_APOBJECTOP)
 _APNOTIFOP = _descriptor.EnumDescriptor(
   name='APNotifOp',
-  full_name='access_point.APNotifOp',
+  full_name='cheetah.APNotifOp',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -107,8 +107,8 @@ _APNOTIFOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=851,
-  serialized_end=934,
+  serialized_start=841,
+  serialized_end=924,
 )
 _sym_db.RegisterEnumDescriptor(_APNOTIFOP)
 
@@ -128,7 +128,7 @@ AP_NOTIFOP_DISABLE = 2
 
 _APERRORSTATUS_APERRNO = _descriptor.EnumDescriptor(
   name='APErrno',
-  full_name='access_point.APErrorStatus.APErrno',
+  full_name='cheetah.APErrorStatus.APErrno',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -211,21 +211,21 @@ _APERRORSTATUS_APERRNO = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=111,
-  serialized_end=546,
+  serialized_start=101,
+  serialized_end=536,
 )
 _sym_db.RegisterEnumDescriptor(_APERRORSTATUS_APERRNO)
 
 
 _APERRORSTATUS = _descriptor.Descriptor(
   name='APErrorStatus',
-  full_name='access_point.APErrorStatus',
+  full_name='cheetah.APErrorStatus',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Status', full_name='access_point.APErrorStatus.Status', index=0,
+      name='Status', full_name='cheetah.APErrorStatus.Status', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -244,27 +244,27 @@ _APERRORSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=40,
-  serialized_end=546,
+  serialized_start=35,
+  serialized_end=536,
 )
 
 
 _APRADIO = _descriptor.Descriptor(
   name='APRadio',
-  full_name='access_point.APRadio',
+  full_name='cheetah.APRadio',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='access_point.APRadio.Name', index=0,
+      name='Name', full_name='cheetah.APRadio.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Handle', full_name='access_point.APRadio.Handle', index=1,
+      name='Handle', full_name='cheetah.APRadio.Handle', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -282,30 +282,30 @@ _APRADIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='Radio', full_name='access_point.APRadio.Radio',
+      name='Radio', full_name='cheetah.APRadio.Radio',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=548,
-  serialized_end=600,
+  serialized_start=538,
+  serialized_end=590,
 )
 
 
 _APSSID = _descriptor.Descriptor(
   name='APSsid',
-  full_name='access_point.APSsid',
+  full_name='cheetah.APSsid',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='access_point.APSsid.Name', index=0,
+      name='Name', full_name='cheetah.APSsid.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Handle', full_name='access_point.APSsid.Handle', index=1,
+      name='Handle', full_name='cheetah.APSsid.Handle', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -323,11 +323,11 @@ _APSSID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='Ssid', full_name='access_point.APSsid.Ssid',
+      name='Ssid', full_name='cheetah.APSsid.Ssid',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=602,
-  serialized_end=652,
+  serialized_start=592,
+  serialized_end=642,
 )
 
 _APERRORSTATUS.fields_by_name['Status'].enum_type = _APERRORSTATUS_APERRNO
@@ -354,21 +354,21 @@ DESCRIPTOR.enum_types_by_name['APNotifOp'] = _APNOTIFOP
 APErrorStatus = _reflection.GeneratedProtocolMessageType('APErrorStatus', (_message.Message,), dict(
   DESCRIPTOR = _APERRORSTATUS,
   __module__ = 'ap_common_types_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APErrorStatus)
+  # @@protoc_insertion_point(class_scope:cheetah.APErrorStatus)
   ))
 _sym_db.RegisterMessage(APErrorStatus)
 
 APRadio = _reflection.GeneratedProtocolMessageType('APRadio', (_message.Message,), dict(
   DESCRIPTOR = _APRADIO,
   __module__ = 'ap_common_types_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APRadio)
+  # @@protoc_insertion_point(class_scope:cheetah.APRadio)
   ))
 _sym_db.RegisterMessage(APRadio)
 
 APSsid = _reflection.GeneratedProtocolMessageType('APSsid', (_message.Message,), dict(
   DESCRIPTOR = _APSSID,
   __module__ = 'ap_common_types_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APSsid)
+  # @@protoc_insertion_point(class_scope:cheetah.APSsid)
   ))
 _sym_db.RegisterMessage(APSsid)
 

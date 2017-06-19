@@ -30,7 +30,7 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -150,7 +150,7 @@ inline bool APNotifOp_Parse(
 }
 // ===================================================================
 
-class APErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APErrorStatus) */ {
+class APErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APErrorStatus) */ {
  public:
   APErrorStatus();
   virtual ~APErrorStatus();
@@ -273,13 +273,13 @@ class APErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // optional .access_point.APErrorStatus.APErrno Status = 1;
+  // optional .cheetah.APErrorStatus.APErrno Status = 1;
   void clear_status();
   static const int kStatusFieldNumber = 1;
-  ::access_point::APErrorStatus_APErrno status() const;
-  void set_status(::access_point::APErrorStatus_APErrno value);
+  ::cheetah::APErrorStatus_APErrno status() const;
+  void set_status(::cheetah::APErrorStatus_APErrno value);
 
-  // @@protoc_insertion_point(class_scope:access_point.APErrorStatus)
+  // @@protoc_insertion_point(class_scope:cheetah.APErrorStatus)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -296,7 +296,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APErrorStatus> APErro
 
 // -------------------------------------------------------------------
 
-class APRadio : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APRadio) */ {
+class APRadio : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APRadio) */ {
  public:
   APRadio();
   virtual ~APRadio();
@@ -389,7 +389,7 @@ class APRadio : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void set_handle(::google::protobuf::uint32 value);
 
   RadioCase Radio_case() const;
-  // @@protoc_insertion_point(class_scope:access_point.APRadio)
+  // @@protoc_insertion_point(class_scope:cheetah.APRadio)
  private:
   inline void set_has_name();
   inline void set_has_handle();
@@ -418,7 +418,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APRadio> APRadio_defa
 
 // -------------------------------------------------------------------
 
-class APSsid : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:access_point.APSsid) */ {
+class APSsid : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APSsid) */ {
  public:
   APSsid();
   virtual ~APSsid();
@@ -511,7 +511,7 @@ class APSsid : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   void set_handle(::google::protobuf::uint32 value);
 
   SsidCase Ssid_case() const;
-  // @@protoc_insertion_point(class_scope:access_point.APSsid)
+  // @@protoc_insertion_point(class_scope:cheetah.APSsid)
  private:
   inline void set_has_name();
   inline void set_has_handle();
@@ -546,18 +546,18 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APSsid> APSsid_defaul
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // APErrorStatus
 
-// optional .access_point.APErrorStatus.APErrno Status = 1;
+// optional .cheetah.APErrorStatus.APErrno Status = 1;
 inline void APErrorStatus::clear_status() {
   status_ = 0;
 }
-inline ::access_point::APErrorStatus_APErrno APErrorStatus::status() const {
-  // @@protoc_insertion_point(field_get:access_point.APErrorStatus.Status)
-  return static_cast< ::access_point::APErrorStatus_APErrno >(status_);
+inline ::cheetah::APErrorStatus_APErrno APErrorStatus::status() const {
+  // @@protoc_insertion_point(field_get:cheetah.APErrorStatus.Status)
+  return static_cast< ::cheetah::APErrorStatus_APErrno >(status_);
 }
-inline void APErrorStatus::set_status(::access_point::APErrorStatus_APErrno value) {
+inline void APErrorStatus::set_status(::cheetah::APErrorStatus_APErrno value) {
   
   status_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APErrorStatus.Status)
+  // @@protoc_insertion_point(field_set:cheetah.APErrorStatus.Status)
 }
 
 inline const APErrorStatus* APErrorStatus::internal_default_instance() {
@@ -581,21 +581,21 @@ inline void APRadio::clear_name() {
   }
 }
 inline const ::std::string& APRadio::name() const {
-  // @@protoc_insertion_point(field_get:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_get:cheetah.APRadio.Name)
   if (has_name()) {
     return Radio_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 inline void APRadio::set_name(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Name)
   if (!has_name()) {
     clear_Radio();
     set_has_name();
     Radio_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Name)
 }
 inline void APRadio::set_name(const char* value) {
   if (!has_name()) {
@@ -605,7 +605,7 @@ inline void APRadio::set_name(const char* value) {
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.APRadio.Name)
 }
 inline void APRadio::set_name(const char* value, size_t size) {
   if (!has_name()) {
@@ -615,7 +615,7 @@ inline void APRadio::set_name(const char* value, size_t size) {
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APRadio.Name)
 }
 inline ::std::string* APRadio::mutable_name() {
   if (!has_name()) {
@@ -623,11 +623,11 @@ inline ::std::string* APRadio::mutable_name() {
     set_has_name();
     Radio_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.APRadio.Name)
   return Radio_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APRadio::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_release:cheetah.APRadio.Name)
   if (has_name()) {
     clear_has_Radio();
     return Radio_.name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -645,7 +645,7 @@ inline void APRadio::set_allocated_name(::std::string* name) {
     Radio_.name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         name);
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APRadio.Name)
 }
 
 // optional uint32 Handle = 2;
@@ -662,7 +662,7 @@ inline void APRadio::clear_handle() {
   }
 }
 inline ::google::protobuf::uint32 APRadio::handle() const {
-  // @@protoc_insertion_point(field_get:access_point.APRadio.Handle)
+  // @@protoc_insertion_point(field_get:cheetah.APRadio.Handle)
   if (has_handle()) {
     return Radio_.handle_;
   }
@@ -674,7 +674,7 @@ inline void APRadio::set_handle(::google::protobuf::uint32 value) {
     set_has_handle();
   }
   Radio_.handle_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Handle)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Handle)
 }
 
 inline bool APRadio::has_Radio() const {
@@ -707,21 +707,21 @@ inline void APSsid::clear_name() {
   }
 }
 inline const ::std::string& APSsid::name() const {
-  // @@protoc_insertion_point(field_get:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_get:cheetah.APSsid.Name)
   if (has_name()) {
     return Ssid_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 inline void APSsid::set_name(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Name)
   if (!has_name()) {
     clear_Ssid();
     set_has_name();
     Ssid_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Name)
 }
 inline void APSsid::set_name(const char* value) {
   if (!has_name()) {
@@ -731,7 +731,7 @@ inline void APSsid::set_name(const char* value) {
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSsid.Name)
 }
 inline void APSsid::set_name(const char* value, size_t size) {
   if (!has_name()) {
@@ -741,7 +741,7 @@ inline void APSsid::set_name(const char* value, size_t size) {
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSsid.Name)
 }
 inline ::std::string* APSsid::mutable_name() {
   if (!has_name()) {
@@ -749,11 +749,11 @@ inline ::std::string* APSsid::mutable_name() {
     set_has_name();
     Ssid_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSsid.Name)
   return Ssid_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* APSsid::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_release:cheetah.APSsid.Name)
   if (has_name()) {
     clear_has_Ssid();
     return Ssid_.name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -771,7 +771,7 @@ inline void APSsid::set_allocated_name(::std::string* name) {
     Ssid_.name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         name);
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSsid.Name)
 }
 
 // optional uint32 Handle = 2;
@@ -788,7 +788,7 @@ inline void APSsid::clear_handle() {
   }
 }
 inline ::google::protobuf::uint32 APSsid::handle() const {
-  // @@protoc_insertion_point(field_get:access_point.APSsid.Handle)
+  // @@protoc_insertion_point(field_get:cheetah.APSsid.Handle)
   if (has_handle()) {
     return Ssid_.handle_;
   }
@@ -800,7 +800,7 @@ inline void APSsid::set_handle(::google::protobuf::uint32 value) {
     set_has_handle();
   }
   Ssid_.handle_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Handle)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Handle)
 }
 
 inline bool APSsid::has_Ssid() const {
@@ -823,31 +823,31 @@ inline const APSsid* APSsid::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::access_point::APErrorStatus_APErrno> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APErrorStatus_APErrno> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APErrorStatus_APErrno>() {
-  return ::access_point::APErrorStatus_APErrno_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APErrorStatus_APErrno>() {
+  return ::cheetah::APErrorStatus_APErrno_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APRegOp> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APRegOp> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APRegOp>() {
-  return ::access_point::APRegOp_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APRegOp>() {
+  return ::cheetah::APRegOp_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APObjectOp> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APObjectOp> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APObjectOp>() {
-  return ::access_point::APObjectOp_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APObjectOp>() {
+  return ::cheetah::APObjectOp_descriptor();
 }
-template <> struct is_proto_enum< ::access_point::APNotifOp> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::cheetah::APNotifOp> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::access_point::APNotifOp>() {
-  return ::access_point::APNotifOp_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::cheetah::APNotifOp>() {
+  return ::cheetah::APNotifOp_descriptor();
 }
 
 }  // namespace protobuf

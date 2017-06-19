@@ -13,10 +13,10 @@
 #include <grpc++/impl/codegen/rpc_service_method.h>
 #include <grpc++/impl/codegen/service_type.h>
 #include <grpc++/impl/codegen/sync_stream.h>
-namespace access_point {
+namespace cheetah {
 
 static const char* APPackets_method_names[] = {
-  "/access_point.APPackets/APPacketsGet",
+  "/cheetah.APPackets/APPacketsGet",
 };
 
 std::unique_ptr< APPackets::Stub> APPackets::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -28,12 +28,12 @@ APPackets::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_APPacketsGet_(APPackets_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::ClientReader< ::access_point::APPacketsMsgRsp>* APPackets::Stub::APPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request) {
-  return new ::grpc::ClientReader< ::access_point::APPacketsMsgRsp>(channel_.get(), rpcmethod_APPacketsGet_, context, request);
+::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
+  return new ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), rpcmethod_APPacketsGet_, context, request);
 }
 
-::grpc::ClientAsyncReader< ::access_point::APPacketsMsgRsp>* APPackets::Stub::AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return new ::grpc::ClientAsyncReader< ::access_point::APPacketsMsgRsp>(channel_.get(), cq, rpcmethod_APPacketsGet_, context, request, tag);
+::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), cq, rpcmethod_APPacketsGet_, context, request, tag);
 }
 
 APPackets::Service::Service() {
@@ -41,14 +41,14 @@ APPackets::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       APPackets_method_names[0],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< APPackets::Service, ::access_point::APPacketsMsg, ::access_point::APPacketsMsgRsp>(
+      new ::grpc::ServerStreamingHandler< APPackets::Service, ::cheetah::APPacketsMsg, ::cheetah::APPacketsMsgRsp>(
           std::mem_fn(&APPackets::Service::APPacketsGet), this)));
 }
 
 APPackets::Service::~Service() {
 }
 
-::grpc::Status APPackets::Service::APPacketsGet(::grpc::ServerContext* context, const ::access_point::APPacketsMsg* request, ::grpc::ServerWriter< ::access_point::APPacketsMsgRsp>* writer) {
+::grpc::Status APPackets::Service::APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) {
   (void) context;
   (void) request;
   (void) writer;
@@ -56,5 +56,5 @@ APPackets::Service::~Service() {
 }
 
 
-}  // namespace access_point
+}  // namespace cheetah
 

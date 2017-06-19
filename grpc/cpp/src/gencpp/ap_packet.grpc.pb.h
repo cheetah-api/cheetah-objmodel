@@ -34,7 +34,7 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-namespace access_point {
+namespace cheetah {
 
 // @defgroup APPackets
 // @ingroup System
@@ -47,30 +47,30 @@ class APPackets GRPC_FINAL {
    public:
     virtual ~StubInterface() {}
     // Registration RPC for packet types to be pushed
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
     }
   private:
-    virtual ::grpc::ClientReaderInterface< ::access_point::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::access_point::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    std::unique_ptr< ::grpc::ClientReader< ::access_point::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::access_point::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientReader< ::access_point::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncReader< ::access_point::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::access_point::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_APPacketsGet_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -80,7 +80,7 @@ class APPackets GRPC_FINAL {
     Service();
     virtual ~Service();
     // Registration RPC for packet types to be pushed
-    virtual ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::access_point::APPacketsMsg* request, ::grpc::ServerWriter< ::access_point::APPacketsMsgRsp>* writer);
+    virtual ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer);
   };
   template <class BaseClass>
   class WithAsyncMethod_APPacketsGet : public BaseClass {
@@ -94,11 +94,11 @@ class APPackets GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::access_point::APPacketsMsg* request, ::grpc::ServerWriter< ::access_point::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPPacketsGet(::grpc::ServerContext* context, ::access_point::APPacketsMsg* request, ::grpc::ServerAsyncWriter< ::access_point::APPacketsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAPPacketsGet(::grpc::ServerContext* context, ::cheetah::APPacketsMsg* request, ::grpc::ServerAsyncWriter< ::cheetah::APPacketsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
@@ -115,14 +115,14 @@ class APPackets GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::access_point::APPacketsMsg* request, ::grpc::ServerWriter< ::access_point::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
 };
 
-}  // namespace access_point
+}  // namespace cheetah
 
 
 #endif  // GRPC_ap_5fpacket_2eproto__INCLUDED

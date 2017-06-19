@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 namespace {
 
@@ -69,10 +69,10 @@ void protobuf_AddDesc_ap_5fversion_2eproto_impl() {
 
   protobuf_InitDefaults_ap_5fversion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020ap_version.proto\022\014access_point*f\n\tAPVe"
-    "rsion\022\025\n\021AP_VERSION_UNUSED\020\000\022\024\n\020AP_MAJOR"
-    "_VERSION\020\000\022\024\n\020AP_MINOR_VERSION\020\000\022\022\n\016AP_S"
-    "UB_VERSION\020\001\032\002\020\001b\006proto3", 144);
+    "\n\020ap_version.proto\022\007cheetah*f\n\tAPVersion"
+    "\022\025\n\021AP_VERSION_UNUSED\020\000\022\024\n\020AP_MAJOR_VERS"
+    "ION\020\000\022\024\n\020AP_MINOR_VERSION\020\000\022\022\n\016AP_SUB_VE"
+    "RSION\020\001\032\002\020\001b\006proto3", 139);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_version.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fversion_2eproto);
@@ -106,6 +106,6 @@ bool APVersion_IsValid(int value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 // @@protoc_insertion_point(global_scope)

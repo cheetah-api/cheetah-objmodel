@@ -35,7 +35,7 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-namespace access_point {
+namespace cheetah {
 
 // @defgroup APGlobal
 // @ingroup System
@@ -66,42 +66,42 @@ class APGlobal GRPC_FINAL {
     //        heartbeat notification messages are sent to the client on
     //        a periodic basis.
     //    Refer to APGlobalNotif definition for further info.
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APGlobalNotif>> APGlobalInitNotif(::grpc::ClientContext* context, const ::access_point::APInitMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::access_point::APGlobalNotif>>(APGlobalInitNotifRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APGlobalNotif>> APGlobalInitNotif(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APGlobalNotif>>(APGlobalInitNotifRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APGlobalNotif>> AsyncAPGlobalInitNotif(::grpc::ClientContext* context, const ::access_point::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::access_point::APGlobalNotif>>(AsyncAPGlobalInitNotifRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APGlobalNotif>> AsyncAPGlobalInitNotif(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APGlobalNotif>>(AsyncAPGlobalInitNotifRaw(context, request, cq, tag));
     }
     // Get platform specific globals
-    virtual ::grpc::Status APGlobalsGet(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::access_point::APGlobalsGetMsgRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APGlobalsGetMsgRsp>> AsyncAPGlobalsGet(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APGlobalsGetMsgRsp>>(AsyncAPGlobalsGetRaw(context, request, cq));
+    virtual ::grpc::Status APGlobalsGet(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::cheetah::APGlobalsGetMsgRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APGlobalsGetMsgRsp>> AsyncAPGlobalsGet(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APGlobalsGetMsgRsp>>(AsyncAPGlobalsGetRaw(context, request, cq));
     }
     // @}
   private:
-    virtual ::grpc::ClientReaderInterface< ::access_point::APGlobalNotif>* APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::access_point::APGlobalNotif>* AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::access_point::APGlobalsGetMsgRsp>* AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::cheetah::APGlobalNotif>* APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::cheetah::APGlobalNotif>* AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APGlobalsGetMsgRsp>* AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    std::unique_ptr< ::grpc::ClientReader< ::access_point::APGlobalNotif>> APGlobalInitNotif(::grpc::ClientContext* context, const ::access_point::APInitMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::access_point::APGlobalNotif>>(APGlobalInitNotifRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::cheetah::APGlobalNotif>> APGlobalInitNotif(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::cheetah::APGlobalNotif>>(APGlobalInitNotifRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APGlobalNotif>> AsyncAPGlobalInitNotif(::grpc::ClientContext* context, const ::access_point::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::access_point::APGlobalNotif>>(AsyncAPGlobalInitNotifRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APGlobalNotif>> AsyncAPGlobalInitNotif(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APGlobalNotif>>(AsyncAPGlobalInitNotifRaw(context, request, cq, tag));
     }
-    ::grpc::Status APGlobalsGet(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::access_point::APGlobalsGetMsgRsp* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APGlobalsGetMsgRsp>> AsyncAPGlobalsGet(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::access_point::APGlobalsGetMsgRsp>>(AsyncAPGlobalsGetRaw(context, request, cq));
+    ::grpc::Status APGlobalsGet(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::cheetah::APGlobalsGetMsgRsp* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cheetah::APGlobalsGetMsgRsp>> AsyncAPGlobalsGet(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cheetah::APGlobalsGetMsgRsp>>(AsyncAPGlobalsGetRaw(context, request, cq));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientReader< ::access_point::APGlobalNotif>* APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncReader< ::access_point::APGlobalNotif>* AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::access_point::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::access_point::APGlobalsGetMsgRsp>* AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::access_point::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientReader< ::cheetah::APGlobalNotif>* APGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::cheetah::APGlobalNotif>* AsyncAPGlobalInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::cheetah::APGlobalsGetMsgRsp>* AsyncAPGlobalsGetRaw(::grpc::ClientContext* context, const ::cheetah::APGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_APGlobalInitNotif_;
     const ::grpc::RpcMethod rpcmethod_APGlobalsGet_;
   };
@@ -130,9 +130,9 @@ class APGlobal GRPC_FINAL {
     //        heartbeat notification messages are sent to the client on
     //        a periodic basis.
     //    Refer to APGlobalNotif definition for further info.
-    virtual ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::access_point::APInitMsg* request, ::grpc::ServerWriter< ::access_point::APGlobalNotif>* writer);
+    virtual ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::cheetah::APInitMsg* request, ::grpc::ServerWriter< ::cheetah::APGlobalNotif>* writer);
     // Get platform specific globals
-    virtual ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::access_point::APGlobalsGetMsg* request, ::access_point::APGlobalsGetMsgRsp* response);
+    virtual ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::cheetah::APGlobalsGetMsg* request, ::cheetah::APGlobalsGetMsgRsp* response);
     // @}
   };
   template <class BaseClass>
@@ -147,11 +147,11 @@ class APGlobal GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::access_point::APInitMsg* request, ::grpc::ServerWriter< ::access_point::APGlobalNotif>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::cheetah::APInitMsg* request, ::grpc::ServerWriter< ::cheetah::APGlobalNotif>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPGlobalInitNotif(::grpc::ServerContext* context, ::access_point::APInitMsg* request, ::grpc::ServerAsyncWriter< ::access_point::APGlobalNotif>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAPGlobalInitNotif(::grpc::ServerContext* context, ::cheetah::APInitMsg* request, ::grpc::ServerAsyncWriter< ::cheetah::APGlobalNotif>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
@@ -167,11 +167,11 @@ class APGlobal GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::access_point::APGlobalsGetMsg* request, ::access_point::APGlobalsGetMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::cheetah::APGlobalsGetMsg* request, ::cheetah::APGlobalsGetMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPGlobalsGet(::grpc::ServerContext* context, ::access_point::APGlobalsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::access_point::APGlobalsGetMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAPGlobalsGet(::grpc::ServerContext* context, ::cheetah::APGlobalsGetMsg* request, ::grpc::ServerAsyncResponseWriter< ::cheetah::APGlobalsGetMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -188,7 +188,7 @@ class APGlobal GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::access_point::APInitMsg* request, ::grpc::ServerWriter< ::access_point::APGlobalNotif>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APGlobalInitNotif(::grpc::ServerContext* context, const ::cheetah::APInitMsg* request, ::grpc::ServerWriter< ::cheetah::APGlobalNotif>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -205,7 +205,7 @@ class APGlobal GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::access_point::APGlobalsGetMsg* request, ::access_point::APGlobalsGetMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APGlobalsGet(::grpc::ServerContext* context, const ::cheetah::APGlobalsGetMsg* request, ::cheetah::APGlobalsGetMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -215,7 +215,7 @@ class APGlobal GRPC_FINAL {
 // @{
 // /;
 
-}  // namespace access_point
+}  // namespace cheetah
 
 
 #endif  // GRPC_ap_5fglobal_2eproto__INCLUDED

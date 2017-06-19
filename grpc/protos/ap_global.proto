@@ -10,7 +10,7 @@
 //
 
 syntax = "proto3";
-package access_point;
+package cheetah;
 
 import "ap_common_types.proto";
 

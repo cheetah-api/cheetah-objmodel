@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace access_point {
+namespace cheetah {
 
 namespace {
 
@@ -166,30 +166,30 @@ void protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto_impl() {
 
   protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025ap_common_types.proto\022\014access_point\"\372\003"
-    "\n\rAPErrorStatus\0223\n\006Status\030\001 \001(\0162#.access"
-    "_point.APErrorStatus.APErrno\"\263\003\n\007APErrno"
-    "\022\016\n\nAP_SUCCESS\020\000\022\024\n\020AP_NOT_CONNECTED\020\001\022\r"
-    "\n\tAP_EAGAIN\020\002\022\r\n\tAP_ENOMEM\020\003\022\014\n\010AP_EBUSY"
-    "\020\004\022\r\n\tAP_EINVAL\020\005\022\026\n\022AP_UNSUPPORTED_VER\020"
-    "\006\022\024\n\020AP_NOT_AVAILABLE\020\007\022\033\n\027AP_STREAM_NOT"
-    "_SUPPORTED\020\010\022\016\n\nAP_ENOTSUP\020\t\022\017\n\013AP_SOME_"
-    "ERR\020\n\022\016\n\nAP_TIMEOUT\020\013\022\021\n\rAP_NOTIF_TERM\020\014"
-    "\022\031\n\024AP_INIT_START_OFFSET\020\200\n\022\030\n\023AP_INIT_S"
-    "TATE_CLEAR\020\201\n\022\030\n\023AP_INIT_STATE_READY\020\202\n\022"
-    "\034\n\027AP_INIT_UNSUPPORTED_VER\020\203\n\022#\n\036AP_INIT"
-    "_SERVER_NOT_INITIALIZED\020\204\n\022&\n!AP_INIT_SE"
-    "RVER_MODE_CHANGE_FAILED\020\205\n\"4\n\007APRadio\022\016\n"
-    "\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\007\n\005Radio"
-    "\"2\n\006APSsid\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001"
-    "(\rH\000B\006\n\004Ssid*b\n\007APRegOp\022\025\n\021AP_REGOP_RESE"
-    "RVED\020\000\022\025\n\021AP_REGOP_REGISTER\020\001\022\027\n\023AP_REGO"
-    "P_UNREGISTER\020\002\022\020\n\014AP_REGOP_EOF\020\003*_\n\nAPOb"
-    "jectOp\022\025\n\021AP_OBJOP_RESERVED\020\000\022\020\n\014AP_OBJO"
-    "P_ADD\020\001\022\023\n\017AP_OBJOP_UPDATE\020\002\022\023\n\017AP_OBJOP"
-    "_DELETE\020\003*S\n\tAPNotifOp\022\027\n\023AP_NOTIFOP_RES"
-    "ERVED\020\000\022\025\n\021AP_NOTIFOP_ENABLE\020\001\022\026\n\022AP_NOT"
-    "IFOP_DISABLE\020\002b\006proto3", 942);
+    "\n\025ap_common_types.proto\022\007cheetah\"\365\003\n\rAPE"
+    "rrorStatus\022.\n\006Status\030\001 \001(\0162\036.cheetah.APE"
+    "rrorStatus.APErrno\"\263\003\n\007APErrno\022\016\n\nAP_SUC"
+    "CESS\020\000\022\024\n\020AP_NOT_CONNECTED\020\001\022\r\n\tAP_EAGAI"
+    "N\020\002\022\r\n\tAP_ENOMEM\020\003\022\014\n\010AP_EBUSY\020\004\022\r\n\tAP_E"
+    "INVAL\020\005\022\026\n\022AP_UNSUPPORTED_VER\020\006\022\024\n\020AP_NO"
+    "T_AVAILABLE\020\007\022\033\n\027AP_STREAM_NOT_SUPPORTED"
+    "\020\010\022\016\n\nAP_ENOTSUP\020\t\022\017\n\013AP_SOME_ERR\020\n\022\016\n\nA"
+    "P_TIMEOUT\020\013\022\021\n\rAP_NOTIF_TERM\020\014\022\031\n\024AP_INI"
+    "T_START_OFFSET\020\200\n\022\030\n\023AP_INIT_STATE_CLEAR"
+    "\020\201\n\022\030\n\023AP_INIT_STATE_READY\020\202\n\022\034\n\027AP_INIT"
+    "_UNSUPPORTED_VER\020\203\n\022#\n\036AP_INIT_SERVER_NO"
+    "T_INITIALIZED\020\204\n\022&\n!AP_INIT_SERVER_MODE_"
+    "CHANGE_FAILED\020\205\n\"4\n\007APRadio\022\016\n\004Name\030\001 \001("
+    "\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\007\n\005Radio\"2\n\006APSsid"
+    "\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\006\n\004Ss"
+    "id*b\n\007APRegOp\022\025\n\021AP_REGOP_RESERVED\020\000\022\025\n\021"
+    "AP_REGOP_REGISTER\020\001\022\027\n\023AP_REGOP_UNREGIST"
+    "ER\020\002\022\020\n\014AP_REGOP_EOF\020\003*_\n\nAPObjectOp\022\025\n\021"
+    "AP_OBJOP_RESERVED\020\000\022\020\n\014AP_OBJOP_ADD\020\001\022\023\n"
+    "\017AP_OBJOP_UPDATE\020\002\022\023\n\017AP_OBJOP_DELETE\020\003*"
+    "S\n\tAPNotifOp\022\027\n\023AP_NOTIFOP_RESERVED\020\000\022\025\n"
+    "\021AP_NOTIFOP_ENABLE\020\001\022\026\n\022AP_NOTIFOP_DISAB"
+    "LE\020\002b\006proto3", 932);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_common_types.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ap_5fcommon_5ftypes_2eproto);
@@ -329,7 +329,7 @@ APErrorStatus::APErrorStatus()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APErrorStatus)
+  // @@protoc_insertion_point(constructor:cheetah.APErrorStatus)
 }
 
 void APErrorStatus::InitAsDefaultInstance() {
@@ -340,7 +340,7 @@ APErrorStatus::APErrorStatus(const APErrorStatus& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APErrorStatus)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APErrorStatus)
 }
 
 void APErrorStatus::SharedCtor() {
@@ -349,7 +349,7 @@ void APErrorStatus::SharedCtor() {
 }
 
 APErrorStatus::~APErrorStatus() {
-  // @@protoc_insertion_point(destructor:access_point.APErrorStatus)
+  // @@protoc_insertion_point(destructor:cheetah.APErrorStatus)
   SharedDtor();
 }
 
@@ -382,7 +382,7 @@ APErrorStatus* APErrorStatus::New(::google::protobuf::Arena* arena) const {
 }
 
 void APErrorStatus::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(message_clear_start:cheetah.APErrorStatus)
   status_ = 0;
 }
 
@@ -390,20 +390,20 @@ bool APErrorStatus::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APErrorStatus)
+  // @@protoc_insertion_point(parse_start:cheetah.APErrorStatus)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .access_point.APErrorStatus.APErrno Status = 1;
+      // optional .cheetah.APErrorStatus.APErrno Status = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_status(static_cast< ::access_point::APErrorStatus_APErrno >(value));
+          set_status(static_cast< ::cheetah::APErrorStatus_APErrno >(value));
         } else {
           goto handle_unusual;
         }
@@ -424,45 +424,45 @@ bool APErrorStatus::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APErrorStatus)
+  // @@protoc_insertion_point(parse_success:cheetah.APErrorStatus)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APErrorStatus)
+  // @@protoc_insertion_point(parse_failure:cheetah.APErrorStatus)
   return false;
 #undef DO_
 }
 
 void APErrorStatus::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APErrorStatus)
-  // optional .access_point.APErrorStatus.APErrno Status = 1;
+  // @@protoc_insertion_point(serialize_start:cheetah.APErrorStatus)
+  // optional .cheetah.APErrorStatus.APErrno Status = 1;
   if (this->status() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->status(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APErrorStatus)
+  // @@protoc_insertion_point(serialize_end:cheetah.APErrorStatus)
 }
 
 ::google::protobuf::uint8* APErrorStatus::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APErrorStatus)
-  // optional .access_point.APErrorStatus.APErrno Status = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APErrorStatus)
+  // optional .cheetah.APErrorStatus.APErrno Status = 1;
   if (this->status() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->status(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APErrorStatus)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APErrorStatus)
   return target;
 }
 
 size_t APErrorStatus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APErrorStatus)
   size_t total_size = 0;
 
-  // optional .access_point.APErrorStatus.APErrno Status = 1;
+  // optional .cheetah.APErrorStatus.APErrno Status = 1;
   if (this->status() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
@@ -476,22 +476,22 @@ size_t APErrorStatus::ByteSizeLong() const {
 }
 
 void APErrorStatus::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APErrorStatus)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APErrorStatus* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APErrorStatus>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APErrorStatus)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APErrorStatus)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APErrorStatus)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APErrorStatus)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APErrorStatus::MergeFrom(const APErrorStatus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APErrorStatus)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -507,14 +507,14 @@ void APErrorStatus::UnsafeMergeFrom(const APErrorStatus& from) {
 }
 
 void APErrorStatus::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APErrorStatus)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APErrorStatus::CopyFrom(const APErrorStatus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APErrorStatus)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APErrorStatus)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -546,18 +546,18 @@ void APErrorStatus::InternalSwap(APErrorStatus* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // APErrorStatus
 
-// optional .access_point.APErrorStatus.APErrno Status = 1;
+// optional .cheetah.APErrorStatus.APErrno Status = 1;
 void APErrorStatus::clear_status() {
   status_ = 0;
 }
-::access_point::APErrorStatus_APErrno APErrorStatus::status() const {
-  // @@protoc_insertion_point(field_get:access_point.APErrorStatus.Status)
-  return static_cast< ::access_point::APErrorStatus_APErrno >(status_);
+::cheetah::APErrorStatus_APErrno APErrorStatus::status() const {
+  // @@protoc_insertion_point(field_get:cheetah.APErrorStatus.Status)
+  return static_cast< ::cheetah::APErrorStatus_APErrno >(status_);
 }
-void APErrorStatus::set_status(::access_point::APErrorStatus_APErrno value) {
+void APErrorStatus::set_status(::cheetah::APErrorStatus_APErrno value) {
   
   status_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APErrorStatus.Status)
+  // @@protoc_insertion_point(field_set:cheetah.APErrorStatus.Status)
 }
 
 inline const APErrorStatus* APErrorStatus::internal_default_instance() {
@@ -576,7 +576,7 @@ APRadio::APRadio()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APRadio)
+  // @@protoc_insertion_point(constructor:cheetah.APRadio)
 }
 
 void APRadio::InitAsDefaultInstance() {
@@ -589,7 +589,7 @@ APRadio::APRadio(const APRadio& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APRadio)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APRadio)
 }
 
 void APRadio::SharedCtor() {
@@ -598,7 +598,7 @@ void APRadio::SharedCtor() {
 }
 
 APRadio::~APRadio() {
-  // @@protoc_insertion_point(destructor:access_point.APRadio)
+  // @@protoc_insertion_point(destructor:cheetah.APRadio)
   SharedDtor();
 }
 
@@ -634,7 +634,7 @@ APRadio* APRadio::New(::google::protobuf::Arena* arena) const {
 }
 
 void APRadio::clear_Radio() {
-// @@protoc_insertion_point(one_of_clear_start:access_point.APRadio)
+// @@protoc_insertion_point(one_of_clear_start:cheetah.APRadio)
   switch (Radio_case()) {
     case kName: {
       Radio_.name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -653,7 +653,7 @@ void APRadio::clear_Radio() {
 
 
 void APRadio::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APRadio)
+// @@protoc_insertion_point(message_clear_start:cheetah.APRadio)
   clear_Radio();
 }
 
@@ -661,7 +661,7 @@ bool APRadio::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APRadio)
+  // @@protoc_insertion_point(parse_start:cheetah.APRadio)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -675,7 +675,7 @@ bool APRadio::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "access_point.APRadio.Name"));
+            "cheetah.APRadio.Name"));
         } else {
           goto handle_unusual;
         }
@@ -712,23 +712,23 @@ bool APRadio::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APRadio)
+  // @@protoc_insertion_point(parse_success:cheetah.APRadio)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APRadio)
+  // @@protoc_insertion_point(parse_failure:cheetah.APRadio)
   return false;
 #undef DO_
 }
 
 void APRadio::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APRadio)
+  // @@protoc_insertion_point(serialize_start:cheetah.APRadio)
   // optional string Name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APRadio.Name");
+      "cheetah.APRadio.Name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -738,19 +738,19 @@ void APRadio::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->handle(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APRadio)
+  // @@protoc_insertion_point(serialize_end:cheetah.APRadio)
 }
 
 ::google::protobuf::uint8* APRadio::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APRadio)
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APRadio)
   // optional string Name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APRadio.Name");
+      "cheetah.APRadio.Name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -761,12 +761,12 @@ void APRadio::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->handle(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APRadio)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APRadio)
   return target;
 }
 
 size_t APRadio::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APRadio)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APRadio)
   size_t total_size = 0;
 
   switch (Radio_case()) {
@@ -796,22 +796,22 @@ size_t APRadio::ByteSizeLong() const {
 }
 
 void APRadio::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APRadio)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APRadio)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APRadio* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APRadio>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APRadio)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APRadio)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APRadio)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APRadio)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APRadio::MergeFrom(const APRadio& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APRadio)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APRadio)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -837,14 +837,14 @@ void APRadio::UnsafeMergeFrom(const APRadio& from) {
 }
 
 void APRadio::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APRadio)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APRadio)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APRadio::CopyFrom(const APRadio& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APRadio)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APRadio)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -891,21 +891,21 @@ void APRadio::clear_name() {
   }
 }
 const ::std::string& APRadio::name() const {
-  // @@protoc_insertion_point(field_get:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_get:cheetah.APRadio.Name)
   if (has_name()) {
     return Radio_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 void APRadio::set_name(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Name)
   if (!has_name()) {
     clear_Radio();
     set_has_name();
     Radio_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Name)
 }
 void APRadio::set_name(const char* value) {
   if (!has_name()) {
@@ -915,7 +915,7 @@ void APRadio::set_name(const char* value) {
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.APRadio.Name)
 }
 void APRadio::set_name(const char* value, size_t size) {
   if (!has_name()) {
@@ -925,7 +925,7 @@ void APRadio::set_name(const char* value, size_t size) {
   }
   Radio_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APRadio.Name)
 }
 ::std::string* APRadio::mutable_name() {
   if (!has_name()) {
@@ -933,11 +933,11 @@ void APRadio::set_name(const char* value, size_t size) {
     set_has_name();
     Radio_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.APRadio.Name)
   return Radio_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* APRadio::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_release:cheetah.APRadio.Name)
   if (has_name()) {
     clear_has_Radio();
     return Radio_.name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -955,7 +955,7 @@ void APRadio::set_allocated_name(::std::string* name) {
     Radio_.name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         name);
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APRadio.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APRadio.Name)
 }
 
 // optional uint32 Handle = 2;
@@ -972,7 +972,7 @@ void APRadio::clear_handle() {
   }
 }
 ::google::protobuf::uint32 APRadio::handle() const {
-  // @@protoc_insertion_point(field_get:access_point.APRadio.Handle)
+  // @@protoc_insertion_point(field_get:cheetah.APRadio.Handle)
   if (has_handle()) {
     return Radio_.handle_;
   }
@@ -984,7 +984,7 @@ void APRadio::set_handle(::google::protobuf::uint32 value) {
     set_has_handle();
   }
   Radio_.handle_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APRadio.Handle)
+  // @@protoc_insertion_point(field_set:cheetah.APRadio.Handle)
 }
 
 bool APRadio::has_Radio() const {
@@ -1012,7 +1012,7 @@ APSsid::APSsid()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:access_point.APSsid)
+  // @@protoc_insertion_point(constructor:cheetah.APSsid)
 }
 
 void APSsid::InitAsDefaultInstance() {
@@ -1025,7 +1025,7 @@ APSsid::APSsid(const APSsid& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:access_point.APSsid)
+  // @@protoc_insertion_point(copy_constructor:cheetah.APSsid)
 }
 
 void APSsid::SharedCtor() {
@@ -1034,7 +1034,7 @@ void APSsid::SharedCtor() {
 }
 
 APSsid::~APSsid() {
-  // @@protoc_insertion_point(destructor:access_point.APSsid)
+  // @@protoc_insertion_point(destructor:cheetah.APSsid)
   SharedDtor();
 }
 
@@ -1070,7 +1070,7 @@ APSsid* APSsid::New(::google::protobuf::Arena* arena) const {
 }
 
 void APSsid::clear_Ssid() {
-// @@protoc_insertion_point(one_of_clear_start:access_point.APSsid)
+// @@protoc_insertion_point(one_of_clear_start:cheetah.APSsid)
   switch (Ssid_case()) {
     case kName: {
       Ssid_.name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1089,7 +1089,7 @@ void APSsid::clear_Ssid() {
 
 
 void APSsid::Clear() {
-// @@protoc_insertion_point(message_clear_start:access_point.APSsid)
+// @@protoc_insertion_point(message_clear_start:cheetah.APSsid)
   clear_Ssid();
 }
 
@@ -1097,7 +1097,7 @@ bool APSsid::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:access_point.APSsid)
+  // @@protoc_insertion_point(parse_start:cheetah.APSsid)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1111,7 +1111,7 @@ bool APSsid::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "access_point.APSsid.Name"));
+            "cheetah.APSsid.Name"));
         } else {
           goto handle_unusual;
         }
@@ -1148,23 +1148,23 @@ bool APSsid::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:access_point.APSsid)
+  // @@protoc_insertion_point(parse_success:cheetah.APSsid)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:access_point.APSsid)
+  // @@protoc_insertion_point(parse_failure:cheetah.APSsid)
   return false;
 #undef DO_
 }
 
 void APSsid::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:access_point.APSsid)
+  // @@protoc_insertion_point(serialize_start:cheetah.APSsid)
   // optional string Name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APSsid.Name");
+      "cheetah.APSsid.Name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -1174,19 +1174,19 @@ void APSsid::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->handle(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:access_point.APSsid)
+  // @@protoc_insertion_point(serialize_end:cheetah.APSsid)
 }
 
 ::google::protobuf::uint8* APSsid::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:access_point.APSsid)
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APSsid)
   // optional string Name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "access_point.APSsid.Name");
+      "cheetah.APSsid.Name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -1197,12 +1197,12 @@ void APSsid::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->handle(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:access_point.APSsid)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APSsid)
   return target;
 }
 
 size_t APSsid::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:access_point.APSsid)
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APSsid)
   size_t total_size = 0;
 
   switch (Ssid_case()) {
@@ -1232,22 +1232,22 @@ size_t APSsid::ByteSizeLong() const {
 }
 
 void APSsid::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:access_point.APSsid)
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APSsid)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const APSsid* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const APSsid>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:access_point.APSsid)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APSsid)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:access_point.APSsid)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APSsid)
     UnsafeMergeFrom(*source);
   }
 }
 
 void APSsid::MergeFrom(const APSsid& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:access_point.APSsid)
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APSsid)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1273,14 +1273,14 @@ void APSsid::UnsafeMergeFrom(const APSsid& from) {
 }
 
 void APSsid::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:access_point.APSsid)
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APSsid)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void APSsid::CopyFrom(const APSsid& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:access_point.APSsid)
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APSsid)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1327,21 +1327,21 @@ void APSsid::clear_name() {
   }
 }
 const ::std::string& APSsid::name() const {
-  // @@protoc_insertion_point(field_get:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_get:cheetah.APSsid.Name)
   if (has_name()) {
     return Ssid_.name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 void APSsid::set_name(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Name)
   if (!has_name()) {
     clear_Ssid();
     set_has_name();
     Ssid_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Name)
 }
 void APSsid::set_name(const char* value) {
   if (!has_name()) {
@@ -1351,7 +1351,7 @@ void APSsid::set_name(const char* value) {
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_char:cheetah.APSsid.Name)
 }
 void APSsid::set_name(const char* value, size_t size) {
   if (!has_name()) {
@@ -1361,7 +1361,7 @@ void APSsid::set_name(const char* value, size_t size) {
   }
   Ssid_.name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APSsid.Name)
 }
 ::std::string* APSsid::mutable_name() {
   if (!has_name()) {
@@ -1369,11 +1369,11 @@ void APSsid::set_name(const char* value, size_t size) {
     set_has_name();
     Ssid_.name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_mutable:cheetah.APSsid.Name)
   return Ssid_.name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* APSsid::release_name() {
-  // @@protoc_insertion_point(field_release:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_release:cheetah.APSsid.Name)
   if (has_name()) {
     clear_has_Ssid();
     return Ssid_.name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1391,7 +1391,7 @@ void APSsid::set_allocated_name(::std::string* name) {
     Ssid_.name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         name);
   }
-  // @@protoc_insertion_point(field_set_allocated:access_point.APSsid.Name)
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APSsid.Name)
 }
 
 // optional uint32 Handle = 2;
@@ -1408,7 +1408,7 @@ void APSsid::clear_handle() {
   }
 }
 ::google::protobuf::uint32 APSsid::handle() const {
-  // @@protoc_insertion_point(field_get:access_point.APSsid.Handle)
+  // @@protoc_insertion_point(field_get:cheetah.APSsid.Handle)
   if (has_handle()) {
     return Ssid_.handle_;
   }
@@ -1420,7 +1420,7 @@ void APSsid::set_handle(::google::protobuf::uint32 value) {
     set_has_handle();
   }
   Ssid_.handle_ = value;
-  // @@protoc_insertion_point(field_set:access_point.APSsid.Handle)
+  // @@protoc_insertion_point(field_set:cheetah.APSsid.Handle)
 }
 
 bool APSsid::has_Ssid() const {
@@ -1439,6 +1439,6 @@ inline const APSsid* APSsid::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace access_point
+}  // namespace cheetah
 
 // @@protoc_insertion_point(global_scope)

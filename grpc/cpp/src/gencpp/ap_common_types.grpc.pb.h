@@ -37,9 +37,9 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-namespace access_point {
+namespace cheetah {
 
-}  // namespace access_point
+}  // namespace cheetah
 
 
 #endif  // GRPC_ap_5fcommon_5ftypes_2eproto__INCLUDED

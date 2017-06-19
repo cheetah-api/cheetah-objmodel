@@ -9,7 +9,7 @@
 //
 
 syntax = "proto3";
-package access_point;
+package cheetah;
 
 // @addtogroup APVersion
 // @ingroup System

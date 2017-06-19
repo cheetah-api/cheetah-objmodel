@@ -19,16 +19,16 @@ import ap_common_types_pb2 as ap__common__types__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_global.proto',
-  package='access_point',
+  package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x61p_global.proto\x12\x0c\x61\x63\x63\x65ss_point\x1a\x15\x61p_common_types.proto\"?\n\tAPInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0c\x41PInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\xae\x01\n\rAPGlobalNotif\x12\x32\n\tEventType\x18\x01 \x01(\x0e\x32\x1f.access_point.APGlobalNotifType\x12.\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\x30\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1a.access_point.APInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0f\x41PGlobalsGetMsg\"{\n\x12\x41PGlobalsGetMsgRsp\x12.\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1b.access_point.APErrorStatus\x12\x1a\n\x12MaxRadioNameLength\x18\x02 \x01(\r\x12\x19\n\x11MaxSsidNameLength\x18\x03 \x01(\r*\x9c\x01\n\x11\x41PGlobalNotifType\x12!\n\x1d\x41P_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1a\x41P_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1e\x41P_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1c\x41P_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xa8\x01\n\x08\x41PGlobal\x12K\n\x11\x41PGlobalInitNotif\x12\x17.access_point.APInitMsg\x1a\x1b.access_point.APGlobalNotif0\x01\x12O\n\x0c\x41PGlobalsGet\x12\x1d.access_point.APGlobalsGetMsg\x1a .access_point.APGlobalsGetMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x0f\x61p_global.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"?\n\tAPInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0c\x41PInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\x9f\x01\n\rAPGlobalNotif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.cheetah.APGlobalNotifType\x12)\n\tErrStatus\x18\x02 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12+\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x15.cheetah.APInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0f\x41PGlobalsGetMsg\"v\n\x12\x41PGlobalsGetMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\x1a\n\x12MaxRadioNameLength\x18\x02 \x01(\r\x12\x19\n\x11MaxSsidNameLength\x18\x03 \x01(\r*\x9c\x01\n\x11\x41PGlobalNotifType\x12!\n\x1d\x41P_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1a\x41P_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1e\x41P_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1c\x41P_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\x94\x01\n\x08\x41PGlobal\x12\x41\n\x11\x41PGlobalInitNotif\x12\x12.cheetah.APInitMsg\x1a\x16.cheetah.APGlobalNotif0\x01\x12\x45\n\x0c\x41PGlobalsGet\x12\x18.cheetah.APGlobalsGetMsg\x1a\x1b.cheetah.APGlobalsGetMsgRspb\x06proto3')
   ,
   dependencies=[ap__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _APGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
   name='APGlobalNotifType',
-  full_name='access_point.APGlobalNotifType',
+  full_name='cheetah.APGlobalNotifType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -51,8 +51,8 @@ _APGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=511,
-  serialized_end=667,
+  serialized_start=486,
+  serialized_end=642,
 )
 _sym_db.RegisterEnumDescriptor(_APGLOBALNOTIFTYPE)
 
@@ -66,27 +66,27 @@ AP_GLOBAL_EVENT_TYPE_VERSION = 3
 
 _APINITMSG = _descriptor.Descriptor(
   name='APInitMsg',
-  full_name='access_point.APInitMsg',
+  full_name='cheetah.APInitMsg',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='MajorVer', full_name='access_point.APInitMsg.MajorVer', index=0,
+      name='MajorVer', full_name='cheetah.APInitMsg.MajorVer', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MinorVer', full_name='access_point.APInitMsg.MinorVer', index=1,
+      name='MinorVer', full_name='cheetah.APInitMsg.MinorVer', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SubVer', full_name='access_point.APInitMsg.SubVer', index=2,
+      name='SubVer', full_name='cheetah.APInitMsg.SubVer', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -104,34 +104,34 @@ _APINITMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=119,
+  serialized_start=51,
+  serialized_end=114,
 )
 
 
 _APINITMSGRSP = _descriptor.Descriptor(
   name='APInitMsgRsp',
-  full_name='access_point.APInitMsgRsp',
+  full_name='cheetah.APInitMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='MajorVer', full_name='access_point.APInitMsgRsp.MajorVer', index=0,
+      name='MajorVer', full_name='cheetah.APInitMsgRsp.MajorVer', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MinorVer', full_name='access_point.APInitMsgRsp.MinorVer', index=1,
+      name='MinorVer', full_name='cheetah.APInitMsgRsp.MinorVer', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='SubVer', full_name='access_point.APInitMsgRsp.SubVer', index=2,
+      name='SubVer', full_name='cheetah.APInitMsgRsp.SubVer', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -149,34 +149,34 @@ _APINITMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=121,
-  serialized_end=187,
+  serialized_start=116,
+  serialized_end=182,
 )
 
 
 _APGLOBALNOTIF = _descriptor.Descriptor(
   name='APGlobalNotif',
-  full_name='access_point.APGlobalNotif',
+  full_name='cheetah.APGlobalNotif',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='EventType', full_name='access_point.APGlobalNotif.EventType', index=0,
+      name='EventType', full_name='cheetah.APGlobalNotif.EventType', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APGlobalNotif.ErrStatus', index=1,
+      name='ErrStatus', full_name='cheetah.APGlobalNotif.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='InitRspMsg', full_name='access_point.APGlobalNotif.InitRspMsg', index=2,
+      name='InitRspMsg', full_name='cheetah.APGlobalNotif.InitRspMsg', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -194,17 +194,17 @@ _APGLOBALNOTIF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='Event', full_name='access_point.APGlobalNotif.Event',
+      name='Event', full_name='cheetah.APGlobalNotif.Event',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=190,
-  serialized_end=364,
+  serialized_start=185,
+  serialized_end=344,
 )
 
 
 _APGLOBALSGETMSG = _descriptor.Descriptor(
   name='APGlobalsGetMsg',
-  full_name='access_point.APGlobalsGetMsg',
+  full_name='cheetah.APGlobalsGetMsg',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -221,34 +221,34 @@ _APGLOBALSGETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=366,
-  serialized_end=383,
+  serialized_start=346,
+  serialized_end=363,
 )
 
 
 _APGLOBALSGETMSGRSP = _descriptor.Descriptor(
   name='APGlobalsGetMsgRsp',
-  full_name='access_point.APGlobalsGetMsgRsp',
+  full_name='cheetah.APGlobalsGetMsgRsp',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ErrStatus', full_name='access_point.APGlobalsGetMsgRsp.ErrStatus', index=0,
+      name='ErrStatus', full_name='cheetah.APGlobalsGetMsgRsp.ErrStatus', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MaxRadioNameLength', full_name='access_point.APGlobalsGetMsgRsp.MaxRadioNameLength', index=1,
+      name='MaxRadioNameLength', full_name='cheetah.APGlobalsGetMsgRsp.MaxRadioNameLength', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='MaxSsidNameLength', full_name='access_point.APGlobalsGetMsgRsp.MaxSsidNameLength', index=2,
+      name='MaxSsidNameLength', full_name='cheetah.APGlobalsGetMsgRsp.MaxSsidNameLength', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -266,8 +266,8 @@ _APGLOBALSGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=385,
-  serialized_end=508,
+  serialized_start=365,
+  serialized_end=483,
 )
 
 _APGLOBALNOTIF.fields_by_name['EventType'].enum_type = _APGLOBALNOTIFTYPE
@@ -287,35 +287,35 @@ DESCRIPTOR.enum_types_by_name['APGlobalNotifType'] = _APGLOBALNOTIFTYPE
 APInitMsg = _reflection.GeneratedProtocolMessageType('APInitMsg', (_message.Message,), dict(
   DESCRIPTOR = _APINITMSG,
   __module__ = 'ap_global_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APInitMsg)
+  # @@protoc_insertion_point(class_scope:cheetah.APInitMsg)
   ))
 _sym_db.RegisterMessage(APInitMsg)
 
 APInitMsgRsp = _reflection.GeneratedProtocolMessageType('APInitMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APINITMSGRSP,
   __module__ = 'ap_global_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APInitMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APInitMsgRsp)
   ))
 _sym_db.RegisterMessage(APInitMsgRsp)
 
 APGlobalNotif = _reflection.GeneratedProtocolMessageType('APGlobalNotif', (_message.Message,), dict(
   DESCRIPTOR = _APGLOBALNOTIF,
   __module__ = 'ap_global_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APGlobalNotif)
+  # @@protoc_insertion_point(class_scope:cheetah.APGlobalNotif)
   ))
 _sym_db.RegisterMessage(APGlobalNotif)
 
 APGlobalsGetMsg = _reflection.GeneratedProtocolMessageType('APGlobalsGetMsg', (_message.Message,), dict(
   DESCRIPTOR = _APGLOBALSGETMSG,
   __module__ = 'ap_global_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APGlobalsGetMsg)
+  # @@protoc_insertion_point(class_scope:cheetah.APGlobalsGetMsg)
   ))
 _sym_db.RegisterMessage(APGlobalsGetMsg)
 
 APGlobalsGetMsgRsp = _reflection.GeneratedProtocolMessageType('APGlobalsGetMsgRsp', (_message.Message,), dict(
   DESCRIPTOR = _APGLOBALSGETMSGRSP,
   __module__ = 'ap_global_pb2'
-  # @@protoc_insertion_point(class_scope:access_point.APGlobalsGetMsgRsp)
+  # @@protoc_insertion_point(class_scope:cheetah.APGlobalsGetMsgRsp)
   ))
 _sym_db.RegisterMessage(APGlobalsGetMsgRsp)
 
@@ -345,12 +345,12 @@ class APGlobalStub(object):
       channel: A grpc.Channel.
     """
     self.APGlobalInitNotif = channel.unary_stream(
-        '/access_point.APGlobal/APGlobalInitNotif',
+        '/cheetah.APGlobal/APGlobalInitNotif',
         request_serializer=APInitMsg.SerializeToString,
         response_deserializer=APGlobalNotif.FromString,
         )
     self.APGlobalsGet = channel.unary_unary(
-        '/access_point.APGlobal/APGlobalsGet',
+        '/cheetah.APGlobal/APGlobalsGet',
         request_serializer=APGlobalsGetMsg.SerializeToString,
         response_deserializer=APGlobalsGetMsgRsp.FromString,
         )
@@ -415,7 +415,7 @@ def add_APGlobalServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'access_point.APGlobal', rpc_method_handlers)
+      'cheetah.APGlobal', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -500,16 +500,16 @@ class BetaAPGlobalStub(object):
 
 def beta_create_APGlobal_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
   request_deserializers = {
-    ('access_point.APGlobal', 'APGlobalInitNotif'): APInitMsg.FromString,
-    ('access_point.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.FromString,
+    ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.FromString,
+    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.FromString,
   }
   response_serializers = {
-    ('access_point.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.SerializeToString,
-    ('access_point.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.SerializeToString,
+    ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.SerializeToString,
+    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.SerializeToString,
   }
   method_implementations = {
-    ('access_point.APGlobal', 'APGlobalInitNotif'): face_utilities.unary_stream_inline(servicer.APGlobalInitNotif),
-    ('access_point.APGlobal', 'APGlobalsGet'): face_utilities.unary_unary_inline(servicer.APGlobalsGet),
+    ('cheetah.APGlobal', 'APGlobalInitNotif'): face_utilities.unary_stream_inline(servicer.APGlobalInitNotif),
+    ('cheetah.APGlobal', 'APGlobalsGet'): face_utilities.unary_unary_inline(servicer.APGlobalsGet),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -517,17 +517,17 @@ def beta_create_APGlobal_server(servicer, pool=None, pool_size=None, default_tim
 
 def beta_create_APGlobal_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
   request_serializers = {
-    ('access_point.APGlobal', 'APGlobalInitNotif'): APInitMsg.SerializeToString,
-    ('access_point.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.SerializeToString,
+    ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.SerializeToString,
+    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.SerializeToString,
   }
   response_deserializers = {
-    ('access_point.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.FromString,
-    ('access_point.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.FromString,
+    ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.FromString,
+    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.FromString,
   }
   cardinalities = {
     'APGlobalInitNotif': cardinality.Cardinality.UNARY_STREAM,
     'APGlobalsGet': cardinality.Cardinality.UNARY_UNARY,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'access_point.APGlobal', cardinalities, options=stub_options)
+  return beta_implementations.dynamic_stub(channel, 'cheetah.APGlobal', cardinalities, options=stub_options)
 # @@protoc_insertion_point(module_scope)
