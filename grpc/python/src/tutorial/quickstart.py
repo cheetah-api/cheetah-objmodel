@@ -13,10 +13,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 # gRPC generated python bindings
 from genpy import ap_common_types_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 
 # Utilities
 from tutorial import client_init
 from tutorial import stats
+from tutorial import packets
 
 # gRPC libs
 from grpc.beta import implementations
@@ -51,6 +53,11 @@ if __name__ == '__main__':
     # Wait till the threads terminate
     t1.join()
     t2.join()
+
+    # Packets operations
+    t3=packets.packets_operations(channel, ap_packet_pb2.AP_MSG_TYPE_MGMT, ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL)
+    # Wait till the threads terminate
+    t3.join()
 
     # Exit and Kill any running GRPC threads.
     os._exit(0)

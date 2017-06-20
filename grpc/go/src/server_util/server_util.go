@@ -13,6 +13,7 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
+	"syscall"
 )
 
 func check(e error) {
@@ -102,4 +103,18 @@ func GetIfStats(ifname string, field string) (uint64, error) {
 
 	sstat := strings.Trim(string(stat), "\n")
 	return strconv.ParseUint(sstat, 10, 32)
+}
+
+func FD_SET(p *syscall.FdSet, i int) {
+	p.Bits[i/64] |= 1 << uint(i) % 64
+}
+
+func FD_ISSET(p *syscall.FdSet, i int) bool {
+	return (p.Bits[i/64] & (1 << uint(i) % 64)) != 0
+}
+
+func FD_ZERO(p *syscall.FdSet) {
+	for i := range p.Bits {
+		p.Bits[i] = 0
+	}
 }

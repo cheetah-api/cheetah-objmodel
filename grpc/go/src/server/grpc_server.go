@@ -1049,6 +1049,12 @@ func main() {
 	/* Add APStatistics server */
 	pb.RegisterAPStatisticsServer(grpcServer, &StatsServer{})
 
+	/* Add APPackets server */
+	pb.RegisterAPPacketsServer(grpcServer, &PacketsServer{})
+
+	/* open socket to listen packets from kernel */
+	go OpenCaptureSocket()
+
 	/* serve requests */
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to start global server: %v", err)
