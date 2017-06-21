@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_global.proto',
   package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x61p_global.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"?\n\tAPInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0c\x41PInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\x9f\x01\n\rAPGlobalNotif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.cheetah.APGlobalNotifType\x12)\n\tErrStatus\x18\x02 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12+\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x15.cheetah.APInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0f\x41PGlobalsGetMsg\"v\n\x12\x41PGlobalsGetMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\x1a\n\x12MaxRadioNameLength\x18\x02 \x01(\r\x12\x19\n\x11MaxSsidNameLength\x18\x03 \x01(\r*\x9c\x01\n\x11\x41PGlobalNotifType\x12!\n\x1d\x41P_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1a\x41P_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1e\x41P_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1c\x41P_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\x94\x01\n\x08\x41PGlobal\x12\x41\n\x11\x41PGlobalInitNotif\x12\x12.cheetah.APInitMsg\x1a\x16.cheetah.APGlobalNotif0\x01\x12\x45\n\x0c\x41PGlobalsGet\x12\x18.cheetah.APGlobalsGetMsg\x1a\x1b.cheetah.APGlobalsGetMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x0f\x61p_global.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"?\n\tAPInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0c\x41PInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"A\n\x0b\x41PCfgMsgRsp\x12\r\n\x05Token\x18\x01 \x01(\t\x12\x10\n\x08ProxyURL\x18\x02 \x01(\t\x12\x11\n\tProxyPort\x18\x03 \x01(\r\"\xca\x01\n\rAPGlobalNotif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.cheetah.APGlobalNotifType\x12)\n\tErrStatus\x18\x02 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12+\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x15.cheetah.APInitMsgRspH\x00\x12)\n\tCfgRspMsg\x18\x04 \x01(\x0b\x32\x14.cheetah.APCfgMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0f\x41PGlobalsGetMsg\"v\n\x12\x41PGlobalsGetMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\x1a\n\x12MaxRadioNameLength\x18\x02 \x01(\r\x12\x19\n\x11MaxSsidNameLength\x18\x03 \x01(\r*\xbd\x01\n\x11\x41PGlobalNotifType\x12!\n\x1d\x41P_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1a\x41P_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1e\x41P_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1c\x41P_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x12\x1f\n\x1b\x41P_GLOBAL_EVENT_TYPE_CONFIG\x10\x04\x32\x94\x01\n\x08\x41PGlobal\x12\x41\n\x11\x41PGlobalInitNotif\x12\x12.cheetah.APInitMsg\x1a\x16.cheetah.APGlobalNotif0\x01\x12\x45\n\x0c\x41PGlobalsGet\x12\x18.cheetah.APGlobalsGetMsg\x1a\x1b.cheetah.APGlobalsGetMsgRspb\x06proto3')
   ,
   dependencies=[ap__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -48,11 +48,15 @@ _APGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
       name='AP_GLOBAL_EVENT_TYPE_VERSION', index=3, number=3,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_GLOBAL_EVENT_TYPE_CONFIG', index=4, number=4,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=486,
-  serialized_end=642,
+  serialized_start=596,
+  serialized_end=785,
 )
 _sym_db.RegisterEnumDescriptor(_APGLOBALNOTIFTYPE)
 
@@ -61,6 +65,7 @@ AP_GLOBAL_EVENT_TYPE_RESERVED = 0
 AP_GLOBAL_EVENT_TYPE_ERROR = 1
 AP_GLOBAL_EVENT_TYPE_HEARTBEAT = 2
 AP_GLOBAL_EVENT_TYPE_VERSION = 3
+AP_GLOBAL_EVENT_TYPE_CONFIG = 4
 
 
 
@@ -154,6 +159,51 @@ _APINITMSGRSP = _descriptor.Descriptor(
 )
 
 
+_APCFGMSGRSP = _descriptor.Descriptor(
+  name='APCfgMsgRsp',
+  full_name='cheetah.APCfgMsgRsp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Token', full_name='cheetah.APCfgMsgRsp.Token', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ProxyURL', full_name='cheetah.APCfgMsgRsp.ProxyURL', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ProxyPort', full_name='cheetah.APCfgMsgRsp.ProxyPort', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=184,
+  serialized_end=249,
+)
+
+
 _APGLOBALNOTIF = _descriptor.Descriptor(
   name='APGlobalNotif',
   full_name='cheetah.APGlobalNotif',
@@ -182,6 +232,13 @@ _APGLOBALNOTIF = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='CfgRspMsg', full_name='cheetah.APGlobalNotif.CfgRspMsg', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -197,8 +254,8 @@ _APGLOBALNOTIF = _descriptor.Descriptor(
       name='Event', full_name='cheetah.APGlobalNotif.Event',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=185,
-  serialized_end=344,
+  serialized_start=252,
+  serialized_end=454,
 )
 
 
@@ -221,8 +278,8 @@ _APGLOBALSGETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=346,
-  serialized_end=363,
+  serialized_start=456,
+  serialized_end=473,
 )
 
 
@@ -266,19 +323,24 @@ _APGLOBALSGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=365,
-  serialized_end=483,
+  serialized_start=475,
+  serialized_end=593,
 )
 
 _APGLOBALNOTIF.fields_by_name['EventType'].enum_type = _APGLOBALNOTIFTYPE
 _APGLOBALNOTIF.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 _APGLOBALNOTIF.fields_by_name['InitRspMsg'].message_type = _APINITMSGRSP
+_APGLOBALNOTIF.fields_by_name['CfgRspMsg'].message_type = _APCFGMSGRSP
 _APGLOBALNOTIF.oneofs_by_name['Event'].fields.append(
   _APGLOBALNOTIF.fields_by_name['InitRspMsg'])
 _APGLOBALNOTIF.fields_by_name['InitRspMsg'].containing_oneof = _APGLOBALNOTIF.oneofs_by_name['Event']
+_APGLOBALNOTIF.oneofs_by_name['Event'].fields.append(
+  _APGLOBALNOTIF.fields_by_name['CfgRspMsg'])
+_APGLOBALNOTIF.fields_by_name['CfgRspMsg'].containing_oneof = _APGLOBALNOTIF.oneofs_by_name['Event']
 _APGLOBALSGETMSGRSP.fields_by_name['ErrStatus'].message_type = ap__common__types__pb2._APERRORSTATUS
 DESCRIPTOR.message_types_by_name['APInitMsg'] = _APINITMSG
 DESCRIPTOR.message_types_by_name['APInitMsgRsp'] = _APINITMSGRSP
+DESCRIPTOR.message_types_by_name['APCfgMsgRsp'] = _APCFGMSGRSP
 DESCRIPTOR.message_types_by_name['APGlobalNotif'] = _APGLOBALNOTIF
 DESCRIPTOR.message_types_by_name['APGlobalsGetMsg'] = _APGLOBALSGETMSG
 DESCRIPTOR.message_types_by_name['APGlobalsGetMsgRsp'] = _APGLOBALSGETMSGRSP
@@ -297,6 +359,13 @@ APInitMsgRsp = _reflection.GeneratedProtocolMessageType('APInitMsgRsp', (_messag
   # @@protoc_insertion_point(class_scope:cheetah.APInitMsgRsp)
   ))
 _sym_db.RegisterMessage(APInitMsgRsp)
+
+APCfgMsgRsp = _reflection.GeneratedProtocolMessageType('APCfgMsgRsp', (_message.Message,), dict(
+  DESCRIPTOR = _APCFGMSGRSP,
+  __module__ = 'ap_global_pb2'
+  # @@protoc_insertion_point(class_scope:cheetah.APCfgMsgRsp)
+  ))
+_sym_db.RegisterMessage(APCfgMsgRsp)
 
 APGlobalNotif = _reflection.GeneratedProtocolMessageType('APGlobalNotif', (_message.Message,), dict(
   DESCRIPTOR = _APGLOBALNOTIF,

@@ -18,6 +18,7 @@ It has these top-level messages:
 	APSsid
 	APInitMsg
 	APInitMsgRsp
+	APCfgMsgRsp
 	APGlobalNotif
 	APGlobalsGetMsg
 	APGlobalsGetMsgRsp

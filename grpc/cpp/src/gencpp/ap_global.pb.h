@@ -39,6 +39,7 @@ void protobuf_InitDefaults_ap_5fglobal_2eproto();
 void protobuf_AssignDesc_ap_5fglobal_2eproto();
 void protobuf_ShutdownFile_ap_5fglobal_2eproto();
 
+class APCfgMsgRsp;
 class APGlobalNotif;
 class APGlobalsGetMsg;
 class APGlobalsGetMsgRsp;
@@ -50,12 +51,13 @@ enum APGlobalNotifType {
   AP_GLOBAL_EVENT_TYPE_ERROR = 1,
   AP_GLOBAL_EVENT_TYPE_HEARTBEAT = 2,
   AP_GLOBAL_EVENT_TYPE_VERSION = 3,
+  AP_GLOBAL_EVENT_TYPE_CONFIG = 4,
   APGlobalNotifType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   APGlobalNotifType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool APGlobalNotifType_IsValid(int value);
 const APGlobalNotifType APGlobalNotifType_MIN = AP_GLOBAL_EVENT_TYPE_RESERVED;
-const APGlobalNotifType APGlobalNotifType_MAX = AP_GLOBAL_EVENT_TYPE_VERSION;
+const APGlobalNotifType APGlobalNotifType_MAX = AP_GLOBAL_EVENT_TYPE_CONFIG;
 const int APGlobalNotifType_ARRAYSIZE = APGlobalNotifType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* APGlobalNotifType_descriptor();
@@ -270,6 +272,116 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APInitMsgRsp> APInitM
 
 // -------------------------------------------------------------------
 
+class APCfgMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APCfgMsgRsp) */ {
+ public:
+  APCfgMsgRsp();
+  virtual ~APCfgMsgRsp();
+
+  APCfgMsgRsp(const APCfgMsgRsp& from);
+
+  inline APCfgMsgRsp& operator=(const APCfgMsgRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APCfgMsgRsp& default_instance();
+
+  static const APCfgMsgRsp* internal_default_instance();
+
+  void Swap(APCfgMsgRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APCfgMsgRsp* New() const { return New(NULL); }
+
+  APCfgMsgRsp* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APCfgMsgRsp& from);
+  void MergeFrom(const APCfgMsgRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APCfgMsgRsp* other);
+  void UnsafeMergeFrom(const APCfgMsgRsp& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string Token = 1;
+  void clear_token();
+  static const int kTokenFieldNumber = 1;
+  const ::std::string& token() const;
+  void set_token(const ::std::string& value);
+  void set_token(const char* value);
+  void set_token(const char* value, size_t size);
+  ::std::string* mutable_token();
+  ::std::string* release_token();
+  void set_allocated_token(::std::string* token);
+
+  // optional string ProxyURL = 2;
+  void clear_proxyurl();
+  static const int kProxyURLFieldNumber = 2;
+  const ::std::string& proxyurl() const;
+  void set_proxyurl(const ::std::string& value);
+  void set_proxyurl(const char* value);
+  void set_proxyurl(const char* value, size_t size);
+  ::std::string* mutable_proxyurl();
+  ::std::string* release_proxyurl();
+  void set_allocated_proxyurl(::std::string* proxyurl);
+
+  // optional uint32 ProxyPort = 3;
+  void clear_proxyport();
+  static const int kProxyPortFieldNumber = 3;
+  ::google::protobuf::uint32 proxyport() const;
+  void set_proxyport(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:cheetah.APCfgMsgRsp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr token_;
+  ::google::protobuf::internal::ArenaStringPtr proxyurl_;
+  ::google::protobuf::uint32 proxyport_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fglobal_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fglobal_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fglobal_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fglobal_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APCfgMsgRsp> APCfgMsgRsp_default_instance_;
+
+// -------------------------------------------------------------------
+
 class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APGlobalNotif) */ {
  public:
   APGlobalNotif();
@@ -287,6 +399,7 @@ class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   enum EventCase {
     kInitRspMsg = 3,
+    kCfgRspMsg = 4,
     EVENT_NOT_SET = 0,
   };
 
@@ -362,10 +475,20 @@ class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::cheetah::APInitMsgRsp* release_initrspmsg();
   void set_allocated_initrspmsg(::cheetah::APInitMsgRsp* initrspmsg);
 
+  // optional .cheetah.APCfgMsgRsp CfgRspMsg = 4;
+  bool has_cfgrspmsg() const;
+  void clear_cfgrspmsg();
+  static const int kCfgRspMsgFieldNumber = 4;
+  const ::cheetah::APCfgMsgRsp& cfgrspmsg() const;
+  ::cheetah::APCfgMsgRsp* mutable_cfgrspmsg();
+  ::cheetah::APCfgMsgRsp* release_cfgrspmsg();
+  void set_allocated_cfgrspmsg(::cheetah::APCfgMsgRsp* cfgrspmsg);
+
   EventCase Event_case() const;
   // @@protoc_insertion_point(class_scope:cheetah.APGlobalNotif)
  private:
   inline void set_has_initrspmsg();
+  inline void set_has_cfgrspmsg();
 
   inline bool has_Event() const;
   void clear_Event();
@@ -377,6 +500,7 @@ class APGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
   union EventUnion {
     EventUnion() {}
     ::cheetah::APInitMsgRsp* initrspmsg_;
+    ::cheetah::APCfgMsgRsp* cfgrspmsg_;
   } Event_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -676,6 +800,115 @@ inline const APInitMsgRsp* APInitMsgRsp::internal_default_instance() {
 }
 // -------------------------------------------------------------------
 
+// APCfgMsgRsp
+
+// optional string Token = 1;
+inline void APCfgMsgRsp::clear_token() {
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& APCfgMsgRsp::token() const {
+  // @@protoc_insertion_point(field_get:cheetah.APCfgMsgRsp.Token)
+  return token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APCfgMsgRsp::set_token(const ::std::string& value) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APCfgMsgRsp.Token)
+}
+inline void APCfgMsgRsp::set_token(const char* value) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APCfgMsgRsp.Token)
+}
+inline void APCfgMsgRsp::set_token(const char* value, size_t size) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APCfgMsgRsp.Token)
+}
+inline ::std::string* APCfgMsgRsp::mutable_token() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APCfgMsgRsp.Token)
+  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APCfgMsgRsp::release_token() {
+  // @@protoc_insertion_point(field_release:cheetah.APCfgMsgRsp.Token)
+  
+  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APCfgMsgRsp::set_allocated_token(::std::string* token) {
+  if (token != NULL) {
+    
+  } else {
+    
+  }
+  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APCfgMsgRsp.Token)
+}
+
+// optional string ProxyURL = 2;
+inline void APCfgMsgRsp::clear_proxyurl() {
+  proxyurl_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& APCfgMsgRsp::proxyurl() const {
+  // @@protoc_insertion_point(field_get:cheetah.APCfgMsgRsp.ProxyURL)
+  return proxyurl_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APCfgMsgRsp::set_proxyurl(const ::std::string& value) {
+  
+  proxyurl_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APCfgMsgRsp.ProxyURL)
+}
+inline void APCfgMsgRsp::set_proxyurl(const char* value) {
+  
+  proxyurl_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APCfgMsgRsp.ProxyURL)
+}
+inline void APCfgMsgRsp::set_proxyurl(const char* value, size_t size) {
+  
+  proxyurl_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APCfgMsgRsp.ProxyURL)
+}
+inline ::std::string* APCfgMsgRsp::mutable_proxyurl() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APCfgMsgRsp.ProxyURL)
+  return proxyurl_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APCfgMsgRsp::release_proxyurl() {
+  // @@protoc_insertion_point(field_release:cheetah.APCfgMsgRsp.ProxyURL)
+  
+  return proxyurl_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APCfgMsgRsp::set_allocated_proxyurl(::std::string* proxyurl) {
+  if (proxyurl != NULL) {
+    
+  } else {
+    
+  }
+  proxyurl_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), proxyurl);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APCfgMsgRsp.ProxyURL)
+}
+
+// optional uint32 ProxyPort = 3;
+inline void APCfgMsgRsp::clear_proxyport() {
+  proxyport_ = 0u;
+}
+inline ::google::protobuf::uint32 APCfgMsgRsp::proxyport() const {
+  // @@protoc_insertion_point(field_get:cheetah.APCfgMsgRsp.ProxyPort)
+  return proxyport_;
+}
+inline void APCfgMsgRsp::set_proxyport(::google::protobuf::uint32 value) {
+  
+  proxyport_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APCfgMsgRsp.ProxyPort)
+}
+
+inline const APCfgMsgRsp* APCfgMsgRsp::internal_default_instance() {
+  return &APCfgMsgRsp_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
 // APGlobalNotif
 
 // optional .cheetah.APGlobalNotifType EventType = 1;
@@ -779,6 +1012,54 @@ inline void APGlobalNotif::set_allocated_initrspmsg(::cheetah::APInitMsgRsp* ini
   // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.InitRspMsg)
 }
 
+// optional .cheetah.APCfgMsgRsp CfgRspMsg = 4;
+inline bool APGlobalNotif::has_cfgrspmsg() const {
+  return Event_case() == kCfgRspMsg;
+}
+inline void APGlobalNotif::set_has_cfgrspmsg() {
+  _oneof_case_[0] = kCfgRspMsg;
+}
+inline void APGlobalNotif::clear_cfgrspmsg() {
+  if (has_cfgrspmsg()) {
+    delete Event_.cfgrspmsg_;
+    clear_has_Event();
+  }
+}
+inline  const ::cheetah::APCfgMsgRsp& APGlobalNotif::cfgrspmsg() const {
+  // @@protoc_insertion_point(field_get:cheetah.APGlobalNotif.CfgRspMsg)
+  return has_cfgrspmsg()
+      ? *Event_.cfgrspmsg_
+      : ::cheetah::APCfgMsgRsp::default_instance();
+}
+inline ::cheetah::APCfgMsgRsp* APGlobalNotif::mutable_cfgrspmsg() {
+  if (!has_cfgrspmsg()) {
+    clear_Event();
+    set_has_cfgrspmsg();
+    Event_.cfgrspmsg_ = new ::cheetah::APCfgMsgRsp;
+  }
+  // @@protoc_insertion_point(field_mutable:cheetah.APGlobalNotif.CfgRspMsg)
+  return Event_.cfgrspmsg_;
+}
+inline ::cheetah::APCfgMsgRsp* APGlobalNotif::release_cfgrspmsg() {
+  // @@protoc_insertion_point(field_release:cheetah.APGlobalNotif.CfgRspMsg)
+  if (has_cfgrspmsg()) {
+    clear_has_Event();
+    ::cheetah::APCfgMsgRsp* temp = Event_.cfgrspmsg_;
+    Event_.cfgrspmsg_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void APGlobalNotif::set_allocated_cfgrspmsg(::cheetah::APCfgMsgRsp* cfgrspmsg) {
+  clear_Event();
+  if (cfgrspmsg) {
+    set_has_cfgrspmsg();
+    Event_.cfgrspmsg_ = cfgrspmsg;
+  }
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APGlobalNotif.CfgRspMsg)
+}
+
 inline bool APGlobalNotif::has_Event() const {
   return Event_case() != EVENT_NOT_SET;
 }
@@ -873,6 +1154,8 @@ inline const APGlobalsGetMsgRsp* APGlobalsGetMsgRsp::internal_default_instance()
   return &APGlobalsGetMsgRsp_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

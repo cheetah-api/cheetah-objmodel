@@ -52,6 +52,41 @@ PROC_WLAN_INFO = '/proc/aptrace/sysinfo/wlans'
 PROC_RADIO_INFO = '/proc/aptrace/sysinfo/radios'
 PROC_WIRED_INFO = '/proc/aptrace/sysinfo/wired'
 CLIENT_IP_TABLE = '/click/client_ip_table/list'
+APPHOST_CFG = '/tmp/apphostcfg'
+
+#
+#=====================================================
+# Apphosting config
+#=====================================================
+#
+def get_apphosting_cfg():
+
+    response = ap_global_pb2.APGlobalNotif()
+
+    try:
+        f = open(APPHOST_CFG, 'r')
+        for line in f:
+            # skip empty lines
+            if line.strip() == '':
+                continue
+            values = line.split('=', 1)
+            if values[0].strip() == "token":
+                response.CfgRspMsg.Token = values[1].strip()
+            elif values[0].strip() == "proxyurl":
+                response.CfgRspMsg.ProxyURL = values[1].strip()
+            elif values[0].strip() == "proxyport":
+                response.CfgRspMsg.ProxyPort = int(values[1].strip())
+            else:
+                continue
+        response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+        f.close()
+    except Exception as e:
+        response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_NOT_AVAILABLE
+        print str(e)
+
+    response.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_CONFIG
+
+    return (response)
 
 #
 # Access Point Global functions
@@ -68,10 +103,16 @@ class APGlobal ():
     init_resp.InitRspMsg.MajorVer = ap_version_pb2.AP_MAJOR_VERSION
     init_resp.InitRspMsg.MinorVer = ap_version_pb2.AP_MINOR_VERSION
     init_resp.InitRspMsg.SubVer   = ap_version_pb2.AP_SUB_VERSION
+    yield(init_resp)
+
+    # Now send apphosting config if any
+    resp = get_apphosting_cfg()
+    if (resp.ErrStatus.Status == ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        yield(resp)
 
     for i in range(100):
-        yield(init_resp)
         init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+        yield(init_resp)
         time.sleep(10)
 
 
