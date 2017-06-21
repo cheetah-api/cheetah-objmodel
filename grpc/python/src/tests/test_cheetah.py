@@ -69,6 +69,12 @@ def global_init_cback(response, event):
     elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT:
         print "Received Event: Heartbeat"
         return True
+    elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_CONFIG:
+        print "Received Event: Config"
+        print "   Token: %s" %(response.CfgRspMsg.Token)
+        print "   ProxyURL: %s" %(response.CfgRspMsg.ProxyURL)
+        print "   ProxyPort: %d" %(response.CfgRspMsg.ProxyPort)
+        return True
     elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_ERROR:
         print "Received Global Error event:", response
         return False

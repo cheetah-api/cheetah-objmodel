@@ -110,6 +110,13 @@ func setupNotifChannel(conn *grpc.ClientConn, sync_chan chan int) {
 		case pb.APGlobalNotifType_AP_GLOBAL_EVENT_TYPE_HEARTBEAT:
 			fmt.Printf("Received HeartBeat\n")
 
+		case pb.APGlobalNotifType_AP_GLOBAL_EVENT_TYPE_CONFIG:
+			cfgMsgRsp := event.GetCfgRspMsg()
+			fmt.Printf("Received Config\n")
+			fmt.Printf("  Token: %s\n", cfgMsgRsp.Token)
+			fmt.Printf("  ProxyURL: %s\n", cfgMsgRsp.ProxyURL)
+			fmt.Printf("  ProxyPort: %d\n", cfgMsgRsp.ProxyPort)
+
 		default:
 			log.Fatalf("Client Recv unknown event %s",
 				event.EventType.String())

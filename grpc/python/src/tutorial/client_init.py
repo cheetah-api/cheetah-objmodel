@@ -64,6 +64,11 @@ def client_init(stub, event):
                 os._exit(0)
         elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT:
             print "Received HeartBeat"
+        elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_CONFIG:
+            print "Received Config"
+            print "   Token: %s" %(response.CfgRspMsg.Token)
+            print "   ProxyURL: %s" %(response.CfgRspMsg.ProxyURL)
+            print "   ProxyPort: %d" %(response.CfgRspMsg.ProxyPort)
         elif response.EventType == ap_global_pb2.AP_GLOBAL_EVENT_TYPE_ERROR:
             if (ap_common_types_pb2.APErrorStatus.AP_NOTIF_TERM ==
                     response.ErrStatus.Status):

@@ -82,6 +82,20 @@ message APInitMsgRsp {
     uint32 SubVer = 3;
 }
 
+// Configuration message response.
+// The server could send this message any time the application configuration
+// gets changed.
+message APCfgMsgRsp {
+
+    // Token string
+    string Token = 1;
+
+    // Proxy URL
+    string ProxyURL = 2;
+
+    // Proxy Port
+    uint32 ProxyPort = 3;
+}
 
 // Global Event Notification types.
 enum APGlobalNotifType {
@@ -96,6 +110,9 @@ enum APGlobalNotifType {
 
     // Version. APInitMsgRsp field elaborates on the server version. 0x3
     AP_GLOBAL_EVENT_TYPE_VERSION = 0x3;
+
+    // Configuration. 0x4
+    AP_GLOBAL_EVENT_TYPE_CONFIG = 0x4;
 }
 
 
@@ -139,6 +156,10 @@ message APGlobalNotif {
         // case EventType == AP_GLOBAL_EVENT_TYPE_VERSION:
         //     => this field carries the Server version number.
         APInitMsgRsp InitRspMsg = 3;
+
+        // case EventType == AP_GLOBAL_EVENT_TYPE_CONFIG:
+        //     => this field carries configuration pertinent to the application
+        APCfgMsgRsp CfgRspMsg = 4;
     }
 }
 
