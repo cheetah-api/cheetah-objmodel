@@ -54,6 +54,9 @@ PROC_WIRED_INFO = '/proc/aptrace/sysinfo/wired'
 CLIENT_IP_TABLE = '/click/client_ip_table/list'
 APPHOST_CFG = '/tmp/apphostcfg'
 
+#ap_packet_pb2.APPacketHdr pkt_reg_list
+pkt_reg_list = []
+
 #
 #=====================================================
 # Apphosting config
@@ -688,63 +691,115 @@ pkt_types = [
                 "cisco",      # AP_MSG_TYPE_CISCO = 4
             ]
 
+
+def packet_header_verify(request):
+
+    # Make sure the requested type is valid
+    if request.MsgType not in ap_packet_pb2.APMsgType.values():
+        return False
+
+    # Make sure the subtype is set properly
+    if request.WhichOneof("Subtype") != pkt_types[request.MsgType]:
+       return False
+
+    # Make sure the subtype is not the reserved value
+    if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
+          (request.mgmt == 0)) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
+          (request.ctrl == 0)) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
+          (request.data == 0)) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
+          (request.cisco == 0))):
+       return False
+
+    # Make sure the subtype is supported
+    if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
+          (request.mgmt not in ap_packet_pb2.APMgmtMsgSubtype.values())) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
+         (request.ctrl not in ap_packet_pb2.APCtrlMsgSubtype.values())) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
+         (request.data not in ap_packet_pb2.APDataMsgSubtype.values())) or
+        ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
+         (request.cisco not in ap_packet_pb2.APCiscoMsgSubtype.values()))):
+       return False
+
+    return True
+
+
+# Check if a registration is there
+def pkt_reg_check(request):
+    if pkt_reg_list.count(request) != 0:
+        return True
+    else:
+        return False
+
+# Registration check
+def pkt_reg_proc(oper, request):
+    if oper is ap_common_types_pb2.AP_REGOP_REGISTER:
+        if pkt_reg_check(request) is True:
+            return True
+        pkt_reg_list.append(request)
+    else:
+        if pkt_reg_check(request) is False:
+            return False
+        pkt_reg_list.remove(request)
+
+    return True
+
+# copy pkt hdr element
+def pkt_hdr_copy(pkt, request):
+   pkt.MsgType = request.MsgType
+   if request.WhichOneof("Subtype") == "mgmt":
+       pkt.mgmt = request.mgmt
+   elif request.WhichOneof("Subtype") == "data":
+       pkt.data = request.data
+   elif request.WhichOneof("Subtype") == "ctrl":
+       pkt.ctrl = request.ctrl
+   elif request.WhichOneof("Subtype") == "cisco":
+       pkt.cisco = request.cisco
+
+
+#
+# AP Packet service
+#
 class APPacket(ap_packet_pb2.APPacketsServicer):
 
-  def APPacketsGet(self, get_request, context):
+  # Registration RPC
+  def APPacketsRegOp(self, get_request, context):
 
-    response = ap_packet_pb2.APPacketsMsgRsp()
-    response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
+    #print "Received Packet Reg request"
+    response = ap_packet_pb2.APPacketsRegMsgRsp()
 
     for request in get_request.PacketHdr:
-        # Make sure the requested type is valid
-        if request.MsgType not in ap_packet_pb2.APMsgType.values():
-            response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
-            yield response
-            return
-
-        # Make sure the subtype is set properly
-        if request.WhichOneof("Subtype") == pkt_types[request.MsgType]:
-           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
-        else:
+        ret = packet_header_verify(request)
+        if ret is False:
            response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
-           yield response
-           return
+           response.Results.Oper = get_request.Oper
+           pkt = response.Results.PacketHdr.add()
+           pkt_hdr_copy(pkt, request)
+           continue
 
-        # Make sure the subtype is not the reserved value
-        if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
-              (request.mgmt == 0)) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
-              (request.ctrl == 0)) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
-              (request.data == 0)) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
-              (request.cisco == 0))):
+        ret = pkt_reg_proc(get_request.Oper, request)
+        if ret is False:
            response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
-           yield response
-           return
+           response.Results.Oper = get_request.Oper
+           pkt = response.Results.PacketHdr.add()
+           pkt_hdr_copy(pkt, request)
+           continue
 
-        # Make sure the subtype is supported
-        if (((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT) and
-              (request.mgmt not in ap_packet_pb2.APMgmtMsgSubtype.values())) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CTRL) and
-             (request.ctrl not in ap_packet_pb2.APCtrlMsgSubtype.values())) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_DATA) and
-             (request.data not in ap_packet_pb2.APDataMsgSubtype.values())) or
-            ((request.MsgType == ap_packet_pb2.AP_MSG_TYPE_CISCO) and
-             (request.cisco not in ap_packet_pb2.APCiscoMsgSubtype.values()))):
-           response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
-           yield response
-           return
+    if len(response.Results.PacketHdr) == 0:
+        response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
 
-        yield response
-        return
-        #while True:
-            #response.PacketHdr.MsgType=request.MsgType
-            #response.PacketHdr.mgmt=ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
-            #response.PacketLen=4
-            #response.PacketBuf="1234"
-            #yield response
-            #return
+    return (response)
+
+
+  # Packet notification init
+  def APPacketsInitNotif(self, get_request, context):
+      #print "APPacketsInitNotif"
+      response = ap_packet_pb2.APPacketsMsgRsp()
+      yield (response)
+
 
 ## End class
 

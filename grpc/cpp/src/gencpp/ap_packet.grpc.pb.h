@@ -46,32 +46,59 @@ class APPackets GRPC_FINAL {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Registration RPC for packet types to be pushed
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
+    // APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+    //     Packet registration: Sends a list of Packet registration messages
+    //     and expects a list of registration responses.
+    //
+    // APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+    //     Packet unregistration: Sends a list of Packet unregistration messages
+    //     and expects a list of unregistration responses.
+    //
+    virtual ::grpc::Status APPacketsRegOp(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::cheetah::APPacketsRegMsgRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APPacketsRegMsgRsp>> AsyncAPPacketsRegOp(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APPacketsRegMsgRsp>>(AsyncAPPacketsRegOpRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
+    //
+    // Packet notifications
+    //
+    //
+    // This call is used to get a stream of packet notifications matching the
+    // set of registrations performed with APPacketsRegOp().
+    // The caller must maintain the GRPC channel as long as
+    // there is interest in packet notifications. Only sessions that were
+    // created through this API will be notified to caller.
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>> APPacketsInitNotif(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>>(APPacketsInitNotifRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsInitNotif(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsInitNotifRaw(context, request, cq, tag));
     }
   private:
-    virtual ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cheetah::APPacketsRegMsgRsp>* AsyncAPPacketsRegOpRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::cheetah::APPacketsMsgRsp>* APPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>> APPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>>(APPacketsGetRaw(context, request));
+    ::grpc::Status APPacketsRegOp(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::cheetah::APPacketsRegMsgRsp* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cheetah::APPacketsRegMsgRsp>> AsyncAPPacketsRegOp(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cheetah::APPacketsRegMsgRsp>>(AsyncAPPacketsRegOpRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsGet(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsGetRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>> APPacketsInitNotif(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>>(APPacketsInitNotifRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>> AsyncAPPacketsInitNotif(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>>(AsyncAPPacketsInitNotifRaw(context, request, cq, tag));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
-    const ::grpc::RpcMethod rpcmethod_APPacketsGet_;
+    ::grpc::ClientAsyncResponseReader< ::cheetah::APPacketsRegMsgRsp>* AsyncAPPacketsRegOpRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* AsyncAPPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_APPacketsRegOp_;
+    const ::grpc::RpcMethod rpcmethod_APPacketsInitNotif_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -79,48 +106,105 @@ class APPackets GRPC_FINAL {
    public:
     Service();
     virtual ~Service();
-    // Registration RPC for packet types to be pushed
-    virtual ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer);
+    // APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+    //     Packet registration: Sends a list of Packet registration messages
+    //     and expects a list of registration responses.
+    //
+    // APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+    //     Packet unregistration: Sends a list of Packet unregistration messages
+    //     and expects a list of unregistration responses.
+    //
+    virtual ::grpc::Status APPacketsRegOp(::grpc::ServerContext* context, const ::cheetah::APPacketsRegMsg* request, ::cheetah::APPacketsRegMsgRsp* response);
+    //
+    // Packet notifications
+    //
+    //
+    // This call is used to get a stream of packet notifications matching the
+    // set of registrations performed with APPacketsRegOp().
+    // The caller must maintain the GRPC channel as long as
+    // there is interest in packet notifications. Only sessions that were
+    // created through this API will be notified to caller.
+    virtual ::grpc::Status APPacketsInitNotif(::grpc::ServerContext* context, const ::cheetah::APPacketsGetNotifMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer);
   };
   template <class BaseClass>
-  class WithAsyncMethod_APPacketsGet : public BaseClass {
+  class WithAsyncMethod_APPacketsRegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_APPacketsGet() {
+    WithAsyncMethod_APPacketsRegOp() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_APPacketsGet() GRPC_OVERRIDE {
+    ~WithAsyncMethod_APPacketsRegOp() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APPacketsRegOp(::grpc::ServerContext* context, const ::cheetah::APPacketsRegMsg* request, ::cheetah::APPacketsRegMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAPPacketsGet(::grpc::ServerContext* context, ::cheetah::APPacketsMsg* request, ::grpc::ServerAsyncWriter< ::cheetah::APPacketsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    void RequestAPPacketsRegOp(::grpc::ServerContext* context, ::cheetah::APPacketsRegMsg* request, ::grpc::ServerAsyncResponseWriter< ::cheetah::APPacketsRegMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_APPacketsGet<Service > AsyncService;
   template <class BaseClass>
-  class WithGenericMethod_APPacketsGet : public BaseClass {
+  class WithAsyncMethod_APPacketsInitNotif : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_APPacketsGet() {
-      ::grpc::Service::MarkMethodGeneric(0);
+    WithAsyncMethod_APPacketsInitNotif() {
+      ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithGenericMethod_APPacketsGet() GRPC_OVERRIDE {
+    ~WithAsyncMethod_APPacketsInitNotif() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status APPacketsInitNotif(::grpc::ServerContext* context, const ::cheetah::APPacketsGetNotifMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAPPacketsInitNotif(::grpc::ServerContext* context, ::cheetah::APPacketsGetNotifMsg* request, ::grpc::ServerAsyncWriter< ::cheetah::APPacketsMsgRsp>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(1, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_APPacketsRegOp<WithAsyncMethod_APPacketsInitNotif<Service > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_APPacketsRegOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_APPacketsRegOp() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_APPacketsRegOp() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status APPacketsRegOp(::grpc::ServerContext* context, const ::cheetah::APPacketsRegMsg* request, ::cheetah::APPacketsRegMsgRsp* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_APPacketsInitNotif : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_APPacketsInitNotif() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_APPacketsInitNotif() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status APPacketsInitNotif(::grpc::ServerContext* context, const ::cheetah::APPacketsGetNotifMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
 };
+//
+// Packet registration operations
+//
 
 }  // namespace cheetah
 

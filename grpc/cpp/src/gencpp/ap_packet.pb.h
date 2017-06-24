@@ -40,8 +40,10 @@ void protobuf_AssignDesc_ap_5fpacket_2eproto();
 void protobuf_ShutdownFile_ap_5fpacket_2eproto();
 
 class APPacketHdr;
-class APPacketsMsg;
+class APPacketsGetNotifMsg;
 class APPacketsMsgRsp;
+class APPacketsRegMsg;
+class APPacketsRegMsgRsp;
 
 enum APMsgType {
   AP_MSG_TYPE_RESERVED = 0,
@@ -160,6 +162,283 @@ inline bool APCiscoMsgSubtype_Parse(
     APCiscoMsgSubtype_descriptor(), name, value);
 }
 // ===================================================================
+
+class APPacketsGetNotifMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsGetNotifMsg) */ {
+ public:
+  APPacketsGetNotifMsg();
+  virtual ~APPacketsGetNotifMsg();
+
+  APPacketsGetNotifMsg(const APPacketsGetNotifMsg& from);
+
+  inline APPacketsGetNotifMsg& operator=(const APPacketsGetNotifMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APPacketsGetNotifMsg& default_instance();
+
+  static const APPacketsGetNotifMsg* internal_default_instance();
+
+  void Swap(APPacketsGetNotifMsg* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APPacketsGetNotifMsg* New() const { return New(NULL); }
+
+  APPacketsGetNotifMsg* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APPacketsGetNotifMsg& from);
+  void MergeFrom(const APPacketsGetNotifMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APPacketsGetNotifMsg* other);
+  void UnsafeMergeFrom(const APPacketsGetNotifMsg& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketsGetNotifMsg)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fpacket_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fpacket_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fpacket_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsGetNotifMsg> APPacketsGetNotifMsg_default_instance_;
+
+// -------------------------------------------------------------------
+
+class APPacketsRegMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsRegMsg) */ {
+ public:
+  APPacketsRegMsg();
+  virtual ~APPacketsRegMsg();
+
+  APPacketsRegMsg(const APPacketsRegMsg& from);
+
+  inline APPacketsRegMsg& operator=(const APPacketsRegMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APPacketsRegMsg& default_instance();
+
+  static const APPacketsRegMsg* internal_default_instance();
+
+  void Swap(APPacketsRegMsg* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APPacketsRegMsg* New() const { return New(NULL); }
+
+  APPacketsRegMsg* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APPacketsRegMsg& from);
+  void MergeFrom(const APPacketsRegMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APPacketsRegMsg* other);
+  void UnsafeMergeFrom(const APPacketsRegMsg& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .cheetah.APRegOp Oper = 1;
+  void clear_oper();
+  static const int kOperFieldNumber = 1;
+  ::cheetah::APRegOp oper() const;
+  void set_oper(::cheetah::APRegOp value);
+
+  // repeated .cheetah.APPacketHdr PacketHdr = 2;
+  int packethdr_size() const;
+  void clear_packethdr();
+  static const int kPacketHdrFieldNumber = 2;
+  const ::cheetah::APPacketHdr& packethdr(int index) const;
+  ::cheetah::APPacketHdr* mutable_packethdr(int index);
+  ::cheetah::APPacketHdr* add_packethdr();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
+      mutable_packethdr();
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
+      packethdr() const;
+
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketsRegMsg)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr > packethdr_;
+  int oper_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fpacket_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fpacket_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fpacket_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsRegMsg> APPacketsRegMsg_default_instance_;
+
+// -------------------------------------------------------------------
+
+class APPacketsRegMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsRegMsgRsp) */ {
+ public:
+  APPacketsRegMsgRsp();
+  virtual ~APPacketsRegMsgRsp();
+
+  APPacketsRegMsgRsp(const APPacketsRegMsgRsp& from);
+
+  inline APPacketsRegMsgRsp& operator=(const APPacketsRegMsgRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APPacketsRegMsgRsp& default_instance();
+
+  static const APPacketsRegMsgRsp* internal_default_instance();
+
+  void Swap(APPacketsRegMsgRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APPacketsRegMsgRsp* New() const { return New(NULL); }
+
+  APPacketsRegMsgRsp* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APPacketsRegMsgRsp& from);
+  void MergeFrom(const APPacketsRegMsgRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APPacketsRegMsgRsp* other);
+  void UnsafeMergeFrom(const APPacketsRegMsgRsp& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
+  bool has_errstatus() const;
+  void clear_errstatus();
+  static const int kErrStatusFieldNumber = 1;
+  const ::cheetah::APErrorStatus& errstatus() const;
+  ::cheetah::APErrorStatus* mutable_errstatus();
+  ::cheetah::APErrorStatus* release_errstatus();
+  void set_allocated_errstatus(::cheetah::APErrorStatus* errstatus);
+
+  // optional .cheetah.APPacketsRegMsg Results = 2;
+  bool has_results() const;
+  void clear_results();
+  static const int kResultsFieldNumber = 2;
+  const ::cheetah::APPacketsRegMsg& results() const;
+  ::cheetah::APPacketsRegMsg* mutable_results();
+  ::cheetah::APPacketsRegMsg* release_results();
+  void set_allocated_results(::cheetah::APPacketsRegMsg* results);
+
+  // @@protoc_insertion_point(class_scope:cheetah.APPacketsRegMsgRsp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::cheetah::APErrorStatus* errstatus_;
+  ::cheetah::APPacketsRegMsg* results_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fpacket_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fpacket_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fpacket_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsRegMsgRsp> APPacketsRegMsgRsp_default_instance_;
+
+// -------------------------------------------------------------------
 
 class APPacketHdr : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketHdr) */ {
  public:
@@ -309,98 +588,6 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketHdr> APPacket
 
 // -------------------------------------------------------------------
 
-class APPacketsMsg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsMsg) */ {
- public:
-  APPacketsMsg();
-  virtual ~APPacketsMsg();
-
-  APPacketsMsg(const APPacketsMsg& from);
-
-  inline APPacketsMsg& operator=(const APPacketsMsg& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const APPacketsMsg& default_instance();
-
-  static const APPacketsMsg* internal_default_instance();
-
-  void Swap(APPacketsMsg* other);
-
-  // implements Message ----------------------------------------------
-
-  inline APPacketsMsg* New() const { return New(NULL); }
-
-  APPacketsMsg* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const APPacketsMsg& from);
-  void MergeFrom(const APPacketsMsg& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  size_t ByteSizeLong() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(APPacketsMsg* other);
-  void UnsafeMergeFrom(const APPacketsMsg& from);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .cheetah.APPacketHdr PacketHdr = 1;
-  int packethdr_size() const;
-  void clear_packethdr();
-  static const int kPacketHdrFieldNumber = 1;
-  const ::cheetah::APPacketHdr& packethdr(int index) const;
-  ::cheetah::APPacketHdr* mutable_packethdr(int index);
-  ::cheetah::APPacketHdr* add_packethdr();
-  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
-      mutable_packethdr();
-  const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
-      packethdr() const;
-
-  // @@protoc_insertion_point(class_scope:cheetah.APPacketsMsg)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr > packethdr_;
-  mutable int _cached_size_;
-  friend void  protobuf_InitDefaults_ap_5fpacket_2eproto_impl();
-  friend void  protobuf_AddDesc_ap_5fpacket_2eproto_impl();
-  friend void protobuf_AssignDesc_ap_5fpacket_2eproto();
-  friend void protobuf_ShutdownFile_ap_5fpacket_2eproto();
-
-  void InitAsDefaultInstance();
-};
-extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsMsg> APPacketsMsg_default_instance_;
-
-// -------------------------------------------------------------------
-
 class APPacketsMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APPacketsMsgRsp) */ {
  public:
   APPacketsMsgRsp();
@@ -523,6 +710,149 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APPacketsMsgRsp> APPa
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// APPacketsGetNotifMsg
+
+inline const APPacketsGetNotifMsg* APPacketsGetNotifMsg::internal_default_instance() {
+  return &APPacketsGetNotifMsg_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// APPacketsRegMsg
+
+// optional .cheetah.APRegOp Oper = 1;
+inline void APPacketsRegMsg::clear_oper() {
+  oper_ = 0;
+}
+inline ::cheetah::APRegOp APPacketsRegMsg::oper() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsg.Oper)
+  return static_cast< ::cheetah::APRegOp >(oper_);
+}
+inline void APPacketsRegMsg::set_oper(::cheetah::APRegOp value) {
+  
+  oper_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APPacketsRegMsg.Oper)
+}
+
+// repeated .cheetah.APPacketHdr PacketHdr = 2;
+inline int APPacketsRegMsg::packethdr_size() const {
+  return packethdr_.size();
+}
+inline void APPacketsRegMsg::clear_packethdr() {
+  packethdr_.Clear();
+}
+inline const ::cheetah::APPacketHdr& APPacketsRegMsg::packethdr(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Get(index);
+}
+inline ::cheetah::APPacketHdr* APPacketsRegMsg::mutable_packethdr(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Mutable(index);
+}
+inline ::cheetah::APPacketHdr* APPacketsRegMsg::add_packethdr() {
+  // @@protoc_insertion_point(field_add:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
+APPacketsRegMsg::mutable_packethdr() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APPacketsRegMsg.PacketHdr)
+  return &packethdr_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
+APPacketsRegMsg::packethdr() const {
+  // @@protoc_insertion_point(field_list:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_;
+}
+
+inline const APPacketsRegMsg* APPacketsRegMsg::internal_default_instance() {
+  return &APPacketsRegMsg_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// APPacketsRegMsgRsp
+
+// optional .cheetah.APErrorStatus ErrStatus = 1;
+inline bool APPacketsRegMsgRsp::has_errstatus() const {
+  return this != internal_default_instance() && errstatus_ != NULL;
+}
+inline void APPacketsRegMsgRsp::clear_errstatus() {
+  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
+  errstatus_ = NULL;
+}
+inline const ::cheetah::APErrorStatus& APPacketsRegMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  return errstatus_ != NULL ? *errstatus_
+                         : *::cheetah::APErrorStatus::internal_default_instance();
+}
+inline ::cheetah::APErrorStatus* APPacketsRegMsgRsp::mutable_errstatus() {
+  
+  if (errstatus_ == NULL) {
+    errstatus_ = new ::cheetah::APErrorStatus;
+  }
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  return errstatus_;
+}
+inline ::cheetah::APErrorStatus* APPacketsRegMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  
+  ::cheetah::APErrorStatus* temp = errstatus_;
+  errstatus_ = NULL;
+  return temp;
+}
+inline void APPacketsRegMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
+  delete errstatus_;
+  errstatus_ = errstatus;
+  if (errstatus) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsRegMsgRsp.ErrStatus)
+}
+
+// optional .cheetah.APPacketsRegMsg Results = 2;
+inline bool APPacketsRegMsgRsp::has_results() const {
+  return this != internal_default_instance() && results_ != NULL;
+}
+inline void APPacketsRegMsgRsp::clear_results() {
+  if (GetArenaNoVirtual() == NULL && results_ != NULL) delete results_;
+  results_ = NULL;
+}
+inline const ::cheetah::APPacketsRegMsg& APPacketsRegMsgRsp::results() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsgRsp.Results)
+  return results_ != NULL ? *results_
+                         : *::cheetah::APPacketsRegMsg::internal_default_instance();
+}
+inline ::cheetah::APPacketsRegMsg* APPacketsRegMsgRsp::mutable_results() {
+  
+  if (results_ == NULL) {
+    results_ = new ::cheetah::APPacketsRegMsg;
+  }
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsgRsp.Results)
+  return results_;
+}
+inline ::cheetah::APPacketsRegMsg* APPacketsRegMsgRsp::release_results() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsRegMsgRsp.Results)
+  
+  ::cheetah::APPacketsRegMsg* temp = results_;
+  results_ = NULL;
+  return temp;
+}
+inline void APPacketsRegMsgRsp::set_allocated_results(::cheetah::APPacketsRegMsg* results) {
+  delete results_;
+  results_ = results;
+  if (results) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsRegMsgRsp.Results)
+}
+
+inline const APPacketsRegMsgRsp* APPacketsRegMsgRsp::internal_default_instance() {
+  return &APPacketsRegMsgRsp_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
 // APPacketHdr
 
 // optional .cheetah.APMsgType MsgType = 1;
@@ -669,43 +999,6 @@ inline const APPacketHdr* APPacketHdr::internal_default_instance() {
 }
 // -------------------------------------------------------------------
 
-// APPacketsMsg
-
-// repeated .cheetah.APPacketHdr PacketHdr = 1;
-inline int APPacketsMsg::packethdr_size() const {
-  return packethdr_.size();
-}
-inline void APPacketsMsg::clear_packethdr() {
-  packethdr_.Clear();
-}
-inline const ::cheetah::APPacketHdr& APPacketsMsg::packethdr(int index) const {
-  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Get(index);
-}
-inline ::cheetah::APPacketHdr* APPacketsMsg::mutable_packethdr(int index) {
-  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Mutable(index);
-}
-inline ::cheetah::APPacketHdr* APPacketsMsg::add_packethdr() {
-  // @@protoc_insertion_point(field_add:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
-APPacketsMsg::mutable_packethdr() {
-  // @@protoc_insertion_point(field_mutable_list:cheetah.APPacketsMsg.PacketHdr)
-  return &packethdr_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
-APPacketsMsg::packethdr() const {
-  // @@protoc_insertion_point(field_list:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_;
-}
-
-inline const APPacketsMsg* APPacketsMsg::internal_default_instance() {
-  return &APPacketsMsg_default_instance_.get();
-}
-// -------------------------------------------------------------------
-
 // APPacketsMsgRsp
 
 // optional .cheetah.APErrorStatus ErrStatus = 1;
@@ -848,6 +1141,10 @@ inline const APPacketsMsgRsp* APPacketsMsgRsp::internal_default_instance() {
   return &APPacketsMsgRsp_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -16,7 +16,8 @@
 namespace cheetah {
 
 static const char* APPackets_method_names[] = {
-  "/cheetah.APPackets/APPacketsGet",
+  "/cheetah.APPackets/APPacketsRegOp",
+  "/cheetah.APPackets/APPacketsInitNotif",
 };
 
 std::unique_ptr< APPackets::Stub> APPackets::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -25,30 +26,51 @@ std::unique_ptr< APPackets::Stub> APPackets::NewStub(const std::shared_ptr< ::gr
 }
 
 APPackets::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_APPacketsGet_(APPackets_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
+  : channel_(channel), rpcmethod_APPacketsRegOp_(APPackets_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_APPacketsInitNotif_(APPackets_method_names[1], ::grpc::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::APPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request) {
-  return new ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), rpcmethod_APPacketsGet_, context, request);
+::grpc::Status APPackets::Stub::APPacketsRegOp(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::cheetah::APPacketsRegMsgRsp* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_APPacketsRegOp_, context, request, response);
 }
 
-::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::AsyncAPPacketsGetRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return new ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), cq, rpcmethod_APPacketsGet_, context, request, tag);
+::grpc::ClientAsyncResponseReader< ::cheetah::APPacketsRegMsgRsp>* APPackets::Stub::AsyncAPPacketsRegOpRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsRegMsg& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::cheetah::APPacketsRegMsgRsp>(channel_.get(), cq, rpcmethod_APPacketsRegOp_, context, request);
+}
+
+::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::APPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request) {
+  return new ::grpc::ClientReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), rpcmethod_APPacketsInitNotif_, context, request);
+}
+
+::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>* APPackets::Stub::AsyncAPPacketsInitNotifRaw(::grpc::ClientContext* context, const ::cheetah::APPacketsGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::cheetah::APPacketsMsgRsp>(channel_.get(), cq, rpcmethod_APPacketsInitNotif_, context, request, tag);
 }
 
 APPackets::Service::Service() {
   (void)APPackets_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
       APPackets_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< APPackets::Service, ::cheetah::APPacketsRegMsg, ::cheetah::APPacketsRegMsgRsp>(
+          std::mem_fn(&APPackets::Service::APPacketsRegOp), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      APPackets_method_names[1],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< APPackets::Service, ::cheetah::APPacketsMsg, ::cheetah::APPacketsMsgRsp>(
-          std::mem_fn(&APPackets::Service::APPacketsGet), this)));
+      new ::grpc::ServerStreamingHandler< APPackets::Service, ::cheetah::APPacketsGetNotifMsg, ::cheetah::APPacketsMsgRsp>(
+          std::mem_fn(&APPackets::Service::APPacketsInitNotif), this)));
 }
 
 APPackets::Service::~Service() {
 }
 
-::grpc::Status APPackets::Service::APPacketsGet(::grpc::ServerContext* context, const ::cheetah::APPacketsMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) {
+::grpc::Status APPackets::Service::APPacketsRegOp(::grpc::ServerContext* context, const ::cheetah::APPacketsRegMsg* request, ::cheetah::APPacketsRegMsgRsp* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status APPackets::Service::APPacketsInitNotif(::grpc::ServerContext* context, const ::cheetah::APPacketsGetNotifMsg* request, ::grpc::ServerWriter< ::cheetah::APPacketsMsgRsp>* writer) {
   (void) context;
   (void) request;
   (void) writer;

@@ -22,8 +22,10 @@ It has these top-level messages:
 	APGlobalNotif
 	APGlobalsGetMsg
 	APGlobalsGetMsgRsp
+	APPacketsGetNotifMsg
+	APPacketsRegMsg
+	APPacketsRegMsgRsp
 	APPacketHdr
-	APPacketsMsg
 	APPacketsMsgRsp
 	APStatsRequest
 	APStatsMsg

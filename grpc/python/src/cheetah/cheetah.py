@@ -46,7 +46,11 @@ class AbstractClient(object):
         pass
 
     @abc.abstractmethod
-    def pkts_get(self, *args, **kwargs):
+    def pkt_reg(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def pkt_notif_init(self, *args, **kwargs):
         pass
 
 
@@ -114,16 +118,20 @@ class GrpcClient(AbstractClient):
         return (response, local_counter)
 
 
-    def pkts_get(self, serializer, cback_func, negative, event):
-        """Packets Get"""
+    def pkt_reg(self, serializer, cback_func, negative, count, msg_list, event):
+        """Packets Registration"""
+        response = self._stubs[2].APPacketsRegOp(serializer, self.TIMEOUT_SECONDS)
+        return cback_func(serializer, response, negative, count, msg_list, event)
+
+    def pkt_notif_init(self, serializer, cback_func, negative, count, event):
+        """Packets Notif"""
 
         local_counter = 0
-        for response in self._stubs[2].APPacketsGet(serializer, self.TIMEOUT_SECONDS):
+        for response in self._stubs[2].APPacketsInitNotif(serializer, self.TIMEOUT_SECONDS):
             local_counter += 1
-            return cback_func(response, negative, event)
+            if not cback_func(response, negative, count, event):
+                break
+            if (count == local_counter):
+                break
 
-        # Terminated
-        # This would notify the main thread to proceed
-        #if not event is None:
-           #event.set()
-        #return (response, local_counter)
+        return (local_counter)

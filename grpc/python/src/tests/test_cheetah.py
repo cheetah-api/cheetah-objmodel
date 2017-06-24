@@ -2,6 +2,7 @@
 # Copyright (c) 2017 by Cisco Systems, Inc.
 # All rights reserved.
 #
+import copy
 import json
 import os
 import sys
@@ -264,221 +265,330 @@ class TestSuite_002_Statistics(ClientTestCase):
         t.join()
 
 #
-# Test packet API
+# Test packet reg API
 #
-def pkt_cback(response, negative, event):
-    return (((negative == False) and
-             (response.ErrStatus.Status ==
-              ap_common_types_pb2.APErrorStatus.AP_SUCCESS)) or
-             ((negative == True) and
-             (response.ErrStatus.Status ==
-              ap_common_types_pb2.APErrorStatus.AP_EINVAL)))
+def pkt_reg_cback(serializer, response, negative, count, msg_list, event):
+
+    # Return code has to match the test
+    test_rc = (((negative == False) and
+                (response.ErrStatus.Status ==
+                    ap_common_types_pb2.APErrorStatus.AP_SUCCESS)) or
+               ((negative == True) and
+                (response.ErrStatus.Status ==
+                ap_common_types_pb2.APErrorStatus.AP_EINVAL)))
+    # Break if rc doesn't match test
+    if test_rc is False:
+        print test_rc
+        return test_rc
+
+    # if it's a positive test we're done
+    if negative is False:
+        return True
+
+    # Some elements have to be returned on error
+    if len(response.Results.PacketHdr) != count:
+        print response.Results, msg_list
+        return False
+
+    # Check elements of list returned with ones we know are in error
+    if response.Results != msg_list:
+        print response.Results, msg_list
+        return False
+
+    return True
 
 
-def pkt_operation(self, serializer, negative, event=None):
-
-    rc = ClientTestCase.client.pkts_get(serializer, pkt_cback, negative, event)
+def pkt_reg_operation(self, serializer, negative, count, msg_list, event=None):
+    rc = ClientTestCase.client.pkt_reg(serializer, pkt_reg_cback, negative,
+                                       count, msg_list, event)
     self.assertTrue(rc)
+    if event is not None:
+        event.set()
 
-
-class TestSuite_003_Packets(ClientTestCase):
+#
+# Suite to test the validity of packet registration/unregistration logic
+#
+class TestSuite_003_Packet_API_verify(ClientTestCase):
 
     # threading.Event() used to sync threads
     pkt_event = None
     count = 1
 
-    def test_negative_000_base(self):
-        # Try to get a junk message type
-        serializer = serializers.get_pkts_serializer()
+    msg_list = None
+    # API parameter checks
+    def test_000_base(self):
+        # Try to register for a junk message type
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT + \
                       ap_packet_pb2.AP_MSG_TYPE_CISCO
         msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_001_mgmt(self):
-        # Get mgmt packets with bad subtype
-        serializer = serializers.get_pkts_serializer()
+    def test_001_mgmt(self):
+        # Register for mgmt packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
         msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_002_ctrl(self):
-        # Get ctrl packets with bad subtype
-        serializer = serializers.get_pkts_serializer()
+    def test_002_ctrl(self):
+        # Register for ctrl packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
         msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_003_data(self):
-        # Get data packets with bad subtype
-        serializer = serializers.get_pkts_serializer()
+    def test_003_data(self):
+        # Register for data packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
         msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_004_cisco(self):
-        # Get cisco packets with bad subtype
-        serializer = serializers.get_pkts_serializer()
+    def test_004_cisco(self):
+        # Register for cisco packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
         msg.ctrl = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_005_mgmt_reserved(self):
-        # Get mgmt packets with reserved value
-        serializer = serializers.get_pkts_serializer()
+    def test_005_mgmt_reserved(self):
+        # Register for mgmt packets with reserved value
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
         msg.mgmt = 0
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_006_ctrl_reserved(self):
-        # Get mgmt packets with reserved value
-        serializer = serializers.get_pkts_serializer()
+    def test_006_ctrl_reserved(self):
+        # Register for ctrl packets with reserved value
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
         msg.ctrl = 0
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_007_data_reserved(self):
-        # Get mgmt packets with reserved value
-        serializer = serializers.get_pkts_serializer()
+    def test_007_data_reserved(self):
+        # Register for data packets with reserved value
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
         msg.data = 0
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_008_cisco_reserved(self):
-        # Get mgmt packets with reserved value
-        serializer = serializers.get_pkts_serializer()
+    def test_008_cisco_reserved(self):
+        # Register for cisco packets with reserved value
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
         msg.cisco = 0
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_009_mgmt_out_of_bounds(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_009_mgmt_out_of_bounds(self):
+        # Register for mgmt packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
         msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL + 1
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_010_ctrl_out_of_bounds(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_010_ctrl_out_of_bounds(self):
+        # Register for ctrl packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
         msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL + 1
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_011_data_out_of_bounds(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_011_data_out_of_bounds(self):
+        # Register for data packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
         msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ALL + 1
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_negative_012_cisco_out_of_bounds(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_012_cisco_out_of_bounds(self):
+        # Register for cisco packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
         msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL + 1
-        pkt_operation(self, serializer, True, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_positive_001_mgmt(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_013_two_bad_regs(self):
+        # Register for cisco packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL + 1
+        msg2 = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL + 1
+        # Note that 2/2 have to be returned
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 2, msg_list, None)
+
+    def test_014_two_bad_one_good_regs(self):
+        # Register for cisco packets with bad subtype
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
+        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL + 1
+        msg2 = serializer.PacketHdr.add()
+        msg2.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg2.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL + 1
+        msg3 = serializer.PacketHdr.add()
+        msg3.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg3.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL
+        # Note that 2/3 have to be returned
+        msg_list = copy.deepcopy(serializer)
+        msg_list.PacketHdr.remove(msg3)
+        pkt_reg_operation(self, serializer, True, 2, msg_list, None)
+
+    # API reg/unreg checks
+    # These actually need some thread synchronization as the test cases are
+    # self sufficient and require multiple operations.
+    def test_100_mgmt_assoc_reg(self):
+        TestSuite_003_Packet_API_verify.pkt_event = threading.Event()
+        # Single registration
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
         msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
-        pkt_operation(self, serializer, False, self.count)
+        pkt_reg_operation(self, serializer, False, 0, None,
+                          TestSuite_003_Packet_API_verify.pkt_event)
+        # Wait for the registration to succeed
+        TestSuite_003_Packet_API_verify.pkt_event.wait()
+        # Now send unregistration
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_UNREGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_reg_operation(self, serializer, False, 0, None, None)
 
-    def test_positive_002_mgmt(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_101_mgmt_double_reg(self):
+        # Double registration
+        TestSuite_003_Packet_API_verify.pkt_event = threading.Event()
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        msg2 = serializer.PacketHdr.add()
+        msg2.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg2.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_reg_operation(self, serializer, False, 0, None,
+                          TestSuite_003_Packet_API_verify.pkt_event)
+        # Wait for the registration to succeed
+        TestSuite_003_Packet_API_verify.pkt_event.wait()
+        # Now send unregistration
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_UNREGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_reg_operation(self, serializer, False, 0, None, None)
+
+    def test_102_mgmt_non_existent_unreg(self):
+        # Unregister for non existent registration
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_UNREGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
         msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_AUTH
-        pkt_operation(self, serializer, False, self.count)
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_positive_003_mgmt(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
-        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_PROBE
-        pkt_operation(self, serializer, False, self.count)
-
-    def test_positive_004_mgmt(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
-        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL
-        pkt_operation(self, serializer, False, self.count)
-
-    def test_positive_005_ctrl(self):
-        serializer = serializers.get_pkts_serializer()
+    def test_103_mgmt_double_unreg(self):
+        # Double unregistration
+        TestSuite_003_Packet_API_verify.pkt_event = threading.Event()
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
         msg = serializer.PacketHdr.add()
         msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
         msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL
-        pkt_operation(self, serializer, False, self.count)
+        pkt_reg_operation(self, serializer, False, 0, None,
+                          TestSuite_003_Packet_API_verify.pkt_event)
+        # Wait for the registration to succeed
+        TestSuite_003_Packet_API_verify.pkt_event.wait()
 
-    def test_positive_006_data(self):
-        serializer = serializers.get_pkts_serializer()
+        # Unreg #1
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_UNREGISTER
         msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
-        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ARP
-        pkt_operation(self, serializer, False, self.count)
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL
+        pkt_reg_operation(self, serializer, False, 0, None,
+                          TestSuite_003_Packet_API_verify.pkt_event)
+        # Wait for the unregistration to succeed
+        TestSuite_003_Packet_API_verify.pkt_event.wait()
 
-    def test_positive_007_data(self):
-        serializer = serializers.get_pkts_serializer()
+        # Unreg #2
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_UNREGISTER
         msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
-        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_DHCP
-        pkt_operation(self, serializer, False, self.count)
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CTRL
+        msg.ctrl = ap_packet_pb2.AP_CTRL_MSG_SUBTYPE_ALL
+        msg_list = copy.deepcopy(serializer)
+        pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
-    def test_positive_008_data(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
-        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_EAP
-        pkt_operation(self, serializer, False, self.count)
 
-    def test_positive_009_data(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
-        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ICMP
-        pkt_operation(self, serializer, False, self.count)
+#
+# Test packet notif API
+#
+def pkt_notif_cback(response, negative, count, event):
+    return True
 
-    def test_positive_010_data(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_DATA
-        msg.data = ap_packet_pb2.AP_DATA_MSG_SUBTYPE_ALL
-        pkt_operation(self, serializer, False, self.count)
+def pkt_operation(self, serializer, negative, count, event=None):
+    counter = ClientTestCase.client.pkt_notif_init(serializer, pkt_notif_cback,
+                                              negative, count, event)
+    self.assertTrue(count==counter)
 
-    def test_positive_011_cisco(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
-        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_NDP
-        pkt_operation(self, serializer, False, self.count)
+class TestSuite_004_Packets(ClientTestCase):
 
-    def test_positive_012_cisco(self):
-        serializer = serializers.get_pkts_serializer()
-        msg = serializer.PacketHdr.add()
-        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_CISCO
-        msg.cisco = ap_packet_pb2.AP_CISCO_MSG_SUBTYPE_ALL
-        pkt_operation(self, serializer, False, self.count)
+    # threading.Event() used to sync threads
+    pkt_event = None
+    count = 1
 
-    #def test_001_get_system_stats(self):
-
-        #TestSuite_003_Packets.pkt_event = threading.Event()
-        #t = pkt_thread(self, ap_packet_pb2.AP_MSG_TYPE_MGMT,
-                       #ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC,
-                       #self.count, TestSuite_003_Packets.pkt_event)
-        #t.join()
+    def test_001_base(self):
+        serializer = serializers.get_pkt_init_serializer()
+        pkt_operation(self, serializer, False, self.count, None)
 
 if __name__ == '__main__':
     unittest.main()

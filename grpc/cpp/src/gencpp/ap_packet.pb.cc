@@ -21,6 +21,15 @@ namespace cheetah {
 
 namespace {
 
+const ::google::protobuf::Descriptor* APPacketsGetNotifMsg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  APPacketsGetNotifMsg_reflection_ = NULL;
+const ::google::protobuf::Descriptor* APPacketsRegMsg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  APPacketsRegMsg_reflection_ = NULL;
+const ::google::protobuf::Descriptor* APPacketsRegMsgRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  APPacketsRegMsgRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* APPacketHdr_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   APPacketHdr_reflection_ = NULL;
@@ -30,9 +39,6 @@ struct APPacketHdrOneofInstance {
   int data_;
   int cisco_;
 }* APPacketHdr_default_oneof_instance_ = NULL;
-const ::google::protobuf::Descriptor* APPacketsMsg_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  APPacketsMsg_reflection_ = NULL;
 const ::google::protobuf::Descriptor* APPacketsMsgRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   APPacketsMsgRsp_reflection_ = NULL;
@@ -52,7 +58,50 @@ void protobuf_AssignDesc_ap_5fpacket_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "ap_packet.proto");
   GOOGLE_CHECK(file != NULL);
-  APPacketHdr_descriptor_ = file->message_type(0);
+  APPacketsGetNotifMsg_descriptor_ = file->message_type(0);
+  static const int APPacketsGetNotifMsg_offsets_[1] = {
+  };
+  APPacketsGetNotifMsg_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      APPacketsGetNotifMsg_descriptor_,
+      APPacketsGetNotifMsg::internal_default_instance(),
+      APPacketsGetNotifMsg_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(APPacketsGetNotifMsg),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsGetNotifMsg, _internal_metadata_));
+  APPacketsRegMsg_descriptor_ = file->message_type(1);
+  static const int APPacketsRegMsg_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsg, oper_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsg, packethdr_),
+  };
+  APPacketsRegMsg_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      APPacketsRegMsg_descriptor_,
+      APPacketsRegMsg::internal_default_instance(),
+      APPacketsRegMsg_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(APPacketsRegMsg),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsg, _internal_metadata_));
+  APPacketsRegMsgRsp_descriptor_ = file->message_type(2);
+  static const int APPacketsRegMsgRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsgRsp, errstatus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsgRsp, results_),
+  };
+  APPacketsRegMsgRsp_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      APPacketsRegMsgRsp_descriptor_,
+      APPacketsRegMsgRsp::internal_default_instance(),
+      APPacketsRegMsgRsp_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(APPacketsRegMsgRsp),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsRegMsgRsp, _internal_metadata_));
+  APPacketHdr_descriptor_ = file->message_type(3);
   static const int APPacketHdr_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketHdr, msgtype_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(APPacketHdr_default_oneof_instance_, mgmt_),
@@ -73,21 +122,7 @@ void protobuf_AssignDesc_ap_5fpacket_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketHdr, _oneof_case_[0]),
       sizeof(APPacketHdr),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketHdr, _internal_metadata_));
-  APPacketsMsg_descriptor_ = file->message_type(1);
-  static const int APPacketsMsg_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsMsg, packethdr_),
-  };
-  APPacketsMsg_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      APPacketsMsg_descriptor_,
-      APPacketsMsg::internal_default_instance(),
-      APPacketsMsg_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(APPacketsMsg),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsMsg, _internal_metadata_));
-  APPacketsMsgRsp_descriptor_ = file->message_type(2);
+  APPacketsMsgRsp_descriptor_ = file->message_type(4);
   static const int APPacketsMsgRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APPacketsMsgRsp, packethdr_),
@@ -123,9 +158,13 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APPacketHdr_descriptor_, APPacketHdr::internal_default_instance());
+      APPacketsGetNotifMsg_descriptor_, APPacketsGetNotifMsg::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      APPacketsMsg_descriptor_, APPacketsMsg::internal_default_instance());
+      APPacketsRegMsg_descriptor_, APPacketsRegMsg::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      APPacketsRegMsgRsp_descriptor_, APPacketsRegMsgRsp::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      APPacketHdr_descriptor_, APPacketHdr::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       APPacketsMsgRsp_descriptor_, APPacketsMsgRsp::internal_default_instance());
 }
@@ -133,11 +172,15 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_ap_5fpacket_2eproto() {
+  APPacketsGetNotifMsg_default_instance_.Shutdown();
+  delete APPacketsGetNotifMsg_reflection_;
+  APPacketsRegMsg_default_instance_.Shutdown();
+  delete APPacketsRegMsg_reflection_;
+  APPacketsRegMsgRsp_default_instance_.Shutdown();
+  delete APPacketsRegMsgRsp_reflection_;
   APPacketHdr_default_instance_.Shutdown();
   delete APPacketHdr_default_oneof_instance_;
   delete APPacketHdr_reflection_;
-  APPacketsMsg_default_instance_.Shutdown();
-  delete APPacketsMsg_reflection_;
   APPacketsMsgRsp_default_instance_.Shutdown();
   delete APPacketsMsgRsp_reflection_;
 }
@@ -146,13 +189,17 @@ void protobuf_InitDefaults_ap_5fpacket_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::cheetah::protobuf_InitDefaults_ap_5fcommon_5ftypes_2eproto();
+  APPacketsGetNotifMsg_default_instance_.DefaultConstruct();
+  APPacketsRegMsg_default_instance_.DefaultConstruct();
+  APPacketsRegMsgRsp_default_instance_.DefaultConstruct();
   APPacketHdr_default_instance_.DefaultConstruct();
   APPacketHdr_default_oneof_instance_ = new APPacketHdrOneofInstance();
-  APPacketsMsg_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   APPacketsMsgRsp_default_instance_.DefaultConstruct();
+  APPacketsGetNotifMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APPacketsRegMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APPacketsRegMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
   APPacketHdr_default_instance_.get_mutable()->InitAsDefaultInstance();
-  APPacketsMsg_default_instance_.get_mutable()->InitAsDefaultInstance();
   APPacketsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
@@ -167,38 +214,44 @@ void protobuf_AddDesc_ap_5fpacket_2eproto_impl() {
   protobuf_InitDefaults_ap_5fpacket_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017ap_packet.proto\022\007cheetah\032\025ap_common_ty"
-    "pes.proto\"\353\001\n\013APPacketHdr\022#\n\007MsgType\030\001 \001"
-    "(\0162\022.cheetah.APMsgType\022)\n\004mgmt\030\002 \001(\0162\031.c"
-    "heetah.APMgmtMsgSubtypeH\000\022)\n\004ctrl\030\003 \001(\0162"
-    "\031.cheetah.APCtrlMsgSubtypeH\000\022)\n\004data\030\004 \001"
-    "(\0162\031.cheetah.APDataMsgSubtypeH\000\022+\n\005cisco"
-    "\030\005 \001(\0162\032.cheetah.APCiscoMsgSubtypeH\000B\t\n\007"
-    "Subtype\"7\n\014APPacketsMsg\022\'\n\tPacketHdr\030\001 \003"
-    "(\0132\024.cheetah.APPacketHdr\"\213\001\n\017APPacketsMs"
-    "gRsp\022)\n\tErrStatus\030\001 \001(\0132\026.cheetah.APErro"
-    "rStatus\022\'\n\tPacketHdr\030\002 \001(\0132\024.cheetah.APP"
-    "acketHdr\022\021\n\tPacketLen\030\003 \001(\r\022\021\n\tPacketBuf"
-    "\030\004 \001(\014*~\n\tAPMsgType\022\030\n\024AP_MSG_TYPE_RESER"
-    "VED\020\000\022\024\n\020AP_MSG_TYPE_MGMT\020\001\022\024\n\020AP_MSG_TY"
-    "PE_CTRL\020\002\022\024\n\020AP_MSG_TYPE_DATA\020\003\022\025\n\021AP_MS"
-    "G_TYPE_CISCO\020\004*\257\001\n\020APMgmtMsgSubtype\022 \n\034A"
-    "P_MGMT_MSG_SUBTYPE_RESERVED\020\000\022\035\n\031AP_MGMT"
-    "_MSG_SUBTYPE_ASSOC\020\001\022\034\n\030AP_MGMT_MSG_SUBT"
-    "YPE_AUTH\020\002\022\035\n\031AP_MGMT_MSG_SUBTYPE_PROBE\020"
-    "\004\022\035\n\027AP_MGMT_MSG_SUBTYPE_ALL\020\377\377\003*S\n\020APCt"
-    "rlMsgSubtype\022 \n\034AP_CTRL_MSG_SUBTYPE_RESE"
-    "RVED\020\000\022\035\n\027AP_CTRL_MSG_SUBTYPE_ALL\020\377\377\003*\311\001"
-    "\n\020APDataMsgSubtype\022 \n\034AP_DATA_MSG_SUBTYP"
-    "E_RESERVED\020\000\022\033\n\027AP_DATA_MSG_SUBTYPE_ARP\020"
-    "\001\022\034\n\030AP_DATA_MSG_SUBTYPE_DHCP\020\002\022\033\n\027AP_DA"
-    "TA_MSG_SUBTYPE_EAP\020\004\022\034\n\030AP_DATA_MSG_SUBT"
-    "YPE_ICMP\020\010\022\035\n\027AP_DATA_MSG_SUBTYPE_ALL\020\377\377"
-    "\003*t\n\021APCiscoMsgSubtype\022!\n\035AP_CISCO_MSG_S"
-    "UBTYPE_RESERVED\020\000\022\034\n\030AP_CISCO_MSG_SUBTYP"
-    "E_NDP\020\001\022\036\n\030AP_CISCO_MSG_SUBTYPE_ALL\020\377\377\0032"
-    "N\n\tAPPackets\022A\n\014APPacketsGet\022\025.cheetah.A"
-    "PPacketsMsg\032\030.cheetah.APPacketsMsgRsp0\001b"
-    "\006proto3", 1287);
+    "pes.proto\"\026\n\024APPacketsGetNotifMsg\"Z\n\017APP"
+    "acketsRegMsg\022\036\n\004Oper\030\001 \001(\0162\020.cheetah.APR"
+    "egOp\022\'\n\tPacketHdr\030\002 \003(\0132\024.cheetah.APPack"
+    "etHdr\"j\n\022APPacketsRegMsgRsp\022)\n\tErrStatus"
+    "\030\001 \001(\0132\026.cheetah.APErrorStatus\022)\n\007Result"
+    "s\030\002 \001(\0132\030.cheetah.APPacketsRegMsg\"\353\001\n\013AP"
+    "PacketHdr\022#\n\007MsgType\030\001 \001(\0162\022.cheetah.APM"
+    "sgType\022)\n\004mgmt\030\002 \001(\0162\031.cheetah.APMgmtMsg"
+    "SubtypeH\000\022)\n\004ctrl\030\003 \001(\0162\031.cheetah.APCtrl"
+    "MsgSubtypeH\000\022)\n\004data\030\004 \001(\0162\031.cheetah.APD"
+    "ataMsgSubtypeH\000\022+\n\005cisco\030\005 \001(\0162\032.cheetah"
+    ".APCiscoMsgSubtypeH\000B\t\n\007Subtype\"\213\001\n\017APPa"
+    "cketsMsgRsp\022)\n\tErrStatus\030\001 \001(\0132\026.cheetah"
+    ".APErrorStatus\022\'\n\tPacketHdr\030\002 \001(\0132\024.chee"
+    "tah.APPacketHdr\022\021\n\tPacketLen\030\003 \001(\r\022\021\n\tPa"
+    "cketBuf\030\004 \001(\014*~\n\tAPMsgType\022\030\n\024AP_MSG_TYP"
+    "E_RESERVED\020\000\022\024\n\020AP_MSG_TYPE_MGMT\020\001\022\024\n\020AP"
+    "_MSG_TYPE_CTRL\020\002\022\024\n\020AP_MSG_TYPE_DATA\020\003\022\025"
+    "\n\021AP_MSG_TYPE_CISCO\020\004*\257\001\n\020APMgmtMsgSubty"
+    "pe\022 \n\034AP_MGMT_MSG_SUBTYPE_RESERVED\020\000\022\035\n\031"
+    "AP_MGMT_MSG_SUBTYPE_ASSOC\020\001\022\034\n\030AP_MGMT_M"
+    "SG_SUBTYPE_AUTH\020\002\022\035\n\031AP_MGMT_MSG_SUBTYPE"
+    "_PROBE\020\004\022\035\n\027AP_MGMT_MSG_SUBTYPE_ALL\020\377\377\003*"
+    "S\n\020APCtrlMsgSubtype\022 \n\034AP_CTRL_MSG_SUBTY"
+    "PE_RESERVED\020\000\022\035\n\027AP_CTRL_MSG_SUBTYPE_ALL"
+    "\020\377\377\003*\311\001\n\020APDataMsgSubtype\022 \n\034AP_DATA_MSG"
+    "_SUBTYPE_RESERVED\020\000\022\033\n\027AP_DATA_MSG_SUBTY"
+    "PE_ARP\020\001\022\034\n\030AP_DATA_MSG_SUBTYPE_DHCP\020\002\022\033"
+    "\n\027AP_DATA_MSG_SUBTYPE_EAP\020\004\022\034\n\030AP_DATA_M"
+    "SG_SUBTYPE_ICMP\020\010\022\035\n\027AP_DATA_MSG_SUBTYPE"
+    "_ALL\020\377\377\003*t\n\021APCiscoMsgSubtype\022!\n\035AP_CISC"
+    "O_MSG_SUBTYPE_RESERVED\020\000\022\034\n\030AP_CISCO_MSG"
+    "_SUBTYPE_NDP\020\001\022\036\n\030AP_CISCO_MSG_SUBTYPE_A"
+    "LL\020\377\377\0032\245\001\n\tAPPackets\022G\n\016APPacketsRegOp\022\030"
+    ".cheetah.APPacketsRegMsg\032\033.cheetah.APPac"
+    "ketsRegMsgRsp\022O\n\022APPacketsInitNotif\022\035.ch"
+    "eetah.APPacketsGetNotifMsg\032\030.cheetah.APP"
+    "acketsMsgRsp0\001b\006proto3", 1542);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_packet.proto", &protobuf_RegisterTypes);
   ::cheetah::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -307,6 +360,873 @@ static void MergeFromFail(int line) {
 
 }  // namespace
 
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APPacketsGetNotifMsg::APPacketsGetNotifMsg()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fpacket_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:cheetah.APPacketsGetNotifMsg)
+}
+
+void APPacketsGetNotifMsg::InitAsDefaultInstance() {
+}
+
+APPacketsGetNotifMsg::APPacketsGetNotifMsg(const APPacketsGetNotifMsg& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:cheetah.APPacketsGetNotifMsg)
+}
+
+void APPacketsGetNotifMsg::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+APPacketsGetNotifMsg::~APPacketsGetNotifMsg() {
+  // @@protoc_insertion_point(destructor:cheetah.APPacketsGetNotifMsg)
+  SharedDtor();
+}
+
+void APPacketsGetNotifMsg::SharedDtor() {
+}
+
+void APPacketsGetNotifMsg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APPacketsGetNotifMsg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return APPacketsGetNotifMsg_descriptor_;
+}
+
+const APPacketsGetNotifMsg& APPacketsGetNotifMsg::default_instance() {
+  protobuf_InitDefaults_ap_5fpacket_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<APPacketsGetNotifMsg> APPacketsGetNotifMsg_default_instance_;
+
+APPacketsGetNotifMsg* APPacketsGetNotifMsg::New(::google::protobuf::Arena* arena) const {
+  APPacketsGetNotifMsg* n = new APPacketsGetNotifMsg;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APPacketsGetNotifMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:cheetah.APPacketsGetNotifMsg)
+}
+
+bool APPacketsGetNotifMsg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cheetah.APPacketsGetNotifMsg)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:cheetah.APPacketsGetNotifMsg)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:cheetah.APPacketsGetNotifMsg)
+  return false;
+#undef DO_
+}
+
+void APPacketsGetNotifMsg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cheetah.APPacketsGetNotifMsg)
+  // @@protoc_insertion_point(serialize_end:cheetah.APPacketsGetNotifMsg)
+}
+
+::google::protobuf::uint8* APPacketsGetNotifMsg::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APPacketsGetNotifMsg)
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APPacketsGetNotifMsg)
+  return target;
+}
+
+size_t APPacketsGetNotifMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APPacketsGetNotifMsg)
+  size_t total_size = 0;
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APPacketsGetNotifMsg::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APPacketsGetNotifMsg)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APPacketsGetNotifMsg* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APPacketsGetNotifMsg>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APPacketsGetNotifMsg)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APPacketsGetNotifMsg)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void APPacketsGetNotifMsg::MergeFrom(const APPacketsGetNotifMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APPacketsGetNotifMsg)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void APPacketsGetNotifMsg::UnsafeMergeFrom(const APPacketsGetNotifMsg& from) {
+  GOOGLE_DCHECK(&from != this);
+}
+
+void APPacketsGetNotifMsg::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APPacketsGetNotifMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APPacketsGetNotifMsg::CopyFrom(const APPacketsGetNotifMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APPacketsGetNotifMsg)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool APPacketsGetNotifMsg::IsInitialized() const {
+
+  return true;
+}
+
+void APPacketsGetNotifMsg::Swap(APPacketsGetNotifMsg* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APPacketsGetNotifMsg::InternalSwap(APPacketsGetNotifMsg* other) {
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APPacketsGetNotifMsg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = APPacketsGetNotifMsg_descriptor_;
+  metadata.reflection = APPacketsGetNotifMsg_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APPacketsGetNotifMsg
+
+inline const APPacketsGetNotifMsg* APPacketsGetNotifMsg::internal_default_instance() {
+  return &APPacketsGetNotifMsg_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APPacketsRegMsg::kOperFieldNumber;
+const int APPacketsRegMsg::kPacketHdrFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APPacketsRegMsg::APPacketsRegMsg()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fpacket_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:cheetah.APPacketsRegMsg)
+}
+
+void APPacketsRegMsg::InitAsDefaultInstance() {
+}
+
+APPacketsRegMsg::APPacketsRegMsg(const APPacketsRegMsg& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:cheetah.APPacketsRegMsg)
+}
+
+void APPacketsRegMsg::SharedCtor() {
+  oper_ = 0;
+  _cached_size_ = 0;
+}
+
+APPacketsRegMsg::~APPacketsRegMsg() {
+  // @@protoc_insertion_point(destructor:cheetah.APPacketsRegMsg)
+  SharedDtor();
+}
+
+void APPacketsRegMsg::SharedDtor() {
+}
+
+void APPacketsRegMsg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APPacketsRegMsg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return APPacketsRegMsg_descriptor_;
+}
+
+const APPacketsRegMsg& APPacketsRegMsg::default_instance() {
+  protobuf_InitDefaults_ap_5fpacket_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<APPacketsRegMsg> APPacketsRegMsg_default_instance_;
+
+APPacketsRegMsg* APPacketsRegMsg::New(::google::protobuf::Arena* arena) const {
+  APPacketsRegMsg* n = new APPacketsRegMsg;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APPacketsRegMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:cheetah.APPacketsRegMsg)
+  oper_ = 0;
+  packethdr_.Clear();
+}
+
+bool APPacketsRegMsg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cheetah.APPacketsRegMsg)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .cheetah.APRegOp Oper = 1;
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_oper(static_cast< ::cheetah::APRegOp >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_PacketHdr;
+        break;
+      }
+
+      // repeated .cheetah.APPacketHdr PacketHdr = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_PacketHdr:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_PacketHdr:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_packethdr()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_loop_PacketHdr;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:cheetah.APPacketsRegMsg)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:cheetah.APPacketsRegMsg)
+  return false;
+#undef DO_
+}
+
+void APPacketsRegMsg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cheetah.APPacketsRegMsg)
+  // optional .cheetah.APRegOp Oper = 1;
+  if (this->oper() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->oper(), output);
+  }
+
+  // repeated .cheetah.APPacketHdr PacketHdr = 2;
+  for (unsigned int i = 0, n = this->packethdr_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->packethdr(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:cheetah.APPacketsRegMsg)
+}
+
+::google::protobuf::uint8* APPacketsRegMsg::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APPacketsRegMsg)
+  // optional .cheetah.APRegOp Oper = 1;
+  if (this->oper() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->oper(), target);
+  }
+
+  // repeated .cheetah.APPacketHdr PacketHdr = 2;
+  for (unsigned int i = 0, n = this->packethdr_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->packethdr(i), false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APPacketsRegMsg)
+  return target;
+}
+
+size_t APPacketsRegMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APPacketsRegMsg)
+  size_t total_size = 0;
+
+  // optional .cheetah.APRegOp Oper = 1;
+  if (this->oper() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->oper());
+  }
+
+  // repeated .cheetah.APPacketHdr PacketHdr = 2;
+  {
+    unsigned int count = this->packethdr_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->packethdr(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APPacketsRegMsg::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APPacketsRegMsg)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APPacketsRegMsg* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APPacketsRegMsg>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APPacketsRegMsg)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APPacketsRegMsg)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void APPacketsRegMsg::MergeFrom(const APPacketsRegMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APPacketsRegMsg)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void APPacketsRegMsg::UnsafeMergeFrom(const APPacketsRegMsg& from) {
+  GOOGLE_DCHECK(&from != this);
+  packethdr_.MergeFrom(from.packethdr_);
+  if (from.oper() != 0) {
+    set_oper(from.oper());
+  }
+}
+
+void APPacketsRegMsg::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APPacketsRegMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APPacketsRegMsg::CopyFrom(const APPacketsRegMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APPacketsRegMsg)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool APPacketsRegMsg::IsInitialized() const {
+
+  return true;
+}
+
+void APPacketsRegMsg::Swap(APPacketsRegMsg* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APPacketsRegMsg::InternalSwap(APPacketsRegMsg* other) {
+  std::swap(oper_, other->oper_);
+  packethdr_.UnsafeArenaSwap(&other->packethdr_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APPacketsRegMsg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = APPacketsRegMsg_descriptor_;
+  metadata.reflection = APPacketsRegMsg_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APPacketsRegMsg
+
+// optional .cheetah.APRegOp Oper = 1;
+void APPacketsRegMsg::clear_oper() {
+  oper_ = 0;
+}
+::cheetah::APRegOp APPacketsRegMsg::oper() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsg.Oper)
+  return static_cast< ::cheetah::APRegOp >(oper_);
+}
+void APPacketsRegMsg::set_oper(::cheetah::APRegOp value) {
+  
+  oper_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APPacketsRegMsg.Oper)
+}
+
+// repeated .cheetah.APPacketHdr PacketHdr = 2;
+int APPacketsRegMsg::packethdr_size() const {
+  return packethdr_.size();
+}
+void APPacketsRegMsg::clear_packethdr() {
+  packethdr_.Clear();
+}
+const ::cheetah::APPacketHdr& APPacketsRegMsg::packethdr(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Get(index);
+}
+::cheetah::APPacketHdr* APPacketsRegMsg::mutable_packethdr(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Mutable(index);
+}
+::cheetah::APPacketHdr* APPacketsRegMsg::add_packethdr() {
+  // @@protoc_insertion_point(field_add:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
+APPacketsRegMsg::mutable_packethdr() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APPacketsRegMsg.PacketHdr)
+  return &packethdr_;
+}
+const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
+APPacketsRegMsg::packethdr() const {
+  // @@protoc_insertion_point(field_list:cheetah.APPacketsRegMsg.PacketHdr)
+  return packethdr_;
+}
+
+inline const APPacketsRegMsg* APPacketsRegMsg::internal_default_instance() {
+  return &APPacketsRegMsg_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APPacketsRegMsgRsp::kErrStatusFieldNumber;
+const int APPacketsRegMsgRsp::kResultsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APPacketsRegMsgRsp::APPacketsRegMsgRsp()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fpacket_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:cheetah.APPacketsRegMsgRsp)
+}
+
+void APPacketsRegMsgRsp::InitAsDefaultInstance() {
+  errstatus_ = const_cast< ::cheetah::APErrorStatus*>(
+      ::cheetah::APErrorStatus::internal_default_instance());
+  results_ = const_cast< ::cheetah::APPacketsRegMsg*>(
+      ::cheetah::APPacketsRegMsg::internal_default_instance());
+}
+
+APPacketsRegMsgRsp::APPacketsRegMsgRsp(const APPacketsRegMsgRsp& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:cheetah.APPacketsRegMsgRsp)
+}
+
+void APPacketsRegMsgRsp::SharedCtor() {
+  errstatus_ = NULL;
+  results_ = NULL;
+  _cached_size_ = 0;
+}
+
+APPacketsRegMsgRsp::~APPacketsRegMsgRsp() {
+  // @@protoc_insertion_point(destructor:cheetah.APPacketsRegMsgRsp)
+  SharedDtor();
+}
+
+void APPacketsRegMsgRsp::SharedDtor() {
+  if (this != &APPacketsRegMsgRsp_default_instance_.get()) {
+    delete errstatus_;
+    delete results_;
+  }
+}
+
+void APPacketsRegMsgRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APPacketsRegMsgRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return APPacketsRegMsgRsp_descriptor_;
+}
+
+const APPacketsRegMsgRsp& APPacketsRegMsgRsp::default_instance() {
+  protobuf_InitDefaults_ap_5fpacket_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<APPacketsRegMsgRsp> APPacketsRegMsgRsp_default_instance_;
+
+APPacketsRegMsgRsp* APPacketsRegMsgRsp::New(::google::protobuf::Arena* arena) const {
+  APPacketsRegMsgRsp* n = new APPacketsRegMsgRsp;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APPacketsRegMsgRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:cheetah.APPacketsRegMsgRsp)
+  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
+  errstatus_ = NULL;
+  if (GetArenaNoVirtual() == NULL && results_ != NULL) delete results_;
+  results_ = NULL;
+}
+
+bool APPacketsRegMsgRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cheetah.APPacketsRegMsgRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .cheetah.APErrorStatus ErrStatus = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_errstatus()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_Results;
+        break;
+      }
+
+      // optional .cheetah.APPacketsRegMsg Results = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_Results:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_results()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:cheetah.APPacketsRegMsgRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:cheetah.APPacketsRegMsgRsp)
+  return false;
+#undef DO_
+}
+
+void APPacketsRegMsgRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cheetah.APPacketsRegMsgRsp)
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
+  if (this->has_errstatus()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->errstatus_, output);
+  }
+
+  // optional .cheetah.APPacketsRegMsg Results = 2;
+  if (this->has_results()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->results_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:cheetah.APPacketsRegMsgRsp)
+}
+
+::google::protobuf::uint8* APPacketsRegMsgRsp::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APPacketsRegMsgRsp)
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
+  if (this->has_errstatus()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->errstatus_, false, target);
+  }
+
+  // optional .cheetah.APPacketsRegMsg Results = 2;
+  if (this->has_results()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->results_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APPacketsRegMsgRsp)
+  return target;
+}
+
+size_t APPacketsRegMsgRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APPacketsRegMsgRsp)
+  size_t total_size = 0;
+
+  // optional .cheetah.APErrorStatus ErrStatus = 1;
+  if (this->has_errstatus()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->errstatus_);
+  }
+
+  // optional .cheetah.APPacketsRegMsg Results = 2;
+  if (this->has_results()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->results_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APPacketsRegMsgRsp::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APPacketsRegMsgRsp)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APPacketsRegMsgRsp* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APPacketsRegMsgRsp>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APPacketsRegMsgRsp)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APPacketsRegMsgRsp)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void APPacketsRegMsgRsp::MergeFrom(const APPacketsRegMsgRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APPacketsRegMsgRsp)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void APPacketsRegMsgRsp::UnsafeMergeFrom(const APPacketsRegMsgRsp& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.has_errstatus()) {
+    mutable_errstatus()->::cheetah::APErrorStatus::MergeFrom(from.errstatus());
+  }
+  if (from.has_results()) {
+    mutable_results()->::cheetah::APPacketsRegMsg::MergeFrom(from.results());
+  }
+}
+
+void APPacketsRegMsgRsp::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APPacketsRegMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APPacketsRegMsgRsp::CopyFrom(const APPacketsRegMsgRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APPacketsRegMsgRsp)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool APPacketsRegMsgRsp::IsInitialized() const {
+
+  return true;
+}
+
+void APPacketsRegMsgRsp::Swap(APPacketsRegMsgRsp* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APPacketsRegMsgRsp::InternalSwap(APPacketsRegMsgRsp* other) {
+  std::swap(errstatus_, other->errstatus_);
+  std::swap(results_, other->results_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APPacketsRegMsgRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = APPacketsRegMsgRsp_descriptor_;
+  metadata.reflection = APPacketsRegMsgRsp_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APPacketsRegMsgRsp
+
+// optional .cheetah.APErrorStatus ErrStatus = 1;
+bool APPacketsRegMsgRsp::has_errstatus() const {
+  return this != internal_default_instance() && errstatus_ != NULL;
+}
+void APPacketsRegMsgRsp::clear_errstatus() {
+  if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
+  errstatus_ = NULL;
+}
+const ::cheetah::APErrorStatus& APPacketsRegMsgRsp::errstatus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  return errstatus_ != NULL ? *errstatus_
+                         : *::cheetah::APErrorStatus::internal_default_instance();
+}
+::cheetah::APErrorStatus* APPacketsRegMsgRsp::mutable_errstatus() {
+  
+  if (errstatus_ == NULL) {
+    errstatus_ = new ::cheetah::APErrorStatus;
+  }
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  return errstatus_;
+}
+::cheetah::APErrorStatus* APPacketsRegMsgRsp::release_errstatus() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsRegMsgRsp.ErrStatus)
+  
+  ::cheetah::APErrorStatus* temp = errstatus_;
+  errstatus_ = NULL;
+  return temp;
+}
+void APPacketsRegMsgRsp::set_allocated_errstatus(::cheetah::APErrorStatus* errstatus) {
+  delete errstatus_;
+  errstatus_ = errstatus;
+  if (errstatus) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsRegMsgRsp.ErrStatus)
+}
+
+// optional .cheetah.APPacketsRegMsg Results = 2;
+bool APPacketsRegMsgRsp::has_results() const {
+  return this != internal_default_instance() && results_ != NULL;
+}
+void APPacketsRegMsgRsp::clear_results() {
+  if (GetArenaNoVirtual() == NULL && results_ != NULL) delete results_;
+  results_ = NULL;
+}
+const ::cheetah::APPacketsRegMsg& APPacketsRegMsgRsp::results() const {
+  // @@protoc_insertion_point(field_get:cheetah.APPacketsRegMsgRsp.Results)
+  return results_ != NULL ? *results_
+                         : *::cheetah::APPacketsRegMsg::internal_default_instance();
+}
+::cheetah::APPacketsRegMsg* APPacketsRegMsgRsp::mutable_results() {
+  
+  if (results_ == NULL) {
+    results_ = new ::cheetah::APPacketsRegMsg;
+  }
+  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsRegMsgRsp.Results)
+  return results_;
+}
+::cheetah::APPacketsRegMsg* APPacketsRegMsgRsp::release_results() {
+  // @@protoc_insertion_point(field_release:cheetah.APPacketsRegMsgRsp.Results)
+  
+  ::cheetah::APPacketsRegMsg* temp = results_;
+  results_ = NULL;
+  return temp;
+}
+void APPacketsRegMsgRsp::set_allocated_results(::cheetah::APPacketsRegMsg* results) {
+  delete results_;
+  results_ = results;
+  if (results) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APPacketsRegMsgRsp.Results)
+}
+
+inline const APPacketsRegMsgRsp* APPacketsRegMsgRsp::internal_default_instance() {
+  return &APPacketsRegMsgRsp_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -879,272 +1799,6 @@ APPacketHdr::SubtypeCase APPacketHdr::Subtype_case() const {
 }
 inline const APPacketHdr* APPacketHdr::internal_default_instance() {
   return &APPacketHdr_default_instance_.get();
-}
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int APPacketsMsg::kPacketHdrFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-APPacketsMsg::APPacketsMsg()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fpacket_2eproto();
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:cheetah.APPacketsMsg)
-}
-
-void APPacketsMsg::InitAsDefaultInstance() {
-}
-
-APPacketsMsg::APPacketsMsg(const APPacketsMsg& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:cheetah.APPacketsMsg)
-}
-
-void APPacketsMsg::SharedCtor() {
-  _cached_size_ = 0;
-}
-
-APPacketsMsg::~APPacketsMsg() {
-  // @@protoc_insertion_point(destructor:cheetah.APPacketsMsg)
-  SharedDtor();
-}
-
-void APPacketsMsg::SharedDtor() {
-}
-
-void APPacketsMsg::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* APPacketsMsg::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return APPacketsMsg_descriptor_;
-}
-
-const APPacketsMsg& APPacketsMsg::default_instance() {
-  protobuf_InitDefaults_ap_5fpacket_2eproto();
-  return *internal_default_instance();
-}
-
-::google::protobuf::internal::ExplicitlyConstructed<APPacketsMsg> APPacketsMsg_default_instance_;
-
-APPacketsMsg* APPacketsMsg::New(::google::protobuf::Arena* arena) const {
-  APPacketsMsg* n = new APPacketsMsg;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void APPacketsMsg::Clear() {
-// @@protoc_insertion_point(message_clear_start:cheetah.APPacketsMsg)
-  packethdr_.Clear();
-}
-
-bool APPacketsMsg::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cheetah.APPacketsMsg)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .cheetah.APPacketHdr PacketHdr = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(input->IncrementRecursionDepth());
-         parse_loop_PacketHdr:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
-                input, add_packethdr()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(10)) goto parse_loop_PacketHdr;
-        input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:cheetah.APPacketsMsg)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:cheetah.APPacketsMsg)
-  return false;
-#undef DO_
-}
-
-void APPacketsMsg::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cheetah.APPacketsMsg)
-  // repeated .cheetah.APPacketHdr PacketHdr = 1;
-  for (unsigned int i = 0, n = this->packethdr_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->packethdr(i), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:cheetah.APPacketsMsg)
-}
-
-::google::protobuf::uint8* APPacketsMsg::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APPacketsMsg)
-  // repeated .cheetah.APPacketHdr PacketHdr = 1;
-  for (unsigned int i = 0, n = this->packethdr_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        1, this->packethdr(i), false, target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APPacketsMsg)
-  return target;
-}
-
-size_t APPacketsMsg::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cheetah.APPacketsMsg)
-  size_t total_size = 0;
-
-  // repeated .cheetah.APPacketHdr PacketHdr = 1;
-  {
-    unsigned int count = this->packethdr_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->packethdr(i));
-    }
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void APPacketsMsg::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APPacketsMsg)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const APPacketsMsg* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const APPacketsMsg>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APPacketsMsg)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APPacketsMsg)
-    UnsafeMergeFrom(*source);
-  }
-}
-
-void APPacketsMsg::MergeFrom(const APPacketsMsg& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APPacketsMsg)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void APPacketsMsg::UnsafeMergeFrom(const APPacketsMsg& from) {
-  GOOGLE_DCHECK(&from != this);
-  packethdr_.MergeFrom(from.packethdr_);
-}
-
-void APPacketsMsg::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APPacketsMsg)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void APPacketsMsg::CopyFrom(const APPacketsMsg& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APPacketsMsg)
-  if (&from == this) return;
-  Clear();
-  UnsafeMergeFrom(from);
-}
-
-bool APPacketsMsg::IsInitialized() const {
-
-  return true;
-}
-
-void APPacketsMsg::Swap(APPacketsMsg* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void APPacketsMsg::InternalSwap(APPacketsMsg* other) {
-  packethdr_.UnsafeArenaSwap(&other->packethdr_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata APPacketsMsg::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = APPacketsMsg_descriptor_;
-  metadata.reflection = APPacketsMsg_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// APPacketsMsg
-
-// repeated .cheetah.APPacketHdr PacketHdr = 1;
-int APPacketsMsg::packethdr_size() const {
-  return packethdr_.size();
-}
-void APPacketsMsg::clear_packethdr() {
-  packethdr_.Clear();
-}
-const ::cheetah::APPacketHdr& APPacketsMsg::packethdr(int index) const {
-  // @@protoc_insertion_point(field_get:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Get(index);
-}
-::cheetah::APPacketHdr* APPacketsMsg::mutable_packethdr(int index) {
-  // @@protoc_insertion_point(field_mutable:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Mutable(index);
-}
-::cheetah::APPacketHdr* APPacketsMsg::add_packethdr() {
-  // @@protoc_insertion_point(field_add:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_.Add();
-}
-::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >*
-APPacketsMsg::mutable_packethdr() {
-  // @@protoc_insertion_point(field_mutable_list:cheetah.APPacketsMsg.PacketHdr)
-  return &packethdr_;
-}
-const ::google::protobuf::RepeatedPtrField< ::cheetah::APPacketHdr >&
-APPacketsMsg::packethdr() const {
-  // @@protoc_insertion_point(field_list:cheetah.APPacketsMsg.PacketHdr)
-  return packethdr_;
-}
-
-inline const APPacketsMsg* APPacketsMsg::internal_default_instance() {
-  return &APPacketsMsg_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

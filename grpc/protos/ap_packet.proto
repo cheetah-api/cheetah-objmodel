@@ -19,8 +19,62 @@ import "ap_common_types.proto";
 // client is interested in receiving
 // @{
 service APPackets {
-    // Registration RPC for packet types to be pushed
-    rpc APPacketsGet(APPacketsMsg) returns (stream APPacketsMsgRsp);
+    //
+    // Packet registration operations
+    //
+
+    // APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+    //     Packet registration: Sends a list of Packet registration messages
+    //     and expects a list of registration responses.
+    //
+    // APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+    //     Packet unregistration: Sends a list of Packet unregistration messages
+    //     and expects a list of unregistration responses.
+    //
+    rpc APPacketsRegOp(APPacketsRegMsg) returns (APPacketsRegMsgRsp);
+
+    //
+    // Packet notifications
+    //
+
+    // This call is used to get a stream of packet notifications matching the
+    // set of registrations performed with APPacketsRegOp().
+    // The caller must maintain the GRPC channel as long as
+    // there is interest in packet notifications. Only sessions that were
+    // created through this API will be notified to caller.
+    rpc APPacketsInitNotif(APPacketsGetNotifMsg) returns (stream APPacketsMsgRsp);
+
+}
+
+// Packet Get Notifications message
+message APPacketsGetNotifMsg {
+
+}
+
+// Packet Registration messages
+message APPacketsRegMsg {
+    // Registration Operation
+    APRegOp Oper = 1;
+
+    // List of packet registrations
+    repeated APPacketHdr PacketHdr = 2;
+}
+
+// Packet Registration message response
+message APPacketsRegMsgRsp {
+
+    // Summary result of the bulk operation (refer to enum APErrorStatus)
+    //
+    // In general, the ErrStatus consists of:
+    // 1. AP_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. AP_EINVAL: signifies that the operation failed for one or more entries
+    //         In this case, Results holds the result for each individual entry
+    //         that was in error
+    APErrorStatus ErrStatus = 1;
+
+    // In case of errors, this field contains all the entries that were in error
+    APPacketsRegMsg Results = 2;
 }
 
 // The message type defining the category of packets to be retrieved
@@ -129,12 +183,6 @@ message APPacketHdr {
         // case MsgType == AP_MSG_TYPE_CISCO:
         APCiscoMsgSubtype cisco = 5;
     }
-}
-
-// Packet message request
-message APPacketsMsg {
-    // List of packet registrations
-    repeated APPacketHdr PacketHdr = 1;
 }
 
 // Packet message response
