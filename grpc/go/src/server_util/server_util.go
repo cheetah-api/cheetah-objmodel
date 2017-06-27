@@ -36,7 +36,7 @@ func GetFieldIndex(keys []string, field string) int {
 	return index
 }
 
-func GetFieldsFromFile(filename string, keys []string) map[string]string {
+func GetFieldsFromFile(filename string, keys []string, sep string) map[string]string {
 	var count int
 	var fmap map[string]string
 
@@ -66,7 +66,7 @@ func GetFieldsFromFile(filename string, keys []string) map[string]string {
 				log.Fatal("Error: Unexpected long line reading", file.Name())
 			}
 
-			fields := strings.SplitN(string(line), ":", 2)
+			fields := strings.SplitN(string(line), sep, 2)
 			if GetFieldIndex(keys, strings.TrimSpace(fields[0])) != -1 {
 				fmap[strings.TrimSpace(fields[0])] = strings.TrimSpace(fields[1])
 				count++
@@ -75,8 +75,6 @@ func GetFieldsFromFile(filename string, keys []string) map[string]string {
 				}
 			}
 		}
-	} else {
-		log.Fatal(err)
 	}
 
 	return fmap

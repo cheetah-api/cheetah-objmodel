@@ -42,6 +42,7 @@ const (
 	FILE_ETC_RESOLV_CONF = "/etc/resolv.conf"
 	FILE_MERAKI_SERIAL   = "/MERAKI_SERIAL"
 	FILE_PLATFORM_NAME   = "/AP_PLATFORM_NAME"
+	FILE_APPHOST_CFG     = "/tmp/apphostcfg"
 )
 
 /* Command line arguments */
@@ -84,6 +85,11 @@ func (s *GlobalServer) APGlobalInitNotif(request *pb.APInitMsg, srv pb.APGlobal_
 	}
 
 	srv.Send(init_resp)
+
+	// send apphosting config if any
+	sendAppHostingConfig(srv)
+
+	// send continuous heartbeats
 	sendHeartbeatNotification(srv)
 
 	return nil
@@ -115,6 +121,36 @@ func sendHeartbeatNotification(srv pb.APGlobal_APGlobalInitNotifServer) error {
 	}
 
 	return nil
+}
+
+func sendAppHostingConfig(srv pb.APGlobal_APGlobalInitNotifServer) {
+	var port uint64
+
+	appcfg := &pb.APGlobalNotif{}
+	appcfg.EventType = pb.APGlobalNotifType_AP_GLOBAL_EVENT_TYPE_CONFIG
+	appcfg.ErrStatus = &pb.APErrorStatus{}
+	appcfg.ErrStatus.Status = pb.APErrorStatus_AP_SUCCESS
+
+	keys := []string{"token", "proxyurl", "proxyport"}
+	sep := "="
+	fmap := server_util.GetFieldsFromFile(FILE_APPHOST_CFG, keys, sep)
+
+	if len(fmap) > 0 {
+		resp := &pb.APGlobalNotif_CfgRspMsg{}
+		resp.CfgRspMsg = &pb.APCfgMsgRsp{}
+		resp.CfgRspMsg.Token = fmap[keys[0]]
+		resp.CfgRspMsg.ProxyURL = fmap[keys[1]]
+		port, _ = strconv.ParseUint(fmap[keys[2]], 10, 32)
+		resp.CfgRspMsg.ProxyPort = uint32(port)
+		appcfg.Event = resp
+	} else {
+		appcfg.ErrStatus.Status = pb.APErrorStatus_AP_NOT_AVAILABLE
+		fmt.Println("APP config not found")
+	}
+
+	srv.Send(appcfg)
+
+	return
 }
 
 /*
@@ -192,7 +228,8 @@ func APSystemStatsGet() (*pb.APStatsMsgRsp, error) {
 	resp := &pb.APStatsMsgRsp_SystemStats{}
 	resp.SystemStats = &pb.APSystemStatsMsgRsp{}
 
-	fmap := server_util.GetFieldsFromFile(PROC_SYSTEM_INFO, keys)
+	sep := ":"
+	fmap := server_util.GetFieldsFromFile(PROC_SYSTEM_INFO, keys, sep)
 	if len(fmap) > 0 {
 		resp.SystemStats.ID = fmap[keys[0]]
 		uptime, _ = strconv.ParseUint(fmap[keys[1]], 10, 32)
@@ -218,7 +255,8 @@ func getMemInfo() *pb.MemInfo {
 	var memval uint64
 	meminfo := &pb.MemInfo{}
 
-	fmap := server_util.GetFieldsFromFile(PROC_MEMINFO, keys)
+	sep := ":"
+	fmap := server_util.GetFieldsFromFile(PROC_MEMINFO, keys, sep)
 	if len(fmap) > 0 {
 		memval, _ = strconv.ParseUint(strings.Split(fmap[keys[0]], " ")[0], 10, 32)
 		meminfo.TotalKB = uint32(memval)
@@ -350,7 +388,8 @@ func getInterfaceStats(ifnames []string) ([]*pb.APInterfaceEntry, int) {
 	var sval uint64
 
 	keys := []string{"Link status", "Port speed", "Port duplex"}
-	fmap := server_util.GetFieldsFromFile(PROC_WIRED_INFO, keys)
+	sep := ":"
+	fmap := server_util.GetFieldsFromFile(PROC_WIRED_INFO, keys, sep)
 
 	if len(fmap) > 0 {
 		record_count = 0
