@@ -113,7 +113,7 @@ class APGlobal ():
     if (resp.ErrStatus.Status == ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
         yield(resp)
 
-    for i in range(100):
+    while True:
         init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_HEARTBEAT
         yield(init_resp)
         time.sleep(10)
@@ -157,6 +157,8 @@ def get_wired_info(resp):
 #
 def get_system_stats():
 
+    print "Getting System stats ..."
+
     response = ap_stats_pb2.APStatsMsgRsp()
 
     try:
@@ -194,8 +196,6 @@ def get_system_stats():
 #
 
 def get_meminfo(meminfo):
-    print "meminfo"
-
     try:
         f = open(PROC_MEMINFO, 'r')
         for line in f:
@@ -210,8 +210,6 @@ def get_meminfo(meminfo):
         print str(e)
 
 def get_slabinfo(slabinfo):
-    print "slabinfo"
-
     try:
         f = open(PROC_SLABINFO, 'r')
 
@@ -244,6 +242,8 @@ def get_slabinfo(slabinfo):
 
 def get_memory_stats():
 
+    print "Getting Memory stats ..."
+
     response=ap_stats_pb2.APStatsMsgRsp()
 
     # MemInfo
@@ -274,10 +274,11 @@ def get_interface_info(interface, module):
     interface.TxBytes = int(tail.split()[0])
 
     head, sep, tail = module.partition("TX packets:")
+    interface.TxPkts = int(tail.split()[0])
 
 def get_interface_stats():
 
-    print "Received Interface stats get request"
+    print "Getting Interface stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
 
@@ -307,7 +308,7 @@ def get_interface_stats():
 #
 def get_routing_stats():
 
-    print "Received Route stats get request"
+    print "Getting Route stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
     record_count = 0
@@ -350,7 +351,7 @@ def get_routing_stats():
 #
 def get_dns_stats():
 
-    print "Received DNS stats get request"
+    print "Getting DNS stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
     record_count = 0
@@ -379,7 +380,7 @@ def get_dns_stats():
 #
 def get_radio_stats():
 
-    print "Received Radio stats get request"
+    print "Getting Radio stats ..."
 
     import server_util
 
@@ -498,7 +499,7 @@ def get_wlan_info(wlan_info, fields):
     wlan_info.Counter.TxMcastBytes = int(fields['TxMcastBytes'])
 
 def get_wlan_stats():
-    print "Received WLAN stats get request"
+    print "Getting WLAN stats ..."
 
     import server_util
 
@@ -533,10 +534,10 @@ def get_wlan_stats():
 
             fields[values[0]] = values[1]
 
-        f.close()
-
         if len(fields) != 0:
             get_wlan_info(wlan_info, fields)
+
+        f.close()
 
     except Exception as e:
         response.ErrStatus.Status = ap_common_types_pb2.APErrorStatus.AP_EINVAL
@@ -574,7 +575,8 @@ def get_client_info(client_info, fields):
     client_info.RxPkts = int(fields['RxPkts'])
 
 def get_client_stats():
-    print "Received Client stats get request"
+
+    print "Getting Client stats ..."
 
     import server_util
 
@@ -609,10 +611,10 @@ def get_client_stats():
 
             fields[values[0]] = values[1]
 
-        f.close()
-
         if len(fields) != 0:
             get_client_info(client_info, fields)
+
+        f.close()
 
     except Exception as e:
         response.ErrStatus.Status = ap_common_types_pb2.APErrorStatus.AP_EINVAL
@@ -815,7 +817,7 @@ if __name__ == '__main__':
   print "Starting GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
 
   # Create the server
-  server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+  server = grpc.server(futures.ThreadPoolExecutor(max_workers=100))
 
   # Add APGlobal servicer
   ap_global_pb2.add_APGlobalServicer_to_server(APGlobal(), server)
