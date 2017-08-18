@@ -9,11 +9,15 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"net"
 	"os"
 	"os/exec"
 	"strconv"
 	"strings"
 	"syscall"
+
+	context "golang.org/x/net/context"
+	"google.golang.org/grpc/peer"
 )
 
 func check(e error) {
@@ -115,4 +119,20 @@ func FD_ZERO(p *syscall.FdSet) {
 	for i := range p.Bits {
 		p.Bits[i] = 0
 	}
+}
+
+/*
+ * Get address from context
+ */
+func GetAddressFromCtx(ctx context.Context) (string, bool) {
+	pr, ok := peer.FromContext(ctx)
+	if !ok {
+		return "", false
+	}
+
+	if pr.Addr == net.Addr(nil) {
+		return "", false
+	}
+
+	return pr.Addr.String(), true
 }

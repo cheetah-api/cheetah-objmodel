@@ -10,13 +10,14 @@ package main
 import (
 	"encoding/binary"
 	"fmt"
-	"google.golang.org/grpc/peer"
 	"io/ioutil"
 	"log"
 	"net"
 	"sync"
 	"syscall"
 	"time"
+
+	context "golang.org/x/net/context"
 )
 
 /* cheetah packages */
@@ -32,12 +33,11 @@ const (
 )
 
 type PacketConfig struct {
-	srv     pb.APPackets_APPacketsGetServer
-	msgtype pb.APMsgType
-	mgmt    pb.APMgmtMsgSubtype
-	ctrl    pb.APCtrlMsgSubtype
-	data    pb.APDataMsgSubtype
-	cisco   pb.APCiscoMsgSubtype
+	mgmt  pb.APMgmtMsgSubtype
+	ctrl  pb.APCtrlMsgSubtype
+	data  pb.APDataMsgSubtype
+	cisco pb.APCiscoMsgSubtype
+	srv   pb.APPackets_APPacketsInitNotifServer
 }
 
 // Clients packet configuration
@@ -49,43 +49,159 @@ type ClientInfo struct {
 
 var ci ClientInfo
 
+func validateRegRequest(request *pb.APPacketHdr) bool {
+	rsvd_subtype := false
+
+	msgtype := request.GetMsgType()
+	dbg.Println("Received msgtype", msgtype)
+
+	if msgtype == pb.APMsgType_AP_MSG_TYPE_RESERVED {
+		dbg.Println("Reserved message type", msgtype)
+		return false
+	}
+
+	_, ok := pb.APMsgType_name[int32(msgtype)]
+	if !ok {
+		dbg.Println("Invalid message type")
+		return false
+	}
+
+	switch request.MsgType {
+	case pb.APMsgType_AP_MSG_TYPE_MGMT:
+		_, ok = pb.APMgmtMsgSubtype_name[int32(request.GetMgmt())]
+		rsvd_subtype = (request.GetMgmt() == pb.APMgmtMsgSubtype_AP_MGMT_MSG_SUBTYPE_RESERVED)
+
+	case pb.APMsgType_AP_MSG_TYPE_CTRL:
+		_, ok = pb.APCtrlMsgSubtype_name[int32(request.GetCtrl())]
+		rsvd_subtype = (request.GetCtrl() == pb.APCtrlMsgSubtype_AP_CTRL_MSG_SUBTYPE_RESERVED)
+
+	case pb.APMsgType_AP_MSG_TYPE_DATA:
+		_, ok = pb.APDataMsgSubtype_name[int32(request.GetData())]
+		rsvd_subtype = (request.GetData() == pb.APDataMsgSubtype_AP_DATA_MSG_SUBTYPE_RESERVED)
+
+	case pb.APMsgType_AP_MSG_TYPE_CISCO:
+		_, ok = pb.APCiscoMsgSubtype_name[int32(request.GetCisco())]
+		rsvd_subtype = (request.GetCisco() == pb.APCiscoMsgSubtype_AP_CISCO_MSG_SUBTYPE_RESERVED)
+
+	case pb.APMsgType_AP_MSG_TYPE_RESERVED:
+		fallthrough
+
+	default:
+		ok = false
+	}
+
+	if rsvd_subtype {
+		dbg.Println("Reserved message subtype")
+		ok = false
+	}
+
+	return ok
+}
+
+func validateRegOper(addr string, msg *pb.APPacketsRegMsg) bool {
+	ret := true
+
+	if (msg.Oper != pb.APRegOp_AP_REGOP_REGISTER) &&
+		(msg.Oper != pb.APRegOp_AP_REGOP_UNREGISTER) {
+		dbg.Println("Invalid Oper", msg.Oper)
+		return false
+	}
+
+	ci.pmux.Lock()
+	if _, ok := ci.pconfig[addr]; ok {
+		if msg.Oper == pb.APRegOp_AP_REGOP_REGISTER {
+			dbg.Println("Duplicate Registration")
+			ret = false /* duplicate registration */
+		}
+	} else {
+		if msg.Oper == pb.APRegOp_AP_REGOP_UNREGISTER {
+			dbg.Println("Non-existent Unregistration")
+			ret = false /* duplicate unregistration */
+		}
+	}
+	ci.pmux.Unlock()
+
+	return ret
+}
+
 /*
  * Add, update or delete the config for client
  */
-func updatePacketConfig(cfg PacketConfig) bool {
-	dbg.Println("update configuration for srv:", cfg.srv)
+func updatePacketConfig(addr string,
+	msg *pb.APPacketsRegMsg, cfg PacketConfig) {
+
+	dbg.Println("update configuration for client:")
+
+	ci.pmux.Lock()
+	val, found := ci.pconfig[addr]
+	if msg.Oper == pb.APRegOp_AP_REGOP_REGISTER {
+		if found {
+			val.mgmt |= cfg.mgmt
+			val.ctrl |= cfg.ctrl
+			val.data |= cfg.data
+			val.cisco |= cfg.cisco
+			ci.pconfig[addr] = val
+		} else {
+			/* add to map */
+			cfg.srv = nil /* not initialized */
+			ci.pconfig[addr] = cfg
+		}
+	} else {
+		if found {
+			val.mgmt = val.mgmt &^ cfg.mgmt
+			val.ctrl = val.ctrl &^ cfg.ctrl
+			val.data = val.data &^ cfg.data
+			val.cisco = val.cisco &^ cfg.cisco
+			if (val.mgmt == 0) && (val.ctrl == 0) &&
+				(val.data == 0) && (val.cisco == 0) {
+				/* remove from map */
+				delete(ci.pconfig, addr)
+			}
+		}
+	}
+
+	ci.pmux.Unlock()
+
+	return
+}
+
+func getSubscriberCount() int {
+	count := 0
+	ci.pmux.Lock()
+	for _, v := range ci.pconfig {
+		if v.srv != nil {
+			count++
+		}
+	}
+	ci.pmux.Unlock()
+
+	return count
+}
+
+/* Update srv for client */
+func updateClientSrv(srv pb.APPackets_APPacketsInitNotifServer) bool {
 	var args []byte
 
-	pr, ok := peer.FromContext(cfg.srv.Context())
-	if !ok {
-		fmt.Println("failed to get peer from ctx")
+	dbg.Println("update client srv:", srv)
+
+	addr, err := server_util.GetAddressFromCtx(srv.Context())
+	if err == false {
+		fmt.Println("srv update failed: peer address", addr, "not found")
 		return false
 	}
-
-	if pr.Addr == net.Addr(nil) {
-		fmt.Println("failed to get peer address")
-		return false
-	}
-	addr := pr.Addr.String()
-
-	dbg.Println("peer address:", addr)
 
 	ci.pmux.Lock()
 	if val, ok := ci.pconfig[addr]; ok {
-		val.srv = cfg.srv
-		val.msgtype = cfg.msgtype
-		val.mgmt |= cfg.mgmt
-		val.ctrl |= cfg.ctrl
-		val.data |= cfg.data
-		val.cisco |= cfg.cisco
+		val.srv = srv
 		ci.pconfig[addr] = val
 	} else {
-		ci.pconfig[addr] = cfg
+		fmt.Println("srv update failed: subscription not found")
+		ci.pmux.Unlock()
+		return false
 	}
-
-	enable := (len(ci.pconfig) != 0)
 	ci.pmux.Unlock()
 
+	enable := (getSubscriberCount() > 0)
 	if ci.pconfigured != enable {
 		dbg.Println("Packet Configuration:", ci.pconfigured, "->", enable)
 		if enable {
@@ -109,8 +225,8 @@ func listPacketConfig() {
 	for k, v := range ci.pconfig {
 		dbg.Println("Addr:", k)
 		dbg.Println("Config:")
-		dbg.Println("srv: %x type:%x mgmt: %x ctrl: %x data: %x cisco:%x",
-			v.srv, v.msgtype, v.mgmt, v.ctrl, v.data, v.cisco)
+		dbg.Println("type:%x mgmt: %x ctrl: %x data: %x cisco:%x",
+			v.mgmt, v.ctrl, v.data, v.cisco)
 	}
 	ci.pmux.Unlock()
 }
@@ -118,27 +234,29 @@ func listPacketConfig() {
 func PacketSubscribed(v PacketConfig, response *pb.APPacketsMsgRsp) bool {
 	matched := false
 
-	if v.msgtype&response.PacketHdr.MsgType != 0 {
-		switch response.PacketHdr.MsgType {
-		case pb.APMsgType_AP_MSG_TYPE_MGMT:
-			matched = (v.mgmt&response.PacketHdr.GetMgmt() != 0)
+	if v.srv == nil {
+		return false
+	}
 
-		case pb.APMsgType_AP_MSG_TYPE_CTRL:
-			matched = (v.ctrl&response.PacketHdr.GetCtrl() != 0)
+	switch response.PacketHdr.MsgType {
+	case pb.APMsgType_AP_MSG_TYPE_MGMT:
+		matched = (v.mgmt&response.PacketHdr.GetMgmt() != 0)
 
-		case pb.APMsgType_AP_MSG_TYPE_DATA:
-			matched = (v.data&response.PacketHdr.GetData() != 0)
+	case pb.APMsgType_AP_MSG_TYPE_CTRL:
+		matched = (v.ctrl&response.PacketHdr.GetCtrl() != 0)
 
-		case pb.APMsgType_AP_MSG_TYPE_CISCO:
-			matched = (v.cisco&response.PacketHdr.GetCisco() != 0)
+	case pb.APMsgType_AP_MSG_TYPE_DATA:
+		matched = (v.data&response.PacketHdr.GetData() != 0)
 
-		case pb.APMsgType_AP_MSG_TYPE_RESERVED:
-			fallthrough
+	case pb.APMsgType_AP_MSG_TYPE_CISCO:
+		matched = (v.cisco&response.PacketHdr.GetCisco() != 0)
 
-		default:
-			matched = false
+	case pb.APMsgType_AP_MSG_TYPE_RESERVED:
+		fallthrough
 
-		}
+	default:
+		matched = false
+
 	}
 
 	return matched
@@ -197,6 +315,7 @@ func sendPacketResponse(buffer []byte, plen int) {
 	response.PacketLen = length
 	response.PacketBuf = make([]byte, length)
 	bytes_copied := copy(response.PacketBuf, buffer[offset:])
+	copy(response.PacketBuf, buffer[offset:])
 	dbg.Println("\tbytes_copied :", bytes_copied)
 	dbg.Println("type: ", response.PacketHdr.MsgType)
 	dbg.Println("subtype: ", response.PacketHdr.Subtype)
@@ -215,84 +334,97 @@ func sendPacketResponse(buffer []byte, plen int) {
  */
 type PacketsServer struct{}
 
-// Get Packets
-func (s *PacketsServer) APPacketsGet(msg *pb.APPacketsMsg, srv pb.APPackets_APPacketsGetServer) error {
+/* Get Packets Registration RPC */
+func (s *PacketsServer) APPacketsRegOp(ctx context.Context,
+	msg *pb.APPacketsRegMsg) (*pb.APPacketsRegMsgRsp, error) {
+	var hdrs []*pb.APPacketHdr
 	var config PacketConfig
 
-	dbg.Println("Received APPacketGet call", srv)
+	dbg.Println("\nReceived APPacketGet call")
 
+	/* Create response message */
+	response := &pb.APPacketsRegMsgRsp{}
+	response.ErrStatus = &pb.APErrorStatus{}
+	response.ErrStatus.Status = pb.APErrorStatus_AP_SUCCESS
+
+	addr, err := server_util.GetAddressFromCtx(ctx)
+	if err == false {
+		response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
+		fmt.Println("failed to get peer address")
+		return response, nil
+	}
+
+	for _, request := range msg.PacketHdr {
+		if validateRegRequest(request) == false {
+			/* add to response */
+			hdrs = append(hdrs, request)
+			response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
+			continue
+		}
+
+		/* validate operation */
+		if validateRegOper(addr, msg) == false {
+			/* add to response */
+			hdrs = append(hdrs, request)
+			response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
+			continue
+		}
+
+		switch request.MsgType {
+		case pb.APMsgType_AP_MSG_TYPE_MGMT:
+			config.mgmt |= request.GetMgmt()
+
+		case pb.APMsgType_AP_MSG_TYPE_CTRL:
+			config.ctrl |= request.GetCtrl()
+
+		case pb.APMsgType_AP_MSG_TYPE_DATA:
+			config.data |= request.GetData()
+
+		case pb.APMsgType_AP_MSG_TYPE_CISCO:
+			config.cisco |= request.GetCisco()
+		}
+	}
+
+	response.Results = &pb.APPacketsRegMsg{}
+	response.Results.Oper = msg.Oper
+	if len(hdrs) > 0 {
+		response.Results.PacketHdr = []*pb.APPacketHdr{}
+		response.Results.PacketHdr = hdrs
+	} else {
+		/* save client config */
+		updatePacketConfig(addr, msg, config)
+		listPacketConfig()
+	}
+
+	return response, nil
+}
+
+/* Packet notification init */
+func (s *PacketsServer) APPacketsInitNotif(msg *pb.APPacketsGetNotifMsg, srv pb.APPackets_APPacketsInitNotifServer) error {
 	/* Create response message */
 	response := &pb.APPacketsMsgRsp{}
 	response.ErrStatus = &pb.APErrorStatus{}
 	response.ErrStatus.Status = pb.APErrorStatus_AP_SUCCESS
 
-	ok := true
-	rsvd_subtype := false
-	for _, request := range msg.PacketHdr {
-		switch request.MsgType {
-		case pb.APMsgType_AP_MSG_TYPE_MGMT:
-			config.mgmt |= request.GetMgmt()
-			_, ok = pb.APMgmtMsgSubtype_name[int32(request.GetMgmt())]
-			rsvd_subtype = (request.GetMgmt() == pb.APMgmtMsgSubtype_AP_MGMT_MSG_SUBTYPE_RESERVED)
-
-		case pb.APMsgType_AP_MSG_TYPE_CTRL:
-			config.ctrl |= request.GetCtrl()
-			_, ok = pb.APCtrlMsgSubtype_name[int32(request.GetCtrl())]
-			rsvd_subtype = (request.GetCtrl() == pb.APCtrlMsgSubtype_AP_CTRL_MSG_SUBTYPE_RESERVED)
-
-		case pb.APMsgType_AP_MSG_TYPE_DATA:
-			config.data |= request.GetData()
-			_, ok = pb.APDataMsgSubtype_name[int32(request.GetData())]
-			rsvd_subtype = (request.GetData() == pb.APDataMsgSubtype_AP_DATA_MSG_SUBTYPE_RESERVED)
-
-		case pb.APMsgType_AP_MSG_TYPE_CISCO:
-			config.cisco |= request.GetCisco()
-			_, ok = pb.APCiscoMsgSubtype_name[int32(request.GetCisco())]
-			rsvd_subtype = (request.GetCisco() == pb.APCiscoMsgSubtype_AP_CISCO_MSG_SUBTYPE_RESERVED)
-
-		case pb.APMsgType_AP_MSG_TYPE_RESERVED:
-			fallthrough
-
-		default:
-			ok = false
-		}
-
-		if !ok || rsvd_subtype {
-			dbg.Println("Invalid request type:", request.MsgType, "subtype:", request.GetSubtype())
-			response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
-			break
-		}
-
-		if response.ErrStatus.Status == pb.APErrorStatus_AP_SUCCESS {
-			config.srv = srv
-			config.msgtype = request.MsgType
-			ok = updatePacketConfig(config)
-			if !ok {
-				response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
-				break
-			} else {
-				listPacketConfig()
-			}
-		}
+	/* update srv for client */
+	if updateClientSrv(srv) == false {
+		response.ErrStatus.Status = pb.APErrorStatus_AP_EINVAL
+		srv.Send(response)
+		return nil
 	}
 
-	/* send response to config request */
+	/* response to config request */
 	response.PacketHdr = &pb.APPacketHdr{}
 	response.PacketHdr.MsgType = pb.APMsgType_AP_MSG_TYPE_RESERVED
 	response.PacketLen = 0
 
 	srv.Send(response)
-
-	/* start infinite loop for this client */
 	for {
+		/* keep connection alive */
 		time.Sleep(time.Second)
-		/*
-		   open a channel  here
-		   if err := srv.Send(hbt); err != nil {
-		       return err
-		   }
-		*/
 	}
+
+	return nil
 }
 
 /* open socket to receive packets from kernel */

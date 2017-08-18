@@ -568,6 +568,16 @@ class TestSuite_003_Packet_API_verify(ClientTestCase):
         msg_list = copy.deepcopy(serializer)
         pkt_reg_operation(self, serializer, True, 1, msg_list, None)
 
+    def test_104_mgmt_assoc_reg(self):
+        TestSuite_003_Packet_API_verify.pkt_event = threading.Event()
+        # Single registration
+        serializer = serializers.get_pkt_reg_serializer()
+        serializer.Oper = ap_common_types_pb2.AP_REGOP_REGISTER
+        msg = serializer.PacketHdr.add()
+        msg.MsgType = ap_packet_pb2.AP_MSG_TYPE_MGMT
+        msg.mgmt = ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC
+        pkt_reg_operation(self, serializer, False, 0, None,
+                          TestSuite_003_Packet_API_verify.pkt_event)
 
 #
 # Test packet notif API

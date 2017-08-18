@@ -54,10 +54,17 @@ if __name__ == '__main__':
     t1.join()
     t2.join()
 
-    # Packets operations
-    t3=packets.packets_operations(channel, ap_packet_pb2.AP_MSG_TYPE_MGMT, ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL)
+    # Packets reg operations
+    t3=packets.packets_reg_operations(channel,
+                                      ap_common_types_pb2.AP_REGOP_REGISTER,
+                                      ap_packet_pb2.AP_MSG_TYPE_MGMT,
+                                      ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ALL)
     # Wait till the threads terminate
     t3.join()
+
+    # Packets notif operation
+    t4=packets_notif_operations(channel)
+    t4.join()
 
     # Exit and Kill any running GRPC threads.
     os._exit(0)
