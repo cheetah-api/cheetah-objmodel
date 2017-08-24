@@ -52,6 +52,8 @@ PROC_WLAN_INFO = '/proc/aptrace/sysinfo/wlans'
 PROC_RADIO_INFO = '/proc/aptrace/sysinfo/radios'
 PROC_WIRED_INFO = '/proc/aptrace/sysinfo/wired'
 CLIENT_IP_TABLE = '/click/client_ip_table/list'
+ROUTING_TABLE = '/proc/net/route'
+DEVICE_TABLE = '/proc/net/dev'
 APPHOST_CFG = '/tmp/apphostcfg'
 
 #ap_packet_pb2.APPacketHdr pkt_reg_list
@@ -98,7 +100,7 @@ class APGlobal ():
 
   def APGlobalInitNotif(self, request, context):
 
-    print "Received Global init notification, major ver:", request.MajorVer
+    #print "Received Global init notification, major ver:", request.MajorVer
 
     init_resp=ap_global_pb2.APGlobalNotif()
     init_resp.EventType=ap_global_pb2.AP_GLOBAL_EVENT_TYPE_VERSION
@@ -120,7 +122,7 @@ class APGlobal ():
 
 
   def APGlobalsGet(self, request, context):
-    print "Received GlobalsGet request"
+    #print "Received GlobalsGet request"
 
     get_resp=ap_global_pb2.APGlobalsGetMsgRsp()
     get_resp.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
@@ -157,7 +159,7 @@ def get_wired_info(resp):
 #
 def get_system_stats():
 
-    print "Getting System stats ..."
+    #print "Getting System stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
 
@@ -242,7 +244,7 @@ def get_slabinfo(slabinfo):
 
 def get_memory_stats():
 
-    print "Getting Memory stats ..."
+    #print "Getting Memory stats ..."
 
     response=ap_stats_pb2.APStatsMsgRsp()
 
@@ -261,38 +263,30 @@ def get_memory_stats():
 # Interface statistics
 #=====================================================
 #
-def get_interface_info(interface, module):
-    head, sep, tail = module.partition("RX bytes:")
-    interface.RxBytes = int(tail.split()[0])
-
-    head, sep, tail = module.partition("RX packets:")
-    interface.RxPkts = int(tail.split()[0])
-
-    interface.RxDiscards = int(tail.split("dropped:")[1].split()[0])
-
-    head, sep, tail = module.partition("TX bytes:")
-    interface.TxBytes = int(tail.split()[0])
-
-    head, sep, tail = module.partition("TX packets:")
-    interface.TxPkts = int(tail.split()[0])
-
 def get_interface_stats():
 
-    print "Getting Interface stats ..."
+    #print "Getting Interface stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
 
     record_count = 0
     interface = response.InterfaceStats.Interfaces.add()
     ifname = "wired0"
-    module = subprocess.Popen('ifconfig ' + ifname, shell=True,
-                              stdout=subprocess.PIPE).stdout.read()
-    if module.strip() != '':
-        record_count += 1
-        interface.Name = module.split()[0]
 
-        get_wired_info(interface)
-        get_interface_info(interface, module)
+    try:
+        f = open(DEVICE_TABLE, 'r')
+        for line in f:
+            if ifname in line:
+                record_count += 1
+                data = line.split('%s:' % ifname)[1].split()
+                interface.RxBytes = int(data[0])
+                interface.RxPkts = int(data[1])
+                interface.RxDiscards = int(data[4])
+                interface.TxBytes = int(data[8])
+                interface.TxPkts = int(data[9])
+        f.close()
+    except Exception as e:
+        response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
 
     if record_count > 0:
         response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
@@ -308,34 +302,34 @@ def get_interface_stats():
 #
 def get_routing_stats():
 
-    print "Getting Route stats ..."
+    #print "Getting Route stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
     record_count = 0
 
-    table = subprocess.Popen('route', shell=True,
-                             stdout=subprocess.PIPE).stdout.read()
-    lines = table.split('\n')
-    for line in lines:
-        if line.strip() == '':
-            continue
-        if line.startswith('Kernel'):
-            continue
-        if line.startswith('Destination'):
-            keys = line.split()
-            continue
-        values = line.split()
+    try:
+        f = open(ROUTING_TABLE, 'r')
+        for line in f:
+            if line.startswith('Iface'):
+                keys = line.split()
+                continue
 
-        record_count += 1
-        ipv4_route=response.RoutingStats.IPv4Routes.add()
-        ipv4_route.Destination = values[keys.index('Destination')]
-        ipv4_route.Gateway = values[keys.index('Gateway')]
-        ipv4_route.Genmask = values[keys.index('Genmask')]
-        ipv4_route.Flags = values[keys.index('Flags')]
-        ipv4_route.Metric = int(values[keys.index('Metric')])
-        ipv4_route.Ref = int(values[keys.index('Ref')])
-        ipv4_route.Use = int(values[keys.index('Use')])
-        ipv4_route.Iface = values[keys.index('Iface')]
+            values = line.split()
+
+            record_count += 1
+            ipv4_route=response.RoutingStats.IPv4Routes.add()
+            ipv4_route.Iface = values[keys.index('Iface')]
+            ipv4_route.Destination = values[keys.index('Destination')]
+            ipv4_route.Gateway = values[keys.index('Gateway')]
+            ipv4_route.Genmask = values[keys.index('Mask')]
+            ipv4_route.Flags = values[keys.index('Flags')]
+            ipv4_route.Metric = int(values[keys.index('Metric')])
+            ipv4_route.Ref = int(values[keys.index('RefCnt')])
+            ipv4_route.Use = int(values[keys.index('Use')])
+        f.close()
+    except Exception as e:
+        response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_EINVAL
+
 
     if record_count > 0:
         response.ErrStatus.Status=ap_common_types_pb2.APErrorStatus.AP_SUCCESS
@@ -351,7 +345,7 @@ def get_routing_stats():
 #
 def get_dns_stats():
 
-    print "Getting DNS stats ..."
+    #print "Getting DNS stats ..."
 
     response = ap_stats_pb2.APStatsMsgRsp()
     record_count = 0
@@ -380,7 +374,7 @@ def get_dns_stats():
 #
 def get_radio_stats():
 
-    print "Getting Radio stats ..."
+    #print "Getting Radio stats ..."
 
     import server_util
 
@@ -499,7 +493,7 @@ def get_wlan_info(wlan_info, fields):
     wlan_info.Counter.TxMcastBytes = int(fields['TxMcastBytes'])
 
 def get_wlan_stats():
-    print "Getting WLAN stats ..."
+    #print "Getting WLAN stats ..."
 
     import server_util
 
@@ -576,7 +570,7 @@ def get_client_info(client_info, fields):
 
 def get_client_stats():
 
-    print "Getting Client stats ..."
+    #print "Getting Client stats ..."
 
     import server_util
 
@@ -653,7 +647,7 @@ class APStatistics(ap_stats_pb2.APStatisticsServicer):
 
   def APStatsGet(self, get_request, context):
 
-    print "Received StatsGet request"
+    #print "Received StatsGet request"
 
     response = ap_stats_pb2.APStatsMsgRsp()
 
