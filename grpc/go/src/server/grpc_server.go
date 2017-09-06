@@ -43,6 +43,9 @@ const (
 	FILE_MERAKI_SERIAL   = "/MERAKI_SERIAL"
 	FILE_PLATFORM_NAME   = "/AP_PLATFORM_NAME"
 	FILE_APPHOST_CFG     = "/tmp/apphostcfg"
+	CLIENT_IP_TABLE      = "/click/client_ip_table/list"
+	CLIENT_WIFI_STATS    = "/click/client_ip_table/get_wifi_stats_by_client"
+	CLIENT_GET_IP        = "/click/client_ip_table/get_client_ip_from_mac"
 )
 
 /* Command line arguments */
@@ -422,7 +425,7 @@ func getInterfaceStats(ifnames []string) ([]*pb.APInterfaceEntry, int) {
 
 // Get Interface statistics
 func APInterfaceStatsGet() (*pb.APStatsMsgRsp, error) {
-	ifnames := []string{"wired0"}
+	ifnames := []string{"aptrace0"}
 
 	dbg.Println("Received APInterfaceStatsGet call")
 
@@ -922,45 +925,246 @@ func APWLANStatsGet() (*pb.APStatsMsgRsp, error) {
 	return m, nil
 }
 
-func fillClientEntry(values map[string]string) *pb.APClientEntry {
+func getClientIP(mac string) string {
+
+	cmdStr := fmt.Sprintf("click_read %s %s -1", CLIENT_GET_IP, mac)
+
+	parts := strings.Fields(cmdStr)
+	head := parts[0]
+	parts = parts[1:len(parts)]
+	out, err := exec.Command(head,parts...).Output()
+	if err != nil || len(out) == 0 {
+		log.Println("Error in get client IP", err)
+		return ""
+	}
+	return strings.Trim(string(out), "\n")
+}
+
+func fillClientEntry(values map[string]string,
+					 legacyRate map[string]string,
+					 HTVHTRate map[string]string) *pb.APClientEntry {
 	var val uint64
 	var int_val int64
 
+	/* MAC */
 	client := new(pb.APClientEntry)
 	client.MAC = values["MAC"]
+
+	client.IP = getClientIP(values["MAC"])
+	/* RadioIndex */
 	val, _ = strconv.ParseUint(values["RadioIndex"], 10, 32)
 	client.RadioIndex = uint32(val)
+
+	/* Band */
 	client.Band = values["Band"]
 
+	/* WLAN */
 	client.Wlan = &pb.WLAN{}
 	client.Wlan.ID = values["SSID"]
 	client.Wlan.SSID = values["BSSID"]
 
+	/* ConnectedTimeSec */
 	val, _ = strconv.ParseUint(values["ConnectedTimeSec"], 10, 32)
 	client.ConnectedTimeSec = uint32(val)
+
+	/* InactiveTimeMilliSec */
 	val, _ = strconv.ParseUint(values["InactiveTimeMilliSec"], 10, 32)
 	client.InactiveTimeMilliSec = uint32(val)
+
+	/* RSSI */
 	val, _ = strconv.ParseUint(values["RSSI"], 10, 32)
 	client.RSSI = int32(val)
+
+	/* NF */
 	val, _ = strconv.ParseUint(values["NF"], 10, 32)
 	client.NF = int32(val)
 
+	/* AntennaRSSI */
 	rssi_values := strings.Split(strings.Trim(values["PerAntennaRSSI"], "[]"), ",")
 	for _, v := range rssi_values {
 		int_val, _ = strconv.ParseInt(strings.Trim(v, " "), 10, 32)
 		client.AntennaRSSI = append(client.AntennaRSSI, int32(int_val))
 	}
 
-	val, _ = strconv.ParseUint(values["TxBitRate"], 10, 32)
-	client.TxBitRate = int32(val)
-	client.TxUnicastBytes, _ = strconv.ParseUint(values["TxUnicastBytes"], 10, 32)
-	val, _ = strconv.ParseUint(values["TxUnicastPkts"], 10, 32)
-	client.TxUnicastPkts = uint32(val)
-	client.RxBytes, _ = strconv.ParseUint(values["RxBytes"], 10, 32)
-	val, _ = strconv.ParseUint(values["RxPkts"], 10, 32)
-	client.RxPkts = uint32(val)
+	/* TxPackets */
+	val, _ = strconv.ParseUint(values["Tx Packets"], 10, 32)
+	client.TxPackets = uint32(val)
 
+	/* TxMgmtPkts */
+	val, _ = strconv.ParseUint(values["Tx Management Packets"], 10, 32)
+	client.TxMgmtPkts = uint32(val)
+
+	/* TxDataPkts */
+	val, _ = strconv.ParseUint(values["Tx Data Packets"], 10, 32)
+	client.TxDataPkts = uint32(val)
+
+	/* TxDataAmpuds */
+	val, _ = strconv.ParseUint(values["Tx Data Ampuds"], 10, 32)
+	client.TxDataAmpdus = uint32(val)
+
+	/* TxDataBytes */
+	val, _ = strconv.ParseUint(values["Tx Data Bytes"], 10, 32)
+	client.TxDataBytes = uint64(val)
+
+	/* TxUnicastDataPkts */
+	val, _ = strconv.ParseUint(values["Tx Unicast Data Packets"], 10, 32)
+	client.TxUnicastDataPkts = uint32(val)
+
+	/* TxFailedPkts */
+	val, _ = strconv.ParseUint(values["Tx Failed"], 10, 32)
+	client.TxFailedPkts = uint32(val)
+
+	/* TxBitRate*/
+	val, _ = strconv.ParseUint(values["Tx Last Rate"], 10, 32)
+	client.TxBitRate = uint32(val)
+
+	/* RxPackets */
+	val, _ = strconv.ParseUint(values["Rx Packets"], 10, 32)
+	client.RxPackets = uint32(val)
+
+	/* RxMgmtPkts */
+	val, _ = strconv.ParseUint(values["Rx Management Packets"], 10, 32)
+	client.RxMgmtPkts = uint32(val)
+
+	/* RxCtrlPkts */
+	val, _ = strconv.ParseUint(values["Rx Control Packets"], 10, 32)
+	client.RxCtrlPkts = uint32(val)
+
+	/* RxDataPkts */
+	val, _ = strconv.ParseUint(values["Rx Data Packets"], 10, 32)
+	client.RxDataPkts = uint32(val)
+
+	/* RxDataAmpdus */
+	val, _ = strconv.ParseUint(values["Rx Data Ampdus"], 10, 32)
+	client.RxDataAmpdus = uint32(val)
+
+	/* RxDataBytes */
+	val, _ = strconv.ParseUint(values["Rx Data Bytes"], 10, 32)
+	client.RxDataBytes = uint64(val)
+
+	/* RxBitRate */
+	val, _ = strconv.ParseUint(values["Rx Bit Rate"], 10, 32)
+	client.RxBitRate = uint32(val)
+
+	/* RxAvgBps */
+	val, _ = strconv.ParseUint(values["Rx Average bps"], 10, 32)
+	client.RxAvgBps = uint32(val)
+
+	/* RxAvgRssi */
+	int_val, _ = strconv.ParseInt(values["Rx Average RSSI"], 10, 32)
+	client.RxAvgRssi = int32(val)
+
+	/* RxLastRate */
+	val, _ = strconv.ParseUint(values["Rx Last Rate"], 10, 32)
+	client.RxLastRate = uint32(val)
+
+	/* legacyRate */
+	var legacyEntries [] *pb.APClientLegacyRateEntry
+	var legacyOne *pb.APClientLegacyRateEntry
+	for k, v := range legacyRate {
+		legacyOne = new(pb.APClientLegacyRateEntry)
+		 _, err := fmt.Sscanf(v, "%d, %d, %d", &legacyOne.RxPkts,
+							  &legacyOne.TxPkts,
+							  &legacyOne.TxRetries)
+		if err != nil {
+			fmt.Println("something wrong parsing legacy rate stats")
+			break
+		}
+		legacyOne.Mbps = k
+		legacyEntries = append(legacyEntries, legacyOne)
+	}
+	client.LegacyRates = legacyEntries
+
+	/* HTVHTRate */
+	var HTVHTEntries [] *pb.APClientHTVHTRateEntry
+	var HTVHTOne *pb.APClientHTVHTRateEntry
+	for k, v := range HTVHTRate {
+		HTVHTOne = new(pb.APClientHTVHTRateEntry)
+		_,err := fmt.Sscanf(v, "%d, %d, %d, %d, %d", &HTVHTOne.RxPkts,
+							 &HTVHTOne.RxAmpdus,
+							 &HTVHTOne.TxPkts,
+							 &HTVHTOne.TxAmpdus,
+							 &HTVHTOne.TxRetries)
+		if err != nil {
+			fmt.Println("something wrong parsing HT/VHT rate stats")
+			break
+		}
+		HTVHTOne.McsStr = k
+		HTVHTEntries = append(HTVHTEntries, HTVHTOne)
+	}
+	client.HTVHTRates = HTVHTEntries
 	return client
+}
+
+func getClientWifiStats(fmap map[string]string,
+						legacyRate map[string]string,
+						HTVHTRate map[string]string) {
+
+	var lineIndex int
+	cmdStr := fmt.Sprintf("click_read %s %s", CLIENT_WIFI_STATS, fmap["MAC"])
+	parts := strings.Fields(cmdStr)
+	head := parts[0]
+	parts = parts[1:len(parts)]
+	out, err := exec.Command(head,parts...).Output()
+	if err != nil || len(out) == 0 {
+		log.Println("Error in get client WiFi stats", err)
+		return
+	}
+
+	lines := strings.Split(string(out), "\n")
+	for i, sline := range lines {
+		if sline == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "Client MAC") {
+			continue
+		}
+		if strings.TrimSpace(sline) == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "Legacy") {
+			lineIndex += (i + 1)
+			break
+		}
+
+		values := strings.SplitN(sline, ":", 2)
+		fmap[strings.TrimSpace(values[0])] = strings.TrimSpace(values[1])
+	}
+	for i, sline := range lines[lineIndex:] {
+		if sline == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "  (Mbps") {
+			continue
+		}
+		if strings.TrimSpace(sline) == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "HT/VHT") {
+			lineIndex += (i + 1)
+			break
+		}
+
+		values := strings.SplitN(sline, ":", 2)
+		legacyRate[strings.TrimSpace(values[0])] = strings.TrimSpace(values[1])
+	}
+	for _, sline := range lines[lineIndex:] {
+		if sline == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "(Rate/") {
+			continue
+		}
+		if strings.TrimSpace(sline) == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "TID") {
+			break
+		}
+		values := strings.SplitN(sline, ":", 2)
+		HTVHTRate[strings.TrimSpace(values[0])] = strings.TrimSpace(values[1])
+	}
+
 }
 
 func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
@@ -968,6 +1172,8 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 	var client *pb.APClientEntry
 	var sline string
 	var fmap map[string]string
+	var legacyRate map[string]string
+	var HTVHTRate map[string]string
 	var record_count int
 	var retval pb.APErrorStatus_APErrno
 
@@ -1010,7 +1216,11 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 
 			if strings.HasPrefix(sline, "client num:") {
 				if record_count > 0 {
-					client = fillClientEntry(fmap)
+					/* make new map for rate stats, old map will be garbage-collected */
+					legacyRate = make(map[string]string)
+					HTVHTRate = make(map[string]string)
+					getClientWifiStats(fmap, legacyRate, HTVHTRate)
+					client = fillClientEntry(fmap, legacyRate, HTVHTRate)
 					entries = append(entries, client)
 				}
 				/* reset map */
@@ -1026,7 +1236,10 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 		}
 
 		if len(fmap) > 0 {
-			client = fillClientEntry(fmap)
+			legacyRate = make(map[string]string)
+			HTVHTRate = make(map[string]string)
+			getClientWifiStats(fmap, legacyRate, HTVHTRate)
+			client = fillClientEntry(fmap, legacyRate, HTVHTRate)
 			entries = append(entries, client)
 			retval = pb.APErrorStatus_AP_SUCCESS
 		} else {
