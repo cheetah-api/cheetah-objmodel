@@ -492,202 +492,227 @@ APPacketsMsgRsp = _reflection.GeneratedProtocolMessageType('APPacketsMsgRsp', (_
 _sym_db.RegisterMessage(APPacketsMsgRsp)
 
 
-import grpc
-from grpc.beta import implementations as beta_implementations
-from grpc.beta import interfaces as beta_interfaces
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
+try:
+  # THESE ELEMENTS WILL BE DEPRECATED.
+  # Please use the generated *_pb2_grpc.py files instead.
+  import grpc
+  from grpc.beta import implementations as beta_implementations
+  from grpc.beta import interfaces as beta_interfaces
+  from grpc.framework.common import cardinality
+  from grpc.framework.interfaces.face import utilities as face_utilities
 
 
-class APPacketsStub(object):
-  """@defgroup APPackets
-  @ingroup System
-  The following RPCs are used to register for packets that the
-  client is interested in receiving
-  @{
+  class APPacketsStub(object):
+    """@defgroup APPackets
+    @ingroup System
+    The following RPCs are used to register for packets that the
+    client is interested in receiving
+    @{
 
-  Packet registration operations
-
-  """
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.APPacketsRegOp = channel.unary_unary(
-        '/cheetah.APPackets/APPacketsRegOp',
-        request_serializer=APPacketsRegMsg.SerializeToString,
-        response_deserializer=APPacketsRegMsgRsp.FromString,
-        )
-    self.APPacketsInitNotif = channel.unary_stream(
-        '/cheetah.APPackets/APPacketsInitNotif',
-        request_serializer=APPacketsGetNotifMsg.SerializeToString,
-        response_deserializer=APPacketsMsgRsp.FromString,
-        )
-
-
-class APPacketsServicer(object):
-  """@defgroup APPackets
-  @ingroup System
-  The following RPCs are used to register for packets that the
-  client is interested in receiving
-  @{
-
-  Packet registration operations
-
-  """
-
-  def APPacketsRegOp(self, request, context):
-    """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
-    Packet registration: Sends a list of Packet registration messages
-    and expects a list of registration responses.
-
-    APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
-    Packet unregistration: Sends a list of Packet unregistration messages
-    and expects a list of unregistration responses.
+    Packet registration operations
 
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
 
-  def APPacketsInitNotif(self, request, context):
-    """
-    Packet notifications
+    def __init__(self, channel):
+      """Constructor.
 
-
-    This call is used to get a stream of packet notifications matching the
-    set of registrations performed with APPacketsRegOp().
-    The caller must maintain the GRPC channel as long as
-    there is interest in packet notifications. Only sessions that were
-    created through this API will be notified to caller.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_APPacketsServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'APPacketsRegOp': grpc.unary_unary_rpc_method_handler(
-          servicer.APPacketsRegOp,
-          request_deserializer=APPacketsRegMsg.FromString,
-          response_serializer=APPacketsRegMsgRsp.SerializeToString,
-      ),
-      'APPacketsInitNotif': grpc.unary_stream_rpc_method_handler(
-          servicer.APPacketsInitNotif,
-          request_deserializer=APPacketsGetNotifMsg.FromString,
-          response_serializer=APPacketsMsgRsp.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'cheetah.APPackets', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.APPacketsRegOp = channel.unary_unary(
+          '/cheetah.APPackets/APPacketsRegOp',
+          request_serializer=APPacketsRegMsg.SerializeToString,
+          response_deserializer=APPacketsRegMsgRsp.FromString,
+          )
+      self.APPacketsInitNotif = channel.unary_stream(
+          '/cheetah.APPackets/APPacketsInitNotif',
+          request_serializer=APPacketsGetNotifMsg.SerializeToString,
+          response_deserializer=APPacketsMsgRsp.FromString,
+          )
 
 
-class BetaAPPacketsServicer(object):
-  """@defgroup APPackets
-  @ingroup System
-  The following RPCs are used to register for packets that the
-  client is interested in receiving
-  @{
+  class APPacketsServicer(object):
+    """@defgroup APPackets
+    @ingroup System
+    The following RPCs are used to register for packets that the
+    client is interested in receiving
+    @{
 
-  Packet registration operations
-
-  """
-  def APPacketsRegOp(self, request, context):
-    """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
-    Packet registration: Sends a list of Packet registration messages
-    and expects a list of registration responses.
-
-    APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
-    Packet unregistration: Sends a list of Packet unregistration messages
-    and expects a list of unregistration responses.
+    Packet registration operations
 
     """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APPacketsInitNotif(self, request, context):
+
+    def APPacketsRegOp(self, request, context):
+      """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+      Packet registration: Sends a list of Packet registration messages
+      and expects a list of registration responses.
+
+      APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+      Packet unregistration: Sends a list of Packet unregistration messages
+      and expects a list of unregistration responses.
+
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def APPacketsInitNotif(self, request, context):
+      """
+      Packet notifications
+
+
+      This call is used to get a stream of packet notifications matching the
+      set of registrations performed with APPacketsRegOp().
+      The caller must maintain the GRPC channel as long as
+      there is interest in packet notifications. Only sessions that were
+      created through this API will be notified to caller.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_APPacketsServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'APPacketsRegOp': grpc.unary_unary_rpc_method_handler(
+            servicer.APPacketsRegOp,
+            request_deserializer=APPacketsRegMsg.FromString,
+            response_serializer=APPacketsRegMsgRsp.SerializeToString,
+        ),
+        'APPacketsInitNotif': grpc.unary_stream_rpc_method_handler(
+            servicer.APPacketsInitNotif,
+            request_deserializer=APPacketsGetNotifMsg.FromString,
+            response_serializer=APPacketsMsgRsp.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'cheetah.APPackets', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class BetaAPPacketsServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """@defgroup APPackets
+    @ingroup System
+    The following RPCs are used to register for packets that the
+    client is interested in receiving
+    @{
+
+    Packet registration operations
+
     """
-    Packet notifications
+    def APPacketsRegOp(self, request, context):
+      """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+      Packet registration: Sends a list of Packet registration messages
+      and expects a list of registration responses.
+
+      APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+      Packet unregistration: Sends a list of Packet unregistration messages
+      and expects a list of unregistration responses.
+
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def APPacketsInitNotif(self, request, context):
+      """
+      Packet notifications
 
 
-    This call is used to get a stream of packet notifications matching the
-    set of registrations performed with APPacketsRegOp().
-    The caller must maintain the GRPC channel as long as
-    there is interest in packet notifications. Only sessions that were
-    created through this API will be notified to caller.
+      This call is used to get a stream of packet notifications matching the
+      set of registrations performed with APPacketsRegOp().
+      The caller must maintain the GRPC channel as long as
+      there is interest in packet notifications. Only sessions that were
+      created through this API will be notified to caller.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaAPPacketsStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """@defgroup APPackets
+    @ingroup System
+    The following RPCs are used to register for packets that the
+    client is interested in receiving
+    @{
+
+    Packet registration operations
+
     """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def APPacketsRegOp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
+      Packet registration: Sends a list of Packet registration messages
+      and expects a list of registration responses.
+
+      APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
+      Packet unregistration: Sends a list of Packet unregistration messages
+      and expects a list of unregistration responses.
+
+      """
+      raise NotImplementedError()
+    APPacketsRegOp.future = None
+    def APPacketsInitNotif(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """
+      Packet notifications
 
 
-class BetaAPPacketsStub(object):
-  """@defgroup APPackets
-  @ingroup System
-  The following RPCs are used to register for packets that the
-  client is interested in receiving
-  @{
-
-  Packet registration operations
-
-  """
-  def APPacketsRegOp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """APPacketsRegMsg.Oper = AP_REGOP_REGISTER
-    Packet registration: Sends a list of Packet registration messages
-    and expects a list of registration responses.
-
-    APPacketsRegMsg.Oper = AP_REGOP_UNREGISTER
-    Packet unregistration: Sends a list of Packet unregistration messages
-    and expects a list of unregistration responses.
-
-    """
-    raise NotImplementedError()
-  APPacketsRegOp.future = None
-  def APPacketsInitNotif(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """
-    Packet notifications
+      This call is used to get a stream of packet notifications matching the
+      set of registrations performed with APPacketsRegOp().
+      The caller must maintain the GRPC channel as long as
+      there is interest in packet notifications. Only sessions that were
+      created through this API will be notified to caller.
+      """
+      raise NotImplementedError()
 
 
-    This call is used to get a stream of packet notifications matching the
-    set of registrations performed with APPacketsRegOp().
-    The caller must maintain the GRPC channel as long as
-    there is interest in packet notifications. Only sessions that were
-    created through this API will be notified to caller.
-    """
-    raise NotImplementedError()
+  def beta_create_APPackets_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsGetNotifMsg.FromString,
+      ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsg.FromString,
+    }
+    response_serializers = {
+      ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsMsgRsp.SerializeToString,
+      ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsgRsp.SerializeToString,
+    }
+    method_implementations = {
+      ('cheetah.APPackets', 'APPacketsInitNotif'): face_utilities.unary_stream_inline(servicer.APPacketsInitNotif),
+      ('cheetah.APPackets', 'APPacketsRegOp'): face_utilities.unary_unary_inline(servicer.APPacketsRegOp),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
 
 
-def beta_create_APPackets_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsGetNotifMsg.FromString,
-    ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsg.FromString,
-  }
-  response_serializers = {
-    ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsMsgRsp.SerializeToString,
-    ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsgRsp.SerializeToString,
-  }
-  method_implementations = {
-    ('cheetah.APPackets', 'APPacketsInitNotif'): face_utilities.unary_stream_inline(servicer.APPacketsInitNotif),
-    ('cheetah.APPackets', 'APPacketsRegOp'): face_utilities.unary_unary_inline(servicer.APPacketsRegOp),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
+  def beta_create_APPackets_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
 
-
-def beta_create_APPackets_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsGetNotifMsg.SerializeToString,
-    ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsg.SerializeToString,
-  }
-  response_deserializers = {
-    ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsMsgRsp.FromString,
-    ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsgRsp.FromString,
-  }
-  cardinalities = {
-    'APPacketsInitNotif': cardinality.Cardinality.UNARY_STREAM,
-    'APPacketsRegOp': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'cheetah.APPackets', cardinalities, options=stub_options)
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsGetNotifMsg.SerializeToString,
+      ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsg.SerializeToString,
+    }
+    response_deserializers = {
+      ('cheetah.APPackets', 'APPacketsInitNotif'): APPacketsMsgRsp.FromString,
+      ('cheetah.APPackets', 'APPacketsRegOp'): APPacketsRegMsgRsp.FromString,
+    }
+    cardinalities = {
+      'APPacketsInitNotif': cardinality.Cardinality.UNARY_STREAM,
+      'APPacketsRegOp': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'cheetah.APPackets', cardinalities, options=stub_options)
+except ImportError:
+  pass
 # @@protoc_insertion_point(module_scope)

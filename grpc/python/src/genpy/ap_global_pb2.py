@@ -389,214 +389,239 @@ APGlobalsGetMsgRsp = _reflection.GeneratedProtocolMessageType('APGlobalsGetMsgRs
 _sym_db.RegisterMessage(APGlobalsGetMsgRsp)
 
 
-import grpc
-from grpc.beta import implementations as beta_implementations
-from grpc.beta import interfaces as beta_interfaces
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
+try:
+  # THESE ELEMENTS WILL BE DEPRECATED.
+  # Please use the generated *_pb2_grpc.py files instead.
+  import grpc
+  from grpc.beta import implementations as beta_implementations
+  from grpc.beta import interfaces as beta_interfaces
+  from grpc.framework.common import cardinality
+  from grpc.framework.interfaces.face import utilities as face_utilities
 
 
-class APGlobalStub(object):
-  """@defgroup APGlobal
-  @ingroup System
-  Global Initialization and Notifications.
-  The following RPCs are used in global initialization and capability queries.
-  @{
-  @addtogroup APGlobal
-  @{
-  /;
-  """
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
+  class APGlobalStub(object):
+    """@defgroup APGlobal
+    @ingroup System
+    Global Initialization and Notifications.
+    The following RPCs are used in global initialization and capability queries.
+    @{
+    @addtogroup APGlobal
+    @{
+    /;
     """
-    self.APGlobalInitNotif = channel.unary_stream(
-        '/cheetah.APGlobal/APGlobalInitNotif',
-        request_serializer=APInitMsg.SerializeToString,
-        response_deserializer=APGlobalNotif.FromString,
-        )
-    self.APGlobalsGet = channel.unary_unary(
-        '/cheetah.APGlobal/APGlobalsGet',
-        request_serializer=APGlobalsGetMsg.SerializeToString,
-        response_deserializer=APGlobalsGetMsgRsp.FromString,
-        )
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.APGlobalInitNotif = channel.unary_stream(
+          '/cheetah.APGlobal/APGlobalInitNotif',
+          request_serializer=APInitMsg.SerializeToString,
+          response_deserializer=APGlobalNotif.FromString,
+          )
+      self.APGlobalsGet = channel.unary_unary(
+          '/cheetah.APGlobal/APGlobalsGet',
+          request_serializer=APGlobalsGetMsg.SerializeToString,
+          response_deserializer=APGlobalsGetMsgRsp.FromString,
+          )
 
 
-class APGlobalServicer(object):
-  """@defgroup APGlobal
-  @ingroup System
-  Global Initialization and Notifications.
-  The following RPCs are used in global initialization and capability queries.
-  @{
-  @addtogroup APGlobal
-  @{
-  /;
-  """
-
-  def APGlobalInitNotif(self, request, context):
-    """Initialize the connection, and setup a notification channel.
-    This MUST be the first call to setup the Access Point connection.
-
-    The caller MUST maintain the notification channel to be able to
-    communicate with the server.
-    If this channel is not properly established and maintained, all other
-    RPC requests are rejected.
-
-    The caller must send its version information as part of the APInitMsg
-    message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
-    that tells the caller whether he can proceed or not.
-    Refer to message APGlobalNotif below for further details.
-
-    After the version handshake, the notification channel is used for
-    "push" event notifications, such as:
-    - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
-    heartbeat notification messages are sent to the client on
-    a periodic basis.
-    Refer to APGlobalNotif definition for further info.
+  class APGlobalServicer(object):
+    """@defgroup APGlobal
+    @ingroup System
+    Global Initialization and Notifications.
+    The following RPCs are used in global initialization and capability queries.
+    @{
+    @addtogroup APGlobal
+    @{
+    /;
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
 
-  def APGlobalsGet(self, request, context):
-    """Get platform specific globals
-    @}
+    def APGlobalInitNotif(self, request, context):
+      """Initialize the connection, and setup a notification channel.
+      This MUST be the first call to setup the Access Point connection.
+
+      The caller MUST maintain the notification channel to be able to
+      communicate with the server.
+      If this channel is not properly established and maintained, all other
+      RPC requests are rejected.
+
+      The caller must send its version information as part of the APInitMsg
+      message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
+      that tells the caller whether he can proceed or not.
+      Refer to message APGlobalNotif below for further details.
+
+      After the version handshake, the notification channel is used for
+      "push" event notifications, such as:
+      - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+      heartbeat notification messages are sent to the client on
+      a periodic basis.
+      Refer to APGlobalNotif definition for further info.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def APGlobalsGet(self, request, context):
+      """Get platform specific globals
+      @}
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_APGlobalServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'APGlobalInitNotif': grpc.unary_stream_rpc_method_handler(
+            servicer.APGlobalInitNotif,
+            request_deserializer=APInitMsg.FromString,
+            response_serializer=APGlobalNotif.SerializeToString,
+        ),
+        'APGlobalsGet': grpc.unary_unary_rpc_method_handler(
+            servicer.APGlobalsGet,
+            request_deserializer=APGlobalsGetMsg.FromString,
+            response_serializer=APGlobalsGetMsgRsp.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'cheetah.APGlobal', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class BetaAPGlobalServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """@defgroup APGlobal
+    @ingroup System
+    Global Initialization and Notifications.
+    The following RPCs are used in global initialization and capability queries.
+    @{
+    @addtogroup APGlobal
+    @{
+    /;
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+    def APGlobalInitNotif(self, request, context):
+      """Initialize the connection, and setup a notification channel.
+      This MUST be the first call to setup the Access Point connection.
+
+      The caller MUST maintain the notification channel to be able to
+      communicate with the server.
+      If this channel is not properly established and maintained, all other
+      RPC requests are rejected.
+
+      The caller must send its version information as part of the APInitMsg
+      message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
+      that tells the caller whether he can proceed or not.
+      Refer to message APGlobalNotif below for further details.
+
+      After the version handshake, the notification channel is used for
+      "push" event notifications, such as:
+      - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+      heartbeat notification messages are sent to the client on
+      a periodic basis.
+      Refer to APGlobalNotif definition for further info.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def APGlobalsGet(self, request, context):
+      """Get platform specific globals
+      @}
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
-def add_APGlobalServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'APGlobalInitNotif': grpc.unary_stream_rpc_method_handler(
-          servicer.APGlobalInitNotif,
-          request_deserializer=APInitMsg.FromString,
-          response_serializer=APGlobalNotif.SerializeToString,
-      ),
-      'APGlobalsGet': grpc.unary_unary_rpc_method_handler(
-          servicer.APGlobalsGet,
-          request_deserializer=APGlobalsGetMsg.FromString,
-          response_serializer=APGlobalsGetMsgRsp.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'cheetah.APGlobal', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
+  class BetaAPGlobalStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
 
-
-class BetaAPGlobalServicer(object):
-  """@defgroup APGlobal
-  @ingroup System
-  Global Initialization and Notifications.
-  The following RPCs are used in global initialization and capability queries.
-  @{
-  @addtogroup APGlobal
-  @{
-  /;
-  """
-  def APGlobalInitNotif(self, request, context):
-    """Initialize the connection, and setup a notification channel.
-    This MUST be the first call to setup the Access Point connection.
-
-    The caller MUST maintain the notification channel to be able to
-    communicate with the server.
-    If this channel is not properly established and maintained, all other
-    RPC requests are rejected.
-
-    The caller must send its version information as part of the APInitMsg
-    message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
-    that tells the caller whether he can proceed or not.
-    Refer to message APGlobalNotif below for further details.
-
-    After the version handshake, the notification channel is used for
-    "push" event notifications, such as:
-    - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
-    heartbeat notification messages are sent to the client on
-    a periodic basis.
-    Refer to APGlobalNotif definition for further info.
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """@defgroup APGlobal
+    @ingroup System
+    Global Initialization and Notifications.
+    The following RPCs are used in global initialization and capability queries.
+    @{
+    @addtogroup APGlobal
+    @{
+    /;
     """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def APGlobalsGet(self, request, context):
-    """Get platform specific globals
-    @}
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def APGlobalInitNotif(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Initialize the connection, and setup a notification channel.
+      This MUST be the first call to setup the Access Point connection.
+
+      The caller MUST maintain the notification channel to be able to
+      communicate with the server.
+      If this channel is not properly established and maintained, all other
+      RPC requests are rejected.
+
+      The caller must send its version information as part of the APInitMsg
+      message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
+      that tells the caller whether he can proceed or not.
+      Refer to message APGlobalNotif below for further details.
+
+      After the version handshake, the notification channel is used for
+      "push" event notifications, such as:
+      - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
+      heartbeat notification messages are sent to the client on
+      a periodic basis.
+      Refer to APGlobalNotif definition for further info.
+      """
+      raise NotImplementedError()
+    def APGlobalsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Get platform specific globals
+      @}
+      """
+      raise NotImplementedError()
+    APGlobalsGet.future = None
 
 
-class BetaAPGlobalStub(object):
-  """@defgroup APGlobal
-  @ingroup System
-  Global Initialization and Notifications.
-  The following RPCs are used in global initialization and capability queries.
-  @{
-  @addtogroup APGlobal
-  @{
-  /;
-  """
-  def APGlobalInitNotif(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Initialize the connection, and setup a notification channel.
-    This MUST be the first call to setup the Access Point connection.
+  def beta_create_APGlobal_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
 
-    The caller MUST maintain the notification channel to be able to
-    communicate with the server.
-    If this channel is not properly established and maintained, all other
-    RPC requests are rejected.
-
-    The caller must send its version information as part of the APInitMsg
-    message. The server will reply with AP_GLOBAL_EVENT_TYPE_VERSION
-    that tells the caller whether he can proceed or not.
-    Refer to message APGlobalNotif below for further details.
-
-    After the version handshake, the notification channel is used for
-    "push" event notifications, such as:
-    - APGlobalNotif.EventType = AP_GLOBAL_EVENT_TYPE_HEARTBEAT
-    heartbeat notification messages are sent to the client on
-    a periodic basis.
-    Refer to APGlobalNotif definition for further info.
-    """
-    raise NotImplementedError()
-  def APGlobalsGet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get platform specific globals
-    @}
-    """
-    raise NotImplementedError()
-  APGlobalsGet.future = None
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.FromString,
+      ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.FromString,
+    }
+    response_serializers = {
+      ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.SerializeToString,
+      ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.SerializeToString,
+    }
+    method_implementations = {
+      ('cheetah.APGlobal', 'APGlobalInitNotif'): face_utilities.unary_stream_inline(servicer.APGlobalInitNotif),
+      ('cheetah.APGlobal', 'APGlobalsGet'): face_utilities.unary_unary_inline(servicer.APGlobalsGet),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
 
 
-def beta_create_APGlobal_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.FromString,
-    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.FromString,
-  }
-  response_serializers = {
-    ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.SerializeToString,
-    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.SerializeToString,
-  }
-  method_implementations = {
-    ('cheetah.APGlobal', 'APGlobalInitNotif'): face_utilities.unary_stream_inline(servicer.APGlobalInitNotif),
-    ('cheetah.APGlobal', 'APGlobalsGet'): face_utilities.unary_unary_inline(servicer.APGlobalsGet),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
+  def beta_create_APGlobal_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
 
-
-def beta_create_APGlobal_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.SerializeToString,
-    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.SerializeToString,
-  }
-  response_deserializers = {
-    ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.FromString,
-    ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.FromString,
-  }
-  cardinalities = {
-    'APGlobalInitNotif': cardinality.Cardinality.UNARY_STREAM,
-    'APGlobalsGet': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'cheetah.APGlobal', cardinalities, options=stub_options)
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('cheetah.APGlobal', 'APGlobalInitNotif'): APInitMsg.SerializeToString,
+      ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsg.SerializeToString,
+    }
+    response_deserializers = {
+      ('cheetah.APGlobal', 'APGlobalInitNotif'): APGlobalNotif.FromString,
+      ('cheetah.APGlobal', 'APGlobalsGet'): APGlobalsGetMsgRsp.FromString,
+    }
+    cardinalities = {
+      'APGlobalInitNotif': cardinality.Cardinality.UNARY_STREAM,
+      'APGlobalsGet': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'cheetah.APGlobal', cardinalities, options=stub_options)
+except ImportError:
+  pass
 # @@protoc_insertion_point(module_scope)
