@@ -1,6 +1,4 @@
 bin/
 pkg/
 src/server/grpc_server
-src/github.com/
-src/golang.org/
-src/google.golang.org/
+src/vendor
