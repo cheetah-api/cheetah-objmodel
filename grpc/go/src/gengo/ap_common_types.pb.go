@@ -8,6 +8,7 @@ Package cheetah is a generated protocol buffer package.
 It is generated from these files:
 	ap_common_types.proto
 	ap_global.proto
+	ap_packet.proto
 	ap_stats.proto
 	ap_version.proto
 
@@ -21,6 +22,11 @@ It has these top-level messages:
 	APGlobalNotif
 	APGlobalsGetMsg
 	APGlobalsGetMsgRsp
+	APPacketsGetNotifMsg
+	APPacketsRegMsg
+	APPacketsRegMsgRsp
+	APPacketHdr
+	APPacketsMsgRsp
 	APStatsRequest
 	APStatsMsg
 	APSystemStatsMsgRsp
