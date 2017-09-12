@@ -18,7 +18,7 @@ In the initial release, the focus is to provide the following verticals:
 
 * Initialization: This mainly handles global initialization, and sets up an event notification channel based on GRPC streaming mechanism.
 * Statistics: This returns data from the access point regarding system resources, radio information, clients, configured WLANs, etc
-* Packet capture: This allows an application to register for and receive a category of packets it's interested in (management or data). This functionality is under development.
+* Packet capture: This allows an application to register for and receive a category of packets it's interested in (management or data).
 * Accounting records: This allows an application to register for and receive a set of accounting records it's interested in. This functionality is under development.
 
 The Cheetah API allows for GRPC unary functions in most cases, and GRPC streaming in other cases. The former can be rendered in both synchronous and asynchronous modes (depends on the language). The latter is used for continuous transmitting and/or receiving of objects in an asynchronous fashion. This is especially useful to boost performance in certain cases. Please refer to the GRPC website for more information: <http://grpc.io>
