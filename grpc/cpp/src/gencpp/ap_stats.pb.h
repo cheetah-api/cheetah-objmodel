@@ -96,7 +96,7 @@ inline bool APStatsType_Parse(
 enum StatsTimeInterval {
   AP_STATS_UNARY_OPERATION = 0,
   AP_STATS_ZERO_TIME_INTERVAL = 0,
-  AP_STATS_MIN_TIME_INTERVAL = 5,
+  AP_STATS_MIN_TIME_INTERVAL = 30,
   StatsTimeInterval_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   StatsTimeInterval_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };

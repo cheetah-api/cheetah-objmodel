@@ -72,7 +72,7 @@ enum StatsTimeInterval {
     AP_STATS_ZERO_TIME_INTERVAL = 0;
 
     // Minimum requested interval for push notifications
-    AP_STATS_MIN_TIME_INTERVAL = 5;
+    AP_STATS_MIN_TIME_INTERVAL = 30;
 }
 
 // Request message for statistics

@@ -932,7 +932,7 @@ func getClientIP(mac string) string {
 	parts := strings.Fields(cmdStr)
 	head := parts[0]
 	parts = parts[1:len(parts)]
-	out, err := exec.Command(head,parts...).Output()
+	out, err := exec.Command(head, parts...).Output()
 	if err != nil || len(out) == 0 {
 		log.Println("Error in get client IP", err)
 		return ""
@@ -941,8 +941,8 @@ func getClientIP(mac string) string {
 }
 
 func fillClientEntry(values map[string]string,
-					 legacyRate map[string]string,
-					 HTVHTRate map[string]string) *pb.APClientEntry {
+	legacyRate map[string]string,
+	HTVHTRate map[string]string) *pb.APClientEntry {
 	var val uint64
 	var int_val int64
 
@@ -1059,13 +1059,13 @@ func fillClientEntry(values map[string]string,
 	client.RxLastRate = uint32(val)
 
 	/* legacyRate */
-	var legacyEntries [] *pb.APClientLegacyRateEntry
+	var legacyEntries []*pb.APClientLegacyRateEntry
 	var legacyOne *pb.APClientLegacyRateEntry
 	for k, v := range legacyRate {
 		legacyOne = new(pb.APClientLegacyRateEntry)
-		 _, err := fmt.Sscanf(v, "%d, %d, %d", &legacyOne.RxPkts,
-							  &legacyOne.TxPkts,
-							  &legacyOne.TxRetries)
+		_, err := fmt.Sscanf(v, "%d, %d, %d", &legacyOne.RxPkts,
+			&legacyOne.TxPkts,
+			&legacyOne.TxRetries)
 		if err != nil {
 			fmt.Println("something wrong parsing legacy rate stats")
 			break
@@ -1076,15 +1076,15 @@ func fillClientEntry(values map[string]string,
 	client.LegacyRates = legacyEntries
 
 	/* HTVHTRate */
-	var HTVHTEntries [] *pb.APClientHTVHTRateEntry
+	var HTVHTEntries []*pb.APClientHTVHTRateEntry
 	var HTVHTOne *pb.APClientHTVHTRateEntry
 	for k, v := range HTVHTRate {
 		HTVHTOne = new(pb.APClientHTVHTRateEntry)
-		_,err := fmt.Sscanf(v, "%d, %d, %d, %d, %d", &HTVHTOne.RxPkts,
-							 &HTVHTOne.RxAmpdus,
-							 &HTVHTOne.TxPkts,
-							 &HTVHTOne.TxAmpdus,
-							 &HTVHTOne.TxRetries)
+		_, err := fmt.Sscanf(v, "%d, %d, %d, %d, %d", &HTVHTOne.RxPkts,
+			&HTVHTOne.RxAmpdus,
+			&HTVHTOne.TxPkts,
+			&HTVHTOne.TxAmpdus,
+			&HTVHTOne.TxRetries)
 		if err != nil {
 			fmt.Println("something wrong parsing HT/VHT rate stats")
 			break
@@ -1097,15 +1097,15 @@ func fillClientEntry(values map[string]string,
 }
 
 func getClientWifiStats(fmap map[string]string,
-						legacyRate map[string]string,
-						HTVHTRate map[string]string) {
+	legacyRate map[string]string,
+	HTVHTRate map[string]string) {
 
 	var lineIndex int
 	cmdStr := fmt.Sprintf("click_read %s %s", CLIENT_WIFI_STATS, fmap["MAC"])
 	parts := strings.Fields(cmdStr)
 	head := parts[0]
 	parts = parts[1:len(parts)]
-	out, err := exec.Command(head,parts...).Output()
+	out, err := exec.Command(head, parts...).Output()
 	if err != nil || len(out) == 0 {
 		log.Println("Error in get client WiFi stats", err)
 		return

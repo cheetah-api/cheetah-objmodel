@@ -865,7 +865,7 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "\rAP_WLAN_STATS\020\007\022\023\n\017AP_CLIENT_STATS\020\010*v\n"
     "\021StatsTimeInterval\022\034\n\030AP_STATS_UNARY_OPE"
     "RATION\020\000\022\037\n\033AP_STATS_ZERO_TIME_INTERVAL\020"
-    "\000\022\036\n\032AP_STATS_MIN_TIME_INTERVAL\020\005\032\002\020\0012K\n"
+    "\000\022\036\n\032AP_STATS_MIN_TIME_INTERVAL\020\036\032\002\020\0012K\n"
     "\014APStatistics\022;\n\nAPStatsGet\022\023.cheetah.AP"
     "StatsMsg\032\026.cheetah.APStatsMsgRsp0\001b\006prot"
     "o3", 3842);
@@ -914,7 +914,7 @@ const ::google::protobuf::EnumDescriptor* StatsTimeInterval_descriptor() {
 bool StatsTimeInterval_IsValid(int value) {
   switch (value) {
     case 0:
-    case 5:
+    case 30:
       return true;
     default:
       return false;

@@ -3414,10 +3414,10 @@ const ProtobufCEnumDescriptor cheetah__apstats_type__descriptor =
 static const ProtobufCEnumValue cheetah__stats_time_interval__enum_values_by_number[2] =
 {
   { "AP_STATS_UNARY_OPERATION", "CHEETAH__STATS_TIME_INTERVAL__AP_STATS_UNARY_OPERATION", 0 },
-  { "AP_STATS_MIN_TIME_INTERVAL", "CHEETAH__STATS_TIME_INTERVAL__AP_STATS_MIN_TIME_INTERVAL", 5 },
+  { "AP_STATS_MIN_TIME_INTERVAL", "CHEETAH__STATS_TIME_INTERVAL__AP_STATS_MIN_TIME_INTERVAL", 30 },
 };
 static const ProtobufCIntRange cheetah__stats_time_interval__value_ranges[] = {
-{0, 0},{5, 1},{0, 2}
+{0, 0},{30, 1},{0, 2}
 };
 static const ProtobufCEnumValueIndex cheetah__stats_time_interval__enum_values_by_name[3] =
 {

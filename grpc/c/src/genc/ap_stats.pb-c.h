@@ -99,7 +99,7 @@ typedef enum _Cheetah__StatsTimeInterval {
   /*
    * Minimum requested interval for push notifications
    */
-  CHEETAH__STATS_TIME_INTERVAL__AP_STATS_MIN_TIME_INTERVAL = 5
+  CHEETAH__STATS_TIME_INTERVAL__AP_STATS_MIN_TIME_INTERVAL = 30
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(CHEETAH__STATS_TIME_INTERVAL)
 } Cheetah__StatsTimeInterval;
 
