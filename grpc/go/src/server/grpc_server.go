@@ -137,7 +137,6 @@ func sendAppHostingConfig(srv pb.APGlobal_APGlobalInitNotifServer) {
 	keys := []string{"token", "proxyurl", "proxyport"}
 	sep := "="
 	fmap := server_util.GetFieldsFromFile(FILE_APPHOST_CFG, keys, sep)
-
 	if len(fmap) > 0 {
 		resp := &pb.APGlobalNotif_CfgRspMsg{}
 		resp.CfgRspMsg = &pb.APCfgMsgRsp{}
@@ -147,8 +146,8 @@ func sendAppHostingConfig(srv pb.APGlobal_APGlobalInitNotifServer) {
 		resp.CfgRspMsg.ProxyPort = uint32(port)
 		appcfg.Event = resp
 	} else {
-		appcfg.ErrStatus.Status = pb.APErrorStatus_AP_NOT_AVAILABLE
-		fmt.Println("APP config not found")
+		// No need to send anything. This is a push notification anyway
+		return
 	}
 
 	srv.Send(appcfg)
