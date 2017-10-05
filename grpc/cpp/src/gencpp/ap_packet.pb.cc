@@ -239,19 +239,21 @@ void protobuf_AddDesc_ap_5fpacket_2eproto_impl() {
     "_PROBE\020\004\022\035\n\027AP_MGMT_MSG_SUBTYPE_ALL\020\377\377\003*"
     "S\n\020APCtrlMsgSubtype\022 \n\034AP_CTRL_MSG_SUBTY"
     "PE_RESERVED\020\000\022\035\n\027AP_CTRL_MSG_SUBTYPE_ALL"
-    "\020\377\377\003*\311\001\n\020APDataMsgSubtype\022 \n\034AP_DATA_MSG"
+    "\020\377\377\003*\246\002\n\020APDataMsgSubtype\022 \n\034AP_DATA_MSG"
     "_SUBTYPE_RESERVED\020\000\022\033\n\027AP_DATA_MSG_SUBTY"
     "PE_ARP\020\001\022\034\n\030AP_DATA_MSG_SUBTYPE_DHCP\020\002\022\033"
     "\n\027AP_DATA_MSG_SUBTYPE_EAP\020\004\022\034\n\030AP_DATA_M"
-    "SG_SUBTYPE_ICMP\020\010\022\035\n\027AP_DATA_MSG_SUBTYPE"
-    "_ALL\020\377\377\003*t\n\021APCiscoMsgSubtype\022!\n\035AP_CISC"
-    "O_MSG_SUBTYPE_RESERVED\020\000\022\034\n\030AP_CISCO_MSG"
-    "_SUBTYPE_NDP\020\001\022\036\n\030AP_CISCO_MSG_SUBTYPE_A"
-    "LL\020\377\377\0032\245\001\n\tAPPackets\022G\n\016APPacketsRegOp\022\030"
-    ".cheetah.APPacketsRegMsg\032\033.cheetah.APPac"
-    "ketsRegMsgRsp\022O\n\022APPacketsInitNotif\022\035.ch"
-    "eetah.APPacketsGetNotifMsg\032\030.cheetah.APP"
-    "acketsMsgRsp0\001b\006proto3", 1542);
+    "SG_SUBTYPE_ICMP\020\010\022\036\n\032AP_DATA_MSG_SUBTYPE"
+    "_DHCPV6\020\020\022\036\n\032AP_DATA_MSG_SUBTYPE_ICMPV6\020"
+    " \022\033\n\027AP_DATA_MSG_SUBTYPE_DNS\020@\022\035\n\027AP_DAT"
+    "A_MSG_SUBTYPE_ALL\020\377\377\003*t\n\021APCiscoMsgSubty"
+    "pe\022!\n\035AP_CISCO_MSG_SUBTYPE_RESERVED\020\000\022\034\n"
+    "\030AP_CISCO_MSG_SUBTYPE_NDP\020\001\022\036\n\030AP_CISCO_"
+    "MSG_SUBTYPE_ALL\020\377\377\0032\245\001\n\tAPPackets\022G\n\016APP"
+    "acketsRegOp\022\030.cheetah.APPacketsRegMsg\032\033."
+    "cheetah.APPacketsRegMsgRsp\022O\n\022APPacketsI"
+    "nitNotif\022\035.cheetah.APPacketsGetNotifMsg\032"
+    "\030.cheetah.APPacketsMsgRsp0\001b\006proto3", 1635);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_packet.proto", &protobuf_RegisterTypes);
   ::cheetah::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -328,6 +330,9 @@ bool APDataMsgSubtype_IsValid(int value) {
     case 2:
     case 4:
     case 8:
+    case 16:
+    case 32:
+    case 64:
     case 65535:
       return true;
     default:

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='ap_packet.proto',
   package='cheetah',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x61p_packet.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"\x16\n\x14\x41PPacketsGetNotifMsg\"Z\n\x0f\x41PPacketsRegMsg\x12\x1e\n\x04Oper\x18\x01 \x01(\x0e\x32\x10.cheetah.APRegOp\x12\'\n\tPacketHdr\x18\x02 \x03(\x0b\x32\x14.cheetah.APPacketHdr\"j\n\x12\x41PPacketsRegMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12)\n\x07Results\x18\x02 \x01(\x0b\x32\x18.cheetah.APPacketsRegMsg\"\xeb\x01\n\x0b\x41PPacketHdr\x12#\n\x07MsgType\x18\x01 \x01(\x0e\x32\x12.cheetah.APMsgType\x12)\n\x04mgmt\x18\x02 \x01(\x0e\x32\x19.cheetah.APMgmtMsgSubtypeH\x00\x12)\n\x04\x63trl\x18\x03 \x01(\x0e\x32\x19.cheetah.APCtrlMsgSubtypeH\x00\x12)\n\x04\x64\x61ta\x18\x04 \x01(\x0e\x32\x19.cheetah.APDataMsgSubtypeH\x00\x12+\n\x05\x63isco\x18\x05 \x01(\x0e\x32\x1a.cheetah.APCiscoMsgSubtypeH\x00\x42\t\n\x07Subtype\"\x8b\x01\n\x0f\x41PPacketsMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\'\n\tPacketHdr\x18\x02 \x01(\x0b\x32\x14.cheetah.APPacketHdr\x12\x11\n\tPacketLen\x18\x03 \x01(\r\x12\x11\n\tPacketBuf\x18\x04 \x01(\x0c*~\n\tAPMsgType\x12\x18\n\x14\x41P_MSG_TYPE_RESERVED\x10\x00\x12\x14\n\x10\x41P_MSG_TYPE_MGMT\x10\x01\x12\x14\n\x10\x41P_MSG_TYPE_CTRL\x10\x02\x12\x14\n\x10\x41P_MSG_TYPE_DATA\x10\x03\x12\x15\n\x11\x41P_MSG_TYPE_CISCO\x10\x04*\xaf\x01\n\x10\x41PMgmtMsgSubtype\x12 \n\x1c\x41P_MGMT_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1d\n\x19\x41P_MGMT_MSG_SUBTYPE_ASSOC\x10\x01\x12\x1c\n\x18\x41P_MGMT_MSG_SUBTYPE_AUTH\x10\x02\x12\x1d\n\x19\x41P_MGMT_MSG_SUBTYPE_PROBE\x10\x04\x12\x1d\n\x17\x41P_MGMT_MSG_SUBTYPE_ALL\x10\xff\xff\x03*S\n\x10\x41PCtrlMsgSubtype\x12 \n\x1c\x41P_CTRL_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1d\n\x17\x41P_CTRL_MSG_SUBTYPE_ALL\x10\xff\xff\x03*\xc9\x01\n\x10\x41PDataMsgSubtype\x12 \n\x1c\x41P_DATA_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1b\n\x17\x41P_DATA_MSG_SUBTYPE_ARP\x10\x01\x12\x1c\n\x18\x41P_DATA_MSG_SUBTYPE_DHCP\x10\x02\x12\x1b\n\x17\x41P_DATA_MSG_SUBTYPE_EAP\x10\x04\x12\x1c\n\x18\x41P_DATA_MSG_SUBTYPE_ICMP\x10\x08\x12\x1d\n\x17\x41P_DATA_MSG_SUBTYPE_ALL\x10\xff\xff\x03*t\n\x11\x41PCiscoMsgSubtype\x12!\n\x1d\x41P_CISCO_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1c\n\x18\x41P_CISCO_MSG_SUBTYPE_NDP\x10\x01\x12\x1e\n\x18\x41P_CISCO_MSG_SUBTYPE_ALL\x10\xff\xff\x03\x32\xa5\x01\n\tAPPackets\x12G\n\x0e\x41PPacketsRegOp\x12\x18.cheetah.APPacketsRegMsg\x1a\x1b.cheetah.APPacketsRegMsgRsp\x12O\n\x12\x41PPacketsInitNotif\x12\x1d.cheetah.APPacketsGetNotifMsg\x1a\x18.cheetah.APPacketsMsgRsp0\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0f\x61p_packet.proto\x12\x07\x63heetah\x1a\x15\x61p_common_types.proto\"\x16\n\x14\x41PPacketsGetNotifMsg\"Z\n\x0f\x41PPacketsRegMsg\x12\x1e\n\x04Oper\x18\x01 \x01(\x0e\x32\x10.cheetah.APRegOp\x12\'\n\tPacketHdr\x18\x02 \x03(\x0b\x32\x14.cheetah.APPacketHdr\"j\n\x12\x41PPacketsRegMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12)\n\x07Results\x18\x02 \x01(\x0b\x32\x18.cheetah.APPacketsRegMsg\"\xeb\x01\n\x0b\x41PPacketHdr\x12#\n\x07MsgType\x18\x01 \x01(\x0e\x32\x12.cheetah.APMsgType\x12)\n\x04mgmt\x18\x02 \x01(\x0e\x32\x19.cheetah.APMgmtMsgSubtypeH\x00\x12)\n\x04\x63trl\x18\x03 \x01(\x0e\x32\x19.cheetah.APCtrlMsgSubtypeH\x00\x12)\n\x04\x64\x61ta\x18\x04 \x01(\x0e\x32\x19.cheetah.APDataMsgSubtypeH\x00\x12+\n\x05\x63isco\x18\x05 \x01(\x0e\x32\x1a.cheetah.APCiscoMsgSubtypeH\x00\x42\t\n\x07Subtype\"\x8b\x01\n\x0f\x41PPacketsMsgRsp\x12)\n\tErrStatus\x18\x01 \x01(\x0b\x32\x16.cheetah.APErrorStatus\x12\'\n\tPacketHdr\x18\x02 \x01(\x0b\x32\x14.cheetah.APPacketHdr\x12\x11\n\tPacketLen\x18\x03 \x01(\r\x12\x11\n\tPacketBuf\x18\x04 \x01(\x0c*~\n\tAPMsgType\x12\x18\n\x14\x41P_MSG_TYPE_RESERVED\x10\x00\x12\x14\n\x10\x41P_MSG_TYPE_MGMT\x10\x01\x12\x14\n\x10\x41P_MSG_TYPE_CTRL\x10\x02\x12\x14\n\x10\x41P_MSG_TYPE_DATA\x10\x03\x12\x15\n\x11\x41P_MSG_TYPE_CISCO\x10\x04*\xaf\x01\n\x10\x41PMgmtMsgSubtype\x12 \n\x1c\x41P_MGMT_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1d\n\x19\x41P_MGMT_MSG_SUBTYPE_ASSOC\x10\x01\x12\x1c\n\x18\x41P_MGMT_MSG_SUBTYPE_AUTH\x10\x02\x12\x1d\n\x19\x41P_MGMT_MSG_SUBTYPE_PROBE\x10\x04\x12\x1d\n\x17\x41P_MGMT_MSG_SUBTYPE_ALL\x10\xff\xff\x03*S\n\x10\x41PCtrlMsgSubtype\x12 \n\x1c\x41P_CTRL_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1d\n\x17\x41P_CTRL_MSG_SUBTYPE_ALL\x10\xff\xff\x03*\xa6\x02\n\x10\x41PDataMsgSubtype\x12 \n\x1c\x41P_DATA_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1b\n\x17\x41P_DATA_MSG_SUBTYPE_ARP\x10\x01\x12\x1c\n\x18\x41P_DATA_MSG_SUBTYPE_DHCP\x10\x02\x12\x1b\n\x17\x41P_DATA_MSG_SUBTYPE_EAP\x10\x04\x12\x1c\n\x18\x41P_DATA_MSG_SUBTYPE_ICMP\x10\x08\x12\x1e\n\x1a\x41P_DATA_MSG_SUBTYPE_DHCPV6\x10\x10\x12\x1e\n\x1a\x41P_DATA_MSG_SUBTYPE_ICMPV6\x10 \x12\x1b\n\x17\x41P_DATA_MSG_SUBTYPE_DNS\x10@\x12\x1d\n\x17\x41P_DATA_MSG_SUBTYPE_ALL\x10\xff\xff\x03*t\n\x11\x41PCiscoMsgSubtype\x12!\n\x1d\x41P_CISCO_MSG_SUBTYPE_RESERVED\x10\x00\x12\x1c\n\x18\x41P_CISCO_MSG_SUBTYPE_NDP\x10\x01\x12\x1e\n\x18\x41P_CISCO_MSG_SUBTYPE_ALL\x10\xff\xff\x03\x32\xa5\x01\n\tAPPackets\x12G\n\x0e\x41PPacketsRegOp\x12\x18.cheetah.APPacketsRegMsg\x1a\x1b.cheetah.APPacketsRegMsgRsp\x12O\n\x12\x41PPacketsInitNotif\x12\x1d.cheetah.APPacketsGetNotifMsg\x1a\x18.cheetah.APPacketsMsgRsp0\x01\x62\x06proto3')
   ,
   dependencies=[ap__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -146,14 +146,26 @@ _APDATAMSGSUBTYPE = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='AP_DATA_MSG_SUBTYPE_ALL', index=5, number=65535,
+      name='AP_DATA_MSG_SUBTYPE_DHCPV6', index=5, number=16,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_DATA_MSG_SUBTYPE_ICMPV6', index=6, number=32,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_DATA_MSG_SUBTYPE_DNS', index=7, number=64,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AP_DATA_MSG_SUBTYPE_ALL', index=8, number=65535,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=1047,
-  serialized_end=1248,
+  serialized_end=1341,
 )
 _sym_db.RegisterEnumDescriptor(_APDATAMSGSUBTYPE)
 
@@ -179,8 +191,8 @@ _APCISCOMSGSUBTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1250,
-  serialized_end=1366,
+  serialized_start=1343,
+  serialized_end=1459,
 )
 _sym_db.RegisterEnumDescriptor(_APCISCOMSGSUBTYPE)
 
@@ -202,6 +214,9 @@ AP_DATA_MSG_SUBTYPE_ARP = 1
 AP_DATA_MSG_SUBTYPE_DHCP = 2
 AP_DATA_MSG_SUBTYPE_EAP = 4
 AP_DATA_MSG_SUBTYPE_ICMP = 8
+AP_DATA_MSG_SUBTYPE_DHCPV6 = 16
+AP_DATA_MSG_SUBTYPE_ICMPV6 = 32
+AP_DATA_MSG_SUBTYPE_DNS = 64
 AP_DATA_MSG_SUBTYPE_ALL = 65535
 AP_CISCO_MSG_SUBTYPE_RESERVED = 0
 AP_CISCO_MSG_SUBTYPE_NDP = 1

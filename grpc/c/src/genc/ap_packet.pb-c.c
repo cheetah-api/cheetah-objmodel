@@ -615,25 +615,31 @@ const ProtobufCEnumDescriptor cheetah__apctrl_msg_subtype__descriptor =
   cheetah__apctrl_msg_subtype__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue cheetah__apdata_msg_subtype__enum_values_by_number[6] =
+static const ProtobufCEnumValue cheetah__apdata_msg_subtype__enum_values_by_number[9] =
 {
   { "AP_DATA_MSG_SUBTYPE_RESERVED", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_RESERVED", 0 },
   { "AP_DATA_MSG_SUBTYPE_ARP", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_ARP", 1 },
   { "AP_DATA_MSG_SUBTYPE_DHCP", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_DHCP", 2 },
   { "AP_DATA_MSG_SUBTYPE_EAP", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_EAP", 4 },
   { "AP_DATA_MSG_SUBTYPE_ICMP", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_ICMP", 8 },
+  { "AP_DATA_MSG_SUBTYPE_DHCPV6", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_DHCPV6", 16 },
+  { "AP_DATA_MSG_SUBTYPE_ICMPV6", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_ICMPV6", 32 },
+  { "AP_DATA_MSG_SUBTYPE_DNS", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_DNS", 64 },
   { "AP_DATA_MSG_SUBTYPE_ALL", "CHEETAH__APDATA_MSG_SUBTYPE__AP_DATA_MSG_SUBTYPE_ALL", 65535 },
 };
 static const ProtobufCIntRange cheetah__apdata_msg_subtype__value_ranges[] = {
-{0, 0},{4, 3},{8, 4},{65535, 5},{0, 6}
+{0, 0},{4, 3},{8, 4},{16, 5},{32, 6},{64, 7},{65535, 8},{0, 9}
 };
-static const ProtobufCEnumValueIndex cheetah__apdata_msg_subtype__enum_values_by_name[6] =
+static const ProtobufCEnumValueIndex cheetah__apdata_msg_subtype__enum_values_by_name[9] =
 {
-  { "AP_DATA_MSG_SUBTYPE_ALL", 5 },
+  { "AP_DATA_MSG_SUBTYPE_ALL", 8 },
   { "AP_DATA_MSG_SUBTYPE_ARP", 1 },
   { "AP_DATA_MSG_SUBTYPE_DHCP", 2 },
+  { "AP_DATA_MSG_SUBTYPE_DHCPV6", 5 },
+  { "AP_DATA_MSG_SUBTYPE_DNS", 7 },
   { "AP_DATA_MSG_SUBTYPE_EAP", 3 },
   { "AP_DATA_MSG_SUBTYPE_ICMP", 4 },
+  { "AP_DATA_MSG_SUBTYPE_ICMPV6", 6 },
   { "AP_DATA_MSG_SUBTYPE_RESERVED", 0 },
 };
 const ProtobufCEnumDescriptor cheetah__apdata_msg_subtype__descriptor =
@@ -643,11 +649,11 @@ const ProtobufCEnumDescriptor cheetah__apdata_msg_subtype__descriptor =
   "APDataMsgSubtype",
   "Cheetah__APDataMsgSubtype",
   "cheetah",
-  6,
+  9,
   cheetah__apdata_msg_subtype__enum_values_by_number,
-  6,
+  9,
   cheetah__apdata_msg_subtype__enum_values_by_name,
-  4,
+  7,
   cheetah__apdata_msg_subtype__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
