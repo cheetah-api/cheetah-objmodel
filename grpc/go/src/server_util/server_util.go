@@ -79,6 +79,8 @@ func GetFieldsFromFile(filename string, keys []string, sep string) map[string]st
 				}
 			}
 		}
+	} else {
+		return nil
 	}
 
 	return fmap

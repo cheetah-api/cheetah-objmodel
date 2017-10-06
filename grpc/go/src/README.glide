@@ -8,6 +8,8 @@ Glide has been installed for host use here:
 If you are adding a new package to your Go code please use "glide" to get
 it and push the updated glide.lock and glide.yaml files to the repository.
 
+For cheetah, we save the glide cache here:
+export GLIDE_HOME := /auto/wnbu-bktftp18/packages/glide/cache
 
 Example:
 ------------
