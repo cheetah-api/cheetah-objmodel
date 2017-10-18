@@ -6,6 +6,7 @@ package server_util
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -92,7 +93,9 @@ func ReadFileAsString(filename string) string {
 
 	//read file
 	data, err = ioutil.ReadFile(filename)
-	check(err)
+	if err != nil {
+		return ""
+	}
 
 	return string(data)
 }
@@ -137,4 +140,26 @@ func GetAddressFromCtx(ctx context.Context) (string, bool) {
 	}
 
 	return pr.Addr.String(), true
+}
+
+func GetWiredInterfaceName() string {
+	ifname := os.Getenv("WIRED_IF")
+	if ifname == "" {
+		ifname = "wired0" /* default wired interface */
+	} else {
+		fmt.Printf("Using WIRED INTERFACE: %s\n", ifname)
+	}
+
+	return ifname
+}
+
+func GetCaptureInterfaceName() string {
+	ifname := os.Getenv("CAPTURE_IF")
+	if ifname == "" {
+		ifname = "aptrace0" /* default capture interface */
+	} else {
+		fmt.Printf("Using CAPTURE INTERFACE: %s\n", ifname)
+	}
+
+	return ifname
 }

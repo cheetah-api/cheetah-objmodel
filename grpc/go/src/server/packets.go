@@ -27,7 +27,6 @@ import (
 )
 
 const (
-	INTERFACE_NAME  = "aptrace0"
 	MAX_PACKET_SIZE = 2048
 	PRIV_PROTOCOL   = 4482 //htons(0x8211)
 )
@@ -437,9 +436,9 @@ func OpenCaptureSocket() {
 		fmt.Println("socket listen error", err)
 	}
 
-	if_info, err := net.InterfaceByName(INTERFACE_NAME)
+	if_info, err := net.InterfaceByName(server_util.GetCaptureInterfaceName())
 	if err != nil {
-		fmt.Println("interface not found", INTERFACE_NAME)
+		fmt.Println("interface not found", server_util.GetCaptureInterfaceName())
 	}
 
 	addr := syscall.SockaddrLinklayer{
@@ -452,7 +451,7 @@ func OpenCaptureSocket() {
 		fmt.Println("socket bind error", err)
 	}
 
-	err = syscall.SetLsfPromisc(INTERFACE_NAME, true)
+	err = syscall.SetLsfPromisc(server_util.GetCaptureInterfaceName(), true)
 	if err != nil {
 		fmt.Println("Promisc setting  error", err)
 	}

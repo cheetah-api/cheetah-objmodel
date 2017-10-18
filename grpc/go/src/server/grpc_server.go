@@ -424,10 +424,11 @@ func getInterfaceStats(ifnames []string) ([]*pb.APInterfaceEntry, int) {
 
 // Get Interface statistics
 func APInterfaceStatsGet() (*pb.APStatsMsgRsp, error) {
-	ifnames := []string{"aptrace0"}
+	var ifnames []string
 
 	dbg.Println("Received APInterfaceStatsGet call")
 
+	ifnames = append(ifnames, server_util.GetWiredInterfaceName())
 	interfaces, cnt := getInterfaceStats(ifnames)
 
 	/* Create Interface stats response */
