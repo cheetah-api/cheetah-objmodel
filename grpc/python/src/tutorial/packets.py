@@ -28,17 +28,19 @@ from tutorial import client_init
 # Packets thread
 #    channel: GRPC channel
 #
-def packets_thread(channel, packets_type, packets_subtype):
+def packets_reg_thread(channel, oper, packets_type, packets_subtype):
     # Create the gRPC stub.
     stub = ap_packet_pb2.beta_create_APPackets_stub(channel)
 
-    # Get the packets. Create APPacketsMsg
-    packets_msg = ap_packet_pb2.APPacketsMsg()
+    # Register the packets. Create APPacketsRegMsg
+    packets_reg_msg = ap_packet_pb2.APPacketsRegMsg()
 
+    # Add Registrtaion operation
+    packets_reg_msg.Oper = oper
     #
     # Add packets to the list
     #
-    packets = packets_msg.PacketHdr.add()
+    packets = packets_reg_msg.PacketHdr.add()
     packets.MsgType = packets_type
     if (packets.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT):
         packets.mgmt = packets_subtype
@@ -53,7 +55,23 @@ def packets_thread(channel, packets_type, packets_subtype):
         os._exit(0)
 
     Timeout = 365*24*60*60 # Seconds
-    for response in stub.APPacketsGet(packets_msg, Timeout):
+    response = stub.APPacketsRegOp(packets_reg_msg, Timeout)
+    if (response.ErrStatus.Status ==
+        ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
+        print "Registration Success"
+    else:
+        print "Registration Failed"
+        print response.Results
+
+def packets_notif_thread(channel):
+    # Create the gRPC stub.
+    stub = ap_packet_pb2.beta_create_APPackets_stub(channel)
+
+    # Get the packets. Create APPacketsGetNotifMsg
+    packets_notif_msg = ap_packet_pb2.APPacketsGetNotifMsg()
+
+    Timeout = 365*24*60*60 # Seconds
+    for response in stub.APPacketsInitNotif(packets_notif_msg, Timeout):
         if (response.ErrStatus.Status ==
             ap_common_types_pb2.APErrorStatus.AP_SUCCESS):
             if (response.PacketHdr.MsgType == ap_packet_pb2.AP_MSG_TYPE_MGMT):
@@ -66,16 +84,21 @@ def packets_thread(channel, packets_type, packets_subtype):
                 print "Got Cisco packet %d" %(response.PacketHdr.cisco)
             elif ((response.PacketHdr.MsgType == ap_packet_pb2.AP_MSG_TYPE_RESERVED) and
                   (response.PacketLen == 0)):
-                print "Packet config request success"
+                print "Packet notification request success"
             else:
                 print "Got Unclassified packet"
         else:
             print "Packets config response error 0x%x" %(response.ErrStatus.Status)
             os._exit(0)
 
+def packets_reg_operations(channel, regop, packets_type, packets_subtype):
+    t = threading.Thread(target = packets_reg_thread,
+                         args=(channel, regop, packets_type, packets_subtype))
+    t.start()
+    return t
 
-def packets_operations(channel, packets_type, packets_subtype):
-    t = threading.Thread(target = packets_thread, args=(channel, packets_type, packets_subtype))
+def packets_notif_operations(channel):
+    t = threading.Thread(target = packets_notif_thread, args=(channel,))
     t.start()
     return t
 
@@ -98,11 +121,16 @@ if __name__ == '__main__':
     # Create another channel for gRPC requests.
     channel = implementations.insecure_channel(server_ip, server_port)
 
-    # Packets operations
-    t1=packets_operations(channel, ap_packet_pb2.AP_MSG_TYPE_MGMT, ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_AUTH)
-    t2=packets_operations(channel, ap_packet_pb2.AP_MSG_TYPE_MGMT, ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_ASSOC)
+    # Packets reg operations
+    t1=packets_reg_operations(channel,
+                              ap_common_types_pb2.AP_REGOP_REGISTER,
+                              ap_packet_pb2.AP_MSG_TYPE_MGMT,
+                              ap_packet_pb2.AP_MGMT_MSG_SUBTYPE_AUTH)
 
     t1.join()
+
+    # Packets notif operation
+    t2=packets_notif_operations(channel)
     t2.join()
 
     # Exit and Kill any running GRPC threads.

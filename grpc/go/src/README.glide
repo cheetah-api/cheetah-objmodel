@@ -1,0 +1,85 @@
+
+Go packages are managed with glide:
+	https://github.com/Masterminds/glide
+
+Glide has been installed for host use here:
+	/auto/wnbu-bktftp18/packages/glide/bin/glide
+
+If you are adding a new package to your Go code please use "glide" to get
+it and push the updated glide.lock and glide.yaml files to the repository.
+
+For cheetah, we save the glide cache here:
+export GLIDE_HOME := /auto/wnbu-bktftp18/packages/glide/cache
+
+Example:
+------------
+
+[dkourkou@sjc-ads-1151 src]$ glide get github.com/influxdata/influxdb/client/v2
+
+[INFO]	Preparing to install 1 package.
+[INFO]	Attempting to get package github.com/influxdata/influxdb/client/v2
+[INFO]	--> Gathering release information for github.com/influxdata/influxdb
+[INFO]	The package github.com/influxdata/influxdb appears to have Semantic Version releases (http://semver.org).
+[INFO]	The latest release is v1.3.5. You are currently not using a release. Would you like
+[INFO]	to use this release? Yes (Y) or No (N)
+y
+[INFO]	The package github.com/influxdata/influxdb appears to use semantic versions (http://semver.org).
+[INFO]	Would you like to track the latest minor or patch releases (major.minor.patch)?
+[INFO]	Tracking minor version releases would use '>= 1.3.5, < 2.0.0' ('^1.3.5'). Tracking patch version
+[INFO]	releases would use '>= 1.3.5, < 1.4.0' ('~1.3.5'). For more information on Glide versions
+[INFO]	and ranges see https://glide.sh/docs/versions
+[INFO]	Minor (M), Patch (P), or Skip Ranges (S)?
+s
+[INFO]	--> Adding github.com/influxdata/influxdb to your configuration with the version v1.3.5
+[INFO]	Downloading dependencies. Please wait...
+[INFO]	--> Fetching updates for github.com/influxdata/influxdb.
+[INFO]	--> Fetching updates for google.golang.org/grpc.
+[INFO]	--> Fetching updates for github.com/gorilla/websocket.
+[INFO]	--> Fetching updates for golang.org/x/net.
+[INFO]	--> Fetching updates for github.com/golang/protobuf.
+[INFO]	Resolving imports
+[INFO]	Found Godeps file in /users/dkourkou/.glide/cache/src/https-github.com-influxdata-influxdb
+[INFO]	--> Parsing GPM metadata...
+[INFO]	--> Setting version for github.com/influxdata/influxdb to v1.3.5.
+[INFO]	--> Fetching updates for google.golang.org/genproto.
+[INFO]	--> Fetching updates for golang.org/x/text.
+[INFO]	Downloading dependencies. Please wait...
+[INFO]	Exporting resolved dependencies...
+[INFO]	--> Exporting github.com/gorilla/websocket
+[INFO]	--> Exporting github.com/influxdata/influxdb
+[INFO]	--> Exporting github.com/golang/protobuf
+[INFO]	--> Exporting golang.org/x/text
+[INFO]	--> Exporting google.golang.org/genproto
+[INFO]	--> Exporting golang.org/x/net
+[INFO]	--> Exporting google.golang.org/grpc
+[INFO]	Replacing existing vendor dependencies
+
+
+
+[dkourkou@sjc-ads-1151 src]$ git diff
+
+diff --git a/grpc/go/src/glide.lock b/grpc/go/src/glide.lock
+index bf6755c..df27009 100644
+--- a/grpc/go/src/glide.lock
++++ b/grpc/go/src/glide.lock
+@@ -1,5 +1,5 @@
+-hash: 4214f919a997f66821c6087f3a9c438bbf535327e9acc14c28e87e433d0a2e1b
+-updated: 2017-09-08T18:03:16.720055283-07:00
++hash: e5ed4ab5dcadd2c24ed5950bfd3ae90c0de1677611194ad754bdae0d66f08d4e
++updated: 2017-09-11T11:51:17.626225737-07:00
+ imports:
+ - name: github.com/golang/protobuf
+   version: 17ce1425424ab154092bbb43af630bd647f3bb0d
+
+
+diff --git a/grpc/go/src/glide.yaml b/grpc/go/src/glide.yaml
+index 5186b46..ba11632 100644
+--- a/grpc/go/src/glide.yaml
++++ b/grpc/go/src/glide.yaml
+@@ -20,3 +17,7 @@ import:
+   subpackages:
+   - peer
++- package: github.com/influxdata/influxdb
++  version: v1.3.5
++  subpackages:
++  - client/v2

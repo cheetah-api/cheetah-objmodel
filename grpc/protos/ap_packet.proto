@@ -139,6 +139,15 @@ enum APDataMsgSubtype {
     // ICMP
     AP_DATA_MSG_SUBTYPE_ICMP = 0x8;
 
+    // DHCPV6
+    AP_DATA_MSG_SUBTYPE_DHCPV6 = 0x10;
+
+    // ICMPV6
+    AP_DATA_MSG_SUBTYPE_ICMPV6 = 0x20;
+
+    // DNS
+    AP_DATA_MSG_SUBTYPE_DNS = 0x40;
+
     // All packets
     AP_DATA_MSG_SUBTYPE_ALL = 0xFFFF;
 }

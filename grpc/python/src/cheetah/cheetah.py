@@ -8,6 +8,7 @@ import serializers
 from genpy import ap_common_types_pb2
 from genpy import ap_global_pb2
 from genpy import ap_stats_pb2
+from genpy import ap_packet_pb2
 from util import util
 
 from grpc.beta import implementations
@@ -44,6 +45,14 @@ class AbstractClient(object):
     def stats_get(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def pkt_reg(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def pkt_notif_init(self, *args, **kwargs):
+        pass
+
 
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 365*24*60*60 # Seconds
@@ -61,6 +70,8 @@ class GrpcClient(AbstractClient):
             ap_global_pb2.beta_create_APGlobal_stub(channel),
             # 1
             ap_stats_pb2.beta_create_APStatistics_stub(channel),
+            # 2
+            ap_packet_pb2.beta_create_APPackets_stub(channel),
         )
 
     def global_init(self, g_params, cback_func, event):
@@ -99,9 +110,27 @@ class GrpcClient(AbstractClient):
                 break
             if (count == local_counter):
                 break
-       
         # Terminated
         # This would notify the main thread to proceed
         #if not event is None:
            #event.set()
         return (response, local_counter)
+
+
+    def pkt_reg(self, serializer, cback_func, negative, count, msg_list, event):
+        """Packets Registration"""
+        response = self._stubs[2].APPacketsRegOp(serializer, self.TIMEOUT_SECONDS)
+        return cback_func(serializer, response, negative, count, msg_list, event)
+
+    def pkt_notif_init(self, serializer, cback_func, negative, count, event):
+        """Packets Notif"""
+
+        local_counter = 0
+        for response in self._stubs[2].APPacketsInitNotif(serializer, self.TIMEOUT_SECONDS):
+            local_counter += 1
+            if not cback_func(response, negative, count, event):
+                break
+            if (count == local_counter):
+                break
+
+        return (local_counter)

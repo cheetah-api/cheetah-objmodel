@@ -40,6 +40,8 @@ void protobuf_AssignDesc_ap_5fstats_2eproto();
 void protobuf_ShutdownFile_ap_5fstats_2eproto();
 
 class APClientEntry;
+class APClientHTVHTRateEntry;
+class APClientLegacyRateEntry;
 class APClientStatsMsgRsp;
 class APDNSStatsMsgRsp;
 class APInterfaceEntry;
@@ -94,7 +96,7 @@ inline bool APStatsType_Parse(
 enum StatsTimeInterval {
   AP_STATS_UNARY_OPERATION = 0,
   AP_STATS_ZERO_TIME_INTERVAL = 0,
-  AP_STATS_MIN_TIME_INTERVAL = 5,
+  AP_STATS_MIN_TIME_INTERVAL = 30,
   StatsTimeInterval_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   StatsTimeInterval_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
@@ -2127,6 +2129,244 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<APRadioStatsMsgRsp> A
 
 // -------------------------------------------------------------------
 
+class APClientLegacyRateEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APClientLegacyRateEntry) */ {
+ public:
+  APClientLegacyRateEntry();
+  virtual ~APClientLegacyRateEntry();
+
+  APClientLegacyRateEntry(const APClientLegacyRateEntry& from);
+
+  inline APClientLegacyRateEntry& operator=(const APClientLegacyRateEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APClientLegacyRateEntry& default_instance();
+
+  static const APClientLegacyRateEntry* internal_default_instance();
+
+  void Swap(APClientLegacyRateEntry* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APClientLegacyRateEntry* New() const { return New(NULL); }
+
+  APClientLegacyRateEntry* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APClientLegacyRateEntry& from);
+  void MergeFrom(const APClientLegacyRateEntry& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APClientLegacyRateEntry* other);
+  void UnsafeMergeFrom(const APClientLegacyRateEntry& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string mbps = 1;
+  void clear_mbps();
+  static const int kMbpsFieldNumber = 1;
+  const ::std::string& mbps() const;
+  void set_mbps(const ::std::string& value);
+  void set_mbps(const char* value);
+  void set_mbps(const char* value, size_t size);
+  ::std::string* mutable_mbps();
+  ::std::string* release_mbps();
+  void set_allocated_mbps(::std::string* mbps);
+
+  // optional uint32 rxPkts = 2;
+  void clear_rxpkts();
+  static const int kRxPktsFieldNumber = 2;
+  ::google::protobuf::uint32 rxpkts() const;
+  void set_rxpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 txPkts = 3;
+  void clear_txpkts();
+  static const int kTxPktsFieldNumber = 3;
+  ::google::protobuf::uint32 txpkts() const;
+  void set_txpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 txRetries = 4;
+  void clear_txretries();
+  static const int kTxRetriesFieldNumber = 4;
+  ::google::protobuf::uint32 txretries() const;
+  void set_txretries(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:cheetah.APClientLegacyRateEntry)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr mbps_;
+  ::google::protobuf::uint32 rxpkts_;
+  ::google::protobuf::uint32 txpkts_;
+  ::google::protobuf::uint32 txretries_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APClientLegacyRateEntry> APClientLegacyRateEntry_default_instance_;
+
+// -------------------------------------------------------------------
+
+class APClientHTVHTRateEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APClientHTVHTRateEntry) */ {
+ public:
+  APClientHTVHTRateEntry();
+  virtual ~APClientHTVHTRateEntry();
+
+  APClientHTVHTRateEntry(const APClientHTVHTRateEntry& from);
+
+  inline APClientHTVHTRateEntry& operator=(const APClientHTVHTRateEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APClientHTVHTRateEntry& default_instance();
+
+  static const APClientHTVHTRateEntry* internal_default_instance();
+
+  void Swap(APClientHTVHTRateEntry* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APClientHTVHTRateEntry* New() const { return New(NULL); }
+
+  APClientHTVHTRateEntry* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const APClientHTVHTRateEntry& from);
+  void MergeFrom(const APClientHTVHTRateEntry& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(APClientHTVHTRateEntry* other);
+  void UnsafeMergeFrom(const APClientHTVHTRateEntry& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string mcsStr = 1;
+  void clear_mcsstr();
+  static const int kMcsStrFieldNumber = 1;
+  const ::std::string& mcsstr() const;
+  void set_mcsstr(const ::std::string& value);
+  void set_mcsstr(const char* value);
+  void set_mcsstr(const char* value, size_t size);
+  ::std::string* mutable_mcsstr();
+  ::std::string* release_mcsstr();
+  void set_allocated_mcsstr(::std::string* mcsstr);
+
+  // optional uint32 rxPkts = 2;
+  void clear_rxpkts();
+  static const int kRxPktsFieldNumber = 2;
+  ::google::protobuf::uint32 rxpkts() const;
+  void set_rxpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 rxAmpdus = 3;
+  void clear_rxampdus();
+  static const int kRxAmpdusFieldNumber = 3;
+  ::google::protobuf::uint32 rxampdus() const;
+  void set_rxampdus(::google::protobuf::uint32 value);
+
+  // optional uint32 txPkts = 4;
+  void clear_txpkts();
+  static const int kTxPktsFieldNumber = 4;
+  ::google::protobuf::uint32 txpkts() const;
+  void set_txpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 txAmpdus = 5;
+  void clear_txampdus();
+  static const int kTxAmpdusFieldNumber = 5;
+  ::google::protobuf::uint32 txampdus() const;
+  void set_txampdus(::google::protobuf::uint32 value);
+
+  // optional uint32 txRetries = 6;
+  void clear_txretries();
+  static const int kTxRetriesFieldNumber = 6;
+  ::google::protobuf::uint32 txretries() const;
+  void set_txretries(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:cheetah.APClientHTVHTRateEntry)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr mcsstr_;
+  ::google::protobuf::uint32 rxpkts_;
+  ::google::protobuf::uint32 rxampdus_;
+  ::google::protobuf::uint32 txpkts_;
+  ::google::protobuf::uint32 txampdus_;
+  ::google::protobuf::uint32 txretries_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
+  friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
+  friend void protobuf_AssignDesc_ap_5fstats_2eproto();
+  friend void protobuf_ShutdownFile_ap_5fstats_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<APClientHTVHTRateEntry> APClientHTVHTRateEntry_default_instance_;
+
+// -------------------------------------------------------------------
+
 class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:cheetah.APClientEntry) */ {
  public:
   APClientEntry();
@@ -2201,15 +2441,26 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_mac();
   void set_allocated_mac(::std::string* mac);
 
-  // optional uint32 RadioIndex = 3;
+  // optional string IP = 3;
+  void clear_ip();
+  static const int kIPFieldNumber = 3;
+  const ::std::string& ip() const;
+  void set_ip(const ::std::string& value);
+  void set_ip(const char* value);
+  void set_ip(const char* value, size_t size);
+  ::std::string* mutable_ip();
+  ::std::string* release_ip();
+  void set_allocated_ip(::std::string* ip);
+
+  // optional uint32 RadioIndex = 4;
   void clear_radioindex();
-  static const int kRadioIndexFieldNumber = 3;
+  static const int kRadioIndexFieldNumber = 4;
   ::google::protobuf::uint32 radioindex() const;
   void set_radioindex(::google::protobuf::uint32 value);
 
-  // optional string Band = 4;
+  // optional string Band = 5;
   void clear_band();
-  static const int kBandFieldNumber = 4;
+  static const int kBandFieldNumber = 5;
   const ::std::string& band() const;
   void set_band(const ::std::string& value);
   void set_band(const char* value);
@@ -2263,35 +2514,137 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_antennarssi();
 
-  // optional int32 TxBitRate = 12;
+  // optional uint32 TxPackets = 12;
+  void clear_txpackets();
+  static const int kTxPacketsFieldNumber = 12;
+  ::google::protobuf::uint32 txpackets() const;
+  void set_txpackets(::google::protobuf::uint32 value);
+
+  // optional uint32 TxMgmtPkts = 13;
+  void clear_txmgmtpkts();
+  static const int kTxMgmtPktsFieldNumber = 13;
+  ::google::protobuf::uint32 txmgmtpkts() const;
+  void set_txmgmtpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 TxDataPkts = 14;
+  void clear_txdatapkts();
+  static const int kTxDataPktsFieldNumber = 14;
+  ::google::protobuf::uint32 txdatapkts() const;
+  void set_txdatapkts(::google::protobuf::uint32 value);
+
+  // optional uint32 TxDataAmpdus = 15;
+  void clear_txdataampdus();
+  static const int kTxDataAmpdusFieldNumber = 15;
+  ::google::protobuf::uint32 txdataampdus() const;
+  void set_txdataampdus(::google::protobuf::uint32 value);
+
+  // optional uint64 TxDataBytes = 16;
+  void clear_txdatabytes();
+  static const int kTxDataBytesFieldNumber = 16;
+  ::google::protobuf::uint64 txdatabytes() const;
+  void set_txdatabytes(::google::protobuf::uint64 value);
+
+  // optional uint32 TxUnicastDataPkts = 17;
+  void clear_txunicastdatapkts();
+  static const int kTxUnicastDataPktsFieldNumber = 17;
+  ::google::protobuf::uint32 txunicastdatapkts() const;
+  void set_txunicastdatapkts(::google::protobuf::uint32 value);
+
+  // optional uint32 TxFailedPkts = 18;
+  void clear_txfailedpkts();
+  static const int kTxFailedPktsFieldNumber = 18;
+  ::google::protobuf::uint32 txfailedpkts() const;
+  void set_txfailedpkts(::google::protobuf::uint32 value);
+
+  // optional uint32 TxBitRate = 19;
   void clear_txbitrate();
-  static const int kTxBitRateFieldNumber = 12;
-  ::google::protobuf::int32 txbitrate() const;
-  void set_txbitrate(::google::protobuf::int32 value);
+  static const int kTxBitRateFieldNumber = 19;
+  ::google::protobuf::uint32 txbitrate() const;
+  void set_txbitrate(::google::protobuf::uint32 value);
 
-  // optional uint64 TxUnicastBytes = 13;
-  void clear_txunicastbytes();
-  static const int kTxUnicastBytesFieldNumber = 13;
-  ::google::protobuf::uint64 txunicastbytes() const;
-  void set_txunicastbytes(::google::protobuf::uint64 value);
+  // optional uint32 RxPackets = 20;
+  void clear_rxpackets();
+  static const int kRxPacketsFieldNumber = 20;
+  ::google::protobuf::uint32 rxpackets() const;
+  void set_rxpackets(::google::protobuf::uint32 value);
 
-  // optional uint32 TxUnicastPkts = 14;
-  void clear_txunicastpkts();
-  static const int kTxUnicastPktsFieldNumber = 14;
-  ::google::protobuf::uint32 txunicastpkts() const;
-  void set_txunicastpkts(::google::protobuf::uint32 value);
+  // optional uint32 RxMgmtPkts = 21;
+  void clear_rxmgmtpkts();
+  static const int kRxMgmtPktsFieldNumber = 21;
+  ::google::protobuf::uint32 rxmgmtpkts() const;
+  void set_rxmgmtpkts(::google::protobuf::uint32 value);
 
-  // optional uint64 RxBytes = 15;
-  void clear_rxbytes();
-  static const int kRxBytesFieldNumber = 15;
-  ::google::protobuf::uint64 rxbytes() const;
-  void set_rxbytes(::google::protobuf::uint64 value);
+  // optional uint32 RxCtrlPkts = 22;
+  void clear_rxctrlpkts();
+  static const int kRxCtrlPktsFieldNumber = 22;
+  ::google::protobuf::uint32 rxctrlpkts() const;
+  void set_rxctrlpkts(::google::protobuf::uint32 value);
 
-  // optional uint32 RxPkts = 16;
-  void clear_rxpkts();
-  static const int kRxPktsFieldNumber = 16;
-  ::google::protobuf::uint32 rxpkts() const;
-  void set_rxpkts(::google::protobuf::uint32 value);
+  // optional uint32 RxDataPkts = 23;
+  void clear_rxdatapkts();
+  static const int kRxDataPktsFieldNumber = 23;
+  ::google::protobuf::uint32 rxdatapkts() const;
+  void set_rxdatapkts(::google::protobuf::uint32 value);
+
+  // optional uint32 RxDataAmpdus = 24;
+  void clear_rxdataampdus();
+  static const int kRxDataAmpdusFieldNumber = 24;
+  ::google::protobuf::uint32 rxdataampdus() const;
+  void set_rxdataampdus(::google::protobuf::uint32 value);
+
+  // optional uint64 RxDataBytes = 25;
+  void clear_rxdatabytes();
+  static const int kRxDataBytesFieldNumber = 25;
+  ::google::protobuf::uint64 rxdatabytes() const;
+  void set_rxdatabytes(::google::protobuf::uint64 value);
+
+  // optional uint32 RxBitRate = 26;
+  void clear_rxbitrate();
+  static const int kRxBitRateFieldNumber = 26;
+  ::google::protobuf::uint32 rxbitrate() const;
+  void set_rxbitrate(::google::protobuf::uint32 value);
+
+  // optional uint32 RxAvgBps = 27;
+  void clear_rxavgbps();
+  static const int kRxAvgBpsFieldNumber = 27;
+  ::google::protobuf::uint32 rxavgbps() const;
+  void set_rxavgbps(::google::protobuf::uint32 value);
+
+  // optional int32 RxAvgRssi = 28;
+  void clear_rxavgrssi();
+  static const int kRxAvgRssiFieldNumber = 28;
+  ::google::protobuf::int32 rxavgrssi() const;
+  void set_rxavgrssi(::google::protobuf::int32 value);
+
+  // optional uint32 RxLastRate = 29;
+  void clear_rxlastrate();
+  static const int kRxLastRateFieldNumber = 29;
+  ::google::protobuf::uint32 rxlastrate() const;
+  void set_rxlastrate(::google::protobuf::uint32 value);
+
+  // repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+  int legacyrates_size() const;
+  void clear_legacyrates();
+  static const int kLegacyRatesFieldNumber = 30;
+  const ::cheetah::APClientLegacyRateEntry& legacyrates(int index) const;
+  ::cheetah::APClientLegacyRateEntry* mutable_legacyrates(int index);
+  ::cheetah::APClientLegacyRateEntry* add_legacyrates();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >*
+      mutable_legacyrates();
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >&
+      legacyrates() const;
+
+  // repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+  int htvhtrates_size() const;
+  void clear_htvhtrates();
+  static const int kHTVHTRatesFieldNumber = 31;
+  const ::cheetah::APClientHTVHTRateEntry& htvhtrates(int index) const;
+  ::cheetah::APClientHTVHTRateEntry* mutable_htvhtrates(int index);
+  ::cheetah::APClientHTVHTRateEntry* add_htvhtrates();
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >*
+      mutable_htvhtrates();
+  const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >&
+      htvhtrates() const;
 
   // @@protoc_insertion_point(class_scope:cheetah.APClientEntry)
  private:
@@ -2299,7 +2652,10 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > antennarssi_;
   mutable int _antennarssi_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry > legacyrates_;
+  ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry > htvhtrates_;
   ::google::protobuf::internal::ArenaStringPtr mac_;
+  ::google::protobuf::internal::ArenaStringPtr ip_;
   ::google::protobuf::internal::ArenaStringPtr band_;
   ::cheetah::WLAN* wlan_;
   ::google::protobuf::uint32 radioindex_;
@@ -2307,11 +2663,24 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::uint32 inactivetimemillisec_;
   ::google::protobuf::int32 rssi_;
   ::google::protobuf::int32 nf_;
-  ::google::protobuf::int32 txbitrate_;
-  ::google::protobuf::uint64 txunicastbytes_;
-  ::google::protobuf::uint64 rxbytes_;
-  ::google::protobuf::uint32 txunicastpkts_;
-  ::google::protobuf::uint32 rxpkts_;
+  ::google::protobuf::uint32 txpackets_;
+  ::google::protobuf::uint32 txmgmtpkts_;
+  ::google::protobuf::uint32 txdatapkts_;
+  ::google::protobuf::uint64 txdatabytes_;
+  ::google::protobuf::uint32 txdataampdus_;
+  ::google::protobuf::uint32 txunicastdatapkts_;
+  ::google::protobuf::uint32 txfailedpkts_;
+  ::google::protobuf::uint32 txbitrate_;
+  ::google::protobuf::uint32 rxpackets_;
+  ::google::protobuf::uint32 rxmgmtpkts_;
+  ::google::protobuf::uint32 rxctrlpkts_;
+  ::google::protobuf::uint32 rxdatapkts_;
+  ::google::protobuf::uint64 rxdatabytes_;
+  ::google::protobuf::uint32 rxdataampdus_;
+  ::google::protobuf::uint32 rxbitrate_;
+  ::google::protobuf::uint32 rxavgbps_;
+  ::google::protobuf::int32 rxavgrssi_;
+  ::google::protobuf::uint32 rxlastrate_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_ap_5fstats_2eproto_impl();
   friend void  protobuf_AddDesc_ap_5fstats_2eproto_impl();
@@ -4656,6 +5025,220 @@ inline const APRadioStatsMsgRsp* APRadioStatsMsgRsp::internal_default_instance()
 }
 // -------------------------------------------------------------------
 
+// APClientLegacyRateEntry
+
+// optional string mbps = 1;
+inline void APClientLegacyRateEntry::clear_mbps() {
+  mbps_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& APClientLegacyRateEntry::mbps() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.mbps)
+  return mbps_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientLegacyRateEntry::set_mbps(const ::std::string& value) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.mbps)
+}
+inline void APClientLegacyRateEntry::set_mbps(const char* value) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientLegacyRateEntry.mbps)
+}
+inline void APClientLegacyRateEntry::set_mbps(const char* value, size_t size) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientLegacyRateEntry.mbps)
+}
+inline ::std::string* APClientLegacyRateEntry::mutable_mbps() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientLegacyRateEntry.mbps)
+  return mbps_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APClientLegacyRateEntry::release_mbps() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientLegacyRateEntry.mbps)
+  
+  return mbps_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientLegacyRateEntry::set_allocated_mbps(::std::string* mbps) {
+  if (mbps != NULL) {
+    
+  } else {
+    
+  }
+  mbps_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mbps);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientLegacyRateEntry.mbps)
+}
+
+// optional uint32 rxPkts = 2;
+inline void APClientLegacyRateEntry::clear_rxpkts() {
+  rxpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientLegacyRateEntry::rxpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.rxPkts)
+  return rxpkts_;
+}
+inline void APClientLegacyRateEntry::set_rxpkts(::google::protobuf::uint32 value) {
+  
+  rxpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.rxPkts)
+}
+
+// optional uint32 txPkts = 3;
+inline void APClientLegacyRateEntry::clear_txpkts() {
+  txpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientLegacyRateEntry::txpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.txPkts)
+  return txpkts_;
+}
+inline void APClientLegacyRateEntry::set_txpkts(::google::protobuf::uint32 value) {
+  
+  txpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.txPkts)
+}
+
+// optional uint32 txRetries = 4;
+inline void APClientLegacyRateEntry::clear_txretries() {
+  txretries_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientLegacyRateEntry::txretries() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.txRetries)
+  return txretries_;
+}
+inline void APClientLegacyRateEntry::set_txretries(::google::protobuf::uint32 value) {
+  
+  txretries_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.txRetries)
+}
+
+inline const APClientLegacyRateEntry* APClientLegacyRateEntry::internal_default_instance() {
+  return &APClientLegacyRateEntry_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// APClientHTVHTRateEntry
+
+// optional string mcsStr = 1;
+inline void APClientHTVHTRateEntry::clear_mcsstr() {
+  mcsstr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& APClientHTVHTRateEntry::mcsstr() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.mcsStr)
+  return mcsstr_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientHTVHTRateEntry::set_mcsstr(const ::std::string& value) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+inline void APClientHTVHTRateEntry::set_mcsstr(const char* value) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+inline void APClientHTVHTRateEntry::set_mcsstr(const char* value, size_t size) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+inline ::std::string* APClientHTVHTRateEntry::mutable_mcsstr() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientHTVHTRateEntry.mcsStr)
+  return mcsstr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APClientHTVHTRateEntry::release_mcsstr() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientHTVHTRateEntry.mcsStr)
+  
+  return mcsstr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientHTVHTRateEntry::set_allocated_mcsstr(::std::string* mcsstr) {
+  if (mcsstr != NULL) {
+    
+  } else {
+    
+  }
+  mcsstr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mcsstr);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+
+// optional uint32 rxPkts = 2;
+inline void APClientHTVHTRateEntry::clear_rxpkts() {
+  rxpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientHTVHTRateEntry::rxpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.rxPkts)
+  return rxpkts_;
+}
+inline void APClientHTVHTRateEntry::set_rxpkts(::google::protobuf::uint32 value) {
+  
+  rxpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.rxPkts)
+}
+
+// optional uint32 rxAmpdus = 3;
+inline void APClientHTVHTRateEntry::clear_rxampdus() {
+  rxampdus_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientHTVHTRateEntry::rxampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.rxAmpdus)
+  return rxampdus_;
+}
+inline void APClientHTVHTRateEntry::set_rxampdus(::google::protobuf::uint32 value) {
+  
+  rxampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.rxAmpdus)
+}
+
+// optional uint32 txPkts = 4;
+inline void APClientHTVHTRateEntry::clear_txpkts() {
+  txpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientHTVHTRateEntry::txpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txPkts)
+  return txpkts_;
+}
+inline void APClientHTVHTRateEntry::set_txpkts(::google::protobuf::uint32 value) {
+  
+  txpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txPkts)
+}
+
+// optional uint32 txAmpdus = 5;
+inline void APClientHTVHTRateEntry::clear_txampdus() {
+  txampdus_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientHTVHTRateEntry::txampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txAmpdus)
+  return txampdus_;
+}
+inline void APClientHTVHTRateEntry::set_txampdus(::google::protobuf::uint32 value) {
+  
+  txampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txAmpdus)
+}
+
+// optional uint32 txRetries = 6;
+inline void APClientHTVHTRateEntry::clear_txretries() {
+  txretries_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientHTVHTRateEntry::txretries() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txRetries)
+  return txretries_;
+}
+inline void APClientHTVHTRateEntry::set_txretries(::google::protobuf::uint32 value) {
+  
+  txretries_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txRetries)
+}
+
+inline const APClientHTVHTRateEntry* APClientHTVHTRateEntry::internal_default_instance() {
+  return &APClientHTVHTRateEntry_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
 // APClientEntry
 
 // optional string MAC = 2;
@@ -4702,7 +5285,51 @@ inline void APClientEntry::set_allocated_mac(::std::string* mac) {
   // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.MAC)
 }
 
-// optional uint32 RadioIndex = 3;
+// optional string IP = 3;
+inline void APClientEntry::clear_ip() {
+  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& APClientEntry::ip() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.IP)
+  return ip_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientEntry::set_ip(const ::std::string& value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.IP)
+}
+inline void APClientEntry::set_ip(const char* value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.IP)
+}
+inline void APClientEntry::set_ip(const char* value, size_t size) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.IP)
+}
+inline ::std::string* APClientEntry::mutable_ip() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.IP)
+  return ip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APClientEntry::release_ip() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientEntry.IP)
+  
+  return ip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APClientEntry::set_allocated_ip(::std::string* ip) {
+  if (ip != NULL) {
+    
+  } else {
+    
+  }
+  ip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ip);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.IP)
+}
+
+// optional uint32 RadioIndex = 4;
 inline void APClientEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
@@ -4716,7 +5343,7 @@ inline void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RadioIndex)
 }
 
-// optional string Band = 4;
+// optional string Band = 5;
 inline void APClientEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4885,74 +5512,316 @@ APClientEntry::mutable_antennarssi() {
   return &antennarssi_;
 }
 
-// optional int32 TxBitRate = 12;
-inline void APClientEntry::clear_txbitrate() {
-  txbitrate_ = 0;
+// optional uint32 TxPackets = 12;
+inline void APClientEntry::clear_txpackets() {
+  txpackets_ = 0u;
 }
-inline ::google::protobuf::int32 APClientEntry::txbitrate() const {
+inline ::google::protobuf::uint32 APClientEntry::txpackets() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxPackets)
+  return txpackets_;
+}
+inline void APClientEntry::set_txpackets(::google::protobuf::uint32 value) {
+  
+  txpackets_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxPackets)
+}
+
+// optional uint32 TxMgmtPkts = 13;
+inline void APClientEntry::clear_txmgmtpkts() {
+  txmgmtpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txmgmtpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxMgmtPkts)
+  return txmgmtpkts_;
+}
+inline void APClientEntry::set_txmgmtpkts(::google::protobuf::uint32 value) {
+  
+  txmgmtpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxMgmtPkts)
+}
+
+// optional uint32 TxDataPkts = 14;
+inline void APClientEntry::clear_txdatapkts() {
+  txdatapkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataPkts)
+  return txdatapkts_;
+}
+inline void APClientEntry::set_txdatapkts(::google::protobuf::uint32 value) {
+  
+  txdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataPkts)
+}
+
+// optional uint32 TxDataAmpdus = 15;
+inline void APClientEntry::clear_txdataampdus() {
+  txdataampdus_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txdataampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataAmpdus)
+  return txdataampdus_;
+}
+inline void APClientEntry::set_txdataampdus(::google::protobuf::uint32 value) {
+  
+  txdataampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataAmpdus)
+}
+
+// optional uint64 TxDataBytes = 16;
+inline void APClientEntry::clear_txdatabytes() {
+  txdatabytes_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 APClientEntry::txdatabytes() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataBytes)
+  return txdatabytes_;
+}
+inline void APClientEntry::set_txdatabytes(::google::protobuf::uint64 value) {
+  
+  txdatabytes_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataBytes)
+}
+
+// optional uint32 TxUnicastDataPkts = 17;
+inline void APClientEntry::clear_txunicastdatapkts() {
+  txunicastdatapkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txunicastdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastDataPkts)
+  return txunicastdatapkts_;
+}
+inline void APClientEntry::set_txunicastdatapkts(::google::protobuf::uint32 value) {
+  
+  txunicastdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastDataPkts)
+}
+
+// optional uint32 TxFailedPkts = 18;
+inline void APClientEntry::clear_txfailedpkts() {
+  txfailedpkts_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txfailedpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxFailedPkts)
+  return txfailedpkts_;
+}
+inline void APClientEntry::set_txfailedpkts(::google::protobuf::uint32 value) {
+  
+  txfailedpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxFailedPkts)
+}
+
+// optional uint32 TxBitRate = 19;
+inline void APClientEntry::clear_txbitrate() {
+  txbitrate_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::txbitrate() const {
   // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxBitRate)
   return txbitrate_;
 }
-inline void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
+inline void APClientEntry::set_txbitrate(::google::protobuf::uint32 value) {
   
   txbitrate_ = value;
   // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxBitRate)
 }
 
-// optional uint64 TxUnicastBytes = 13;
-inline void APClientEntry::clear_txunicastbytes() {
-  txunicastbytes_ = GOOGLE_ULONGLONG(0);
+// optional uint32 RxPackets = 20;
+inline void APClientEntry::clear_rxpackets() {
+  rxpackets_ = 0u;
 }
-inline ::google::protobuf::uint64 APClientEntry::txunicastbytes() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastBytes)
-  return txunicastbytes_;
+inline ::google::protobuf::uint32 APClientEntry::rxpackets() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxPackets)
+  return rxpackets_;
 }
-inline void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
+inline void APClientEntry::set_rxpackets(::google::protobuf::uint32 value) {
   
-  txunicastbytes_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastBytes)
+  rxpackets_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxPackets)
 }
 
-// optional uint32 TxUnicastPkts = 14;
-inline void APClientEntry::clear_txunicastpkts() {
-  txunicastpkts_ = 0u;
+// optional uint32 RxMgmtPkts = 21;
+inline void APClientEntry::clear_rxmgmtpkts() {
+  rxmgmtpkts_ = 0u;
 }
-inline ::google::protobuf::uint32 APClientEntry::txunicastpkts() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastPkts)
-  return txunicastpkts_;
+inline ::google::protobuf::uint32 APClientEntry::rxmgmtpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxMgmtPkts)
+  return rxmgmtpkts_;
 }
-inline void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
+inline void APClientEntry::set_rxmgmtpkts(::google::protobuf::uint32 value) {
   
-  txunicastpkts_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastPkts)
+  rxmgmtpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxMgmtPkts)
 }
 
-// optional uint64 RxBytes = 15;
-inline void APClientEntry::clear_rxbytes() {
-  rxbytes_ = GOOGLE_ULONGLONG(0);
+// optional uint32 RxCtrlPkts = 22;
+inline void APClientEntry::clear_rxctrlpkts() {
+  rxctrlpkts_ = 0u;
 }
-inline ::google::protobuf::uint64 APClientEntry::rxbytes() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxBytes)
-  return rxbytes_;
+inline ::google::protobuf::uint32 APClientEntry::rxctrlpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxCtrlPkts)
+  return rxctrlpkts_;
 }
-inline void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
+inline void APClientEntry::set_rxctrlpkts(::google::protobuf::uint32 value) {
   
-  rxbytes_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxBytes)
+  rxctrlpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxCtrlPkts)
 }
 
-// optional uint32 RxPkts = 16;
-inline void APClientEntry::clear_rxpkts() {
-  rxpkts_ = 0u;
+// optional uint32 RxDataPkts = 23;
+inline void APClientEntry::clear_rxdatapkts() {
+  rxdatapkts_ = 0u;
 }
-inline ::google::protobuf::uint32 APClientEntry::rxpkts() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxPkts)
-  return rxpkts_;
+inline ::google::protobuf::uint32 APClientEntry::rxdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataPkts)
+  return rxdatapkts_;
 }
-inline void APClientEntry::set_rxpkts(::google::protobuf::uint32 value) {
+inline void APClientEntry::set_rxdatapkts(::google::protobuf::uint32 value) {
   
-  rxpkts_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxPkts)
+  rxdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataPkts)
+}
+
+// optional uint32 RxDataAmpdus = 24;
+inline void APClientEntry::clear_rxdataampdus() {
+  rxdataampdus_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::rxdataampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataAmpdus)
+  return rxdataampdus_;
+}
+inline void APClientEntry::set_rxdataampdus(::google::protobuf::uint32 value) {
+  
+  rxdataampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataAmpdus)
+}
+
+// optional uint64 RxDataBytes = 25;
+inline void APClientEntry::clear_rxdatabytes() {
+  rxdatabytes_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 APClientEntry::rxdatabytes() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataBytes)
+  return rxdatabytes_;
+}
+inline void APClientEntry::set_rxdatabytes(::google::protobuf::uint64 value) {
+  
+  rxdatabytes_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataBytes)
+}
+
+// optional uint32 RxBitRate = 26;
+inline void APClientEntry::clear_rxbitrate() {
+  rxbitrate_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::rxbitrate() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxBitRate)
+  return rxbitrate_;
+}
+inline void APClientEntry::set_rxbitrate(::google::protobuf::uint32 value) {
+  
+  rxbitrate_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxBitRate)
+}
+
+// optional uint32 RxAvgBps = 27;
+inline void APClientEntry::clear_rxavgbps() {
+  rxavgbps_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::rxavgbps() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxAvgBps)
+  return rxavgbps_;
+}
+inline void APClientEntry::set_rxavgbps(::google::protobuf::uint32 value) {
+  
+  rxavgbps_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxAvgBps)
+}
+
+// optional int32 RxAvgRssi = 28;
+inline void APClientEntry::clear_rxavgrssi() {
+  rxavgrssi_ = 0;
+}
+inline ::google::protobuf::int32 APClientEntry::rxavgrssi() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxAvgRssi)
+  return rxavgrssi_;
+}
+inline void APClientEntry::set_rxavgrssi(::google::protobuf::int32 value) {
+  
+  rxavgrssi_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxAvgRssi)
+}
+
+// optional uint32 RxLastRate = 29;
+inline void APClientEntry::clear_rxlastrate() {
+  rxlastrate_ = 0u;
+}
+inline ::google::protobuf::uint32 APClientEntry::rxlastrate() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxLastRate)
+  return rxlastrate_;
+}
+inline void APClientEntry::set_rxlastrate(::google::protobuf::uint32 value) {
+  
+  rxlastrate_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxLastRate)
+}
+
+// repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+inline int APClientEntry::legacyrates_size() const {
+  return legacyrates_.size();
+}
+inline void APClientEntry::clear_legacyrates() {
+  legacyrates_.Clear();
+}
+inline const ::cheetah::APClientLegacyRateEntry& APClientEntry::legacyrates(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Get(index);
+}
+inline ::cheetah::APClientLegacyRateEntry* APClientEntry::mutable_legacyrates(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Mutable(index);
+}
+inline ::cheetah::APClientLegacyRateEntry* APClientEntry::add_legacyrates() {
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >*
+APClientEntry::mutable_legacyrates() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.LegacyRates)
+  return &legacyrates_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >&
+APClientEntry::legacyrates() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_;
+}
+
+// repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+inline int APClientEntry::htvhtrates_size() const {
+  return htvhtrates_.size();
+}
+inline void APClientEntry::clear_htvhtrates() {
+  htvhtrates_.Clear();
+}
+inline const ::cheetah::APClientHTVHTRateEntry& APClientEntry::htvhtrates(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Get(index);
+}
+inline ::cheetah::APClientHTVHTRateEntry* APClientEntry::mutable_htvhtrates(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Mutable(index);
+}
+inline ::cheetah::APClientHTVHTRateEntry* APClientEntry::add_htvhtrates() {
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >*
+APClientEntry::mutable_htvhtrates() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.HTVHTRates)
+  return &htvhtrates_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >&
+APClientEntry::htvhtrates() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_;
 }
 
 inline const APClientEntry* APClientEntry::internal_default_instance() {
@@ -5635,6 +6504,10 @@ inline const APStatsMsgRsp* APStatsMsgRsp::internal_default_instance() {
   return &APStatsMsgRsp_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

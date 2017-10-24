@@ -86,7 +86,7 @@ func main() {
 		return
 	}
 
-	///* System statistics */
+	/* System statistics */
 	go util.StatsOperation(conn, wss_conn, pb.APStatsType_AP_SYSTEM_STATS,
 		uint32(pb.StatsTimeInterval_AP_STATS_MIN_TIME_INTERVAL))
 

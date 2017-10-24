@@ -4,8 +4,10 @@
  */
 package util
 
-import "os"
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func GetServerIPPort() (string, string) {
 	server := os.Getenv("SERVER_IP")

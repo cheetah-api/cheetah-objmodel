@@ -1,0 +1,23 @@
+package: .
+ignore:
+- cheetah
+- gengo
+- server_util
+- util
+import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - jsonpb
+  - proto
+- package: github.com/gorilla/websocket
+- package: golang.org/x/net
+  subpackages:
+  - context
+  - websocket
+- package: google.golang.org/grpc
+  subpackages:
+  - peer
+- package: github.com/influxdata/influxdb
+  version: v1.3.5
+  subpackages:
+  - client/v2

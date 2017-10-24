@@ -75,6 +75,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* APRadioStatsMsgRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   APRadioStatsMsgRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* APClientLegacyRateEntry_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  APClientLegacyRateEntry_reflection_ = NULL;
+const ::google::protobuf::Descriptor* APClientHTVHTRateEntry_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  APClientHTVHTRateEntry_reflection_ = NULL;
 const ::google::protobuf::Descriptor* APClientEntry_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   APClientEntry_reflection_ = NULL;
@@ -411,9 +417,46 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APRadioStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APRadioStatsMsgRsp, _internal_metadata_));
-  APClientEntry_descriptor_ = file->message_type(18);
-  static const int APClientEntry_offsets_[14] = {
+  APClientLegacyRateEntry_descriptor_ = file->message_type(18);
+  static const int APClientLegacyRateEntry_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientLegacyRateEntry, mbps_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientLegacyRateEntry, rxpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientLegacyRateEntry, txpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientLegacyRateEntry, txretries_),
+  };
+  APClientLegacyRateEntry_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      APClientLegacyRateEntry_descriptor_,
+      APClientLegacyRateEntry::internal_default_instance(),
+      APClientLegacyRateEntry_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(APClientLegacyRateEntry),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientLegacyRateEntry, _internal_metadata_));
+  APClientHTVHTRateEntry_descriptor_ = file->message_type(19);
+  static const int APClientHTVHTRateEntry_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, mcsstr_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, rxpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, rxampdus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, txpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, txampdus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, txretries_),
+  };
+  APClientHTVHTRateEntry_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      APClientHTVHTRateEntry_descriptor_,
+      APClientHTVHTRateEntry::internal_default_instance(),
+      APClientHTVHTRateEntry_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(APClientHTVHTRateEntry),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, _internal_metadata_));
+  APClientEntry_descriptor_ = file->message_type(20);
+  static const int APClientEntry_offsets_[30] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, mac_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, radioindex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, band_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, wlan_),
@@ -422,11 +465,26 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rssi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, nf_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, antennarssi_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txpackets_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txmgmtpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txdatapkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txdataampdus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txdatabytes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txunicastdatapkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txfailedpkts_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txbitrate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txunicastbytes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, txunicastpkts_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxbytes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxpackets_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxmgmtpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxctrlpkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxdatapkts_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxdataampdus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxdatabytes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxbitrate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxavgbps_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxavgrssi_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxlastrate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, legacyrates_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, htvhtrates_),
   };
   APClientEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -438,7 +496,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APClientEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, _internal_metadata_));
-  APClientStatsMsgRsp_descriptor_ = file->message_type(19);
+  APClientStatsMsgRsp_descriptor_ = file->message_type(21);
   static const int APClientStatsMsgRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, clients_),
   };
@@ -452,7 +510,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APClientStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientStatsMsgRsp, _internal_metadata_));
-  APInterfaceEntry_descriptor_ = file->message_type(20);
+  APInterfaceEntry_descriptor_ = file->message_type(22);
   static const int APInterfaceEntry_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, link_),
@@ -474,7 +532,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APInterfaceEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceEntry, _internal_metadata_));
-  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(21);
+  APInterfaceStatsMsgRsp_descriptor_ = file->message_type(23);
   static const int APInterfaceStatsMsgRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, interfaces_),
   };
@@ -488,7 +546,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       -1,
       sizeof(APInterfaceStatsMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APInterfaceStatsMsgRsp, _internal_metadata_));
-  APStatsMsgRsp_descriptor_ = file->message_type(22);
+  APStatsMsgRsp_descriptor_ = file->message_type(24);
   static const int APStatsMsgRsp_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APStatsMsgRsp, errstatus_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(APStatsMsgRsp_default_oneof_instance_, systemstats_),
@@ -565,6 +623,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       APRadioStatsMsgRsp_descriptor_, APRadioStatsMsgRsp::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      APClientLegacyRateEntry_descriptor_, APClientLegacyRateEntry::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      APClientHTVHTRateEntry_descriptor_, APClientHTVHTRateEntry::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       APClientEntry_descriptor_, APClientEntry::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       APClientStatsMsgRsp_descriptor_, APClientStatsMsgRsp::internal_default_instance());
@@ -615,6 +677,10 @@ void protobuf_ShutdownFile_ap_5fstats_2eproto() {
   delete RadioEntry_reflection_;
   APRadioStatsMsgRsp_default_instance_.Shutdown();
   delete APRadioStatsMsgRsp_reflection_;
+  APClientLegacyRateEntry_default_instance_.Shutdown();
+  delete APClientLegacyRateEntry_reflection_;
+  APClientHTVHTRateEntry_default_instance_.Shutdown();
+  delete APClientHTVHTRateEntry_reflection_;
   APClientEntry_default_instance_.Shutdown();
   delete APClientEntry_reflection_;
   APClientStatsMsgRsp_default_instance_.Shutdown();
@@ -658,6 +724,10 @@ void protobuf_InitDefaults_ap_5fstats_2eproto_impl() {
   RadioEntry_default_instance_.DefaultConstruct();
   APRadioStatsMsgRsp_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  APClientLegacyRateEntry_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  APClientHTVHTRateEntry_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
   APClientEntry_default_instance_.DefaultConstruct();
   APClientStatsMsgRsp_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -683,6 +753,8 @@ void protobuf_InitDefaults_ap_5fstats_2eproto_impl() {
   DfsState_default_instance_.get_mutable()->InitAsDefaultInstance();
   RadioEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
   APRadioStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APClientLegacyRateEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
+  APClientHTVHTRateEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
   APClientEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
   APClientStatsMsgRsp_default_instance_.get_mutable()->InitAsDefaultInstance();
   APInterfaceEntry_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -743,44 +815,60 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "\005\022\'\n\007Counter\030\n \001(\0132\026.cheetah.RadioCounte"
     "rs\022\036\n\003DFS\030\013 \001(\0132\021.cheetah.DfsState\"9\n\022AP"
     "RadioStatsMsgRsp\022#\n\006Radios\030\001 \003(\0132\023.cheet"
-    "ah.RadioEntry\"\245\002\n\rAPClientEntry\022\013\n\003MAC\030\002"
-    " \001(\t\022\022\n\nRadioIndex\030\003 \001(\r\022\014\n\004Band\030\004 \001(\t\022\033"
-    "\n\004Wlan\030\006 \001(\0132\r.cheetah.WLAN\022\030\n\020Connected"
-    "TimeSec\030\007 \001(\r\022\034\n\024InactiveTimeMilliSec\030\010 "
-    "\001(\r\022\014\n\004RSSI\030\t \001(\005\022\n\n\002NF\030\n \001(\005\022\023\n\013Antenna"
-    "RSSI\030\013 \003(\005\022\021\n\tTxBitRate\030\014 \001(\005\022\026\n\016TxUnica"
-    "stBytes\030\r \001(\004\022\025\n\rTxUnicastPkts\030\016 \001(\r\022\017\n\007"
-    "RxBytes\030\017 \001(\004\022\016\n\006RxPkts\030\020 \001(\r\">\n\023APClien"
-    "tStatsMsgRsp\022\'\n\007Clients\030\001 \003(\0132\026.cheetah."
-    "APClientEntry\"\247\001\n\020APInterfaceEntry\022\014\n\004Na"
-    "me\030\001 \001(\t\022\014\n\004Link\030\002 \001(\010\022\022\n\nFullDuplex\030\003 \001"
-    "(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006Rx"
-    "Pkts\030\006 \001(\r\022\022\n\nRxDiscards\030\007 \001(\r\022\017\n\007TxByte"
-    "s\030\010 \001(\004\022\016\n\006TxPkts\030\t \001(\r\"G\n\026APInterfaceSt"
-    "atsMsgRsp\022-\n\nInterfaces\030\001 \003(\0132\031.cheetah."
-    "APInterfaceEntry\"\351\003\n\rAPStatsMsgRsp\022)\n\tEr"
-    "rStatus\030\001 \001(\0132\026.cheetah.APErrorStatus\0223\n"
-    "\013SystemStats\030\002 \001(\0132\034.cheetah.APSystemSta"
-    "tsMsgRspH\000\0223\n\013MemoryStats\030\003 \001(\0132\034.cheeta"
-    "h.APMemoryStatsMsgRspH\000\0229\n\016InterfaceStat"
-    "s\030\004 \001(\0132\037.cheetah.APInterfaceStatsMsgRsp"
-    "H\000\0225\n\014RoutingStats\030\005 \001(\0132\035.cheetah.APRou"
-    "tingStatsMsgRspH\000\022-\n\010DNSStats\030\006 \001(\0132\031.ch"
-    "eetah.APDNSStatsMsgRspH\000\0221\n\nRadioStats\030\007"
-    " \001(\0132\033.cheetah.APRadioStatsMsgRspH\000\022/\n\tW"
-    "LANStats\030\010 \001(\0132\032.cheetah.APWLANStatsMsgR"
-    "spH\000\0223\n\013ClientStats\030\t \001(\0132\034.cheetah.APCl"
-    "ientStatsMsgRspH\000B\t\n\007msg_rsp*\304\001\n\013APStats"
-    "Type\022\017\n\013AP_RESERVED\020\000\022\023\n\017AP_SYSTEM_STATS"
-    "\020\001\022\023\n\017AP_MEMORY_STATS\020\002\022\026\n\022AP_INTERFACE_"
-    "STATS\020\003\022\024\n\020AP_ROUTING_STATS\020\004\022\020\n\014AP_DNS_"
-    "STATS\020\005\022\022\n\016AP_RADIO_STATS\020\006\022\021\n\rAP_WLAN_S"
-    "TATS\020\007\022\023\n\017AP_CLIENT_STATS\020\010*v\n\021StatsTime"
-    "Interval\022\034\n\030AP_STATS_UNARY_OPERATION\020\000\022\037"
-    "\n\033AP_STATS_ZERO_TIME_INTERVAL\020\000\022\036\n\032AP_ST"
-    "ATS_MIN_TIME_INTERVAL\020\005\032\002\020\0012K\n\014APStatist"
-    "ics\022;\n\nAPStatsGet\022\023.cheetah.APStatsMsg\032\026"
-    ".cheetah.APStatsMsgRsp0\001b\006proto3", 3232);
+    "ah.RadioEntry\"Z\n\027APClientLegacyRateEntry"
+    "\022\014\n\004mbps\030\001 \001(\t\022\016\n\006rxPkts\030\002 \001(\r\022\016\n\006txPkts"
+    "\030\003 \001(\r\022\021\n\ttxRetries\030\004 \001(\r\"\177\n\026APClientHTV"
+    "HTRateEntry\022\016\n\006mcsStr\030\001 \001(\t\022\016\n\006rxPkts\030\002 "
+    "\001(\r\022\020\n\010rxAmpdus\030\003 \001(\r\022\016\n\006txPkts\030\004 \001(\r\022\020\n"
+    "\010txAmpdus\030\005 \001(\r\022\021\n\ttxRetries\030\006 \001(\r\"\252\005\n\rA"
+    "PClientEntry\022\013\n\003MAC\030\002 \001(\t\022\n\n\002IP\030\003 \001(\t\022\022\n"
+    "\nRadioIndex\030\004 \001(\r\022\014\n\004Band\030\005 \001(\t\022\033\n\004Wlan\030"
+    "\006 \001(\0132\r.cheetah.WLAN\022\030\n\020ConnectedTimeSec"
+    "\030\007 \001(\r\022\034\n\024InactiveTimeMilliSec\030\010 \001(\r\022\014\n\004"
+    "RSSI\030\t \001(\005\022\n\n\002NF\030\n \001(\005\022\023\n\013AntennaRSSI\030\013 "
+    "\003(\005\022\021\n\tTxPackets\030\014 \001(\r\022\022\n\nTxMgmtPkts\030\r \001"
+    "(\r\022\022\n\nTxDataPkts\030\016 \001(\r\022\024\n\014TxDataAmpdus\030\017"
+    " \001(\r\022\023\n\013TxDataBytes\030\020 \001(\004\022\031\n\021TxUnicastDa"
+    "taPkts\030\021 \001(\r\022\024\n\014TxFailedPkts\030\022 \001(\r\022\021\n\tTx"
+    "BitRate\030\023 \001(\r\022\021\n\tRxPackets\030\024 \001(\r\022\022\n\nRxMg"
+    "mtPkts\030\025 \001(\r\022\022\n\nRxCtrlPkts\030\026 \001(\r\022\022\n\nRxDa"
+    "taPkts\030\027 \001(\r\022\024\n\014RxDataAmpdus\030\030 \001(\r\022\023\n\013Rx"
+    "DataBytes\030\031 \001(\004\022\021\n\tRxBitRate\030\032 \001(\r\022\020\n\010Rx"
+    "AvgBps\030\033 \001(\r\022\021\n\tRxAvgRssi\030\034 \001(\005\022\022\n\nRxLas"
+    "tRate\030\035 \001(\r\0225\n\013LegacyRates\030\036 \003(\0132 .cheet"
+    "ah.APClientLegacyRateEntry\0223\n\nHTVHTRates"
+    "\030\037 \003(\0132\037.cheetah.APClientHTVHTRateEntry\""
+    ">\n\023APClientStatsMsgRsp\022\'\n\007Clients\030\001 \003(\0132"
+    "\026.cheetah.APClientEntry\"\247\001\n\020APInterfaceE"
+    "ntry\022\014\n\004Name\030\001 \001(\t\022\014\n\004Link\030\002 \001(\010\022\022\n\nFull"
+    "Duplex\030\003 \001(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n\007RxBytes\030\005"
+    " \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\022\n\nRxDiscards\030\007 \001(\r"
+    "\022\017\n\007TxBytes\030\010 \001(\004\022\016\n\006TxPkts\030\t \001(\r\"G\n\026API"
+    "nterfaceStatsMsgRsp\022-\n\nInterfaces\030\001 \003(\0132"
+    "\031.cheetah.APInterfaceEntry\"\351\003\n\rAPStatsMs"
+    "gRsp\022)\n\tErrStatus\030\001 \001(\0132\026.cheetah.APErro"
+    "rStatus\0223\n\013SystemStats\030\002 \001(\0132\034.cheetah.A"
+    "PSystemStatsMsgRspH\000\0223\n\013MemoryStats\030\003 \001("
+    "\0132\034.cheetah.APMemoryStatsMsgRspH\000\0229\n\016Int"
+    "erfaceStats\030\004 \001(\0132\037.cheetah.APInterfaceS"
+    "tatsMsgRspH\000\0225\n\014RoutingStats\030\005 \001(\0132\035.che"
+    "etah.APRoutingStatsMsgRspH\000\022-\n\010DNSStats\030"
+    "\006 \001(\0132\031.cheetah.APDNSStatsMsgRspH\000\0221\n\nRa"
+    "dioStats\030\007 \001(\0132\033.cheetah.APRadioStatsMsg"
+    "RspH\000\022/\n\tWLANStats\030\010 \001(\0132\032.cheetah.APWLA"
+    "NStatsMsgRspH\000\0223\n\013ClientStats\030\t \001(\0132\034.ch"
+    "eetah.APClientStatsMsgRspH\000B\t\n\007msg_rsp*\304"
+    "\001\n\013APStatsType\022\017\n\013AP_RESERVED\020\000\022\023\n\017AP_SY"
+    "STEM_STATS\020\001\022\023\n\017AP_MEMORY_STATS\020\002\022\026\n\022AP_"
+    "INTERFACE_STATS\020\003\022\024\n\020AP_ROUTING_STATS\020\004\022"
+    "\020\n\014AP_DNS_STATS\020\005\022\022\n\016AP_RADIO_STATS\020\006\022\021\n"
+    "\rAP_WLAN_STATS\020\007\022\023\n\017AP_CLIENT_STATS\020\010*v\n"
+    "\021StatsTimeInterval\022\034\n\030AP_STATS_UNARY_OPE"
+    "RATION\020\000\022\037\n\033AP_STATS_ZERO_TIME_INTERVAL\020"
+    "\000\022\036\n\032AP_STATS_MIN_TIME_INTERVAL\020\036\032\002\020\0012K\n"
+    "\014APStatistics\022;\n\nAPStatsGet\022\023.cheetah.AP"
+    "StatsMsg\032\026.cheetah.APStatsMsgRsp0\001b\006prot"
+    "o3", 3842);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_stats.proto", &protobuf_RegisterTypes);
   ::cheetah::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -826,7 +914,7 @@ const ::google::protobuf::EnumDescriptor* StatsTimeInterval_descriptor() {
 bool StatsTimeInterval_IsValid(int value) {
   switch (value) {
     case 0:
-    case 5:
+    case 30:
       return true;
     default:
       return false;
@@ -8949,7 +9037,1040 @@ inline const APRadioStatsMsgRsp* APRadioStatsMsgRsp::internal_default_instance()
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APClientLegacyRateEntry::kMbpsFieldNumber;
+const int APClientLegacyRateEntry::kRxPktsFieldNumber;
+const int APClientLegacyRateEntry::kTxPktsFieldNumber;
+const int APClientLegacyRateEntry::kTxRetriesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APClientLegacyRateEntry::APClientLegacyRateEntry()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:cheetah.APClientLegacyRateEntry)
+}
+
+void APClientLegacyRateEntry::InitAsDefaultInstance() {
+}
+
+APClientLegacyRateEntry::APClientLegacyRateEntry(const APClientLegacyRateEntry& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:cheetah.APClientLegacyRateEntry)
+}
+
+void APClientLegacyRateEntry::SharedCtor() {
+  mbps_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&rxpkts_, 0, reinterpret_cast<char*>(&txretries_) -
+    reinterpret_cast<char*>(&rxpkts_) + sizeof(txretries_));
+  _cached_size_ = 0;
+}
+
+APClientLegacyRateEntry::~APClientLegacyRateEntry() {
+  // @@protoc_insertion_point(destructor:cheetah.APClientLegacyRateEntry)
+  SharedDtor();
+}
+
+void APClientLegacyRateEntry::SharedDtor() {
+  mbps_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void APClientLegacyRateEntry::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APClientLegacyRateEntry::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return APClientLegacyRateEntry_descriptor_;
+}
+
+const APClientLegacyRateEntry& APClientLegacyRateEntry::default_instance() {
+  protobuf_InitDefaults_ap_5fstats_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<APClientLegacyRateEntry> APClientLegacyRateEntry_default_instance_;
+
+APClientLegacyRateEntry* APClientLegacyRateEntry::New(::google::protobuf::Arena* arena) const {
+  APClientLegacyRateEntry* n = new APClientLegacyRateEntry;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APClientLegacyRateEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:cheetah.APClientLegacyRateEntry)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(APClientLegacyRateEntry, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<APClientLegacyRateEntry*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(rxpkts_, txretries_);
+  mbps_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool APClientLegacyRateEntry::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cheetah.APClientLegacyRateEntry)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string mbps = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mbps()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->mbps().data(), this->mbps().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "cheetah.APClientLegacyRateEntry.mbps"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_rxPkts;
+        break;
+      }
+
+      // optional uint32 rxPkts = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_rxPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_txPkts;
+        break;
+      }
+
+      // optional uint32 txPkts = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_txPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_txRetries;
+        break;
+      }
+
+      // optional uint32 txRetries = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_txRetries:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txretries_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:cheetah.APClientLegacyRateEntry)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:cheetah.APClientLegacyRateEntry)
+  return false;
+#undef DO_
+}
+
+void APClientLegacyRateEntry::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cheetah.APClientLegacyRateEntry)
+  // optional string mbps = 1;
+  if (this->mbps().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->mbps().data(), this->mbps().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientLegacyRateEntry.mbps");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->mbps(), output);
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->rxpkts(), output);
+  }
+
+  // optional uint32 txPkts = 3;
+  if (this->txpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->txpkts(), output);
+  }
+
+  // optional uint32 txRetries = 4;
+  if (this->txretries() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->txretries(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:cheetah.APClientLegacyRateEntry)
+}
+
+::google::protobuf::uint8* APClientLegacyRateEntry::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APClientLegacyRateEntry)
+  // optional string mbps = 1;
+  if (this->mbps().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->mbps().data(), this->mbps().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientLegacyRateEntry.mbps");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->mbps(), target);
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->rxpkts(), target);
+  }
+
+  // optional uint32 txPkts = 3;
+  if (this->txpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->txpkts(), target);
+  }
+
+  // optional uint32 txRetries = 4;
+  if (this->txretries() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->txretries(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APClientLegacyRateEntry)
+  return target;
+}
+
+size_t APClientLegacyRateEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APClientLegacyRateEntry)
+  size_t total_size = 0;
+
+  // optional string mbps = 1;
+  if (this->mbps().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->mbps());
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxpkts());
+  }
+
+  // optional uint32 txPkts = 3;
+  if (this->txpkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txpkts());
+  }
+
+  // optional uint32 txRetries = 4;
+  if (this->txretries() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txretries());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APClientLegacyRateEntry::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APClientLegacyRateEntry)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APClientLegacyRateEntry* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APClientLegacyRateEntry>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APClientLegacyRateEntry)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APClientLegacyRateEntry)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void APClientLegacyRateEntry::MergeFrom(const APClientLegacyRateEntry& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APClientLegacyRateEntry)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void APClientLegacyRateEntry::UnsafeMergeFrom(const APClientLegacyRateEntry& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.mbps().size() > 0) {
+
+    mbps_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mbps_);
+  }
+  if (from.rxpkts() != 0) {
+    set_rxpkts(from.rxpkts());
+  }
+  if (from.txpkts() != 0) {
+    set_txpkts(from.txpkts());
+  }
+  if (from.txretries() != 0) {
+    set_txretries(from.txretries());
+  }
+}
+
+void APClientLegacyRateEntry::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APClientLegacyRateEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APClientLegacyRateEntry::CopyFrom(const APClientLegacyRateEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APClientLegacyRateEntry)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool APClientLegacyRateEntry::IsInitialized() const {
+
+  return true;
+}
+
+void APClientLegacyRateEntry::Swap(APClientLegacyRateEntry* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APClientLegacyRateEntry::InternalSwap(APClientLegacyRateEntry* other) {
+  mbps_.Swap(&other->mbps_);
+  std::swap(rxpkts_, other->rxpkts_);
+  std::swap(txpkts_, other->txpkts_);
+  std::swap(txretries_, other->txretries_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APClientLegacyRateEntry::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = APClientLegacyRateEntry_descriptor_;
+  metadata.reflection = APClientLegacyRateEntry_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APClientLegacyRateEntry
+
+// optional string mbps = 1;
+void APClientLegacyRateEntry::clear_mbps() {
+  mbps_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& APClientLegacyRateEntry::mbps() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.mbps)
+  return mbps_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientLegacyRateEntry::set_mbps(const ::std::string& value) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.mbps)
+}
+void APClientLegacyRateEntry::set_mbps(const char* value) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientLegacyRateEntry.mbps)
+}
+void APClientLegacyRateEntry::set_mbps(const char* value, size_t size) {
+  
+  mbps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientLegacyRateEntry.mbps)
+}
+::std::string* APClientLegacyRateEntry::mutable_mbps() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientLegacyRateEntry.mbps)
+  return mbps_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* APClientLegacyRateEntry::release_mbps() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientLegacyRateEntry.mbps)
+  
+  return mbps_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientLegacyRateEntry::set_allocated_mbps(::std::string* mbps) {
+  if (mbps != NULL) {
+    
+  } else {
+    
+  }
+  mbps_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mbps);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientLegacyRateEntry.mbps)
+}
+
+// optional uint32 rxPkts = 2;
+void APClientLegacyRateEntry::clear_rxpkts() {
+  rxpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientLegacyRateEntry::rxpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.rxPkts)
+  return rxpkts_;
+}
+void APClientLegacyRateEntry::set_rxpkts(::google::protobuf::uint32 value) {
+  
+  rxpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.rxPkts)
+}
+
+// optional uint32 txPkts = 3;
+void APClientLegacyRateEntry::clear_txpkts() {
+  txpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientLegacyRateEntry::txpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.txPkts)
+  return txpkts_;
+}
+void APClientLegacyRateEntry::set_txpkts(::google::protobuf::uint32 value) {
+  
+  txpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.txPkts)
+}
+
+// optional uint32 txRetries = 4;
+void APClientLegacyRateEntry::clear_txretries() {
+  txretries_ = 0u;
+}
+::google::protobuf::uint32 APClientLegacyRateEntry::txretries() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientLegacyRateEntry.txRetries)
+  return txretries_;
+}
+void APClientLegacyRateEntry::set_txretries(::google::protobuf::uint32 value) {
+  
+  txretries_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientLegacyRateEntry.txRetries)
+}
+
+inline const APClientLegacyRateEntry* APClientLegacyRateEntry::internal_default_instance() {
+  return &APClientLegacyRateEntry_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APClientHTVHTRateEntry::kMcsStrFieldNumber;
+const int APClientHTVHTRateEntry::kRxPktsFieldNumber;
+const int APClientHTVHTRateEntry::kRxAmpdusFieldNumber;
+const int APClientHTVHTRateEntry::kTxPktsFieldNumber;
+const int APClientHTVHTRateEntry::kTxAmpdusFieldNumber;
+const int APClientHTVHTRateEntry::kTxRetriesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APClientHTVHTRateEntry::APClientHTVHTRateEntry()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_ap_5fstats_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:cheetah.APClientHTVHTRateEntry)
+}
+
+void APClientHTVHTRateEntry::InitAsDefaultInstance() {
+}
+
+APClientHTVHTRateEntry::APClientHTVHTRateEntry(const APClientHTVHTRateEntry& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:cheetah.APClientHTVHTRateEntry)
+}
+
+void APClientHTVHTRateEntry::SharedCtor() {
+  mcsstr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&rxpkts_, 0, reinterpret_cast<char*>(&txretries_) -
+    reinterpret_cast<char*>(&rxpkts_) + sizeof(txretries_));
+  _cached_size_ = 0;
+}
+
+APClientHTVHTRateEntry::~APClientHTVHTRateEntry() {
+  // @@protoc_insertion_point(destructor:cheetah.APClientHTVHTRateEntry)
+  SharedDtor();
+}
+
+void APClientHTVHTRateEntry::SharedDtor() {
+  mcsstr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void APClientHTVHTRateEntry::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APClientHTVHTRateEntry::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return APClientHTVHTRateEntry_descriptor_;
+}
+
+const APClientHTVHTRateEntry& APClientHTVHTRateEntry::default_instance() {
+  protobuf_InitDefaults_ap_5fstats_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<APClientHTVHTRateEntry> APClientHTVHTRateEntry_default_instance_;
+
+APClientHTVHTRateEntry* APClientHTVHTRateEntry::New(::google::protobuf::Arena* arena) const {
+  APClientHTVHTRateEntry* n = new APClientHTVHTRateEntry;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APClientHTVHTRateEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:cheetah.APClientHTVHTRateEntry)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(APClientHTVHTRateEntry, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<APClientHTVHTRateEntry*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(rxpkts_, txretries_);
+  mcsstr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool APClientHTVHTRateEntry::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cheetah.APClientHTVHTRateEntry)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string mcsStr = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mcsstr()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->mcsstr().data(), this->mcsstr().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "cheetah.APClientHTVHTRateEntry.mcsStr"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_rxPkts;
+        break;
+      }
+
+      // optional uint32 rxPkts = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_rxPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_rxAmpdus;
+        break;
+      }
+
+      // optional uint32 rxAmpdus = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_rxAmpdus:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxampdus_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_txPkts;
+        break;
+      }
+
+      // optional uint32 txPkts = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_txPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_txAmpdus;
+        break;
+      }
+
+      // optional uint32 txAmpdus = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_txAmpdus:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txampdus_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_txRetries;
+        break;
+      }
+
+      // optional uint32 txRetries = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_txRetries:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txretries_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:cheetah.APClientHTVHTRateEntry)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:cheetah.APClientHTVHTRateEntry)
+  return false;
+#undef DO_
+}
+
+void APClientHTVHTRateEntry::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cheetah.APClientHTVHTRateEntry)
+  // optional string mcsStr = 1;
+  if (this->mcsstr().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->mcsstr().data(), this->mcsstr().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientHTVHTRateEntry.mcsStr");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->mcsstr(), output);
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->rxpkts(), output);
+  }
+
+  // optional uint32 rxAmpdus = 3;
+  if (this->rxampdus() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->rxampdus(), output);
+  }
+
+  // optional uint32 txPkts = 4;
+  if (this->txpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->txpkts(), output);
+  }
+
+  // optional uint32 txAmpdus = 5;
+  if (this->txampdus() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->txampdus(), output);
+  }
+
+  // optional uint32 txRetries = 6;
+  if (this->txretries() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->txretries(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:cheetah.APClientHTVHTRateEntry)
+}
+
+::google::protobuf::uint8* APClientHTVHTRateEntry::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:cheetah.APClientHTVHTRateEntry)
+  // optional string mcsStr = 1;
+  if (this->mcsstr().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->mcsstr().data(), this->mcsstr().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientHTVHTRateEntry.mcsStr");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->mcsstr(), target);
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->rxpkts(), target);
+  }
+
+  // optional uint32 rxAmpdus = 3;
+  if (this->rxampdus() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->rxampdus(), target);
+  }
+
+  // optional uint32 txPkts = 4;
+  if (this->txpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->txpkts(), target);
+  }
+
+  // optional uint32 txAmpdus = 5;
+  if (this->txampdus() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->txampdus(), target);
+  }
+
+  // optional uint32 txRetries = 6;
+  if (this->txretries() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->txretries(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:cheetah.APClientHTVHTRateEntry)
+  return target;
+}
+
+size_t APClientHTVHTRateEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cheetah.APClientHTVHTRateEntry)
+  size_t total_size = 0;
+
+  // optional string mcsStr = 1;
+  if (this->mcsstr().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->mcsstr());
+  }
+
+  // optional uint32 rxPkts = 2;
+  if (this->rxpkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxpkts());
+  }
+
+  // optional uint32 rxAmpdus = 3;
+  if (this->rxampdus() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxampdus());
+  }
+
+  // optional uint32 txPkts = 4;
+  if (this->txpkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txpkts());
+  }
+
+  // optional uint32 txAmpdus = 5;
+  if (this->txampdus() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txampdus());
+  }
+
+  // optional uint32 txRetries = 6;
+  if (this->txretries() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txretries());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APClientHTVHTRateEntry::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cheetah.APClientHTVHTRateEntry)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const APClientHTVHTRateEntry* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APClientHTVHTRateEntry>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cheetah.APClientHTVHTRateEntry)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cheetah.APClientHTVHTRateEntry)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void APClientHTVHTRateEntry::MergeFrom(const APClientHTVHTRateEntry& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cheetah.APClientHTVHTRateEntry)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void APClientHTVHTRateEntry::UnsafeMergeFrom(const APClientHTVHTRateEntry& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.mcsstr().size() > 0) {
+
+    mcsstr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mcsstr_);
+  }
+  if (from.rxpkts() != 0) {
+    set_rxpkts(from.rxpkts());
+  }
+  if (from.rxampdus() != 0) {
+    set_rxampdus(from.rxampdus());
+  }
+  if (from.txpkts() != 0) {
+    set_txpkts(from.txpkts());
+  }
+  if (from.txampdus() != 0) {
+    set_txampdus(from.txampdus());
+  }
+  if (from.txretries() != 0) {
+    set_txretries(from.txretries());
+  }
+}
+
+void APClientHTVHTRateEntry::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cheetah.APClientHTVHTRateEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APClientHTVHTRateEntry::CopyFrom(const APClientHTVHTRateEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cheetah.APClientHTVHTRateEntry)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool APClientHTVHTRateEntry::IsInitialized() const {
+
+  return true;
+}
+
+void APClientHTVHTRateEntry::Swap(APClientHTVHTRateEntry* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APClientHTVHTRateEntry::InternalSwap(APClientHTVHTRateEntry* other) {
+  mcsstr_.Swap(&other->mcsstr_);
+  std::swap(rxpkts_, other->rxpkts_);
+  std::swap(rxampdus_, other->rxampdus_);
+  std::swap(txpkts_, other->txpkts_);
+  std::swap(txampdus_, other->txampdus_);
+  std::swap(txretries_, other->txretries_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APClientHTVHTRateEntry::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = APClientHTVHTRateEntry_descriptor_;
+  metadata.reflection = APClientHTVHTRateEntry_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APClientHTVHTRateEntry
+
+// optional string mcsStr = 1;
+void APClientHTVHTRateEntry::clear_mcsstr() {
+  mcsstr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& APClientHTVHTRateEntry::mcsstr() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.mcsStr)
+  return mcsstr_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientHTVHTRateEntry::set_mcsstr(const ::std::string& value) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+void APClientHTVHTRateEntry::set_mcsstr(const char* value) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+void APClientHTVHTRateEntry::set_mcsstr(const char* value, size_t size) {
+  
+  mcsstr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+::std::string* APClientHTVHTRateEntry::mutable_mcsstr() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientHTVHTRateEntry.mcsStr)
+  return mcsstr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* APClientHTVHTRateEntry::release_mcsstr() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientHTVHTRateEntry.mcsStr)
+  
+  return mcsstr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientHTVHTRateEntry::set_allocated_mcsstr(::std::string* mcsstr) {
+  if (mcsstr != NULL) {
+    
+  } else {
+    
+  }
+  mcsstr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mcsstr);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientHTVHTRateEntry.mcsStr)
+}
+
+// optional uint32 rxPkts = 2;
+void APClientHTVHTRateEntry::clear_rxpkts() {
+  rxpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientHTVHTRateEntry::rxpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.rxPkts)
+  return rxpkts_;
+}
+void APClientHTVHTRateEntry::set_rxpkts(::google::protobuf::uint32 value) {
+  
+  rxpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.rxPkts)
+}
+
+// optional uint32 rxAmpdus = 3;
+void APClientHTVHTRateEntry::clear_rxampdus() {
+  rxampdus_ = 0u;
+}
+::google::protobuf::uint32 APClientHTVHTRateEntry::rxampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.rxAmpdus)
+  return rxampdus_;
+}
+void APClientHTVHTRateEntry::set_rxampdus(::google::protobuf::uint32 value) {
+  
+  rxampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.rxAmpdus)
+}
+
+// optional uint32 txPkts = 4;
+void APClientHTVHTRateEntry::clear_txpkts() {
+  txpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientHTVHTRateEntry::txpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txPkts)
+  return txpkts_;
+}
+void APClientHTVHTRateEntry::set_txpkts(::google::protobuf::uint32 value) {
+  
+  txpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txPkts)
+}
+
+// optional uint32 txAmpdus = 5;
+void APClientHTVHTRateEntry::clear_txampdus() {
+  txampdus_ = 0u;
+}
+::google::protobuf::uint32 APClientHTVHTRateEntry::txampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txAmpdus)
+  return txampdus_;
+}
+void APClientHTVHTRateEntry::set_txampdus(::google::protobuf::uint32 value) {
+  
+  txampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txAmpdus)
+}
+
+// optional uint32 txRetries = 6;
+void APClientHTVHTRateEntry::clear_txretries() {
+  txretries_ = 0u;
+}
+::google::protobuf::uint32 APClientHTVHTRateEntry::txretries() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientHTVHTRateEntry.txRetries)
+  return txretries_;
+}
+void APClientHTVHTRateEntry::set_txretries(::google::protobuf::uint32 value) {
+  
+  txretries_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientHTVHTRateEntry.txRetries)
+}
+
+inline const APClientHTVHTRateEntry* APClientHTVHTRateEntry::internal_default_instance() {
+  return &APClientHTVHTRateEntry_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int APClientEntry::kMACFieldNumber;
+const int APClientEntry::kIPFieldNumber;
 const int APClientEntry::kRadioIndexFieldNumber;
 const int APClientEntry::kBandFieldNumber;
 const int APClientEntry::kWlanFieldNumber;
@@ -8958,11 +10079,26 @@ const int APClientEntry::kInactiveTimeMilliSecFieldNumber;
 const int APClientEntry::kRSSIFieldNumber;
 const int APClientEntry::kNFFieldNumber;
 const int APClientEntry::kAntennaRSSIFieldNumber;
+const int APClientEntry::kTxPacketsFieldNumber;
+const int APClientEntry::kTxMgmtPktsFieldNumber;
+const int APClientEntry::kTxDataPktsFieldNumber;
+const int APClientEntry::kTxDataAmpdusFieldNumber;
+const int APClientEntry::kTxDataBytesFieldNumber;
+const int APClientEntry::kTxUnicastDataPktsFieldNumber;
+const int APClientEntry::kTxFailedPktsFieldNumber;
 const int APClientEntry::kTxBitRateFieldNumber;
-const int APClientEntry::kTxUnicastBytesFieldNumber;
-const int APClientEntry::kTxUnicastPktsFieldNumber;
-const int APClientEntry::kRxBytesFieldNumber;
-const int APClientEntry::kRxPktsFieldNumber;
+const int APClientEntry::kRxPacketsFieldNumber;
+const int APClientEntry::kRxMgmtPktsFieldNumber;
+const int APClientEntry::kRxCtrlPktsFieldNumber;
+const int APClientEntry::kRxDataPktsFieldNumber;
+const int APClientEntry::kRxDataAmpdusFieldNumber;
+const int APClientEntry::kRxDataBytesFieldNumber;
+const int APClientEntry::kRxBitRateFieldNumber;
+const int APClientEntry::kRxAvgBpsFieldNumber;
+const int APClientEntry::kRxAvgRssiFieldNumber;
+const int APClientEntry::kRxLastRateFieldNumber;
+const int APClientEntry::kLegacyRatesFieldNumber;
+const int APClientEntry::kHTVHTRatesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 APClientEntry::APClientEntry()
@@ -8987,10 +10123,11 @@ APClientEntry::APClientEntry(const APClientEntry& from)
 
 void APClientEntry::SharedCtor() {
   mac_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ip_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wlan_ = NULL;
-  ::memset(&radioindex_, 0, reinterpret_cast<char*>(&rxpkts_) -
-    reinterpret_cast<char*>(&radioindex_) + sizeof(rxpkts_));
+  ::memset(&radioindex_, 0, reinterpret_cast<char*>(&rxlastrate_) -
+    reinterpret_cast<char*>(&radioindex_) + sizeof(rxlastrate_));
   _cached_size_ = 0;
 }
 
@@ -9001,6 +10138,7 @@ APClientEntry::~APClientEntry() {
 
 void APClientEntry::SharedDtor() {
   mac_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ip_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != &APClientEntry_default_instance_.get()) {
     delete wlan_;
@@ -9050,17 +10188,22 @@ void APClientEntry::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(radioindex_, nf_);
+  ZR_(radioindex_, rssi_);
   mac_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && wlan_ != NULL) delete wlan_;
   wlan_ = NULL;
-  ZR_(txbitrate_, rxpkts_);
+  ZR_(nf_, txunicastdatapkts_);
+  ZR_(txfailedpkts_, rxdataampdus_);
+  ZR_(rxbitrate_, rxlastrate_);
 
 #undef ZR_HELPER_
 #undef ZR_
 
   antennarssi_.Clear();
+  legacyrates_.Clear();
+  htvhtrates_.Clear();
 }
 
 bool APClientEntry::MergePartialFromCodedStream(
@@ -9085,13 +10228,30 @@ bool APClientEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_RadioIndex;
+        if (input->ExpectTag(26)) goto parse_IP;
         break;
       }
 
-      // optional uint32 RadioIndex = 3;
+      // optional string IP = 3;
       case 3: {
-        if (tag == 24) {
+        if (tag == 26) {
+         parse_IP:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_ip()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->ip().data(), this->ip().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "cheetah.APClientEntry.IP"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_RadioIndex;
+        break;
+      }
+
+      // optional uint32 RadioIndex = 4;
+      case 4: {
+        if (tag == 32) {
          parse_RadioIndex:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -9100,13 +10260,13 @@ bool APClientEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_Band;
+        if (input->ExpectTag(42)) goto parse_Band;
         break;
       }
 
-      // optional string Band = 4;
-      case 4: {
-        if (tag == 34) {
+      // optional string Band = 5;
+      case 5: {
+        if (tag == 42) {
          parse_Band:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_band()));
@@ -9208,81 +10368,309 @@ bool APClientEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(96)) goto parse_TxBitRate;
+        if (input->ExpectTag(96)) goto parse_TxPackets;
         break;
       }
 
-      // optional int32 TxBitRate = 12;
+      // optional uint32 TxPackets = 12;
       case 12: {
         if (tag == 96) {
+         parse_TxPackets:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txpackets_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(104)) goto parse_TxMgmtPkts;
+        break;
+      }
+
+      // optional uint32 TxMgmtPkts = 13;
+      case 13: {
+        if (tag == 104) {
+         parse_TxMgmtPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txmgmtpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(112)) goto parse_TxDataPkts;
+        break;
+      }
+
+      // optional uint32 TxDataPkts = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_TxDataPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txdatapkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(120)) goto parse_TxDataAmpdus;
+        break;
+      }
+
+      // optional uint32 TxDataAmpdus = 15;
+      case 15: {
+        if (tag == 120) {
+         parse_TxDataAmpdus:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txdataampdus_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(128)) goto parse_TxDataBytes;
+        break;
+      }
+
+      // optional uint64 TxDataBytes = 16;
+      case 16: {
+        if (tag == 128) {
+         parse_TxDataBytes:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &txdatabytes_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(136)) goto parse_TxUnicastDataPkts;
+        break;
+      }
+
+      // optional uint32 TxUnicastDataPkts = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_TxUnicastDataPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txunicastdatapkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_TxFailedPkts;
+        break;
+      }
+
+      // optional uint32 TxFailedPkts = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_TxFailedPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &txfailedpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_TxBitRate;
+        break;
+      }
+
+      // optional uint32 TxBitRate = 19;
+      case 19: {
+        if (tag == 152) {
          parse_TxBitRate:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &txbitrate_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(104)) goto parse_TxUnicastBytes;
+        if (input->ExpectTag(160)) goto parse_RxPackets;
         break;
       }
 
-      // optional uint64 TxUnicastBytes = 13;
-      case 13: {
-        if (tag == 104) {
-         parse_TxUnicastBytes:
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &txunicastbytes_)));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(112)) goto parse_TxUnicastPkts;
-        break;
-      }
-
-      // optional uint32 TxUnicastPkts = 14;
-      case 14: {
-        if (tag == 112) {
-         parse_TxUnicastPkts:
+      // optional uint32 RxPackets = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_RxPackets:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &txunicastpkts_)));
+                 input, &rxpackets_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(120)) goto parse_RxBytes;
+        if (input->ExpectTag(168)) goto parse_RxMgmtPkts;
         break;
       }
 
-      // optional uint64 RxBytes = 15;
-      case 15: {
-        if (tag == 120) {
-         parse_RxBytes:
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &rxbytes_)));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(128)) goto parse_RxPkts;
-        break;
-      }
-
-      // optional uint32 RxPkts = 16;
-      case 16: {
-        if (tag == 128) {
-         parse_RxPkts:
+      // optional uint32 RxMgmtPkts = 21;
+      case 21: {
+        if (tag == 168) {
+         parse_RxMgmtPkts:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &rxpkts_)));
+                 input, &rxmgmtpkts_)));
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(176)) goto parse_RxCtrlPkts;
+        break;
+      }
+
+      // optional uint32 RxCtrlPkts = 22;
+      case 22: {
+        if (tag == 176) {
+         parse_RxCtrlPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxctrlpkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(184)) goto parse_RxDataPkts;
+        break;
+      }
+
+      // optional uint32 RxDataPkts = 23;
+      case 23: {
+        if (tag == 184) {
+         parse_RxDataPkts:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxdatapkts_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(192)) goto parse_RxDataAmpdus;
+        break;
+      }
+
+      // optional uint32 RxDataAmpdus = 24;
+      case 24: {
+        if (tag == 192) {
+         parse_RxDataAmpdus:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxdataampdus_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(200)) goto parse_RxDataBytes;
+        break;
+      }
+
+      // optional uint64 RxDataBytes = 25;
+      case 25: {
+        if (tag == 200) {
+         parse_RxDataBytes:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &rxdatabytes_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(208)) goto parse_RxBitRate;
+        break;
+      }
+
+      // optional uint32 RxBitRate = 26;
+      case 26: {
+        if (tag == 208) {
+         parse_RxBitRate:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxbitrate_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(216)) goto parse_RxAvgBps;
+        break;
+      }
+
+      // optional uint32 RxAvgBps = 27;
+      case 27: {
+        if (tag == 216) {
+         parse_RxAvgBps:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxavgbps_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(224)) goto parse_RxAvgRssi;
+        break;
+      }
+
+      // optional int32 RxAvgRssi = 28;
+      case 28: {
+        if (tag == 224) {
+         parse_RxAvgRssi:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &rxavgrssi_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(232)) goto parse_RxLastRate;
+        break;
+      }
+
+      // optional uint32 RxLastRate = 29;
+      case 29: {
+        if (tag == 232) {
+         parse_RxLastRate:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &rxlastrate_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(242)) goto parse_LegacyRates;
+        break;
+      }
+
+      // repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+      case 30: {
+        if (tag == 242) {
+         parse_LegacyRates:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_LegacyRates:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_legacyrates()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(242)) goto parse_loop_LegacyRates;
+        if (input->ExpectTag(250)) goto parse_loop_HTVHTRates;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+      case 31: {
+        if (tag == 250) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_HTVHTRates:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_htvhtrates()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(250)) goto parse_loop_HTVHTRates;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -9321,19 +10709,29 @@ void APClientEntry::SerializeWithCachedSizes(
       2, this->mac(), output);
   }
 
-  // optional uint32 RadioIndex = 3;
-  if (this->radioindex() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->radioindex(), output);
+  // optional string IP = 3;
+  if (this->ip().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ip().data(), this->ip().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientEntry.IP");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->ip(), output);
   }
 
-  // optional string Band = 4;
+  // optional uint32 RadioIndex = 4;
+  if (this->radioindex() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->radioindex(), output);
+  }
+
+  // optional string Band = 5;
   if (this->band().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->band().data(), this->band().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "cheetah.APClientEntry.Band");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->band(), output);
+      5, this->band(), output);
   }
 
   // optional .cheetah.WLAN Wlan = 6;
@@ -9372,29 +10770,106 @@ void APClientEntry::SerializeWithCachedSizes(
       this->antennarssi(i), output);
   }
 
-  // optional int32 TxBitRate = 12;
+  // optional uint32 TxPackets = 12;
+  if (this->txpackets() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->txpackets(), output);
+  }
+
+  // optional uint32 TxMgmtPkts = 13;
+  if (this->txmgmtpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->txmgmtpkts(), output);
+  }
+
+  // optional uint32 TxDataPkts = 14;
+  if (this->txdatapkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->txdatapkts(), output);
+  }
+
+  // optional uint32 TxDataAmpdus = 15;
+  if (this->txdataampdus() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(15, this->txdataampdus(), output);
+  }
+
+  // optional uint64 TxDataBytes = 16;
+  if (this->txdatabytes() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(16, this->txdatabytes(), output);
+  }
+
+  // optional uint32 TxUnicastDataPkts = 17;
+  if (this->txunicastdatapkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(17, this->txunicastdatapkts(), output);
+  }
+
+  // optional uint32 TxFailedPkts = 18;
+  if (this->txfailedpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(18, this->txfailedpkts(), output);
+  }
+
+  // optional uint32 TxBitRate = 19;
   if (this->txbitrate() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->txbitrate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(19, this->txbitrate(), output);
   }
 
-  // optional uint64 TxUnicastBytes = 13;
-  if (this->txunicastbytes() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(13, this->txunicastbytes(), output);
+  // optional uint32 RxPackets = 20;
+  if (this->rxpackets() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(20, this->rxpackets(), output);
   }
 
-  // optional uint32 TxUnicastPkts = 14;
-  if (this->txunicastpkts() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->txunicastpkts(), output);
+  // optional uint32 RxMgmtPkts = 21;
+  if (this->rxmgmtpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(21, this->rxmgmtpkts(), output);
   }
 
-  // optional uint64 RxBytes = 15;
-  if (this->rxbytes() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(15, this->rxbytes(), output);
+  // optional uint32 RxCtrlPkts = 22;
+  if (this->rxctrlpkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(22, this->rxctrlpkts(), output);
   }
 
-  // optional uint32 RxPkts = 16;
-  if (this->rxpkts() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(16, this->rxpkts(), output);
+  // optional uint32 RxDataPkts = 23;
+  if (this->rxdatapkts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(23, this->rxdatapkts(), output);
+  }
+
+  // optional uint32 RxDataAmpdus = 24;
+  if (this->rxdataampdus() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(24, this->rxdataampdus(), output);
+  }
+
+  // optional uint64 RxDataBytes = 25;
+  if (this->rxdatabytes() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(25, this->rxdatabytes(), output);
+  }
+
+  // optional uint32 RxBitRate = 26;
+  if (this->rxbitrate() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(26, this->rxbitrate(), output);
+  }
+
+  // optional uint32 RxAvgBps = 27;
+  if (this->rxavgbps() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(27, this->rxavgbps(), output);
+  }
+
+  // optional int32 RxAvgRssi = 28;
+  if (this->rxavgrssi() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->rxavgrssi(), output);
+  }
+
+  // optional uint32 RxLastRate = 29;
+  if (this->rxlastrate() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(29, this->rxlastrate(), output);
+  }
+
+  // repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+  for (unsigned int i = 0, n = this->legacyrates_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      30, this->legacyrates(i), output);
+  }
+
+  // repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+  for (unsigned int i = 0, n = this->htvhtrates_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      31, this->htvhtrates(i), output);
   }
 
   // @@protoc_insertion_point(serialize_end:cheetah.APClientEntry)
@@ -9415,12 +10890,23 @@ void APClientEntry::SerializeWithCachedSizes(
         2, this->mac(), target);
   }
 
-  // optional uint32 RadioIndex = 3;
-  if (this->radioindex() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->radioindex(), target);
+  // optional string IP = 3;
+  if (this->ip().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ip().data(), this->ip().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientEntry.IP");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->ip(), target);
   }
 
-  // optional string Band = 4;
+  // optional uint32 RadioIndex = 4;
+  if (this->radioindex() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->radioindex(), target);
+  }
+
+  // optional string Band = 5;
   if (this->band().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->band().data(), this->band().length(),
@@ -9428,7 +10914,7 @@ void APClientEntry::SerializeWithCachedSizes(
       "cheetah.APClientEntry.Band");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->band(), target);
+        5, this->band(), target);
   }
 
   // optional .cheetah.WLAN Wlan = 6;
@@ -9472,29 +10958,108 @@ void APClientEntry::SerializeWithCachedSizes(
       WriteInt32NoTagToArray(this->antennarssi(i), target);
   }
 
-  // optional int32 TxBitRate = 12;
+  // optional uint32 TxPackets = 12;
+  if (this->txpackets() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->txpackets(), target);
+  }
+
+  // optional uint32 TxMgmtPkts = 13;
+  if (this->txmgmtpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->txmgmtpkts(), target);
+  }
+
+  // optional uint32 TxDataPkts = 14;
+  if (this->txdatapkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->txdatapkts(), target);
+  }
+
+  // optional uint32 TxDataAmpdus = 15;
+  if (this->txdataampdus() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(15, this->txdataampdus(), target);
+  }
+
+  // optional uint64 TxDataBytes = 16;
+  if (this->txdatabytes() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(16, this->txdatabytes(), target);
+  }
+
+  // optional uint32 TxUnicastDataPkts = 17;
+  if (this->txunicastdatapkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(17, this->txunicastdatapkts(), target);
+  }
+
+  // optional uint32 TxFailedPkts = 18;
+  if (this->txfailedpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(18, this->txfailedpkts(), target);
+  }
+
+  // optional uint32 TxBitRate = 19;
   if (this->txbitrate() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->txbitrate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(19, this->txbitrate(), target);
   }
 
-  // optional uint64 TxUnicastBytes = 13;
-  if (this->txunicastbytes() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(13, this->txunicastbytes(), target);
+  // optional uint32 RxPackets = 20;
+  if (this->rxpackets() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(20, this->rxpackets(), target);
   }
 
-  // optional uint32 TxUnicastPkts = 14;
-  if (this->txunicastpkts() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->txunicastpkts(), target);
+  // optional uint32 RxMgmtPkts = 21;
+  if (this->rxmgmtpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(21, this->rxmgmtpkts(), target);
   }
 
-  // optional uint64 RxBytes = 15;
-  if (this->rxbytes() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(15, this->rxbytes(), target);
+  // optional uint32 RxCtrlPkts = 22;
+  if (this->rxctrlpkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(22, this->rxctrlpkts(), target);
   }
 
-  // optional uint32 RxPkts = 16;
-  if (this->rxpkts() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(16, this->rxpkts(), target);
+  // optional uint32 RxDataPkts = 23;
+  if (this->rxdatapkts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(23, this->rxdatapkts(), target);
+  }
+
+  // optional uint32 RxDataAmpdus = 24;
+  if (this->rxdataampdus() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(24, this->rxdataampdus(), target);
+  }
+
+  // optional uint64 RxDataBytes = 25;
+  if (this->rxdatabytes() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(25, this->rxdatabytes(), target);
+  }
+
+  // optional uint32 RxBitRate = 26;
+  if (this->rxbitrate() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(26, this->rxbitrate(), target);
+  }
+
+  // optional uint32 RxAvgBps = 27;
+  if (this->rxavgbps() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(27, this->rxavgbps(), target);
+  }
+
+  // optional int32 RxAvgRssi = 28;
+  if (this->rxavgrssi() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->rxavgrssi(), target);
+  }
+
+  // optional uint32 RxLastRate = 29;
+  if (this->rxlastrate() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(29, this->rxlastrate(), target);
+  }
+
+  // repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+  for (unsigned int i = 0, n = this->legacyrates_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        30, this->legacyrates(i), false, target);
+  }
+
+  // repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+  for (unsigned int i = 0, n = this->htvhtrates_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        31, this->htvhtrates(i), false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:cheetah.APClientEntry)
@@ -9512,14 +11077,21 @@ size_t APClientEntry::ByteSizeLong() const {
         this->mac());
   }
 
-  // optional uint32 RadioIndex = 3;
+  // optional string IP = 3;
+  if (this->ip().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->ip());
+  }
+
+  // optional uint32 RadioIndex = 4;
   if (this->radioindex() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->radioindex());
   }
 
-  // optional string Band = 4;
+  // optional string Band = 5;
   if (this->band().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -9561,39 +11133,130 @@ size_t APClientEntry::ByteSizeLong() const {
         this->nf());
   }
 
-  // optional int32 TxBitRate = 12;
-  if (this->txbitrate() != 0) {
+  // optional uint32 TxPackets = 12;
+  if (this->txpackets() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txpackets());
+  }
+
+  // optional uint32 TxMgmtPkts = 13;
+  if (this->txmgmtpkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txmgmtpkts());
+  }
+
+  // optional uint32 TxDataPkts = 14;
+  if (this->txdatapkts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txdatapkts());
+  }
+
+  // optional uint32 TxDataAmpdus = 15;
+  if (this->txdataampdus() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txdataampdus());
+  }
+
+  // optional uint64 TxDataBytes = 16;
+  if (this->txdatabytes() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->txdatabytes());
+  }
+
+  // optional uint32 TxUnicastDataPkts = 17;
+  if (this->txunicastdatapkts() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txunicastdatapkts());
+  }
+
+  // optional uint32 TxFailedPkts = 18;
+  if (this->txfailedpkts() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->txfailedpkts());
+  }
+
+  // optional uint32 TxBitRate = 19;
+  if (this->txbitrate() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->txbitrate());
   }
 
-  // optional uint64 TxUnicastBytes = 13;
-  if (this->txunicastbytes() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->txunicastbytes());
-  }
-
-  // optional uint32 TxUnicastPkts = 14;
-  if (this->txunicastpkts() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->txunicastpkts());
-  }
-
-  // optional uint64 RxBytes = 15;
-  if (this->rxbytes() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->rxbytes());
-  }
-
-  // optional uint32 RxPkts = 16;
-  if (this->rxpkts() != 0) {
+  // optional uint32 RxPackets = 20;
+  if (this->rxpackets() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->rxpkts());
+        this->rxpackets());
+  }
+
+  // optional uint32 RxMgmtPkts = 21;
+  if (this->rxmgmtpkts() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxmgmtpkts());
+  }
+
+  // optional uint32 RxCtrlPkts = 22;
+  if (this->rxctrlpkts() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxctrlpkts());
+  }
+
+  // optional uint32 RxDataPkts = 23;
+  if (this->rxdatapkts() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxdatapkts());
+  }
+
+  // optional uint32 RxDataAmpdus = 24;
+  if (this->rxdataampdus() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxdataampdus());
+  }
+
+  // optional uint64 RxDataBytes = 25;
+  if (this->rxdatabytes() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->rxdatabytes());
+  }
+
+  // optional uint32 RxBitRate = 26;
+  if (this->rxbitrate() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxbitrate());
+  }
+
+  // optional uint32 RxAvgBps = 27;
+  if (this->rxavgbps() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxavgbps());
+  }
+
+  // optional int32 RxAvgRssi = 28;
+  if (this->rxavgrssi() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->rxavgrssi());
+  }
+
+  // optional uint32 RxLastRate = 29;
+  if (this->rxlastrate() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->rxlastrate());
   }
 
   // repeated int32 AntennaRSSI = 11;
@@ -9613,6 +11276,28 @@ size_t APClientEntry::ByteSizeLong() const {
     _antennarssi_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
+  }
+
+  // repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+  {
+    unsigned int count = this->legacyrates_size();
+    total_size += 2UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->legacyrates(i));
+    }
+  }
+
+  // repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+  {
+    unsigned int count = this->htvhtrates_size();
+    total_size += 2UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->htvhtrates(i));
+    }
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -9649,9 +11334,15 @@ void APClientEntry::MergeFrom(const APClientEntry& from) {
 void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
   GOOGLE_DCHECK(&from != this);
   antennarssi_.UnsafeMergeFrom(from.antennarssi_);
+  legacyrates_.MergeFrom(from.legacyrates_);
+  htvhtrates_.MergeFrom(from.htvhtrates_);
   if (from.mac().size() > 0) {
 
     mac_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mac_);
+  }
+  if (from.ip().size() > 0) {
+
+    ip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_);
   }
   if (from.radioindex() != 0) {
     set_radioindex(from.radioindex());
@@ -9675,20 +11366,59 @@ void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
   if (from.nf() != 0) {
     set_nf(from.nf());
   }
+  if (from.txpackets() != 0) {
+    set_txpackets(from.txpackets());
+  }
+  if (from.txmgmtpkts() != 0) {
+    set_txmgmtpkts(from.txmgmtpkts());
+  }
+  if (from.txdatapkts() != 0) {
+    set_txdatapkts(from.txdatapkts());
+  }
+  if (from.txdataampdus() != 0) {
+    set_txdataampdus(from.txdataampdus());
+  }
+  if (from.txdatabytes() != 0) {
+    set_txdatabytes(from.txdatabytes());
+  }
+  if (from.txunicastdatapkts() != 0) {
+    set_txunicastdatapkts(from.txunicastdatapkts());
+  }
+  if (from.txfailedpkts() != 0) {
+    set_txfailedpkts(from.txfailedpkts());
+  }
   if (from.txbitrate() != 0) {
     set_txbitrate(from.txbitrate());
   }
-  if (from.txunicastbytes() != 0) {
-    set_txunicastbytes(from.txunicastbytes());
+  if (from.rxpackets() != 0) {
+    set_rxpackets(from.rxpackets());
   }
-  if (from.txunicastpkts() != 0) {
-    set_txunicastpkts(from.txunicastpkts());
+  if (from.rxmgmtpkts() != 0) {
+    set_rxmgmtpkts(from.rxmgmtpkts());
   }
-  if (from.rxbytes() != 0) {
-    set_rxbytes(from.rxbytes());
+  if (from.rxctrlpkts() != 0) {
+    set_rxctrlpkts(from.rxctrlpkts());
   }
-  if (from.rxpkts() != 0) {
-    set_rxpkts(from.rxpkts());
+  if (from.rxdatapkts() != 0) {
+    set_rxdatapkts(from.rxdatapkts());
+  }
+  if (from.rxdataampdus() != 0) {
+    set_rxdataampdus(from.rxdataampdus());
+  }
+  if (from.rxdatabytes() != 0) {
+    set_rxdatabytes(from.rxdatabytes());
+  }
+  if (from.rxbitrate() != 0) {
+    set_rxbitrate(from.rxbitrate());
+  }
+  if (from.rxavgbps() != 0) {
+    set_rxavgbps(from.rxavgbps());
+  }
+  if (from.rxavgrssi() != 0) {
+    set_rxavgrssi(from.rxavgrssi());
+  }
+  if (from.rxlastrate() != 0) {
+    set_rxlastrate(from.rxlastrate());
   }
 }
 
@@ -9717,6 +11447,7 @@ void APClientEntry::Swap(APClientEntry* other) {
 }
 void APClientEntry::InternalSwap(APClientEntry* other) {
   mac_.Swap(&other->mac_);
+  ip_.Swap(&other->ip_);
   std::swap(radioindex_, other->radioindex_);
   band_.Swap(&other->band_);
   std::swap(wlan_, other->wlan_);
@@ -9725,11 +11456,26 @@ void APClientEntry::InternalSwap(APClientEntry* other) {
   std::swap(rssi_, other->rssi_);
   std::swap(nf_, other->nf_);
   antennarssi_.UnsafeArenaSwap(&other->antennarssi_);
+  std::swap(txpackets_, other->txpackets_);
+  std::swap(txmgmtpkts_, other->txmgmtpkts_);
+  std::swap(txdatapkts_, other->txdatapkts_);
+  std::swap(txdataampdus_, other->txdataampdus_);
+  std::swap(txdatabytes_, other->txdatabytes_);
+  std::swap(txunicastdatapkts_, other->txunicastdatapkts_);
+  std::swap(txfailedpkts_, other->txfailedpkts_);
   std::swap(txbitrate_, other->txbitrate_);
-  std::swap(txunicastbytes_, other->txunicastbytes_);
-  std::swap(txunicastpkts_, other->txunicastpkts_);
-  std::swap(rxbytes_, other->rxbytes_);
-  std::swap(rxpkts_, other->rxpkts_);
+  std::swap(rxpackets_, other->rxpackets_);
+  std::swap(rxmgmtpkts_, other->rxmgmtpkts_);
+  std::swap(rxctrlpkts_, other->rxctrlpkts_);
+  std::swap(rxdatapkts_, other->rxdatapkts_);
+  std::swap(rxdataampdus_, other->rxdataampdus_);
+  std::swap(rxdatabytes_, other->rxdatabytes_);
+  std::swap(rxbitrate_, other->rxbitrate_);
+  std::swap(rxavgbps_, other->rxavgbps_);
+  std::swap(rxavgrssi_, other->rxavgrssi_);
+  std::swap(rxlastrate_, other->rxlastrate_);
+  legacyrates_.UnsafeArenaSwap(&other->legacyrates_);
+  htvhtrates_.UnsafeArenaSwap(&other->htvhtrates_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -9789,7 +11535,51 @@ void APClientEntry::set_allocated_mac(::std::string* mac) {
   // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.MAC)
 }
 
-// optional uint32 RadioIndex = 3;
+// optional string IP = 3;
+void APClientEntry::clear_ip() {
+  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& APClientEntry::ip() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.IP)
+  return ip_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientEntry::set_ip(const ::std::string& value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.IP)
+}
+void APClientEntry::set_ip(const char* value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.IP)
+}
+void APClientEntry::set_ip(const char* value, size_t size) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.IP)
+}
+::std::string* APClientEntry::mutable_ip() {
+  
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.IP)
+  return ip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* APClientEntry::release_ip() {
+  // @@protoc_insertion_point(field_release:cheetah.APClientEntry.IP)
+  
+  return ip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void APClientEntry::set_allocated_ip(::std::string* ip) {
+  if (ip != NULL) {
+    
+  } else {
+    
+  }
+  ip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ip);
+  // @@protoc_insertion_point(field_set_allocated:cheetah.APClientEntry.IP)
+}
+
+// optional uint32 RadioIndex = 4;
 void APClientEntry::clear_radioindex() {
   radioindex_ = 0u;
 }
@@ -9803,7 +11593,7 @@ void APClientEntry::set_radioindex(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RadioIndex)
 }
 
-// optional string Band = 4;
+// optional string Band = 5;
 void APClientEntry::clear_band() {
   band_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9972,74 +11762,316 @@ APClientEntry::mutable_antennarssi() {
   return &antennarssi_;
 }
 
-// optional int32 TxBitRate = 12;
-void APClientEntry::clear_txbitrate() {
-  txbitrate_ = 0;
+// optional uint32 TxPackets = 12;
+void APClientEntry::clear_txpackets() {
+  txpackets_ = 0u;
 }
-::google::protobuf::int32 APClientEntry::txbitrate() const {
+::google::protobuf::uint32 APClientEntry::txpackets() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxPackets)
+  return txpackets_;
+}
+void APClientEntry::set_txpackets(::google::protobuf::uint32 value) {
+  
+  txpackets_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxPackets)
+}
+
+// optional uint32 TxMgmtPkts = 13;
+void APClientEntry::clear_txmgmtpkts() {
+  txmgmtpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txmgmtpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxMgmtPkts)
+  return txmgmtpkts_;
+}
+void APClientEntry::set_txmgmtpkts(::google::protobuf::uint32 value) {
+  
+  txmgmtpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxMgmtPkts)
+}
+
+// optional uint32 TxDataPkts = 14;
+void APClientEntry::clear_txdatapkts() {
+  txdatapkts_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataPkts)
+  return txdatapkts_;
+}
+void APClientEntry::set_txdatapkts(::google::protobuf::uint32 value) {
+  
+  txdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataPkts)
+}
+
+// optional uint32 TxDataAmpdus = 15;
+void APClientEntry::clear_txdataampdus() {
+  txdataampdus_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txdataampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataAmpdus)
+  return txdataampdus_;
+}
+void APClientEntry::set_txdataampdus(::google::protobuf::uint32 value) {
+  
+  txdataampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataAmpdus)
+}
+
+// optional uint64 TxDataBytes = 16;
+void APClientEntry::clear_txdatabytes() {
+  txdatabytes_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 APClientEntry::txdatabytes() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxDataBytes)
+  return txdatabytes_;
+}
+void APClientEntry::set_txdatabytes(::google::protobuf::uint64 value) {
+  
+  txdatabytes_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxDataBytes)
+}
+
+// optional uint32 TxUnicastDataPkts = 17;
+void APClientEntry::clear_txunicastdatapkts() {
+  txunicastdatapkts_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txunicastdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastDataPkts)
+  return txunicastdatapkts_;
+}
+void APClientEntry::set_txunicastdatapkts(::google::protobuf::uint32 value) {
+  
+  txunicastdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastDataPkts)
+}
+
+// optional uint32 TxFailedPkts = 18;
+void APClientEntry::clear_txfailedpkts() {
+  txfailedpkts_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txfailedpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxFailedPkts)
+  return txfailedpkts_;
+}
+void APClientEntry::set_txfailedpkts(::google::protobuf::uint32 value) {
+  
+  txfailedpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxFailedPkts)
+}
+
+// optional uint32 TxBitRate = 19;
+void APClientEntry::clear_txbitrate() {
+  txbitrate_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::txbitrate() const {
   // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxBitRate)
   return txbitrate_;
 }
-void APClientEntry::set_txbitrate(::google::protobuf::int32 value) {
+void APClientEntry::set_txbitrate(::google::protobuf::uint32 value) {
   
   txbitrate_ = value;
   // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxBitRate)
 }
 
-// optional uint64 TxUnicastBytes = 13;
-void APClientEntry::clear_txunicastbytes() {
-  txunicastbytes_ = GOOGLE_ULONGLONG(0);
+// optional uint32 RxPackets = 20;
+void APClientEntry::clear_rxpackets() {
+  rxpackets_ = 0u;
 }
-::google::protobuf::uint64 APClientEntry::txunicastbytes() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastBytes)
-  return txunicastbytes_;
+::google::protobuf::uint32 APClientEntry::rxpackets() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxPackets)
+  return rxpackets_;
 }
-void APClientEntry::set_txunicastbytes(::google::protobuf::uint64 value) {
+void APClientEntry::set_rxpackets(::google::protobuf::uint32 value) {
   
-  txunicastbytes_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastBytes)
+  rxpackets_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxPackets)
 }
 
-// optional uint32 TxUnicastPkts = 14;
-void APClientEntry::clear_txunicastpkts() {
-  txunicastpkts_ = 0u;
+// optional uint32 RxMgmtPkts = 21;
+void APClientEntry::clear_rxmgmtpkts() {
+  rxmgmtpkts_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::txunicastpkts() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.TxUnicastPkts)
-  return txunicastpkts_;
+::google::protobuf::uint32 APClientEntry::rxmgmtpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxMgmtPkts)
+  return rxmgmtpkts_;
 }
-void APClientEntry::set_txunicastpkts(::google::protobuf::uint32 value) {
+void APClientEntry::set_rxmgmtpkts(::google::protobuf::uint32 value) {
   
-  txunicastpkts_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.TxUnicastPkts)
+  rxmgmtpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxMgmtPkts)
 }
 
-// optional uint64 RxBytes = 15;
-void APClientEntry::clear_rxbytes() {
-  rxbytes_ = GOOGLE_ULONGLONG(0);
+// optional uint32 RxCtrlPkts = 22;
+void APClientEntry::clear_rxctrlpkts() {
+  rxctrlpkts_ = 0u;
 }
-::google::protobuf::uint64 APClientEntry::rxbytes() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxBytes)
-  return rxbytes_;
+::google::protobuf::uint32 APClientEntry::rxctrlpkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxCtrlPkts)
+  return rxctrlpkts_;
 }
-void APClientEntry::set_rxbytes(::google::protobuf::uint64 value) {
+void APClientEntry::set_rxctrlpkts(::google::protobuf::uint32 value) {
   
-  rxbytes_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxBytes)
+  rxctrlpkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxCtrlPkts)
 }
 
-// optional uint32 RxPkts = 16;
-void APClientEntry::clear_rxpkts() {
-  rxpkts_ = 0u;
+// optional uint32 RxDataPkts = 23;
+void APClientEntry::clear_rxdatapkts() {
+  rxdatapkts_ = 0u;
 }
-::google::protobuf::uint32 APClientEntry::rxpkts() const {
-  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxPkts)
-  return rxpkts_;
+::google::protobuf::uint32 APClientEntry::rxdatapkts() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataPkts)
+  return rxdatapkts_;
 }
-void APClientEntry::set_rxpkts(::google::protobuf::uint32 value) {
+void APClientEntry::set_rxdatapkts(::google::protobuf::uint32 value) {
   
-  rxpkts_ = value;
-  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxPkts)
+  rxdatapkts_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataPkts)
+}
+
+// optional uint32 RxDataAmpdus = 24;
+void APClientEntry::clear_rxdataampdus() {
+  rxdataampdus_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::rxdataampdus() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataAmpdus)
+  return rxdataampdus_;
+}
+void APClientEntry::set_rxdataampdus(::google::protobuf::uint32 value) {
+  
+  rxdataampdus_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataAmpdus)
+}
+
+// optional uint64 RxDataBytes = 25;
+void APClientEntry::clear_rxdatabytes() {
+  rxdatabytes_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 APClientEntry::rxdatabytes() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxDataBytes)
+  return rxdatabytes_;
+}
+void APClientEntry::set_rxdatabytes(::google::protobuf::uint64 value) {
+  
+  rxdatabytes_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxDataBytes)
+}
+
+// optional uint32 RxBitRate = 26;
+void APClientEntry::clear_rxbitrate() {
+  rxbitrate_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::rxbitrate() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxBitRate)
+  return rxbitrate_;
+}
+void APClientEntry::set_rxbitrate(::google::protobuf::uint32 value) {
+  
+  rxbitrate_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxBitRate)
+}
+
+// optional uint32 RxAvgBps = 27;
+void APClientEntry::clear_rxavgbps() {
+  rxavgbps_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::rxavgbps() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxAvgBps)
+  return rxavgbps_;
+}
+void APClientEntry::set_rxavgbps(::google::protobuf::uint32 value) {
+  
+  rxavgbps_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxAvgBps)
+}
+
+// optional int32 RxAvgRssi = 28;
+void APClientEntry::clear_rxavgrssi() {
+  rxavgrssi_ = 0;
+}
+::google::protobuf::int32 APClientEntry::rxavgrssi() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxAvgRssi)
+  return rxavgrssi_;
+}
+void APClientEntry::set_rxavgrssi(::google::protobuf::int32 value) {
+  
+  rxavgrssi_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxAvgRssi)
+}
+
+// optional uint32 RxLastRate = 29;
+void APClientEntry::clear_rxlastrate() {
+  rxlastrate_ = 0u;
+}
+::google::protobuf::uint32 APClientEntry::rxlastrate() const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.RxLastRate)
+  return rxlastrate_;
+}
+void APClientEntry::set_rxlastrate(::google::protobuf::uint32 value) {
+  
+  rxlastrate_ = value;
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.RxLastRate)
+}
+
+// repeated .cheetah.APClientLegacyRateEntry LegacyRates = 30;
+int APClientEntry::legacyrates_size() const {
+  return legacyrates_.size();
+}
+void APClientEntry::clear_legacyrates() {
+  legacyrates_.Clear();
+}
+const ::cheetah::APClientLegacyRateEntry& APClientEntry::legacyrates(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Get(index);
+}
+::cheetah::APClientLegacyRateEntry* APClientEntry::mutable_legacyrates(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Mutable(index);
+}
+::cheetah::APClientLegacyRateEntry* APClientEntry::add_legacyrates() {
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >*
+APClientEntry::mutable_legacyrates() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.LegacyRates)
+  return &legacyrates_;
+}
+const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry >&
+APClientEntry::legacyrates() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.LegacyRates)
+  return legacyrates_;
+}
+
+// repeated .cheetah.APClientHTVHTRateEntry HTVHTRates = 31;
+int APClientEntry::htvhtrates_size() const {
+  return htvhtrates_.size();
+}
+void APClientEntry::clear_htvhtrates() {
+  htvhtrates_.Clear();
+}
+const ::cheetah::APClientHTVHTRateEntry& APClientEntry::htvhtrates(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Get(index);
+}
+::cheetah::APClientHTVHTRateEntry* APClientEntry::mutable_htvhtrates(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Mutable(index);
+}
+::cheetah::APClientHTVHTRateEntry* APClientEntry::add_htvhtrates() {
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >*
+APClientEntry::mutable_htvhtrates() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.HTVHTRates)
+  return &htvhtrates_;
+}
+const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >&
+APClientEntry::htvhtrates() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.HTVHTRates)
+  return htvhtrates_;
 }
 
 inline const APClientEntry* APClientEntry::internal_default_instance() {

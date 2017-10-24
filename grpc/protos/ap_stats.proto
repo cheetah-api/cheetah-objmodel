@@ -72,7 +72,7 @@ enum StatsTimeInterval {
     AP_STATS_ZERO_TIME_INTERVAL = 0;
 
     // Minimum requested interval for push notifications
-    AP_STATS_MIN_TIME_INTERVAL = 5;
+    AP_STATS_MIN_TIME_INTERVAL = 30;
 }
 
 // Request message for statistics
@@ -344,6 +344,46 @@ message APRadioStatsMsgRsp {
     repeated RadioEntry Radios = 1;
 }
 
+message APClientLegacyRateEntry {
+
+    // displaying format of this entry (Mbps: Rx, Tx, Tx-Retries)
+    // legacy rate
+    string mbps = 1;
+
+    // number of rx packets
+    uint32 rxPkts = 2;
+
+    // number of tx packets
+    uint32 txPkts = 3;
+
+    // number of tx retries
+    uint32 txRetries = 4;
+}
+
+message APClientHTVHTRateEntry {
+
+    // displaying format of this entry (Rate/SS/Width: Rx, Rx-Ampdu, Tx, Tx-Ampdu, Tx-Retries)
+
+    // string rate/ss/width
+    string mcsStr = 1;
+
+    // number of rx packets
+    uint32 rxPkts = 2;
+
+    // number of rx AMPDUs
+    uint32 rxAmpdus = 3;
+
+    // number of tx packets
+    uint32 txPkts = 4;
+
+    // number of tx AMPDUs
+    uint32 txAmpdus = 5;
+
+    // number of tx retries
+    uint32 txRetries = 6;
+
+}
+
 // Client entry
 message APClientEntry {
     // These first 3 fields form a triplet which uniquely determines
@@ -352,12 +392,15 @@ message APClientEntry {
     // The client's MAC address
     string MAC = 2;
 
+    // The client's IP address
+    string IP = 3;
+
     // index into the RadioStats array of the radio the client is
     // associated with
-    uint32 RadioIndex = 3;
+    uint32 RadioIndex = 4;
 
     // wifi band (2.4, 5) the client is associated on
-    string Band = 4;
+    string Band = 5;
 
     // WLAN information
     WLAN Wlan = 6;
@@ -378,22 +421,65 @@ message APClientEntry {
     // raw RSSIs
     repeated int32 AntennaRSSI = 11;
 
+    // tx packets
+    uint32 TxPackets = 12;
+
+    // tx management packets
+    uint32 TxMgmtPkts = 13;
+
+    // tx data packets
+    uint32 TxDataPkts = 14;
+
+    // tx data ampuds
+    uint32 TxDataAmpdus = 15;
+
+    // tx data bytes
+    uint64 TxDataBytes = 16;
+
+    // tx unicast data packets
+    uint32 TxUnicastDataPkts = 17;
+
+    // tx failed packets
+    uint32 TxFailedPkts = 18;
+
     // rate used by last successfull (acked) tx
-    int32 TxBitRate = 12;
+    uint32 TxBitRate = 19;
 
-    // bytes sent directly to the WC
-    // (including the results of mc->uc conversions)
-    uint64 TxUnicastBytes = 13;
+    // rx packets
+    uint32 RxPackets = 20;
 
-    // pkts sent directly to the WC
-    // (including the results of mc->uc conversions)
-    uint32 TxUnicastPkts = 14;
+    // rx management packets
+    uint32 RxMgmtPkts = 21;
 
-    // total bytes, including RxMcastBytes
-    uint64 RxBytes = 15;
+    // rx control packets
+    uint32 RxCtrlPkts = 22;
 
-    // total packets, including RxMcastPkts
-    uint32 RxPkts = 16;
+    // rx data packets
+    uint32 RxDataPkts = 23;
+
+    // rx data ampuds
+    uint32 RxDataAmpdus = 24;
+
+    // rx data bytes
+    uint64 RxDataBytes = 25;
+
+    // rx host ppdu len in bits divided by air_time
+    uint32 RxBitRate = 26;
+
+    // rx delta data bits since last receive divided by delta time
+    uint32 RxAvgBps = 27;
+
+    // rx data rssi accumulated since last receive divided by delta time
+    int32 RxAvgRssi = 28;
+
+    // rx last received rate
+    uint32 RxLastRate = 29;
+
+    // legacy rate stats
+    repeated APClientLegacyRateEntry LegacyRates = 30;
+
+    // ht/vht rate stats
+    repeated APClientHTVHTRateEntry HTVHTRates = 31;
 }
 
 // AP Client statistics
