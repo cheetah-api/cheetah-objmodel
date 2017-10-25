@@ -781,10 +781,15 @@ struct  _Cheetah__APClientEntry
    */
   size_t n_htvhtrates;
   Cheetah__APClientHTVHTRateEntry **htvhtrates;
+  /*
+   * UserAgent
+   */
+  size_t n_useragent;
+  char **useragent;
 };
 #define CHEETAH__APCLIENT_ENTRY__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&cheetah__apclient_entry__descriptor) \
-    , (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string, 0, (char *)protobuf_c_empty_string, NULL, 0, 0, 0, 0, 0,NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,NULL, 0,NULL }
+    , (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string, 0, (char *)protobuf_c_empty_string, NULL, 0, 0, 0, 0, 0,NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,NULL, 0,NULL, 0,NULL }
 
 
 /*

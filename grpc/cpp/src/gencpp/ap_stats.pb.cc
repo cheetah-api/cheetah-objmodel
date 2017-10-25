@@ -454,7 +454,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
       sizeof(APClientHTVHTRateEntry),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientHTVHTRateEntry, _internal_metadata_));
   APClientEntry_descriptor_ = file->message_type(20);
-  static const int APClientEntry_offsets_[30] = {
+  static const int APClientEntry_offsets_[31] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, mac_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, radioindex_),
@@ -485,6 +485,7 @@ void protobuf_AssignDesc_ap_5fstats_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, rxlastrate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, legacyrates_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, htvhtrates_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APClientEntry, useragent_),
   };
   APClientEntry_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -820,7 +821,7 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "\030\003 \001(\r\022\021\n\ttxRetries\030\004 \001(\r\"\177\n\026APClientHTV"
     "HTRateEntry\022\016\n\006mcsStr\030\001 \001(\t\022\016\n\006rxPkts\030\002 "
     "\001(\r\022\020\n\010rxAmpdus\030\003 \001(\r\022\016\n\006txPkts\030\004 \001(\r\022\020\n"
-    "\010txAmpdus\030\005 \001(\r\022\021\n\ttxRetries\030\006 \001(\r\"\252\005\n\rA"
+    "\010txAmpdus\030\005 \001(\r\022\021\n\ttxRetries\030\006 \001(\r\"\275\005\n\rA"
     "PClientEntry\022\013\n\003MAC\030\002 \001(\t\022\n\n\002IP\030\003 \001(\t\022\022\n"
     "\nRadioIndex\030\004 \001(\r\022\014\n\004Band\030\005 \001(\t\022\033\n\004Wlan\030"
     "\006 \001(\0132\r.cheetah.WLAN\022\030\n\020ConnectedTimeSec"
@@ -837,38 +838,38 @@ void protobuf_AddDesc_ap_5fstats_2eproto_impl() {
     "AvgBps\030\033 \001(\r\022\021\n\tRxAvgRssi\030\034 \001(\005\022\022\n\nRxLas"
     "tRate\030\035 \001(\r\0225\n\013LegacyRates\030\036 \003(\0132 .cheet"
     "ah.APClientLegacyRateEntry\0223\n\nHTVHTRates"
-    "\030\037 \003(\0132\037.cheetah.APClientHTVHTRateEntry\""
-    ">\n\023APClientStatsMsgRsp\022\'\n\007Clients\030\001 \003(\0132"
-    "\026.cheetah.APClientEntry\"\247\001\n\020APInterfaceE"
-    "ntry\022\014\n\004Name\030\001 \001(\t\022\014\n\004Link\030\002 \001(\010\022\022\n\nFull"
-    "Duplex\030\003 \001(\010\022\r\n\005Speed\030\004 \001(\r\022\017\n\007RxBytes\030\005"
-    " \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022\022\n\nRxDiscards\030\007 \001(\r"
-    "\022\017\n\007TxBytes\030\010 \001(\004\022\016\n\006TxPkts\030\t \001(\r\"G\n\026API"
-    "nterfaceStatsMsgRsp\022-\n\nInterfaces\030\001 \003(\0132"
-    "\031.cheetah.APInterfaceEntry\"\351\003\n\rAPStatsMs"
-    "gRsp\022)\n\tErrStatus\030\001 \001(\0132\026.cheetah.APErro"
-    "rStatus\0223\n\013SystemStats\030\002 \001(\0132\034.cheetah.A"
-    "PSystemStatsMsgRspH\000\0223\n\013MemoryStats\030\003 \001("
-    "\0132\034.cheetah.APMemoryStatsMsgRspH\000\0229\n\016Int"
-    "erfaceStats\030\004 \001(\0132\037.cheetah.APInterfaceS"
-    "tatsMsgRspH\000\0225\n\014RoutingStats\030\005 \001(\0132\035.che"
-    "etah.APRoutingStatsMsgRspH\000\022-\n\010DNSStats\030"
-    "\006 \001(\0132\031.cheetah.APDNSStatsMsgRspH\000\0221\n\nRa"
-    "dioStats\030\007 \001(\0132\033.cheetah.APRadioStatsMsg"
-    "RspH\000\022/\n\tWLANStats\030\010 \001(\0132\032.cheetah.APWLA"
-    "NStatsMsgRspH\000\0223\n\013ClientStats\030\t \001(\0132\034.ch"
-    "eetah.APClientStatsMsgRspH\000B\t\n\007msg_rsp*\304"
-    "\001\n\013APStatsType\022\017\n\013AP_RESERVED\020\000\022\023\n\017AP_SY"
-    "STEM_STATS\020\001\022\023\n\017AP_MEMORY_STATS\020\002\022\026\n\022AP_"
-    "INTERFACE_STATS\020\003\022\024\n\020AP_ROUTING_STATS\020\004\022"
-    "\020\n\014AP_DNS_STATS\020\005\022\022\n\016AP_RADIO_STATS\020\006\022\021\n"
-    "\rAP_WLAN_STATS\020\007\022\023\n\017AP_CLIENT_STATS\020\010*v\n"
-    "\021StatsTimeInterval\022\034\n\030AP_STATS_UNARY_OPE"
-    "RATION\020\000\022\037\n\033AP_STATS_ZERO_TIME_INTERVAL\020"
-    "\000\022\036\n\032AP_STATS_MIN_TIME_INTERVAL\020\036\032\002\020\0012K\n"
-    "\014APStatistics\022;\n\nAPStatsGet\022\023.cheetah.AP"
-    "StatsMsg\032\026.cheetah.APStatsMsgRsp0\001b\006prot"
-    "o3", 3842);
+    "\030\037 \003(\0132\037.cheetah.APClientHTVHTRateEntry\022"
+    "\021\n\tUserAgent\030  \003(\t\">\n\023APClientStatsMsgRs"
+    "p\022\'\n\007Clients\030\001 \003(\0132\026.cheetah.APClientEnt"
+    "ry\"\247\001\n\020APInterfaceEntry\022\014\n\004Name\030\001 \001(\t\022\014\n"
+    "\004Link\030\002 \001(\010\022\022\n\nFullDuplex\030\003 \001(\010\022\r\n\005Speed"
+    "\030\004 \001(\r\022\017\n\007RxBytes\030\005 \001(\004\022\016\n\006RxPkts\030\006 \001(\r\022"
+    "\022\n\nRxDiscards\030\007 \001(\r\022\017\n\007TxBytes\030\010 \001(\004\022\016\n\006"
+    "TxPkts\030\t \001(\r\"G\n\026APInterfaceStatsMsgRsp\022-"
+    "\n\nInterfaces\030\001 \003(\0132\031.cheetah.APInterface"
+    "Entry\"\351\003\n\rAPStatsMsgRsp\022)\n\tErrStatus\030\001 \001"
+    "(\0132\026.cheetah.APErrorStatus\0223\n\013SystemStat"
+    "s\030\002 \001(\0132\034.cheetah.APSystemStatsMsgRspH\000\022"
+    "3\n\013MemoryStats\030\003 \001(\0132\034.cheetah.APMemoryS"
+    "tatsMsgRspH\000\0229\n\016InterfaceStats\030\004 \001(\0132\037.c"
+    "heetah.APInterfaceStatsMsgRspH\000\0225\n\014Routi"
+    "ngStats\030\005 \001(\0132\035.cheetah.APRoutingStatsMs"
+    "gRspH\000\022-\n\010DNSStats\030\006 \001(\0132\031.cheetah.APDNS"
+    "StatsMsgRspH\000\0221\n\nRadioStats\030\007 \001(\0132\033.chee"
+    "tah.APRadioStatsMsgRspH\000\022/\n\tWLANStats\030\010 "
+    "\001(\0132\032.cheetah.APWLANStatsMsgRspH\000\0223\n\013Cli"
+    "entStats\030\t \001(\0132\034.cheetah.APClientStatsMs"
+    "gRspH\000B\t\n\007msg_rsp*\304\001\n\013APStatsType\022\017\n\013AP_"
+    "RESERVED\020\000\022\023\n\017AP_SYSTEM_STATS\020\001\022\023\n\017AP_ME"
+    "MORY_STATS\020\002\022\026\n\022AP_INTERFACE_STATS\020\003\022\024\n\020"
+    "AP_ROUTING_STATS\020\004\022\020\n\014AP_DNS_STATS\020\005\022\022\n\016"
+    "AP_RADIO_STATS\020\006\022\021\n\rAP_WLAN_STATS\020\007\022\023\n\017A"
+    "P_CLIENT_STATS\020\010*v\n\021StatsTimeInterval\022\034\n"
+    "\030AP_STATS_UNARY_OPERATION\020\000\022\037\n\033AP_STATS_"
+    "ZERO_TIME_INTERVAL\020\000\022\036\n\032AP_STATS_MIN_TIM"
+    "E_INTERVAL\020\036\032\002\020\0012K\n\014APStatistics\022;\n\nAPSt"
+    "atsGet\022\023.cheetah.APStatsMsg\032\026.cheetah.AP"
+    "StatsMsgRsp0\001b\006proto3", 3861);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ap_stats.proto", &protobuf_RegisterTypes);
   ::cheetah::protobuf_AddDesc_ap_5fcommon_5ftypes_2eproto();
@@ -10099,6 +10100,7 @@ const int APClientEntry::kRxAvgRssiFieldNumber;
 const int APClientEntry::kRxLastRateFieldNumber;
 const int APClientEntry::kLegacyRatesFieldNumber;
 const int APClientEntry::kHTVHTRatesFieldNumber;
+const int APClientEntry::kUserAgentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 APClientEntry::APClientEntry()
@@ -10204,6 +10206,7 @@ void APClientEntry::Clear() {
   antennarssi_.Clear();
   legacyrates_.Clear();
   htvhtrates_.Clear();
+  useragent_.Clear();
 }
 
 bool APClientEntry::MergePartialFromCodedStream(
@@ -10671,6 +10674,25 @@ bool APClientEntry::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(250)) goto parse_loop_HTVHTRates;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(258)) goto parse_UserAgent;
+        break;
+      }
+
+      // repeated string UserAgent = 32;
+      case 32: {
+        if (tag == 258) {
+         parse_UserAgent:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_useragent()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->useragent(this->useragent_size() - 1).data(),
+            this->useragent(this->useragent_size() - 1).length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "cheetah.APClientEntry.UserAgent"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(258)) goto parse_UserAgent;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -10872,6 +10894,16 @@ void APClientEntry::SerializeWithCachedSizes(
       31, this->htvhtrates(i), output);
   }
 
+  // repeated string UserAgent = 32;
+  for (int i = 0; i < this->useragent_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->useragent(i).data(), this->useragent(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientEntry.UserAgent");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      32, this->useragent(i), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:cheetah.APClientEntry)
 }
 
@@ -11060,6 +11092,16 @@ void APClientEntry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         31, this->htvhtrates(i), false, target);
+  }
+
+  // repeated string UserAgent = 32;
+  for (int i = 0; i < this->useragent_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->useragent(i).data(), this->useragent(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "cheetah.APClientEntry.UserAgent");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(32, this->useragent(i), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:cheetah.APClientEntry)
@@ -11300,6 +11342,14 @@ size_t APClientEntry::ByteSizeLong() const {
     }
   }
 
+  // repeated string UserAgent = 32;
+  total_size += 2 *
+      ::google::protobuf::internal::FromIntSize(this->useragent_size());
+  for (int i = 0; i < this->useragent_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->useragent(i));
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -11336,6 +11386,7 @@ void APClientEntry::UnsafeMergeFrom(const APClientEntry& from) {
   antennarssi_.UnsafeMergeFrom(from.antennarssi_);
   legacyrates_.MergeFrom(from.legacyrates_);
   htvhtrates_.MergeFrom(from.htvhtrates_);
+  useragent_.UnsafeMergeFrom(from.useragent_);
   if (from.mac().size() > 0) {
 
     mac_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mac_);
@@ -11476,6 +11527,7 @@ void APClientEntry::InternalSwap(APClientEntry* other) {
   std::swap(rxlastrate_, other->rxlastrate_);
   legacyrates_.UnsafeArenaSwap(&other->legacyrates_);
   htvhtrates_.UnsafeArenaSwap(&other->htvhtrates_);
+  useragent_.UnsafeArenaSwap(&other->useragent_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -12072,6 +12124,61 @@ const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >&
 APClientEntry::htvhtrates() const {
   // @@protoc_insertion_point(field_list:cheetah.APClientEntry.HTVHTRates)
   return htvhtrates_;
+}
+
+// repeated string UserAgent = 32;
+int APClientEntry::useragent_size() const {
+  return useragent_.size();
+}
+void APClientEntry::clear_useragent() {
+  useragent_.Clear();
+}
+const ::std::string& APClientEntry::useragent(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.UserAgent)
+  return useragent_.Get(index);
+}
+::std::string* APClientEntry::mutable_useragent(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.UserAgent)
+  return useragent_.Mutable(index);
+}
+void APClientEntry::set_useragent(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.UserAgent)
+  useragent_.Mutable(index)->assign(value);
+}
+void APClientEntry::set_useragent(int index, const char* value) {
+  useragent_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.UserAgent)
+}
+void APClientEntry::set_useragent(int index, const char* value, size_t size) {
+  useragent_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.UserAgent)
+}
+::std::string* APClientEntry::add_useragent() {
+  // @@protoc_insertion_point(field_add_mutable:cheetah.APClientEntry.UserAgent)
+  return useragent_.Add();
+}
+void APClientEntry::add_useragent(const ::std::string& value) {
+  useragent_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.UserAgent)
+}
+void APClientEntry::add_useragent(const char* value) {
+  useragent_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:cheetah.APClientEntry.UserAgent)
+}
+void APClientEntry::add_useragent(const char* value, size_t size) {
+  useragent_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:cheetah.APClientEntry.UserAgent)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+APClientEntry::useragent() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.UserAgent)
+  return useragent_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+APClientEntry::mutable_useragent() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.UserAgent)
+  return &useragent_;
 }
 
 inline const APClientEntry* APClientEntry::internal_default_instance() {

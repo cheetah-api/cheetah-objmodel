@@ -942,7 +942,8 @@ func getClientIP(mac string) string {
 
 func fillClientEntry(values map[string]string,
 	legacyRate map[string]string,
-	HTVHTRate map[string]string) *pb.APClientEntry {
+	HTVHTRate map[string]string,
+	UserAgent *[]string) *pb.APClientEntry {
 	var val uint64
 	var int_val int64
 
@@ -1093,12 +1094,16 @@ func fillClientEntry(values map[string]string,
 		HTVHTEntries = append(HTVHTEntries, HTVHTOne)
 	}
 	client.HTVHTRates = HTVHTEntries
+
+	/* UserAgent */
+	client.UserAgent = *UserAgent
 	return client
 }
 
 func getClientWifiStats(fmap map[string]string,
 	legacyRate map[string]string,
-	HTVHTRate map[string]string) {
+	HTVHTRate map[string]string
+	UserAgent *[]string) {
 
 	var lineIndex int
 	cmdStr := fmt.Sprintf("click_read %s %s", CLIENT_WIFI_STATS, fmap["MAC"])
@@ -1148,7 +1153,7 @@ func getClientWifiStats(fmap map[string]string,
 		values := strings.SplitN(sline, ":", 2)
 		legacyRate[strings.TrimSpace(values[0])] = strings.TrimSpace(values[1])
 	}
-	for _, sline := range lines[lineIndex:] {
+	for i, sline := range lines[lineIndex:] {
 		if sline == "" {
 			continue
 		}
@@ -1159,12 +1164,28 @@ func getClientWifiStats(fmap map[string]string,
 			continue
 		}
 		if strings.HasPrefix(sline, "TID") {
+			lineIndex += (i + 1)
 			break
 		}
 		values := strings.SplitN(sline, ":", 2)
 		HTVHTRate[strings.TrimSpace(values[0])] = strings.TrimSpace(values[1])
 	}
-
+	for i, sline := range lines[lineIndex:] {
+		if sline == "" {
+			continue
+		}
+		if strings.TrimSpace(sline) == "" {
+			continue
+		}
+		if strings.HasPrefix(sline, "UserAgent") {
+			fmt.Println(i, ": [", sline, "]")
+			values := strings.SplitN(sline, ":", 2)
+			*UserAgent = append(*UserAgent, strings.TrimSpace(values[1]))
+		} else {
+			continue
+		}
+	}
+	return
 }
 
 func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
@@ -1174,6 +1195,7 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 	var fmap map[string]string
 	var legacyRate map[string]string
 	var HTVHTRate map[string]string
+	var UserAgent []string
 	var record_count int
 	var retval pb.APErrorStatus_APErrno
 
@@ -1219,8 +1241,9 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 					/* make new map for rate stats, old map will be garbage-collected */
 					legacyRate = make(map[string]string)
 					HTVHTRate = make(map[string]string)
-					getClientWifiStats(fmap, legacyRate, HTVHTRate)
-					client = fillClientEntry(fmap, legacyRate, HTVHTRate)
+					UserAgent = make([]string, 0)
+					getClientWifiStats(fmap, legacyRate, HTVHTRate, &UserAgent)
+					client = fillClientEntry(fmap, legacyRate, HTVHTRate, &UserAgent)
 					entries = append(entries, client)
 				}
 				/* reset map */
@@ -1238,8 +1261,9 @@ func getClientEntries() ([]*pb.APClientEntry, pb.APErrorStatus_APErrno) {
 		if len(fmap) > 0 {
 			legacyRate = make(map[string]string)
 			HTVHTRate = make(map[string]string)
-			getClientWifiStats(fmap, legacyRate, HTVHTRate)
-			client = fillClientEntry(fmap, legacyRate, HTVHTRate)
+			UserAgent = make([]string, 0)
+			getClientWifiStats(fmap, legacyRate, HTVHTRate, &UserAgent)
+			client = fillClientEntry(fmap, legacyRate, HTVHTRate, &UserAgent)
 			entries = append(entries, client)
 			retval = pb.APErrorStatus_AP_SUCCESS
 		} else {

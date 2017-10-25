@@ -2594,7 +2594,7 @@ const ProtobufCMessageDescriptor cheetah__apclient_htvhtrate_entry__descriptor =
   (ProtobufCMessageInit) cheetah__apclient_htvhtrate_entry__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor cheetah__apclient_entry__field_descriptors[30] =
+static const ProtobufCFieldDescriptor cheetah__apclient_entry__field_descriptors[31] =
 {
   {
     "MAC",
@@ -2956,6 +2956,18 @@ static const ProtobufCFieldDescriptor cheetah__apclient_entry__field_descriptors
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "UserAgent",
+    32,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_STRING,
+    offsetof(Cheetah__APClientEntry, n_useragent),
+    offsetof(Cheetah__APClientEntry, useragent),
+    NULL,
+    &protobuf_c_empty_string,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned cheetah__apclient_entry__field_indices_by_name[] = {
   9,   /* field[9] = AntennaRSSI */
@@ -2987,12 +2999,13 @@ static const unsigned cheetah__apclient_entry__field_indices_by_name[] = {
   11,   /* field[11] = TxMgmtPkts */
   10,   /* field[10] = TxPackets */
   15,   /* field[15] = TxUnicastDataPkts */
+  30,   /* field[30] = UserAgent */
   4,   /* field[4] = Wlan */
 };
 static const ProtobufCIntRange cheetah__apclient_entry__number_ranges[1 + 1] =
 {
   { 2, 0 },
-  { 0, 30 }
+  { 0, 31 }
 };
 const ProtobufCMessageDescriptor cheetah__apclient_entry__descriptor =
 {
@@ -3002,7 +3015,7 @@ const ProtobufCMessageDescriptor cheetah__apclient_entry__descriptor =
   "Cheetah__APClientEntry",
   "cheetah",
   sizeof(Cheetah__APClientEntry),
-  30,
+  31,
   cheetah__apclient_entry__field_descriptors,
   cheetah__apclient_entry__field_indices_by_name,
   1,  cheetah__apclient_entry__number_ranges,

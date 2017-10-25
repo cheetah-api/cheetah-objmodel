@@ -480,6 +480,9 @@ message APClientEntry {
 
     // ht/vht rate stats
     repeated APClientHTVHTRateEntry HTVHTRates = 31;
+
+    // UserAgent
+    repeated string UserAgent = 32;
 }
 
 // AP Client statistics

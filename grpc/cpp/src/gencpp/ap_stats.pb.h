@@ -2646,6 +2646,22 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry >&
       htvhtrates() const;
 
+  // repeated string UserAgent = 32;
+  int useragent_size() const;
+  void clear_useragent();
+  static const int kUserAgentFieldNumber = 32;
+  const ::std::string& useragent(int index) const;
+  ::std::string* mutable_useragent(int index);
+  void set_useragent(int index, const ::std::string& value);
+  void set_useragent(int index, const char* value);
+  void set_useragent(int index, const char* value, size_t size);
+  ::std::string* add_useragent();
+  void add_useragent(const ::std::string& value);
+  void add_useragent(const char* value);
+  void add_useragent(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& useragent() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_useragent();
+
   // @@protoc_insertion_point(class_scope:cheetah.APClientEntry)
  private:
 
@@ -2654,6 +2670,7 @@ class APClientEntry : public ::google::protobuf::Message /* @@protoc_insertion_p
   mutable int _antennarssi_cached_byte_size_;
   ::google::protobuf::RepeatedPtrField< ::cheetah::APClientLegacyRateEntry > legacyrates_;
   ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateEntry > htvhtrates_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> useragent_;
   ::google::protobuf::internal::ArenaStringPtr mac_;
   ::google::protobuf::internal::ArenaStringPtr ip_;
   ::google::protobuf::internal::ArenaStringPtr band_;
@@ -5822,6 +5839,61 @@ inline const ::google::protobuf::RepeatedPtrField< ::cheetah::APClientHTVHTRateE
 APClientEntry::htvhtrates() const {
   // @@protoc_insertion_point(field_list:cheetah.APClientEntry.HTVHTRates)
   return htvhtrates_;
+}
+
+// repeated string UserAgent = 32;
+inline int APClientEntry::useragent_size() const {
+  return useragent_.size();
+}
+inline void APClientEntry::clear_useragent() {
+  useragent_.Clear();
+}
+inline const ::std::string& APClientEntry::useragent(int index) const {
+  // @@protoc_insertion_point(field_get:cheetah.APClientEntry.UserAgent)
+  return useragent_.Get(index);
+}
+inline ::std::string* APClientEntry::mutable_useragent(int index) {
+  // @@protoc_insertion_point(field_mutable:cheetah.APClientEntry.UserAgent)
+  return useragent_.Mutable(index);
+}
+inline void APClientEntry::set_useragent(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:cheetah.APClientEntry.UserAgent)
+  useragent_.Mutable(index)->assign(value);
+}
+inline void APClientEntry::set_useragent(int index, const char* value) {
+  useragent_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:cheetah.APClientEntry.UserAgent)
+}
+inline void APClientEntry::set_useragent(int index, const char* value, size_t size) {
+  useragent_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:cheetah.APClientEntry.UserAgent)
+}
+inline ::std::string* APClientEntry::add_useragent() {
+  // @@protoc_insertion_point(field_add_mutable:cheetah.APClientEntry.UserAgent)
+  return useragent_.Add();
+}
+inline void APClientEntry::add_useragent(const ::std::string& value) {
+  useragent_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:cheetah.APClientEntry.UserAgent)
+}
+inline void APClientEntry::add_useragent(const char* value) {
+  useragent_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:cheetah.APClientEntry.UserAgent)
+}
+inline void APClientEntry::add_useragent(const char* value, size_t size) {
+  useragent_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:cheetah.APClientEntry.UserAgent)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+APClientEntry::useragent() const {
+  // @@protoc_insertion_point(field_list:cheetah.APClientEntry.UserAgent)
+  return useragent_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+APClientEntry::mutable_useragent() {
+  // @@protoc_insertion_point(field_mutable_list:cheetah.APClientEntry.UserAgent)
+  return &useragent_;
 }
 
 inline const APClientEntry* APClientEntry::internal_default_instance() {
