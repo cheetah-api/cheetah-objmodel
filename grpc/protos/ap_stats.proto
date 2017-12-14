@@ -113,6 +113,9 @@ message APSystemStatsMsgRsp {
 
     // AP Product ID: AP2800, etc
     string ProductId = 5;
+
+    // AP Hostname
+    string Name = 6;
 }
 
 // Data from /proc/meminfo
