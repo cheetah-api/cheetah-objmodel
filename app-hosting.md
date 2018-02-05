@@ -3,7 +3,7 @@ Application hosting
 
 # Introduction
 
-This page provides some basic information for developing applications that could be deployed on the Cisco AP27xx/AP37xx Access Points using Cisco's IOx technology.
+This page provides some basic information for developing applications that could be deployed on the Cisco AP28xx/AP38xx Access Points using Cisco's IOx technology.
 
 # IOx
 
