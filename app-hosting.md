@@ -31,7 +31,7 @@ To develop an application for the AP, you need to download the Software Developm
 
 The default username to get access to the SDK is ioxsdk (password: cisco123)
 
-## Enable IOx on the Access Point (AP2700, AP3700 series)
+## Enable IOx on the Access Point (AP2800, AP3800 series)
 
 Please ensure that a gRPC server is running on the AP before you try to connect over gRPC.  For the time being this is done when IOX is enabled:
 
