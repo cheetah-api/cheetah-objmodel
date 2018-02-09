@@ -1,4 +1,4 @@
-FROM dockerhub.cisco.com/iox-docker-dev/ap3k/base-rootfs
+FROM devhub-docker.cisco.com/iox-docker/ap3k/base-rootfs
 
 RUN mkdir -p /opt/grpc
 COPY devel/quickstart /opt/grpc

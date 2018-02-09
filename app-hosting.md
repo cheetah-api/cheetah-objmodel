@@ -29,7 +29,13 @@ To develop an application for the AP, you need to download the Software Developm
 
 ## IOx SDK setup
 
+## Authorization
+
 The default username to get access to the SDK is ioxsdk (password: cisco123)
+
+Run this command to allow for docker to pull packages from devhub-docker.cisco.com later:
+
+$ docker login -u iox_docker.gen -p AKCp2WX2yZXhwiQXG2xZjHvnrov8HA2HkXZyH3Z46ErGNMDz1fHQKAMRCBbEvseLowd7BQ8S1 devhub-docker.cisco.com
 
 ## Enable IOx on the Access Point (AP2800, AP3800 series)
 

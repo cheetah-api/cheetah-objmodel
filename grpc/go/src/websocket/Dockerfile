@@ -1,4 +1,4 @@
-FROM dockerhub.cisco.com/iox-docker-dev/ap3k/base-rootfs
+FROM devhub-docker.cisco.com/iox-docker/ap3k/base-rootfs
 
 COPY devel/dna-agent /usr/bin
 RUN chmod 777 /usr/bin/dna-agent
